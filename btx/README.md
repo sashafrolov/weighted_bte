@@ -23,20 +23,20 @@ single headline `(N, t)` committee configuration, so the example documents and
 uses an 8-of-16 committee (`N = 16`, `t = 7`):
 
 ```console
-cargo run --release --example paper_parameters
+cargo run --release --example paper_reproduction
 ```
 
 The headline paper result is explicitly single-core. The example defaults to
 one Rayon thread for a comparable phase decomposition:
 
 ```console
-BTX_THREADS=1 cargo run --release --example paper_parameters
+BTX_THREADS=1 cargo run --release --example paper_reproduction
 ```
 
 An optimized local parallel run can be requested separately:
 
 ```console
-BTX_THREADS=8 cargo run --release --example paper_parameters
+BTX_THREADS=8 cargo run --release --example paper_reproduction
 ```
 
 `BTX_BATCH_SIZE`, `BTX_SERVERS`, and `BTX_THRESHOLD` override the other

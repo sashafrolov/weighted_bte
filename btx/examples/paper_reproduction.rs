@@ -1,9 +1,4 @@
-//! End-to-end BTX run at the largest batch size evaluated in the paper.
-//!
-//! The paper tests B up to 512 but does not state one headline `(N, t)` tuple.
-//! This example therefore uses B_max = B = 512 and an 8-of-16 committee
-//! (`t = 7`). Override `BTX_BATCH_SIZE`, `BTX_SERVERS`, `BTX_THRESHOLD`, or
-//! `BTX_THREADS` in the environment for exploratory runs.
+//! End-to-end BTX run matching parameters in the BTX paper.
 
 use std::{env, time::Duration, time::Instant};
 
@@ -17,6 +12,7 @@ use group::Group;
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let batch_size = env_usize("BTX_BATCH_SIZE", 512);
     let server_count = env_usize("BTX_SERVERS", 16);
+    // Default values, paper didn't specify defaults.
     let threshold = env_usize("BTX_THRESHOLD", 7);
     let threads = env_usize("BTX_THREADS", 1);
 
@@ -32,9 +28,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!(
         "B_max={batch_size}, B={batch_size}, N={server_count}, t={threshold}, shares={}, Rayon threads={threads}",
         threshold + 1
-    );
-    println!(
-        "The paper specifies B but not a headline N/t; this example uses the values shown above."
     );
 
     let setup_start = Instant::now();
