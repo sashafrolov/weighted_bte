@@ -96,36 +96,60 @@ The implementation adapts the tuning techniques from
 
 - BLS12-381-specific `blstrs`/BLST arithmetic;
 - BLST Pippenger MSMs for partial decryption and threshold combination;
-- parallel projective generation followed by batch normalization;
-- cached, affine, `G2Prepared` FFT kernels and opening powers;
+- raw BLST batch normalization rather than point-by-point affine conversion;
+- cached G2 data in contiguous, 64-byte-aligned, fixed-size BLST line tables,
+  avoiding one `Vec` allocation per prepared point;
+- raw Miller loops with the final exponentiation split into its easy and hard
+  parts;
+- one shared Fp12 inversion for a batch of easy final exponentiations on the
+  one-thread path;
+- movement of the hard final exponentiation after the GT inverse FFT, so it is
+  evaluated only for the retained coefficients;
+- an exact prefix inverse FFT that omits the unused outputs in its final stage;
+- a four-way BLS-x/Frobenius decomposition with interleaved width-4 wNAF for
+  cyclotomic target-group scalar multiplication;
+- reuse of scalar decomposition/wNAF plans for equal stage twiddles;
+- adaptive Rayon scheduling over chunks in early FFT stages and butterfly
+  pairs in under-filled late stages;
 - one multi-Miller loop/final exponentiation for aggregate verification;
-- Rayon parallelism over independent FFT blocks, pairings, and setup work;
 - preallocated vectors and positional validity masks;
-- movement of the inverse-FFT `1/m` factor into the static G2 kernel;
-- a BLST cyclotomic-square, width-5 NAF path for target-group FFT scalar
-  multiplication.
+- movement of the inverse-FFT `1/m` factor into the static G2 kernel.
 
-The last two optimizations specifically reduce the expensive GT inverse FFT.
+The split final exponentiation and BLS-x decomposition account for most of the
+one-thread gain. The adaptive late-stage scheduling has its largest effect on
+the parallel path.
 
-### Initial local smoke measurements
+### Measured optimization result
 
 On an Apple M4 Pro with Rust nightly 1.98 and `blst 0.3.17`, release-mode
-`B = 512`, `N = 16`, `t = 7` measurements produced:
+`B = 512`, `N = 16`, `t = 7` Criterion measurements produced:
 
-| Phase | 1 Rayon thread | 8 Rayon threads | Paper single-core target |
-|---|---:|---:|---:|
-| `precompute(B)` | 1158 ms | 307 ms | 491 ms |
-| one `partialDecrypt(B)` | 0.71 ms | 0.74 ms | 9.73 ms |
-| `combine(8)` | 0.12 ms | 0.16 ms | about 0.31 ms |
-| `open(B)` | 164 ms | 19 ms | 87.6 ms |
-| core sequential total | 1323 ms | 327 ms | about 598 ms |
+| Phase | Before | Optimized | Change | Paper target |
+|---|---:|---:|---:|---:|
+| `precompute(B)` | 1164.8 ms | 733.9 ms | -37.0% | 491 ms |
+| one `partialDecrypt(B)` | 0.711 ms | 0.715 ms | no measurable change | 9.73 ms |
+| `combine(8)` | about 0.121 ms | 0.118 ms | about -2.5% | about 0.31 ms |
+| `open(B)` | 161.4 ms | 141.5 ms | -12.3% | 87.6 ms |
+| core sequential total | 1327.0 ms | 876.3 ms | -34.0% (1.51x) | about 598 ms |
 
-The one-thread column uses Criterion medians; the eight-thread column is an
-end-to-end orientation run. Absolute single-core parity is not expected on
-this machine: the paper uses custom C++ with Clang 21.1.8,
-AVX-512/ADX/native vectorization on an Intel Xeon Platinum 8488C. In
-particular, the paper does not publish its target-group FFT code, while
-`blstrs` does not expose the same vectorized GT backend.
+Thus the implementation closes about 62% of the original distance to the
+paper's headline core time, while remaining about 278 ms slower. A matched
+measurement of the final FFT scheduling pass reduced eight-thread
+`precompute(B)` from 216.3 ms to 104.0 ms (2.08x). The optimized end-to-end
+example produced a 120.1 ms eight-thread core total; that figure is an
+orientation run rather than a Criterion median.
+
+`RAYON_NUM_THREADS=1` constrains this crate's Rayon work, including
+precomputation and opening. BLST's Pippenger MSM wrapper retains its own
+internal thread pool, however, so the sub-millisecond `partialDecrypt` and
+`combine` entries are not literal CPU-affinity single-core measurements. This
+does not materially affect the core total, but it does make those two rows
+non-comparable to the paper's single-core rows.
+
+Absolute single-core parity is not expected on this machine: the paper uses
+custom C++ with Clang 21.1.8, AVX-512/ADX/native vectorization on an Intel Xeon
+Platinum 8488C. In particular, the paper does not publish its target-group FFT
+or final-exponentiation implementation.
 
 ## Paper ambiguities handled here
 
@@ -136,8 +160,9 @@ particular, the paper does not publish its target-group FFT code, while
 - Reconstruction needs `t + 1` shares; one preliminaries sentence says `t`,
   contrary to the algorithms and security definitions.
 - The cyclic FFT layout and “truncated inverse FFT” are not specified. This
-  crate uses a full, correctness-tested inverse transform and moves its scale
-  factor offline.
+  crate performs every required stage, computes only the retained left outputs
+  of the final stage, and moves the scale factor offline. Differential tests
+  compare the prefix against a full inverse transform.
 - The paper benchmarks KDF/unmask work but formally specifies messages in GT
   and does not specify a hybrid format. This crate implements the formal GT
   message space.

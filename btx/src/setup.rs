@@ -2,11 +2,14 @@
 
 use blstrs::{G2Affine, G2Projective, Gt, Scalar};
 use ff::Field;
-use group::{Curve, Group};
+use group::Group;
 use rayon::prelude::*;
 use serde::{Deserialize, Serialize};
 
-use crate::error::{Error, Result};
+use crate::{
+    blst_utils::batch_normalize_g2,
+    error::{Error, Result},
+};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct EncryptionKey {
@@ -259,7 +262,7 @@ fn powers_to_affine(scalars: &[Scalar]) -> Vec<G2Affine> {
         .map(|scalar| G2Projective::generator() * scalar)
         .collect::<Vec<_>>();
     let mut affine = vec![G2Affine::default(); projective.len()];
-    G2Projective::batch_normalize(&projective, &mut affine);
+    batch_normalize_g2(&projective, &mut affine);
     affine
 }
 

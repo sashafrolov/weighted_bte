@@ -1,16 +1,17 @@
-//! End-to-end BTX run matching parameters in the BTX paper.
+//! End-to-end PFE run at the same parameters as the BTX reproduction example.
 
 use std::{env, time::Duration, time::Instant};
 
 use blstrs::{Gt, Scalar};
-use btx::{
-    combine_shares, encrypt, keygen, open_batch, partial_decrypt, precompute_batch, validate_batch,
-    verify_combined_share, MiddleProductKernel, ValidatedBatch,
-};
 use group::Group;
+use pfe::{
+    combine_shares, encrypt, keygen, open_batch, partial_decrypt, precompute_batch, validate_batch,
+    verify_combined_share, PartialFractionKernel, ValidatedBatch,
+};
+use rayon::prelude::*;
 
 #[derive(Clone, Copy, Default)]
-struct Timings {
+struct Timing {
     setup: Duration,
     encryption: Duration,
     kernel: Duration,
@@ -22,8 +23,8 @@ struct Timings {
     open: Duration,
 }
 
-impl Timings {
-    fn accumulate(&mut self, other: Self) {
+impl Timing {
+    fn add_assign(&mut self, other: Self) {
         self.setup += other.setup;
         self.encryption += other.encryption;
         self.kernel += other.kernel;
@@ -48,46 +49,53 @@ impl Timings {
             open: div_duration(self.open, repetitions),
         }
     }
+
+    fn sequential_core(self) -> Duration {
+        self.precompute + self.partial_per_server + self.combine + self.open
+    }
+
+    fn robust_sequential(self) -> Duration {
+        self.sequential_core() + self.proof + self.server_check
+    }
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let batch_size = env_usize("BTX_BATCH_SIZE", 512);
-    let server_count = env_usize("BTX_SERVERS", 16);
-    // Default values, paper didn't specify defaults.
-    let threshold = env_usize("BTX_THRESHOLD", 7);
-    let threads = env_usize("BTX_THREADS", 1);
-    let repetitions = env_usize("BTX_REPETITIONS", 1);
+    let batch_size = env_usize("PFE_BATCH_SIZE", 512);
+    let server_count = env_usize("PFE_SERVERS", 16);
+    // Match BTX's convention: t is the corruption/polynomial-degree
+    // threshold, so reconstruction consumes t + 1 shares.
+    let threshold = env_usize("PFE_THRESHOLD", 7);
+    let threads = env_usize("PFE_THREADS", 1);
+    let repetitions = env_usize("PFE_REPETITIONS", 1);
 
     if threshold >= server_count {
-        return Err("BTX_THRESHOLD must be smaller than BTX_SERVERS".into());
+        return Err("PFE_THRESHOLD must be smaller than PFE_SERVERS".into());
+    }
+    if batch_size == 0 || !batch_size.is_power_of_two() {
+        return Err("PFE_BATCH_SIZE must be a nonzero power of two".into());
     }
     if repetitions == 0 {
-        return Err("BTX_REPETITIONS must be at least 1".into());
+        return Err("PFE_REPETITIONS must be nonzero".into());
     }
 
     let pool = rayon::ThreadPoolBuilder::new()
         .num_threads(threads)
         .build()?;
 
-    println!("BTX paper-parameter reproduction");
+    println!("PFE paper-parameter reproduction");
     println!(
         "B_max={batch_size}, B={batch_size}, N={server_count}, t={threshold}, shares={}, Rayon threads={threads}",
         threshold + 1
     );
-    println!("Measured repetitions={repetitions}, plus one full unmeasured warm-up");
+    println!("measured repetitions={repetitions}, plus one unmeasured full warm-up");
 
-    let share_count = threshold + 1;
     run_once(&pool, batch_size, server_count, threshold)?;
 
-    let mut total = Timings::default();
+    let mut total = Timing::default();
     for _ in 0..repetitions {
-        total.accumulate(run_once(&pool, batch_size, server_count, threshold)?);
+        total.add_assign(run_once(&pool, batch_size, server_count, threshold)?);
     }
     let average = total.averaged(repetitions);
-
-    let sequential_core =
-        average.precompute + average.partial_per_server + average.combine + average.open;
-    let robust_sequential = sequential_core + average.proof + average.server_check;
 
     println!();
     println!("Average over {repetitions} measured repetition(s)");
@@ -95,7 +103,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("One-time / input preparation");
     report("trusted key generation", average.setup, None);
     report("encrypt batch", average.encryption, Some(batch_size));
-    report("fixed G2 FFT kernel", average.kernel, None);
+    report("fixed PFE FFT/G2 kernel", average.kernel, None);
 
     println!();
     println!("Paper phase decomposition");
@@ -106,18 +114,22 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         average.partial_per_server,
         Some(batch_size),
     );
-    report("combine(n)", average.combine, Some(share_count));
+    report("combine(n)", average.combine, Some(threshold + 1));
     report("serverCheck(B,n)", average.server_check, Some(batch_size));
-    report("open(B)", average.open, Some(batch_size));
-    report("core sequential total", sequential_core, None);
-    report("robust sequential total", robust_sequential, None);
+    report("open(B), fused 3-pair path", average.open, Some(batch_size));
+    report("core sequential total", average.sequential_core(), None);
+    report("robust sequential total", average.robust_sequential(), None);
 
     println!();
     println!(
-        "Paper target at B=512, single core: ~598 ms core total; \
-         0.959/0.019/0.171 ms per item for precompute/partial/open."
+        "BTX paper's PFE target at B=512, single core: ~1197 ms core total; \
+         1.596/0.019/0.723 ms per item for precompute/partial/open."
     );
-    println!("Decryption successful in the warm-up and every measured repetition.");
+    println!(
+        "This implementation additionally uses the corrected B-point circulant \
+         indexing and fused three-pair opening from the PFE authors' released code."
+    );
+    println!("Decryption successful in every warm-up and measured repetition.");
     Ok(())
 }
 
@@ -126,10 +138,10 @@ fn run_once(
     batch_size: usize,
     server_count: usize,
     threshold: usize,
-) -> Result<Timings, Box<dyn std::error::Error>> {
+) -> Result<Timing, Box<dyn std::error::Error>> {
     let setup_start = Instant::now();
     let material = pool.install(|| keygen(batch_size, server_count, threshold))?;
-    let setup = setup_start.elapsed();
+    let setup_time = setup_start.elapsed();
 
     let messages = (0..batch_size)
         .map(|index| Gt::generator() * Scalar::from((index as u64).wrapping_add(1)))
@@ -138,30 +150,31 @@ fn run_once(
     let encryption_start = Instant::now();
     let ciphertexts = pool.install(|| {
         messages
-            .iter()
+            .par_iter()
             .map(|message| encrypt(&material.encryption_key, *message))
             .collect::<Vec<_>>()
     });
-    let encryption = encryption_start.elapsed();
+    let encryption_time = encryption_start.elapsed();
 
-    // This is fixed G2 preprocessing and is excluded from the paper's
-    // per-batch precompute(B) measurements.
+    // This is fixed domain/G2 preprocessing and is excluded from the paper's
+    // online per-batch phase measurements.
     let kernel_start = Instant::now();
-    let kernel = pool.install(|| MiddleProductKernel::new(&material.decryption_key, batch_size))?;
+    let kernel = pool.install(|| PartialFractionKernel::new(&material.decryption_key))?;
     let kernel_time = kernel_start.elapsed();
 
+    // PFE Construction 2 rejects the whole batch if any client proof fails.
+    // The implementation batches the two proof equations into two MSM checks.
     let proof_start = Instant::now();
-    let checked_batch = pool.install(|| validate_batch(&ciphertexts))?;
-    let proof = proof_start.elapsed();
-    assert_eq!(checked_batch.valid_count(), batch_size);
+    let checked_batch = pool.install(|| validate_batch(&material.encryption_key, &ciphertexts))?;
+    let proof_time = proof_start.elapsed();
+    assert_eq!(checked_batch.batch_size(), batch_size);
 
-    // The paper reports ciphertext checks separately, so build the already-
-    // validated view before timing its core precompute phase.
-    let batch = ValidatedBatch::proofs_preverified(&ciphertexts)?;
+    // Proof checking is reported separately, matching the BTX example.
+    let batch = ValidatedBatch::proofs_preverified(&material.encryption_key, &ciphertexts)?;
 
     let precompute_start = Instant::now();
     let precomputation = pool.install(|| precompute_batch(&kernel, &batch))?;
-    let precompute = precompute_start.elapsed();
+    let precompute_time = precompute_start.elapsed();
 
     let share_count = threshold + 1;
     let partial_start = Instant::now();
@@ -169,39 +182,49 @@ fn run_once(
         material.server_keys[..share_count]
             .iter()
             .map(|server_key| partial_decrypt(server_key, &batch))
-            .collect::<btx::Result<Vec<_>>>()
+            .collect::<pfe::Result<Vec<_>>>()
     })?;
-    let partial_per_server = div_duration(partial_start.elapsed(), share_count);
+    let all_partial_time = partial_start.elapsed();
+    let partial_per_server = div_duration(all_partial_time, share_count);
 
     let combine_start = Instant::now();
-    let sigma = pool.install(|| combine_shares(&material.decryption_key, &batch, &shares))?;
-    let combine = combine_start.elapsed();
+    let pre_decryption_key =
+        pool.install(|| combine_shares(&material.decryption_key, &batch, &shares))?;
+    let combine_time = combine_start.elapsed();
 
     let server_check_start = Instant::now();
-    let combined_share_valid =
-        pool.install(|| verify_combined_share(&material.decryption_key, &batch, sigma))?;
-    let server_check = server_check_start.elapsed();
-    assert!(combined_share_valid, "combined share failed verification");
+    let combined_share_valid = pool
+        .install(|| verify_combined_share(&material.decryption_key, &batch, pre_decryption_key))?;
+    let server_check_time = server_check_start.elapsed();
+    assert!(
+        combined_share_valid,
+        "combined pre-decryption key failed verification"
+    );
 
     let open_start = Instant::now();
-    let decrypted =
-        pool.install(|| open_batch(&kernel, &batch, &ciphertexts, &precomputation, sigma))?;
-    let open = open_start.elapsed();
+    let decrypted = pool.install(|| {
+        open_batch(
+            &kernel,
+            &batch,
+            &ciphertexts,
+            &precomputation,
+            pre_decryption_key,
+        )
+    })?;
+    let open_time = open_start.elapsed();
 
-    for (actual, expected) in decrypted.iter().zip(messages.iter()) {
-        assert_eq!(actual.as_ref(), Some(expected));
-    }
+    assert_eq!(decrypted, messages);
 
-    Ok(Timings {
-        setup,
-        encryption,
+    Ok(Timing {
+        setup: setup_time,
+        encryption: encryption_time,
         kernel: kernel_time,
-        proof,
-        precompute,
+        proof: proof_time,
+        precompute: precompute_time,
         partial_per_server,
-        combine,
-        server_check,
-        open,
+        combine: combine_time,
+        server_check: server_check_time,
+        open: open_time,
     })
 }
 

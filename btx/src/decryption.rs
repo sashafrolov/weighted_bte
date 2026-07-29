@@ -2,7 +2,7 @@
 
 use blstrs::{Bls12, G1Affine, G1Projective, G2Affine, G2Prepared, G2Projective, Gt, Scalar};
 use ff::{BatchInvert, Field};
-use group::{prime::PrimeCurveAffine, Curve, Group};
+use group::{prime::PrimeCurveAffine, Group};
 use pairing::{MillerLoopResult, MultiMillerLoop};
 use rayon::prelude::*;
 use serde::{Deserialize, Serialize};
@@ -10,9 +10,14 @@ use sha2::{Digest, Sha256};
 use std::collections::HashSet;
 
 use crate::{
+    blst_utils::{batch_normalize_g1, batch_normalize_g2},
     encryption::Ciphertext,
     error::{Error, Result},
     fft::Radix2Domain,
+    final_exponentiation::{
+        batch_easy_final_exponentiation, easy_final_exponentiation, full_final_exponentiation,
+        hard_final_exponentiation, PreparedG2Lines,
+    },
     setup::{PublicDecryptionKey, ServerSecretKey},
 };
 
@@ -31,8 +36,8 @@ pub struct MiddleProductKernel {
     batch_size: usize,
     transform_size: usize,
     domain: Radix2Domain,
-    transformed_kernel: Box<[G2Prepared]>,
-    opening_powers: Box<[G2Prepared]>,
+    transformed_kernel: Box<[PreparedG2Lines]>,
+    opening_powers: Box<[PreparedG2Lines]>,
 }
 
 #[derive(Clone, Debug)]
@@ -152,10 +157,10 @@ impl MiddleProductKernel {
             .for_each(|point| *point *= inverse_size);
 
         let mut kernel_affine = vec![G2Affine::default(); transform_size];
-        G2Projective::batch_normalize(&kernel, &mut kernel_affine);
+        batch_normalize_g2(&kernel, &mut kernel_affine);
         let transformed_kernel = kernel_affine
-            .into_par_iter()
-            .map(G2Prepared::from)
+            .par_iter()
+            .map(PreparedG2Lines::from_affine)
             .collect::<Vec<_>>()
             .into_boxed_slice();
 
@@ -164,7 +169,7 @@ impl MiddleProductKernel {
             .map(|slot| {
                 decryption_key
                     .centered_power(-((slot + 1) as isize))
-                    .map(G2Prepared::from)
+                    .map(|point| PreparedG2Lines::from_affine(&point))
             })
             .collect::<Result<Vec<_>>>()?
             .into_boxed_slice();
@@ -198,21 +203,37 @@ pub fn precompute_batch(
     kernel.domain.fft(&mut transformed_ciphertexts);
 
     let mut transformed_affine = vec![G1Affine::default(); kernel.transform_size];
-    G1Projective::batch_normalize(&transformed_ciphertexts, &mut transformed_affine);
+    batch_normalize_g1(&transformed_ciphertexts, &mut transformed_affine);
 
-    let mut convolution = transformed_affine
+    let miller_results = transformed_affine
         .par_iter()
         .zip(kernel.transformed_kernel.par_iter())
-        .map(|(left, right)| Bls12::multi_miller_loop(&[(left, right)]).final_exponentiation())
+        .map(|(left, right)| right.miller_loop(left))
         .collect::<Vec<_>>();
+    let mut convolution = if rayon::current_num_threads() == 1 {
+        batch_easy_final_exponentiation(&miller_results)
+    } else {
+        miller_results
+            .into_par_iter()
+            .map(easy_final_exponentiation)
+            .collect()
+    };
 
     // The kernel was scaled by 1/m during fixed preprocessing.
-    kernel.domain.ifft_gt_unscaled(&mut convolution);
+    kernel
+        .domain
+        .ifft_cyclotomic_prefix_unscaled(&mut convolution, batch.batch_size);
+
+    let beta = convolution[..batch.batch_size]
+        .par_iter()
+        .copied()
+        .map(hard_final_exponentiation)
+        .collect::<Vec<_>>();
 
     Ok(BatchPrecomputation {
         batch_size: batch.batch_size,
         digest: batch.digest,
-        beta: convolution[..batch.batch_size].to_vec().into_boxed_slice(),
+        beta: beta.into_boxed_slice(),
     })
 }
 
@@ -403,20 +424,37 @@ pub fn open_batch(
     }
 
     let sigma_affine = G1Affine::from(sigma);
-    let alpha = kernel
-        .opening_powers
-        .par_iter()
-        .map(|power| Bls12::multi_miller_loop(&[(&sigma_affine, power)]).final_exponentiation())
-        .collect::<Vec<_>>();
+    if rayon::current_num_threads() == 1 {
+        let miller_results = kernel
+            .opening_powers
+            .iter()
+            .map(|power| power.miller_loop(&sigma_affine))
+            .collect::<Vec<_>>();
+        let easy = batch_easy_final_exponentiation(&miller_results);
 
-    Ok((0..batch.batch_size)
-        .map(|slot| {
-            batch.valid[slot].then(|| {
-                let pad = alpha[slot] - precomputation.beta[slot];
-                ciphertexts[slot].second - pad
+        Ok((0..batch.batch_size)
+            .map(|slot| {
+                batch.valid[slot].then(|| {
+                    let alpha = hard_final_exponentiation(easy[slot]);
+                    let pad = alpha - precomputation.beta[slot];
+                    ciphertexts[slot].second - pad
+                })
             })
-        })
-        .collect())
+            .collect())
+    } else {
+        Ok((0..batch.batch_size)
+            .into_par_iter()
+            .map(|slot| {
+                batch.valid[slot].then(|| {
+                    let alpha = full_final_exponentiation(
+                        kernel.opening_powers[slot].miller_loop(&sigma_affine),
+                    );
+                    let pad = alpha - precomputation.beta[slot];
+                    ciphertexts[slot].second - pad
+                })
+            })
+            .collect())
+    }
 }
 
 fn pairing_product_is_identity(left: &[G1Affine], right: &[G2Prepared]) -> bool {

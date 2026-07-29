@@ -1,11 +1,9 @@
-//! BTX batched threshold encryption over BLS12-381.
+//! Partial-fraction batch threshold encryption over BLS12-381.
 //!
-//! This crate follows the construction in “BTX: Simple and Efficient Batch
-//! Threshold Encryption”.  It exposes the paper's four decryption phases:
-//! batch precomputation, partial decryption, share combination, and opening.
-
-mod blst_utils;
-pub(crate) mod final_exponentiation;
+//! This crate implements Constructions 1, 2, 3, and 4 from “Efficient Batch
+//! Threshold Encryption Using Partial Fraction Techniques”.  Its public API
+//! follows the same phase decomposition as the sibling `btx` crate so that the
+//! two constructions can be measured consistently.
 
 pub mod decryption;
 mod encoding;
@@ -18,7 +16,7 @@ pub mod setup;
 pub use decryption::{
     combine_shares, combine_shares_checked, open_batch, partial_decrypt, precompute_batch,
     validate_batch, verify_combined_share, verify_decryption_share, BatchPrecomputation,
-    DecryptionShare, MiddleProductKernel, ValidatedBatch,
+    DecryptionShare, PartialFractionKernel, ValidatedBatch,
 };
 pub use encryption::{encrypt, encrypt_with_rng, Ciphertext};
 pub use error::{Error, Result};
