@@ -1,0 +1,351 @@
+use ark_bls12_381::Bls12_381;
+use ark_ec::pairing::{Pairing, PairingOutput};
+use ark_ec::{AffineRepr, CurveGroup, PrimeGroup, VariableBaseMSM};
+use ark_ff::Zero;
+use ark_poly::EvaluationDomain;
+use ark_std::{rand::Rng, test_rng, UniformRand};
+use criterion::{criterion_group, criterion_main, BenchmarkId, Criterion};
+use simple_batched_threshold_encryption::bte::decryption::{decrypt, decrypt_fft};
+use simple_batched_threshold_encryption::bte::{
+    crs::setup,
+    decryption::{combine, finalize_decrypt, partial_decrypt, predecrypt_fft, verify},
+    encryption::encrypt,
+    fo, Ciphertext, DecryptionKey, EncryptionKey, PartialDecryption, SecretKey,
+};
+use std::time::Duration;
+
+type E = Bls12_381;
+type Fr = <E as Pairing>::ScalarField;
+
+struct BenchContext {
+    ek: EncryptionKey<E>,
+    dk: DecryptionKey<E>,
+    sks: Vec<SecretKey<E>>,
+    messages: Vec<PairingOutput<E>>,
+    cts: Vec<Ciphertext<E>>,
+    pds: Vec<PartialDecryption<E>>,
+    combined_pd: <E as Pairing>::G1,
+}
+
+struct FoBenchContext {
+    ek: EncryptionKey<E>,
+    dk: DecryptionKey<E>,
+    messages: Vec<Vec<u8>>,
+    cts: Vec<fo::FoCiphertext<E>>,
+    combined_pd: <E as Pairing>::G1,
+    hints: fo::DecryptionHints<E>,
+    bandwidth_hints: fo::BandwidthDecryptionHints<E>,
+}
+
+fn make_context(batch_size: usize, num_parties: usize, threshold: usize) -> BenchContext {
+    let mut rng = test_rng();
+
+    let (ek, dk, sks) = setup::<E>(batch_size, num_parties, threshold, &mut rng);
+
+    let messages: Vec<PairingOutput<E>> = (0..batch_size)
+        .map(|_| PairingOutput::<E>::generator() * Fr::rand(&mut rng))
+        .collect();
+
+    let cts: Vec<_> = messages.iter().map(|m| encrypt(&ek, m, &mut rng)).collect();
+
+    assert!(
+        simple_batched_threshold_encryption::bte::decryption::verify_ciphertext_batch(
+            &cts, &mut rng,
+        )
+    );
+
+    let pds: Vec<_> = sks[..threshold]
+        .iter()
+        .map(|sk| partial_decrypt(sk, &cts, &mut rng).expect("valid ciphertext proofs"))
+        .collect();
+
+    let combined_pd = combine::<E>(&pds);
+
+    BenchContext {
+        ek,
+        dk,
+        sks,
+        messages,
+        cts,
+        pds,
+        combined_pd,
+    }
+}
+
+fn make_fo_context(batch_size: usize, num_parties: usize, threshold: usize) -> FoBenchContext {
+    let mut rng = test_rng();
+
+    let (ek, dk, sks) = setup::<E>(batch_size, num_parties, threshold, &mut rng);
+
+    let messages: Vec<Vec<u8>> = (0..batch_size)
+        .map(|i| format!("bench message {i} with some padding bytes").into_bytes())
+        .collect();
+
+    let cts: Vec<_> = messages
+        .iter()
+        .map(|m| fo::encrypt(&ek, m, &mut rng))
+        .collect();
+
+    let pds: Vec<_> = sks[..threshold]
+        .iter()
+        .map(|sk| fo::partial_decrypt(sk, &cts))
+        .collect();
+    let combined_pd = fo::combine::<E>(&pds);
+    let cross = fo::predecrypt_fft(&dk, &cts);
+    let (_, hints) = fo::helper_finalize(&dk, &combined_pd, &cts, &cross);
+    let (_, bandwidth_hints) =
+        fo::helper_finalize_bandwidth_optimized(&dk, &combined_pd, &cts, &cross);
+
+    FoBenchContext {
+        ek,
+        dk,
+        messages,
+        cts,
+        combined_pd,
+        hints,
+        bandwidth_hints,
+    }
+}
+
+fn naive_s_fft_kernel(ctx: &BenchContext) -> Vec<<E as Pairing>::G2> {
+    let b = ctx.dk.batch_size;
+    let n = ctx.dk.fft_size;
+
+    // h_vec[d] = h_{B+1+d}, encoded modulo n, so convolution with r gives
+    // S_ell = sum_i r_i * h_{ell+B+1-i} for every ell.
+    let mut h_vec = vec![<E as Pairing>::G2::zero(); n];
+    h_vec[0] = ctx.dk.powers_of_h_affine[b + 1].into_group();
+    for d in 1..b {
+        h_vec[d] = ctx.dk.powers_of_h_affine[b + 1 + d].into_group();
+        h_vec[n - d] = ctx.dk.powers_of_h_affine[b + 1 - d].into_group();
+    }
+
+    ctx.dk.fft_domain.fft_in_place(&mut h_vec);
+    h_vec
+}
+
+fn compute_naive_s_fft(
+    dk: &DecryptionKey<E>,
+    h_hat: &[<E as Pairing>::G2],
+    r: &[Fr],
+) -> Vec<<E as Pairing>::G2Affine> {
+    let b = dk.batch_size;
+    let n = dk.fft_size;
+    assert_eq!(r.len(), b);
+
+    let mut r_hat = r.to_vec();
+    r_hat.resize(n, Fr::zero());
+    dk.fft_domain.fft_in_place(&mut r_hat);
+
+    let mut s_hat = h_hat.to_vec();
+    for (s, r_i) in s_hat.iter_mut().zip(r_hat) {
+        *s *= r_i;
+    }
+
+    dk.fft_domain.ifft_in_place(&mut s_hat);
+
+    <E as Pairing>::G2::normalize_batch(&s_hat[..b])
+}
+
+fn naive_batch_verify_decryption(
+    ctx: &BenchContext,
+    h_hat: &[<E as Pairing>::G2],
+    rng: &mut impl Rng,
+) -> bool {
+    let b = ctx.cts.len();
+
+    let r: Vec<Fr> = (0..b).map(|_| Fr::rand(rng)).collect();
+
+    let mut lhs = PairingOutput::<E>::zero();
+    for i in 0..b {
+        lhs += (ctx.cts[i].ct2 - ctx.messages[i]) * r[i];
+    }
+
+    let pd_bases: Vec<_> = (0..b).map(|i| ctx.dk.powers_of_h_affine[b - i]).collect();
+    let pd_term_g2 = <E as Pairing>::G2::msm(&pd_bases, &r).unwrap();
+    let pd_term = E::pairing(ctx.combined_pd, pd_term_g2.into_affine());
+
+    let s_values = compute_naive_s_fft(&ctx.dk, h_hat, &r);
+
+    let cross = E::multi_pairing(ctx.cts.iter().map(|ct| ct.ct1), s_values);
+
+    lhs == pd_term - cross
+}
+
+fn bench_encrypt(c: &mut Criterion) {
+    let mut group = c.benchmark_group("encrypt");
+    group.sample_size(10);
+    let ctx = make_context(8, 100, 50);
+    let mut rng = test_rng();
+
+    group.bench_function("single_ct", |bench| {
+        bench.iter(|| encrypt(&ctx.ek, &ctx.messages[0], &mut rng));
+    });
+    group.finish();
+}
+
+fn bench_partial_decrypt(c: &mut Criterion) {
+    let mut group = c.benchmark_group("partial_decrypt");
+    group.sample_size(10);
+
+    for &b in &[8, 32, 128, 512, 2048] {
+        let ctx = make_context(b, 100, 50);
+        group.bench_with_input(BenchmarkId::from_parameter(b), &b, |bench, _| {
+            let mut rng = test_rng();
+            bench.iter(|| {
+                partial_decrypt(&ctx.sks[0], &ctx.cts, &mut rng).expect("valid ciphertext proofs")
+            });
+        });
+    }
+    group.finish();
+}
+
+fn bench_verify(c: &mut Criterion) {
+    let mut group = c.benchmark_group("verify");
+    group.sample_size(10);
+
+    for &b in &[8, 32, 128, 512, 2048] {
+        let ctx = make_context(b, 100, 50);
+        group.bench_with_input(BenchmarkId::from_parameter(b), &b, |bench, _| {
+            bench.iter(|| verify(&ctx.dk, &ctx.pds[0], &ctx.cts));
+        });
+    }
+    group.finish();
+}
+
+fn bench_combine(c: &mut Criterion) {
+    let mut group = c.benchmark_group("combine");
+    group.sample_size(10);
+
+    for &b in &[8, 32, 128, 512, 2048] {
+        let ctx = make_context(b, 100, 50);
+        group.bench_with_input(BenchmarkId::from_parameter(b), &b, |bench, _| {
+            bench.iter(|| combine::<E>(&ctx.pds));
+        });
+    }
+    group.finish();
+}
+
+fn bench_decrypt_naive_vs_fft(c: &mut Criterion) {
+    let mut group = c.benchmark_group("decrypt");
+    group.sample_size(10);
+
+    for &b in &[8, 32, 128, 512, 2048] {
+        let ctx = make_context(b, 100, 50);
+
+        group.bench_with_input(BenchmarkId::new("naive", b), &b, |bench, _| {
+            let mut rng = test_rng();
+            bench.iter(|| decrypt(&ctx.dk, &ctx.combined_pd, &ctx.cts, &mut rng));
+        });
+
+        group.bench_with_input(BenchmarkId::new("fft", b), &b, |bench, _| {
+            let mut rng = test_rng();
+            bench.iter(|| decrypt_fft(&ctx.dk, &ctx.combined_pd, &ctx.cts, &mut rng));
+        });
+
+        group.bench_with_input(BenchmarkId::new("predecrypt", b), &b, |bench, _| {
+            bench.iter(|| predecrypt_fft(&ctx.dk, &ctx.cts));
+        });
+
+        group.bench_with_input(BenchmarkId::new("finalize", b), &b, |bench, _| {
+            let cross = predecrypt_fft(&ctx.dk, &ctx.cts);
+            bench.iter(|| finalize_decrypt(&ctx.dk, &ctx.combined_pd, &ctx.cts, &cross));
+        });
+    }
+    group.finish();
+}
+
+fn bench_naive_batch_verify_decryption(c: &mut Criterion) {
+    let mut group = c.benchmark_group("naive_batch_verify_decryption");
+    group.sample_size(10);
+
+    for &b in &[8, 32, 128, 512, 2048] {
+        let ctx = make_context(b, 100, 50);
+        let h_hat = naive_s_fft_kernel(&ctx);
+
+        group.bench_with_input(BenchmarkId::from_parameter(b), &b, |bench, _| {
+            let mut rng = test_rng();
+            bench.iter(|| {
+                assert!(naive_batch_verify_decryption(&ctx, &h_hat, &mut rng));
+            });
+        });
+    }
+    group.finish();
+}
+
+fn bench_fo_encrypt(c: &mut Criterion) {
+    let mut group = c.benchmark_group("fo_encrypt");
+    group.sample_size(10);
+    let ctx = make_fo_context(8, 100, 50);
+    let mut rng = test_rng();
+
+    group.bench_function("single_ct", |bench| {
+        bench.iter(|| fo::encrypt(&ctx.ek, &ctx.messages[0], &mut rng));
+    });
+    group.finish();
+}
+
+fn bench_fo_helper_decrypt(c: &mut Criterion) {
+    let mut group = c.benchmark_group("fo_helper_decrypt");
+    group.sample_size(10);
+
+    for &b in &[8, 32, 128, 512, 2048] {
+        let ctx = make_fo_context(b, 100, 50);
+        group.bench_with_input(BenchmarkId::from_parameter(b), &b, |bench, _| {
+            bench.iter(|| fo::helper_decrypt(&ctx.dk, &ctx.combined_pd, &ctx.cts));
+        });
+    }
+    group.finish();
+}
+
+fn bench_fo_batch_verify(c: &mut Criterion) {
+    let mut group = c.benchmark_group("fo_batch_verify");
+    group.sample_size(10);
+
+    for &b in &[8, 32, 128, 512, 2048] {
+        let ctx = make_fo_context(b, 100, 50);
+        group.bench_with_input(BenchmarkId::from_parameter(b), &b, |bench, _| {
+            let mut rng = test_rng();
+            bench.iter(|| fo::batch_verify(&ctx.ek, &ctx.cts, &ctx.hints, &mut rng));
+        });
+    }
+    group.finish();
+}
+
+fn bench_fo_batch_verify_bandwidth_optimized(c: &mut Criterion) {
+    let mut group = c.benchmark_group("fo_batch_verify_bandwidth_optimized");
+    group.sample_size(10);
+
+    for &b in &[8, 32, 128, 512, 2048] {
+        let ctx = make_fo_context(b, 100, 50);
+        group.bench_with_input(BenchmarkId::from_parameter(b), &b, |bench, _| {
+            let mut rng = test_rng();
+            bench.iter(|| {
+                fo::batch_verify_bandwidth_optimized(
+                    &ctx.ek,
+                    &ctx.cts,
+                    &ctx.bandwidth_hints,
+                    &mut rng,
+                )
+            });
+        });
+    }
+    group.finish();
+}
+
+criterion_group!(
+    name = benches;
+    config = Criterion::default().measurement_time(Duration::from_secs(5));
+    targets =
+        bench_encrypt,
+        bench_partial_decrypt,
+        bench_verify,
+        bench_combine,
+        bench_decrypt_naive_vs_fft,
+        bench_fo_encrypt,
+        bench_fo_helper_decrypt,
+        bench_fo_batch_verify,
+        bench_fo_batch_verify_bandwidth_optimized,
+        bench_naive_batch_verify_decryption,
+);
+criterion_main!(benches);
