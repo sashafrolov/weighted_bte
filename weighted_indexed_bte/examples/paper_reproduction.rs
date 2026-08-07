@@ -1,4 +1,4 @@
-//! End-to-end weighted-BTX run using a generated Solana weight distribution.
+//! End-to-end indexed weighted-BTE run using a generated Solana weight distribution.
 
 use std::{
     env,
@@ -10,17 +10,17 @@ use std::{
     time::{Duration, Instant},
 };
 
-use blstrs::{G2Affine, Gt, Scalar};
-use group::Group;
+use blstrs::{G1Affine, G2Affine, Scalar};
+use ff::Field;
 use rayon::prelude::*;
 use serde::Deserialize;
-use weighted_btx::{
+use weighted_indexed_bte::{
     accept_decryption_shares, encrypt, keygen, open_batch, partial_decrypt, precompute_batch,
-    prepare_decryption, validate_batch,
+    prepare_decryption, setup, validate_batch, IndexedMiddleProductKernel,
 };
 
 /// Symmetric approximation-error profile selected from the distribution.
-/// Change this to another generated profile such as `"1/32"` or `"1/64"`.
+/// Change this to another generated profile such as `"1/16"` or `"1/128"`.
 const APPROXIMATION_ERROR: &str = "1/64";
 const DEFAULT_BATCH_SIZE: usize = 8;
 const DEFAULT_THREADS: usize = 1;
@@ -30,7 +30,9 @@ const WEIGHTS_SUFFIX: &str = ".json";
 
 #[derive(Clone, Copy, Default)]
 struct Timings {
+    crs_setup: Duration,
     keygen: Duration,
+    fixed_kernel: Duration,
     encryption: Duration,
     proof_validation: Duration,
     partial_decryption: Duration,
@@ -78,10 +80,15 @@ fn main() -> ExitCode {
 }
 
 fn run() -> Result<(), Box<dyn Error>> {
-    let batch_size = env_usize("WEIGHTED_BTX_BATCH_SIZE", DEFAULT_BATCH_SIZE)?;
-    require_positive("WEIGHTED_BTX_BATCH_SIZE", batch_size)?;
-    let threads = env_usize("WEIGHTED_BTX_THREADS", DEFAULT_THREADS)?;
-    require_positive("WEIGHTED_BTX_THREADS", threads)?;
+    let batch_size = env_usize("WEIGHTED_INDEXED_BTE_BATCH_SIZE", DEFAULT_BATCH_SIZE)?;
+    if batch_size < 2 {
+        return Err(invalid_input(
+            "WEIGHTED_INDEXED_BTE_BATCH_SIZE must be at least 2 because encryption needs a distinct helper index",
+        )
+        .into());
+    }
+    let threads = env_usize("WEIGHTED_INDEXED_BTE_THREADS", DEFAULT_THREADS)?;
+    require_positive("WEIGHTED_INDEXED_BTE_THREADS", threads)?;
 
     let (weights_path, path_overridden) = weights_path()?;
     let allocation = load_allocation(&weights_path, APPROXIMATION_ERROR)?;
@@ -89,7 +96,7 @@ fn run() -> Result<(), Box<dyn Error>> {
     let total_weight = profile.share_count;
     let reconstruction_threshold = profile.reconstruction_threshold;
     // The distribution's q is the minimum reconstructing weight, whereas
-    // weighted BTX authorizes strictly greater than t.
+    // indexed weighted BTE authorizes strictly greater than t.
     let threshold_weight = reconstruction_threshold
         .checked_sub(1)
         .ok_or_else(|| invalid_data("reconstruction threshold q must be positive"))?;
@@ -110,34 +117,88 @@ fn run() -> Result<(), Box<dyn Error>> {
         minimal_authorized_parties(weights, threshold_weight)?;
     let selected_party_count = selected_parties.len();
 
-    let core_points = batch_size
+    let crs_g1_points = batch_size;
+    let crs_g2_points = batch_size
         .checked_mul(2)
-        .and_then(|twice| twice.checked_sub(1))
-        .and_then(|offset_count| offset_count.checked_mul(total_weight))
-        .ok_or_else(|| invalid_input("core public-key point count overflows usize"))?;
-    let verification_points = party_count
-        .checked_mul(batch_size)
-        .ok_or_else(|| invalid_input("verification-key point count overflows usize"))?;
-    let public_key_points = core_points
+        .ok_or_else(|| invalid_input("powers-of-tau G2 point count overflows usize"))?;
+    let delta_points = batch_size;
+    let gamma_points = batch_size
+        .checked_mul(total_weight)
+        .ok_or_else(|| invalid_input("gamma point count overflows usize"))?;
+    let verification_points = party_count;
+    let master_key_g1_points = delta_points
         .checked_add(verification_points)
-        .ok_or_else(|| invalid_input("total public-key point count overflows usize"))?;
+        .ok_or_else(|| invalid_input("master-public-key G1 point count overflows usize"))?;
+    let total_g1_points = crs_g1_points
+        .checked_add(master_key_g1_points)
+        .ok_or_else(|| invalid_input("total public G1 point count overflows usize"))?;
+    let total_g2_points = crs_g2_points
+        .checked_add(gamma_points)
+        .ok_or_else(|| invalid_input("total public G2 point count overflows usize"))?;
+    let bytes_per_g1_point = G1Affine::default().to_compressed().len();
     let bytes_per_g2_point = G2Affine::default().to_compressed().len();
-    let core_bytes = core_points
+    let bytes_per_scalar = Scalar::ZERO.to_bytes_le().len();
+    let crs_g1_bytes = crs_g1_points
+        .checked_mul(bytes_per_g1_point)
+        .ok_or_else(|| invalid_input("powers-of-tau G1 byte count overflows usize"))?;
+    let crs_g2_bytes = crs_g2_points
         .checked_mul(bytes_per_g2_point)
-        .ok_or_else(|| invalid_input("core public-key byte count overflows usize"))?;
+        .ok_or_else(|| invalid_input("powers-of-tau G2 byte count overflows usize"))?;
+    let crs_bytes = crs_g1_bytes
+        .checked_add(crs_g2_bytes)
+        .ok_or_else(|| invalid_input("powers-of-tau CRS byte count overflows usize"))?;
+    let delta_bytes = delta_points
+        .checked_mul(bytes_per_g1_point)
+        .ok_or_else(|| invalid_input("delta byte count overflows usize"))?;
     let verification_bytes = verification_points
-        .checked_mul(bytes_per_g2_point)
+        .checked_mul(bytes_per_g1_point)
         .ok_or_else(|| invalid_input("verification-key byte count overflows usize"))?;
-    let public_key_bytes = public_key_points
+    let gamma_bytes = gamma_points
         .checked_mul(bytes_per_g2_point)
-        .ok_or_else(|| invalid_input("total public-key byte count overflows usize"))?;
+        .ok_or_else(|| invalid_input("gamma byte count overflows usize"))?;
+    let master_key_bytes = delta_bytes
+        .checked_add(verification_bytes)
+        .and_then(|bytes| bytes.checked_add(gamma_bytes))
+        .ok_or_else(|| invalid_input("master-public-key byte count overflows usize"))?;
+    let total_public_bytes = crs_bytes
+        .checked_add(master_key_bytes)
+        .ok_or_else(|| invalid_input("total public byte count overflows usize"))?;
+    let ciphertext_overhead_bytes = 2usize
+        .checked_mul(bytes_per_g1_point)
+        .and_then(|bytes| bytes.checked_add(2 * bytes_per_scalar))
+        .ok_or_else(|| invalid_input("ciphertext overhead byte count overflows usize"))?;
+    let response_bytes = bytes_per_g1_point
+        .checked_add(2 * bytes_per_scalar)
+        .ok_or_else(|| invalid_input("server response byte count overflows usize"))?;
+    let selected_response_bytes = response_bytes
+        .checked_mul(selected_party_count)
+        .ok_or_else(|| invalid_input("selected response byte count overflows usize"))?;
+    let all_response_bytes = response_bytes
+        .checked_mul(party_count)
+        .ok_or_else(|| invalid_input("all-party response byte count overflows usize"))?;
+    let transform_size = batch_size
+        .checked_mul(2)
+        .and_then(usize::checked_next_power_of_two)
+        .ok_or_else(|| invalid_input("FFT transform size overflows usize"))?;
+    let committee_msm_count = batch_size
+        .checked_mul(selected_party_count)
+        .ok_or_else(|| invalid_input("committee MSM count overflows usize"))?;
+    let committee_msm_terms = batch_size
+        .checked_mul(selected_weight)
+        .ok_or_else(|| invalid_input("committee MSM term count overflows usize"))?;
+    let opening_pair_count = batch_size
+        .checked_mul(selected_party_count)
+        .ok_or_else(|| invalid_input("opening pairing-input count overflows usize"))?;
+    let direct_cross_term_count = batch_size
+        .checked_mul(batch_size - 1)
+        .ok_or_else(|| invalid_input("direct cross-term count overflows usize"))?;
 
-    println!("Weighted BTX Solana paper reproduction");
+    println!("Indexed weighted BTE Solana paper reproduction");
     println!("Input allocation: {}", weights_path.display());
     println!(
         "Input selection: {}",
         if path_overridden {
-            "WEIGHTED_BTX_WEIGHTS_FILE override"
+            "WEIGHTED_INDEXED_BTE_WEIGHTS_FILE override"
         } else {
             "lexicographically newest solana_share_weights_*.json"
         }
@@ -160,7 +221,7 @@ fn run() -> Result<(), Box<dyn Error>> {
         profile.selected_resolution_m
     );
     println!(
-        "minimum reconstruction weight q={reconstruction_threshold}; weighted-BTX threshold t={threshold_weight} because authorization is weight > t"
+        "minimum reconstruction weight q={reconstruction_threshold}; indexed weighted-BTE threshold t={threshold_weight} because authorization is weight > t"
     );
     println!(
         "effective guaranteed reconstruction stake ratio={}",
@@ -169,6 +230,10 @@ fn run() -> Result<(), Box<dyn Error>> {
     println!();
     println!("Runtime choices");
     println!("B_max=B={batch_size}");
+    println!(
+        "index space n={batch_size}; ciphertext indices are fixed to 0..={}",
+        batch_size - 1
+    );
     println!("Rayon threads={threads}");
     println!();
     println!("Allocation summary");
@@ -179,13 +244,65 @@ fn run() -> Result<(), Box<dyn Error>> {
         "minimal-party authorized set: {selected_party_count} parties, weight {selected_weight} >= q={reconstruction_threshold} (largest weights first, index tie-break)"
     );
     println!();
-    println!("Estimated public G2 material (excluding the NIZK CRS)");
-    println!("compressed G2 serialization: {bytes_per_g2_point} bytes/point");
-    println!("core D_(omega,d): {core_points} points, {core_bytes} bytes = (2B_max-1)W");
+    let robustness_limit = total_weight / 2;
     println!(
-        "party verification keys: {verification_points} points, {verification_bytes} bytes = N*B_max"
+        "old-paper robustness theorem requires t < floor(W/2)={robustness_limit}: {}",
+        if threshold_weight < robustness_limit {
+            "satisfied"
+        } else {
+            "NOT satisfied by this exact-half corruption threshold"
+        }
     );
-    println!("public decryption key total: {public_key_points} points, {public_key_bytes} bytes");
+    println!();
+    println!("Serialized public material");
+    println!(
+        "accounting: paper group elements with compressed encodings; derived identifiers, integer metadata, and container framing excluded"
+    );
+    println!(
+        "compressed encodings: G1={bytes_per_g1_point}, G2={bytes_per_g2_point}, scalar={bytes_per_scalar} bytes"
+    );
+    println!(
+        "powers-of-tau CRS pp: {crs_g1_points} G1 + {crs_g2_points} G2 points, {crs_bytes} bytes"
+    );
+    println!("  g_i powers: {crs_g1_points} G1 points, {crs_g1_bytes} bytes = n");
+    println!(
+        "  h_i powers: {crs_g2_points} G2 points, {crs_g2_bytes} bytes = 2n (missing h_(n+1))"
+    );
+    println!(
+        "weighted master public key: {master_key_g1_points} G1 + {gamma_points} G2 points, {master_key_bytes} bytes"
+    );
+    println!("  delta_i: {delta_points} G1 points, {delta_bytes} bytes = n");
+    println!(
+        "  party inverse verification keys: {verification_points} G1 points, {verification_bytes} bytes = N"
+    );
+    println!("  gamma_(i,j,omega): {gamma_points} G2 points, {gamma_bytes} bytes = nW");
+    println!(
+        "combined pp + master public key: {total_g1_points} G1 + {total_g2_points} G2 points, {total_public_bytes} bytes"
+    );
+    println!("additional structured DLEq proof CRS: 0 bytes (Fiat-Shamir)");
+    println!(
+        "ciphertext cryptographic overhead: {ciphertext_overhead_bytes} bytes = 2 compressed G1 + 2 scalar proof elements (explicit index/framing and payload excluded)"
+    );
+    println!("one party cryptographic response: {response_bytes} bytes");
+    println!("Table-2 all-party response download: {all_response_bytes} bytes = N * response size");
+    println!(
+        "selected V retained for opening: {selected_response_bytes} bytes for N'={selected_party_count} parties"
+    );
+    println!();
+    println!("Optimized decryption work dimensions");
+    if direct_cross_term_count <= transform_size / 2 {
+        println!("cross terms: adaptive direct path with {direct_cross_term_count} pairing inputs");
+    } else {
+        println!(
+            "middle product: transform size m={transform_size}, one prepared-G2/input pairing per transform point"
+        );
+    }
+    println!(
+        "committee preparation: {committee_msm_count} G2 MSMs with {committee_msm_terms} total scalar-point terms = B*N' MSMs, B*W_T terms"
+    );
+    println!(
+        "opening: {batch_size} multi-pairings of arity {selected_party_count}, {opening_pair_count} total pairing inputs"
+    );
 
     let pool = rayon::ThreadPoolBuilder::new()
         .num_threads(threads)
@@ -194,24 +311,42 @@ fn run() -> Result<(), Box<dyn Error>> {
     let mut timings = Timings::default();
 
     let start = Instant::now();
-    let material = pool.install(|| keygen(batch_size, weights, threshold_weight))?;
+    let parameters = pool.install(|| setup(batch_size))?;
+    timings.crs_setup = start.elapsed();
+
+    let start = Instant::now();
+    let material = pool.install(|| keygen(&parameters, weights, threshold_weight))?;
     timings.keygen = start.elapsed();
+    assert_eq!(parameters.g1_point_count(), crs_g1_points);
+    assert_eq!(parameters.g2_point_count(), crs_g2_points);
+    assert_eq!(parameters.serialized_size_bytes(), crs_bytes);
+    assert_eq!(material.public_key.g1_point_count(), master_key_g1_points);
+    assert_eq!(material.public_key.g2_point_count(), gamma_points);
+    assert_eq!(
+        material.public_key.serialized_size_bytes(),
+        master_key_bytes
+    );
 
     let messages = (0..batch_size)
-        .map(|index| Gt::generator() * Scalar::from((index as u64).wrapping_add(1)))
+        .map(|index| {
+            let mut message = vec![0u8; 32];
+            message[..8].copy_from_slice(&(index as u64 + 1).to_le_bytes());
+            message
+        })
         .collect::<Vec<_>>();
 
     let start = Instant::now();
     let ciphertexts = pool.install(|| {
         messages
             .par_iter()
-            .map(|message| encrypt(&material.encryption_key, *message))
-            .collect::<Vec<_>>()
-    });
+            .enumerate()
+            .map(|(index, message)| encrypt(&parameters, &material.public_key, message, index))
+            .collect::<weighted_indexed_bte::Result<Vec<_>>>()
+    })?;
     timings.encryption = start.elapsed();
 
     let start = Instant::now();
-    let batch = pool.install(|| validate_batch(&material.decryption_key, &ciphertexts))?;
+    let batch = pool.install(|| validate_batch(&material.public_key, &ciphertexts))?;
     timings.proof_validation = start.elapsed();
     assert_eq!(
         batch.valid_count(),
@@ -221,16 +356,17 @@ fn run() -> Result<(), Box<dyn Error>> {
 
     let start = Instant::now();
     let shares = pool.install(|| {
-        selected_parties
+        material
+            .party_keys
             .par_iter()
-            .map(|party_index| partial_decrypt(&material.party_keys[*party_index], &batch))
-            .collect::<weighted_btx::Result<Vec<_>>>()
+            .map(|party_key| partial_decrypt(party_key, &batch))
+            .collect::<weighted_indexed_bte::Result<Vec<_>>>()
     })?;
     timings.partial_decryption = start.elapsed();
 
     let start = Instant::now();
     let accepted =
-        pool.install(|| accept_decryption_shares(&material.decryption_key, &batch, &shares))?;
+        pool.install(|| accept_decryption_shares(&material.public_key, &batch, &shares))?;
     timings.share_acceptance = start.elapsed();
     assert_eq!(
         accepted.party_count(),
@@ -245,12 +381,16 @@ fn run() -> Result<(), Box<dyn Error>> {
 
     let start = Instant::now();
     let decryption_precomputation =
-        pool.install(|| prepare_decryption(&material.decryption_key, &accepted))?;
+        pool.install(|| prepare_decryption(&material.public_key, &accepted))?;
     timings.committee_preparation = start.elapsed();
 
     let start = Instant::now();
-    let batch_precomputation =
-        pool.install(|| precompute_batch(&decryption_precomputation, &batch))?;
+    let fixed_kernel = pool.install(|| IndexedMiddleProductKernel::new(&parameters))?;
+    timings.fixed_kernel = start.elapsed();
+    assert_eq!(fixed_kernel.transform_size(), transform_size);
+
+    let start = Instant::now();
+    let batch_precomputation = pool.install(|| precompute_batch(&fixed_kernel, &batch))?;
     timings.cross_term_precomputation = start.elapsed();
 
     let start = Instant::now();
@@ -267,15 +407,17 @@ fn run() -> Result<(), Box<dyn Error>> {
 
     for (actual, expected) in decrypted.iter().zip(&messages) {
         assert_eq!(
-            actual.as_ref(),
-            Some(expected),
+            actual.as_deref(),
+            Some(expected.as_slice()),
             "decrypted message mismatch"
         );
     }
 
     println!();
     println!("Measured phase durations");
-    report("trusted key generation", timings.keygen, None);
+    report("powers-of-tau CRS setup", timings.crs_setup, None);
+    report("weighted master key generation", timings.keygen, None);
+    report("fixed G2 FFT kernel", timings.fixed_kernel, None);
     report("encrypt batch", timings.encryption, Some(batch_size));
     report(
         "client proof validation",
@@ -283,13 +425,17 @@ fn run() -> Result<(), Box<dyn Error>> {
         Some(batch_size),
     );
     report(
-        "partial decryptions, all selected",
+        "partial decryptions, all N parties",
         timings.partial_decryption,
-        Some(selected_party_count),
+        Some(party_count),
     );
-    report("batched share acceptance", timings.share_acceptance, None);
     report(
-        "committee / FFT preparation",
+        "all-N server proofs / select V",
+        timings.share_acceptance,
+        None,
+    );
+    report(
+        "committee interpolation / G2 MSMs",
         timings.committee_preparation,
         None,
     );
@@ -298,23 +444,49 @@ fn run() -> Result<(), Box<dyn Error>> {
         timings.cross_term_precomputation,
         Some(batch_size),
     );
-    report("opening", timings.opening, Some(batch_size));
+    report(
+        "weighted PRF opening / unmask",
+        timings.opening,
+        Some(batch_size),
+    );
 
-    let decryption_total = timings.partial_decryption
+    let post_validation_total = timings.partial_decryption
         + timings.share_acceptance
         + timings.committee_preparation
         + timings.cross_term_precomputation
         + timings.opening;
-    report("decryption pipeline total", decryption_total, None);
+    report(
+        "post-validation cold-committee path",
+        post_validation_total,
+        None,
+    );
+    let post_validation_cached_total = post_validation_total - timings.committee_preparation;
+    report(
+        "post-validation cached-committee path",
+        post_validation_cached_total,
+        None,
+    );
+    report(
+        "full cold decryption incl client checks",
+        timings.proof_validation + post_validation_total,
+        None,
+    );
+    report(
+        "full cached decryption incl client checks",
+        timings.proof_validation + post_validation_cached_total,
+        None,
+    );
     println!("Decryption successful.");
 
     Ok(())
 }
 
 fn weights_path() -> io::Result<(PathBuf, bool)> {
-    if let Some(path) = env::var_os("WEIGHTED_BTX_WEIGHTS_FILE") {
+    if let Some(path) = env::var_os("WEIGHTED_INDEXED_BTE_WEIGHTS_FILE") {
         if path.is_empty() {
-            return Err(invalid_input("WEIGHTED_BTX_WEIGHTS_FILE must not be empty"));
+            return Err(invalid_input(
+                "WEIGHTED_INDEXED_BTE_WEIGHTS_FILE must not be empty",
+            ));
         }
         return Ok((PathBuf::from(path), true));
     }
