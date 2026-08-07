@@ -2,13 +2,13 @@
   {
     "account": "Fd7btgySsrjuo25CJCj7oE7VPMyezDhnx7pZkj2v69Nk",
     "name": "Figment",
-    "activeStake": 16803592923637684,
+    "activeStake": 16882234364715400,
     "softwareClient": "Rakurai"
   },
   {
     "account": "HEL1USMZKAL2odpNBj2oCjffnFGaYwmbGmyewGv1e2TU",
     "name": "Helius",
-    "activeStake": 16025294329085432,
+    "activeStake": 15996914308578672,
     "softwareClient": "JitoLabs"
   },
   {
@@ -20,44 +20,50 @@
   {
     "account": "JUPiTERrZqgf1jUyR7dSkhMx4Kn2qJyekWsg3LT1h4b",
     "name": "Jupiter",
-    "activeStake": 12539698447203108,
+    "activeStake": 12487724132894852,
     "softwareClient": "HarmonicAgave"
   },
   {
     "account": "DRpbCBMxVnDK7maPM5tGv6MvB3v1sRMC86PZ8okm21hy",
     "name": "binance staking",
-    "activeStake": 12256189571341440,
+    "activeStake": 12275238620572844,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "q9XWcZ7T1wP4bW9SB4XgNNwjnFEJ982nE8aVbbNuwot",
     "name": "Ledger by Figment",
-    "activeStake": 9151489808002588,
+    "activeStake": 9189333008262060,
+    "softwareClient": "Rakurai"
+  },
+  {
+    "account": "C8Bey3LKVJHVqN6xPTeW8WJfUgFQAeGNBpT4Rp99JP1k",
+    "name": "Ledger by Figment",
+    "activeStake": 9139569301934918,
     "softwareClient": "Rakurai"
   },
   {
     "account": "CAo1dCGYrB6NhHh5xb1cGjUiu86iyCfMTENxgHumSve4",
     "name": "Kraken 2",
-    "activeStake": 8820734061981066,
+    "activeStake": 8868459054058188,
     "softwareClient": "HarmonicAgave"
   },
   {
     "account": "E1r4Psq84tHfQ6aPTvvDka4U3u8zPVD7gEUrH25RdxHL",
     "name": "Bitwise Onchain Solutions",
-    "activeStake": 8152808029241320,
+    "activeStake": 8166426726447980,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "EvnRmnMrd69kFdbLMxWkTn1icZ7DCceRhvmb2SJXqDo4",
     "name": "Everstake",
-    "activeStake": 7919104064519526,
-    "softwareClient": "Frankendancer Vanilla"
+    "activeStake": 7921631562592551,
+    "softwareClient": "Frankendancer Rev"
   },
   {
     "account": "9eGrDohdNTAo61DRHyfMuqKWXqYnA3i254Wiszxe8FoY",
     "name": "Galaxy",
-    "activeStake": 7297201330164075,
-    "softwareClient": "Frankendancer Rev"
+    "activeStake": 7637449591134634,
+    "softwareClient": "Frankendancer Vanilla"
   },
   {
     "account": "DtdSSG8ZJRZVv5Jx7K1MeWp7Zxcu19GD5wQRGRpQ9uMF",
@@ -68,7 +74,7 @@
   {
     "account": "Awes4Tr6TX8JDzEhCZY2QVNimT6iD1zWHzf1vNyGvpLM",
     "name": "Staking Facilities | MEV 🔥",
-    "activeStake": 6646244276473895,
+    "activeStake": 6569156254669810,
     "softwareClient": "Frankendancer Vanilla"
   },
   {
@@ -78,22 +84,22 @@
     "softwareClient": "Firedancer"
   },
   {
+    "account": "JD549HsbJHeEKKUrKgg4Fj2iyv2RGjsV7NTZjZUrHybB",
+    "name": "Forward Industries",
+    "activeStake": 5932491161779564,
+    "softwareClient": "Frankendancer Rev"
+  },
+  {
     "account": "5pPRHniefFjkiaArbGX3Y8NUysJmQ9tMZg3FrFGwHzSm",
     "name": "Kiln1",
-    "activeStake": 5905261654187174,
+    "activeStake": 5901298015018987,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "5Cchr1XGEg7dbBXByV5NY2ad8jfxAM7HA3x8D56rq9Ux",
     "name": "Upbit Staking",
-    "activeStake": 5768479724959175,
+    "activeStake": 5796479597117895,
     "softwareClient": "Agave"
-  },
-  {
-    "account": "JD549HsbJHeEKKUrKgg4Fj2iyv2RGjsV7NTZjZUrHybB",
-    "name": "Forward Industries",
-    "activeStake": 5745112991345806,
-    "softwareClient": "Frankendancer Rev"
   },
   {
     "account": "DWvDTSh3qfn88UoQTEKRV2JnLt5jtJAVoiCo3ivtMwXP",
@@ -104,61 +110,67 @@
   {
     "account": "9rkJMARqK6VBkcxGfKBAwnA44gPAfGxPbPsfsggFNDSQ",
     "name": null,
-    "activeStake": 4625916481764871,
+    "activeStake": 4628490062381689,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "GnC339vkyXRm1jRX69dt9mapPPu2LbzXfSDoxc91qta6",
     "name": "P2P.org",
-    "activeStake": 4532643409354513,
+    "activeStake": 4596740017887287,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "EkvdKhULbMFqjKBKotAzGi3kwMvMpYNDKJXXQQmi6C1f",
     "name": null,
-    "activeStake": 4094708177253715,
-    "softwareClient": "HarmonicAgave"
-  },
-  {
-    "account": "BtsmiEEvnSuUnKxqXj2PZRYpPJAc7C34mGz8gtJ1DAaH",
-    "name": null,
-    "activeStake": 4046666944927401,
+    "activeStake": 4097276214091332,
     "softwareClient": "HarmonicAgave"
   },
   {
     "account": "FBKFWadXZJahGtFitAsBvbqh5968gLY7dMBBJUoUjeNi",
     "name": null,
-    "activeStake": 4045348566254508,
+    "activeStake": 4055871866747484,
+    "softwareClient": "HarmonicAgave"
+  },
+  {
+    "account": "BtsmiEEvnSuUnKxqXj2PZRYpPJAc7C34mGz8gtJ1DAaH",
+    "name": null,
+    "activeStake": 4035903206808750,
     "softwareClient": "HarmonicAgave"
   },
   {
     "account": "5ZqveVffQPiUbkjBg4KD9kib1MKHLqiFno4ke9jSq9qk",
     "name": null,
-    "activeStake": 4001501787997677,
+    "activeStake": 4001874898794290,
     "softwareClient": "HarmonicAgave"
   },
   {
     "account": "Hz5aLvpKScNWoe9YZWxBLrQA3qzHJivBGtfciMekk8m5",
     "name": null,
-    "activeStake": 3919362581774184,
+    "activeStake": 3944513865856652,
     "softwareClient": "Harmonic"
   },
   {
     "account": "A1vqhA2fS6K7CvHsJKX1ACcHJFEmyRg4KuR5pctHANy4",
     "name": null,
-    "activeStake": 3914704296746153,
+    "activeStake": 3910525800506487,
     "softwareClient": "HarmonicAgave"
   },
   {
     "account": "J6etcxDdYjPHrtyvDXrbCkx3q9W1UjMj1vy1jBFPJEbK",
     "name": null,
-    "activeStake": 3895995255043596,
+    "activeStake": 3896305164449568,
     "softwareClient": "HarmonicFrankendancer"
+  },
+  {
+    "account": "9UM8wQ8F5oMiRcP5YdqD6Lr4krpBWCD8LtgQYoisJd9i",
+    "name": null,
+    "activeStake": 3649786297603096,
+    "softwareClient": "HarmonicAgave"
   },
   {
     "account": "shftkxnsXmqAkmLgz9Mn7bNB5Fr6mKgFc58kFHfVikj",
     "name": "blueshift",
-    "activeStake": 3604237250859738,
+    "activeStake": 3607817938237242,
     "softwareClient": "HarmonicAgave"
   },
   {
@@ -168,34 +180,34 @@
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "9UM8wQ8F5oMiRcP5YdqD6Lr4krpBWCD8LtgQYoisJd9i",
-    "name": null,
-    "activeStake": 3553749114067968,
-    "softwareClient": "HarmonicAgave"
-  },
-  {
     "account": "Fc6NNdS2j3EmrWbU6Uqt6wsKB5ef72NjaWfNxKYbULGD",
     "name": "OKX Earn",
-    "activeStake": 3353921494282082,
+    "activeStake": 3283569734389357,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "krakeNd6ednDPEXxHAmoBs1qKVM8kLg79PvWF2mhXV1",
     "name": "Kraken",
-    "activeStake": 3016342743433811,
+    "activeStake": 3017972178226414,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "FNKgX9dYUhYQFRTM9bkeKoRpsyEtZGNMxbdQLDzfqB8a",
     "name": "Coinbase 04",
-    "activeStake": 3011465778495705,
+    "activeStake": 3002968676455917,
     "softwareClient": "HarmonicAgave"
   },
   {
     "account": "GBQ2GvTzmjXMu97dr7WUnLKYTNim1aoZsYS53KYXAAAA",
     "name": "Bitwise Onchain Solutions | Jito BAM",
-    "activeStake": 2947081827626380,
+    "activeStake": 2970904456948025,
     "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "GoeW4aFK4dGoekJySgUynWDxBZiQJqm8GDAF4H53tDK9",
+    "name": "Twinstake",
+    "activeStake": 2921911229832878,
+    "softwareClient": "Harmonic"
   },
   {
     "account": "6y7V8dL673XFzm9QyC5vvh3itWkp7wztahBd2yDqsyrK",
@@ -204,22 +216,22 @@
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "GoeW4aFK4dGoekJySgUynWDxBZiQJqm8GDAF4H53tDK9",
-    "name": "Twinstake",
-    "activeStake": 2915253858663188,
-    "softwareClient": "Harmonic"
-  },
-  {
     "account": "DrifTrN923QaouP89UxkQzFGbumKPCnfkNYQRwmZxatz",
     "name": "Drift",
-    "activeStake": 2892056573644331,
+    "activeStake": 2893890492081970,
     "softwareClient": "HarmonicFrankendancer"
   },
   {
     "account": "3psxMyr7rQzywVp1MXKd1XFmFz33NjydzCoJx9t2sMQW",
     "name": "OtterSec",
-    "activeStake": 2598542055474611,
+    "activeStake": 2600980421081529,
     "softwareClient": "HarmonicAgave"
+  },
+  {
+    "account": "CoG8d9Fp2TFJRkAmrPMiPsGhQWHzdTTVoegEp9svRgmJ",
+    "name": "Nansen | Stake to Stack Points",
+    "activeStake": 2523728879340812,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "GSTampk6BJRKSDkzhaMM49R7qRx98MTPYYWvKbp83XKc",
@@ -282,12 +294,6 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "CoG8d9Fp2TFJRkAmrPMiPsGhQWHzdTTVoegEp9svRgmJ",
-    "name": "Nansen | Stake to Stack Points",
-    "activeStake": 2493722947654922,
-    "softwareClient": "AgaveBam"
-  },
-  {
     "account": "FbYX2uN573G5WsgiPdHU6fS5PNUyjdXfGfpZNkYUuT4k",
     "name": null,
     "activeStake": 2409417943075628,
@@ -302,19 +308,25 @@
   {
     "account": "BkoS26vBuaXnSowACdChi4WKid8UwmuPNhEJWa8KsLHd",
     "name": null,
-    "activeStake": 2295267997728088,
+    "activeStake": 2291880165926422,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "6WgdYhhGE53WrZ7ywJA15hBVkw7CRbQ8yDBBTwmBtAHN",
     "name": "Luganodes",
-    "activeStake": 2289220583475811,
+    "activeStake": 2291207250187717,
     "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "HTeRsa3gm3CGrizMoCrtWj4uBZ1NKYcGqh8jfBu2u3Jo",
+    "name": null,
+    "activeStake": 2259620472879516,
+    "softwareClient": "HarmonicAgave"
   },
   {
     "account": "7qGNnXKW1e3DsqEaSxwxMdBTFsrK73XtWTmkGitRyMQc",
     "name": "Alchemy",
-    "activeStake": 2209120321087289,
+    "activeStake": 2223014370837027,
     "softwareClient": "AgaveBam"
   },
   {
@@ -324,15 +336,9 @@
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "HTeRsa3gm3CGrizMoCrtWj4uBZ1NKYcGqh8jfBu2u3Jo",
-    "name": null,
-    "activeStake": 2152448746986558,
-    "softwareClient": "HarmonicAgave"
-  },
-  {
     "account": "ana2y2YvQ3ZPMwm6qhnN3nJoUSiT3qx5Pvetkq9xcfY",
     "name": "Anagram Staking",
-    "activeStake": 2127152784949040,
+    "activeStake": 2129170281847448,
     "softwareClient": "Rakurai"
   },
   {
@@ -344,7 +350,7 @@
   {
     "account": "5TGfVQV1S3wHE9hkgGaQkRoPC7xZxiqwMcjQZxVYsf1j",
     "name": "Sanctum",
-    "activeStake": 2067152303516329,
+    "activeStake": 2068923271448058,
     "softwareClient": "JitoLabs"
   },
   {
@@ -368,13 +374,13 @@
   {
     "account": "DNVZMSqeRH18Xa4MCTrb1MndNf3Npg4MEwqswo23eWkf",
     "name": "Firedancer Development",
-    "activeStake": 1899119884503001,
+    "activeStake": 1900232740027354,
     "softwareClient": "Firedancer"
   },
   {
     "account": "FBbqKvwLfKGZrKrfSbPJz4ymQ7zMarhRyZtu1RBkSe89",
     "name": null,
-    "activeStake": 1896363484020991,
+    "activeStake": 1897473771552575,
     "softwareClient": "Firedancer"
   },
   {
@@ -404,19 +410,19 @@
   {
     "account": "ChorusmmK7i1AxXeiTtQgQZhQNiXYU84ULeaYF1EH15n",
     "name": "Bitwise Onchain Solutions 02",
-    "activeStake": 1717600840011735,
+    "activeStake": 1718797158634795,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "722RdWmHC5TGXBjTejzNjbc8xEiduVDLqZvoUGz6Xzbp",
     "name": "Solflare",
-    "activeStake": 1660026163531881,
+    "activeStake": 1666124407556761,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "pSoLoZx55zZz61gjxSTwHtwTg4yTwdm7ruBmyjbYgT2",
     "name": null,
-    "activeStake": 1644477095889243,
+    "activeStake": 1643155425783915,
     "softwareClient": "Harmonic"
   },
   {
@@ -428,19 +434,25 @@
   {
     "account": "CW9C7HBwAMgqNdXkNgFg9Ujr3edR2Ab9ymEuQnVacd1A",
     "name": "Coinbase 02",
-    "activeStake": 1618676921718259,
+    "activeStake": 1611338738792367,
     "softwareClient": "HarmonicAgave"
   },
   {
     "account": "9W3QTgBhkU4Bwg6cwnDJo6eGZ9BtZafSdu1Lo9JmWws7",
     "name": "Coinbase 03",
-    "activeStake": 1604667210017444,
+    "activeStake": 1605278733960920,
+    "softwareClient": "Harmonic"
+  },
+  {
+    "account": "AMukCLCr52XxsEjXoDxKKxjNg4FpnsReXNaQx8aR6DJF",
+    "name": null,
+    "activeStake": 1542602838674742,
     "softwareClient": "Harmonic"
   },
   {
     "account": "7y5VhV4fkz6r4zUmH2UiwPjLwXzPL1PcV28or5NWkWRL",
     "name": "Haus – Best APY & No Fees",
-    "activeStake": 1503335624380521,
+    "activeStake": 1481553298172842,
     "softwareClient": "JitoLabs"
   },
   {
@@ -452,32 +464,26 @@
   {
     "account": "6aDs9tUm2gErcPn2c1TZnp5cu2bQV9BzyuwW4baWQYd4",
     "name": "Coinbase 05",
-    "activeStake": 1449405688333139,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "AMukCLCr52XxsEjXoDxKKxjNg4FpnsReXNaQx8aR6DJF",
-    "name": null,
-    "activeStake": 1448484235218922,
-    "softwareClient": "Harmonic"
-  },
-  {
-    "account": "Ninja1spj6n9t5hVYgF3PdnYz2PLnkt7rvaw3firmjs",
-    "name": "Shinobi Systems 🚀 stakeview.app",
-    "activeStake": 1401329577632876,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "CfgRXmp1LEYr97EaT2RyoL2cSvtWgJh52Bes89RxVSoW",
-    "name": "Blockman",
-    "activeStake": 1380478028806809,
+    "activeStake": 1450196083117242,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "Df16xM2XWzTXEGYxFBXtwXRhCdE6hwBbxS162TyS4r65",
     "name": "Bybit Staking",
-    "activeStake": 1379295278925047,
+    "activeStake": 1398267086806217,
     "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "Ninja1spj6n9t5hVYgF3PdnYz2PLnkt7rvaw3firmjs",
+    "name": "Shinobi Systems 🚀 stakeview.app",
+    "activeStake": 1397671582857737,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "CfgRXmp1LEYr97EaT2RyoL2cSvtWgJh52Bes89RxVSoW",
+    "name": "Blockman",
+    "activeStake": 1381474782143759,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "CG4tRANBKrzUmpv93V5sgftjQznBdiJsc2yPCzZWWuS9",
@@ -488,19 +494,19 @@
   {
     "account": "A9mvukTd77EbRoBX4ydSCFQHdu5bsRFkNXTTRstA8FAC",
     "name": null,
-    "activeStake": 1375053028567194,
+    "activeStake": 1376018298331718,
     "softwareClient": "Rakurai"
   },
   {
     "account": "6TkKqq15wXjqEjNg9zqTKADwuVATR9dW3rkNnsYme1ea",
     "name": "melea 🚀 SOL 🤑2K",
-    "activeStake": 1366476319308848,
+    "activeStake": 1365707740157688,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "CMPSSdrTnRQBiBGTyFpdCc3VMNuLWYWaSkE8Zh5z6gbd",
     "name": "Solana Compass 🧭 Solana For The People",
-    "activeStake": 1344102639314570,
+    "activeStake": 1344798900906958,
     "softwareClient": "AgaveBam"
   },
   {
@@ -518,19 +524,19 @@
   {
     "account": "bitHUmbKSQDTGoyoiW3BeqaGWdyV5sS3nYt5SduUHfb",
     "name": null,
-    "activeStake": 1283500001100000,
+    "activeStake": 1285500001100000,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "EXckihF3qmguH5znjhfzLvHsbk2E3nEW2DqNh4MMnDMm",
     "name": null,
-    "activeStake": 1248617346929839,
+    "activeStake": 1249283444581282,
     "softwareClient": "Harmonic"
   },
   {
     "account": "HLnodbYkL5PFA8hjAZDkm5pGzV7eLTvcs671AW2L6St9",
     "name": "PoH PoS",
-    "activeStake": 1246864084478264,
+    "activeStake": 1247781282061667,
     "softwareClient": "AgaveBam"
   },
   {
@@ -542,7 +548,7 @@
   {
     "account": "DTSUkYHd2e9P2HLyZfbLarsbDdPhQUhZnWjRYuJZQRC8",
     "name": "Temporal Emerald",
-    "activeStake": 1236938634390028,
+    "activeStake": 1237617261477736,
     "softwareClient": "HarmonicAgave"
   },
   {
@@ -554,61 +560,61 @@
   {
     "account": "7cVfgArCheMR6Cs4t6vz5rfnqd56vZq4ndaBrY5xkxXy",
     "name": "Blockdaemon 🧱👿 Validator",
-    "activeStake": 1178264710625605,
+    "activeStake": 1167850776696245,
     "softwareClient": "Rakurai"
-  },
-  {
-    "account": "C1ocKDYMCm2ooWptMMnpd5VEB2Nx4UMJgRuYofysyzcA",
-    "name": "Overclock",
-    "activeStake": 1163408013383711,
-    "softwareClient": "HarmonicAgave"
   },
   {
     "account": "8tjFeSApQ85ThoQXT28acfF2KUfQr3TvTdirSkzNnYC7",
     "name": null,
-    "activeStake": 1150774453076488,
+    "activeStake": 1151183685969282,
     "softwareClient": "Rakurai"
   },
   {
     "account": "5essVpBYvocZkQnkrWsMDfRPwtp4BeihJRaweKLR4dRn",
     "name": "Certora Validator",
-    "activeStake": 1080301533874085,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "GEM1N1UE3C8BB8EaaEPrcFvT3iLMVrurknjW5AYjUReR",
-    "name": "Gemini",
-    "activeStake": 1067417189138604,
+    "activeStake": 1081913209438385,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "6xWLi1TDSh65fWsSqE1zdvANTSuVDRMx4ghsGJwgunS8",
     "name": "Solana Validator",
-    "activeStake": 1058541853501119,
+    "activeStake": 1067372008112904,
     "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "GEM1N1UE3C8BB8EaaEPrcFvT3iLMVrurknjW5AYjUReR",
+    "name": "Gemini",
+    "activeStake": 1063473612507190,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "C1ocKDYMCm2ooWptMMnpd5VEB2Nx4UMJgRuYofysyzcA",
+    "name": "Overclock",
+    "activeStake": 1047334780413935,
+    "softwareClient": "HarmonicAgave"
   },
   {
     "account": "PUmpKiNnSVAZ3w4KaFX6jKSjXUNHFShGkXbERo54xjb",
     "name": "Pumpkin's Pool ❤️",
-    "activeStake": 1025618482136394,
+    "activeStake": 1032425075717259,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "GmCxjmjKZoaKN1DKunbYq8RCYib94Nm3sHyncFfofaF5",
     "name": "Rocket",
-    "activeStake": 1018415674010534,
+    "activeStake": 1019023708009857,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "8uJiHDJ1b7UDQ4KFsQGJXK9nUCkokdKRJymg1Wy9nxvM",
     "name": "Alpha",
-    "activeStake": 1015637115176099,
+    "activeStake": 1016246319869632,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "G2TBEh2ahNGS9tGnuBNyDduNjyfUtGhMcssgRb8b6KfH",
     "name": "AG 0% fee + ALL MEV profit share",
-    "activeStake": 1014110371069604,
+    "activeStake": 1012121267822054,
     "softwareClient": "AgaveBam"
   },
   {
@@ -620,37 +626,37 @@
   {
     "account": "Ha1iade1AH3B12K9SccfWoPdFtQKKQsj2ZyWwxcjqJJU",
     "name": "Ha1iad3",
-    "activeStake": 899720185011458,
+    "activeStake": 901333756227487,
     "softwareClient": "HarmonicAgave"
   },
   {
     "account": "AiDoLWFKzNxSXKeZ4zym2TEPkg6F4kQ3YBA8WhANVPEq",
     "name": "AiDoL",
-    "activeStake": 899222542710473,
+    "activeStake": 894295725096959,
     "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "HH5dA42XF1HxNk1TRpG6LuKfLViMYNdAz5iWrFM4hWFi",
-    "name": "Trust Nodes",
-    "activeStake": 876622462874590,
-    "softwareClient": "JitoLabs"
   },
   {
     "account": "E3mDbFMr8yZcCAZx5wPUFCRmLX31u8Nnj4jPoPc54h3F",
     "name": "MAVAN",
-    "activeStake": 857761930383962,
+    "activeStake": 889697911714611,
     "softwareClient": "Rakurai"
+  },
+  {
+    "account": "HH5dA42XF1HxNk1TRpG6LuKfLViMYNdAz5iWrFM4hWFi",
+    "name": "Trust Nodes",
+    "activeStake": 874781169438733,
+    "softwareClient": "JitoLabs"
   },
   {
     "account": "Ex1AxFCipXGfSxgvXPPT3nPQUARddCduHwKR6jHiXAaT",
     "name": null,
-    "activeStake": 848716531368561,
+    "activeStake": 849209545616300,
     "softwareClient": "HarmonicAgave"
   },
   {
     "account": "58KprHKFNHgH1Cvo4QwxWkDeJNaSQVteCoAAFUWjtESn",
     "name": "Flash",
-    "activeStake": 840461074766099,
+    "activeStake": 840959260037256,
     "softwareClient": "AgaveBam"
   },
   {
@@ -662,55 +668,61 @@
   {
     "account": "BXAxLMMMUNYfC1z166VjWHR3WjTmqzLxB837o5ghmRtH",
     "name": null,
-    "activeStake": 819031365477103,
+    "activeStake": 819853506002834,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "FWwwP9tNttSy9dJFxwf6ebXWfc6VJXqFNMTccrMiLFTH",
+    "name": "Quatro",
+    "activeStake": 819625500394848,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "vu1sGn2f1Xim6voHNLt4nLn38zNkYdLasU7hEr1TC2D",
     "name": "Allnodes ⚡️ 0% fee",
-    "activeStake": 811578692017872,
+    "activeStake": 810556552582790,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "Gv9gguvrAkgQtB5g5a3Un7trcHCxLYsk8vSojLmQMsWV",
     "name": null,
-    "activeStake": 806954406883915,
+    "activeStake": 807408778513758,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "4mtXJ5pUcMMB4t8cLbi7zfDJCHfYLRrQb4qSLmh57sKL",
     "name": null,
-    "activeStake": 796530264298163,
+    "activeStake": 796955187464907,
     "softwareClient": "Harmonic"
   },
   {
     "account": "CaveyttUBTKttncu1e4RF814XjuoGfYv8cEsiKGDNCPX",
     "name": "Cavey Cool",
-    "activeStake": 794823621287895,
+    "activeStake": 796068520979327,
     "softwareClient": "Harmonic"
   },
   {
     "account": "CwyVpfmfSiMeCexi3JgUNvaiDfYN14cLDjzT99zcBuD2",
     "name": "Hamsa",
-    "activeStake": 794222695448589,
+    "activeStake": 794693433906030,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "5RvfTSowms7BTYaBj8SxVjj7ELAAKdQadKsuNpmBAwCs",
     "name": null,
-    "activeStake": 772505236782466,
+    "activeStake": 783756704507897,
     "softwareClient": "HarmonicAgave"
   },
   {
     "account": "aXiomFkk6VzXaBhPuhMqTLZZguCFzzbyP9LTtZ7ZHLQ",
     "name": "Axiom",
-    "activeStake": 767561428029773,
+    "activeStake": 768015243191465,
     "softwareClient": "HarmonicAgave"
   },
   {
     "account": "7PdKhpKz7T39vZHFL1UfcYNDsLvay6hp4KPQq1aUckFf",
     "name": "Alpha Pro | High APY🚀 100% Reliable ⭐ VIP Services",
-    "activeStake": 767528335946234,
+    "activeStake": 767850389252679,
     "softwareClient": "Rakurai"
   },
   {
@@ -722,7 +734,7 @@
   {
     "account": "siidBVew9gpXxjM1y5spQiAyx1dyFrg9m6YjoxrYWbi",
     "name": null,
-    "activeStake": 758651226247878,
+    "activeStake": 758653967158192,
     "softwareClient": "Rakurai"
   },
   {
@@ -734,26 +746,38 @@
   {
     "account": "HM1KjNaXa4w8K4gCXbieoMh5gUTNeUhg9fvdXMKeBW3L",
     "name": "Hello Moon",
-    "activeStake": 737089600712325,
+    "activeStake": 739540023709948,
     "softwareClient": "HarmonicAgave"
   },
   {
     "account": "6XKqyUVUcpe3CNucjF6gk5zonJDqNGvob6kaTy4Ps1U",
     "name": "Solana Mobile Validator",
-    "activeStake": 726677128917191,
+    "activeStake": 723701879751735,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "XkCriyrNwS3G4rzAXtG5B1nnvb5Ka1JtCku93VqeKAr",
     "name": "Coinbase",
-    "activeStake": 720696312968290,
+    "activeStake": 720989112048036,
     "softwareClient": "HarmonicAgave"
   },
   {
-    "account": "ANC1u9sY36q3mi2MyVhtz71un8yLgTsFBUuyLcSPzKsk",
-    "name": "Anchorage Digital",
-    "activeStake": 694672910764298,
+    "account": "HSDTxfgrqY8ZK88Q5Fx2DdX7zxMDqXgxJKgErTBSLoQJ",
+    "name": "SOL Prime",
+    "activeStake": 713639597622682,
     "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "23SUe5fzmLws1M58AnGnvnUBRUKJmzCpnFQwv4M4b9Er",
+    "name": "Stakin by The Tie",
+    "activeStake": 696005405963740,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "7EzbSahSfSjeRexHcNDLDpzHBAGBLjLKtjbmuoQnEtjE",
+    "name": "Gate Earn",
+    "activeStake": 694017153590876,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "CkCMabrc3HgBgDkeKPXkbWuQpUuSqW7zs1Mg3HFArx61",
@@ -764,44 +788,26 @@
   {
     "account": "VQwCCSfW3o5NDx7n5FBr9SoYiLXVgetstHvaWBvv2YH",
     "name": null,
-    "activeStake": 684963352577848,
+    "activeStake": 685357170436286,
     "softwareClient": "Frankendancer Vanilla"
   },
   {
     "account": "BUokhb8pPF9MZuzW3rHLr6jzakgcz3NDq2PZkpiVv3jb",
     "name": "DeFi Dev Corp (NASDAQ: DFDV)",
-    "activeStake": 683805995123474,
+    "activeStake": 684797429967982,
     "softwareClient": "HarmonicFrankendancer"
-  },
-  {
-    "account": "23SUe5fzmLws1M58AnGnvnUBRUKJmzCpnFQwv4M4b9Er",
-    "name": "Stakin by The Tie",
-    "activeStake": 675767236602018,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "7EzbSahSfSjeRexHcNDLDpzHBAGBLjLKtjbmuoQnEtjE",
-    "name": "Gate Earn",
-    "activeStake": 662863379231804,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "6yFGGAgYpBxgYPuHW4rv7hJmhKrUiXKyHkpVGaYtKrwE",
     "name": "Watchtower",
-    "activeStake": 647303764908112,
+    "activeStake": 644090257964378,
     "softwareClient": "Firedancer"
   },
   {
     "account": "HarmonicyK3BwamKNtWnQAmUeK4GYGXXzeD9FD8WMyZi",
     "name": "Harmonic Major",
-    "activeStake": 640320370663812,
+    "activeStake": 640770884790902,
     "softwareClient": "HarmonicFiredancer"
-  },
-  {
-    "account": "FWwwP9tNttSy9dJFxwf6ebXWfc6VJXqFNMTccrMiLFTH",
-    "name": "Quatro",
-    "activeStake": 639935271293448,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "HaLanfo94ezLc3JZ55qqxr7W3qbe1PprJyv2uEtriEqN",
@@ -810,21 +816,15 @@
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "ACvL73V4GNnxPVfZ7K89jCrYurLyzpEuE9qirjvh2Xmi",
-    "name": "Kiln2",
-    "activeStake": 634188938332314,
-    "softwareClient": "JitoLabs"
-  },
-  {
     "account": "3cZSHGfNdaULpFAvGbWbxpVwzXB4gHdk8NFucPNR5pgA",
     "name": "Ghost",
-    "activeStake": 629252721966491,
+    "activeStake": 630612032293549,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "Frog1Fks1AVN8ywFH3HTFeYojq6LQqoEPzgQFx2Kz5Ch",
     "name": "Leapfrog Systems 💎 No Fees",
-    "activeStake": 628305605376493,
+    "activeStake": 628769639367190,
     "softwareClient": "AgaveBam"
   },
   {
@@ -834,63 +834,69 @@
     "softwareClient": "Frankendancer Vanilla"
   },
   {
-    "account": "DB7DNWMVQASMFxcjkwdr4w4eg3NmfjWTk2rqFMMbrPLA",
-    "name": "Orangefin by SOL Strategies",
-    "activeStake": 623005588116812,
-    "softwareClient": "AgaveBam"
-  },
-  {
     "account": "juigBT2qetpYpf1iwgjaiWTjryKkY3uUTVAnRFKkqY6",
     "name": "ProStaking",
-    "activeStake": 619456518054116,
+    "activeStake": 620868137335698,
     "softwareClient": "Rakurai"
+  },
+  {
+    "account": "DB7DNWMVQASMFxcjkwdr4w4eg3NmfjWTk2rqFMMbrPLA",
+    "name": "Orangefin by SOL Strategies",
+    "activeStake": 619461130386510,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "2mMGsb5uy1Q4Dvezr8HK2E8SJoChcb2X7b61tJPaVHHd",
     "name": "Chainflow",
-    "activeStake": 612056031589733,
+    "activeStake": 614396896233146,
     "softwareClient": "HarmonicFrankendancer"
+  },
+  {
+    "account": "ACvL73V4GNnxPVfZ7K89jCrYurLyzpEuE9qirjvh2Xmi",
+    "name": "Kiln2",
+    "activeStake": 611586138450202,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "8o8wWCYNwPRSCAasp8rYvWuo3Ku1R1i6SEo9j9B6fe5i",
+    "name": "Sygnum Validators",
+    "activeStake": 610794606379430,
+    "softwareClient": "JitoLabs"
   },
   {
     "account": "4SsMncJdtKiUcDtukkX15mqei7WiuQ9yvRtQrQW4reWC",
     "name": "Quicknode",
-    "activeStake": 599169268059492,
+    "activeStake": 602161554368770,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "Va1idLRtYEtVFJFsvz8vtt1uCJgea4Q1zi2Rh3eraJh",
     "name": "validator.com",
-    "activeStake": 591694770805958,
+    "activeStake": 593037219206741,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "RBFiUqjYuy4mupzZaU96ctXJBy23sRBRsL3KivDAsFM",
     "name": "RockawayX Infra",
-    "activeStake": 587661099940279,
+    "activeStake": 588036184201627,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "BeaCHioStqCEFDFxKwAEzyrUPYxqnBPhJ98gDKeEiTPb",
     "name": "Solana Beach Validator",
-    "activeStake": 579301877912122,
+    "activeStake": 579685755368128,
     "softwareClient": "Frankendancer Vanilla"
   },
   {
     "account": "BFmqBsaGjeYA7gHpReKmnVkRyhqiMmHoR9ttv1crWmzy",
     "name": null,
-    "activeStake": 570929502824173,
+    "activeStake": 570814624660993,
     "softwareClient": "Frankendancer Vanilla"
-  },
-  {
-    "account": "8o8wWCYNwPRSCAasp8rYvWuo3Ku1R1i6SEo9j9B6fe5i",
-    "name": "Sygnum Validators",
-    "activeStake": 569289505506030,
-    "softwareClient": "JitoLabs"
   },
   {
     "account": "2X5yarNUWGyyiJDtRoPATvJYeNecvWG7zCkBrY2J1to1",
     "name": null,
-    "activeStake": 557628723839179,
+    "activeStake": 557989308062801,
     "softwareClient": "AgaveBam"
   },
   {
@@ -902,37 +908,37 @@
   {
     "account": "7CR3Jq4ny2tsr3DX3DvyjoU8TYs776MGkU6nLMWjAqCT",
     "name": "Bitcoin Suisse",
-    "activeStake": 552743181511709,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "mineL1YNwcRnxN93B2sX6q22R11WfRqxnY4NBV8KfFY",
-    "name": "Exo Tech",
-    "activeStake": 549786194053596,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "GREEDkgav1ox1jYyd9Anv6exLqKV2vYnxMw5prGwmNKc",
-    "name": "GREED Academy - funding education",
-    "activeStake": 549149759856278,
+    "activeStake": 552740090327374,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "anza1rXDVhy1NfVNtsbT3kSBh2jgB1BGZUKuUibSAJd",
     "name": "Anza",
-    "activeStake": 548730883983184,
+    "activeStake": 550058471388107,
     "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "GREEDkgav1ox1jYyd9Anv6exLqKV2vYnxMw5prGwmNKc",
+    "name": "GREED Academy - funding education",
+    "activeStake": 549933810436592,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "mineL1YNwcRnxN93B2sX6q22R11WfRqxnY4NBV8KfFY",
+    "name": "Exo Tech",
+    "activeStake": 546010725760932,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "bkpk9KVsDRfrArzzmkJ9mPEvbXfQxczzQYR3QMGiR8Z",
     "name": "Backpack",
-    "activeStake": 544853144659662,
+    "activeStake": 545469757200519,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "2Df1aLCRYi3J1X24GXmASL4hjrZLHnvEF32KFWGJfR9E",
     "name": "P2P.org Turbo",
-    "activeStake": 539538341335290,
+    "activeStake": 536274466707124,
     "softwareClient": "Rakurai"
   },
   {
@@ -944,44 +950,56 @@
   {
     "account": "G9vCpJUUSpEm4zPwzSNpDmZ8MGwLEbiSLV59EBzCGvzM",
     "name": "AP Node",
-    "activeStake": 533630311331916,
+    "activeStake": 534121061345887,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "2Wf9V9rPeVRUTfmWdPedCJuWVr6MFfyLuigEq42DuMDc",
+    "name": "Blueprint",
+    "activeStake": 524472415377625,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "Cogent51kHgGLHr7zpkpRjGYFXM57LgjHjDdqXd4ypdA",
     "name": "Cogent ⚙️  by SOL Strategies",
-    "activeStake": 527291063338187,
+    "activeStake": 520178341413118,
     "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "2Wf9V9rPeVRUTfmWdPedCJuWVr6MFfyLuigEq42DuMDc",
-    "name": "Blueprint",
-    "activeStake": 526386343008109,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "84gC25fbFKYueR9WEfreUysk1n3ZFxLFDDjbyqeqGpoW",
     "name": null,
-    "activeStake": 517274402903326,
+    "activeStake": 517549256526902,
     "softwareClient": "Harmonic"
   },
   {
     "account": "fishfishrD9BwrQQiAcG6YeYZVUYVJf3tb9QGQPMJqF",
     "name": "stakefish 🐟",
-    "activeStake": 508233968712701,
+    "activeStake": 509617147669300,
     "softwareClient": "HarmonicAgave"
   },
   {
     "account": "RNXnAJV1DeBt6Lytjz4wYzvS3d6bhsfidS5Np4ovwZz",
     "name": "RockawayX Firedancer",
-    "activeStake": 493957869494419,
-    "softwareClient": "Frankendancer Vanilla"
+    "activeStake": 494297958969231,
+    "softwareClient": "Firedancer"
+  },
+  {
+    "account": "LeDbQ99QT342j9S5YdyXLrsq2Gu3T3dMGajExdAuE3V",
+    "name": "Ledger by Bitwise",
+    "activeStake": 490948335170070,
+    "softwareClient": "JitoLabs"
   },
   {
     "account": "3YVoK8UN62dyiPZnGBzBTkGdwsVmmK1MpRoLcxNRs9BE",
     "name": "Calypso",
-    "activeStake": 489634452154646,
+    "activeStake": 490911936510226,
     "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "hy1oMaD3ViyJ8i6w1xjP79zAWBBaRd1zWdTW8zYXnwu",
+    "name": "Hylo",
+    "activeStake": 489649873485013,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "7tqeaFKsg2K9xKnQWe61w71AtCZVMQvG4hbFAiFAngYw",
@@ -992,127 +1010,103 @@
   {
     "account": "AqyRvpjjSN6jWYPxijoJwhmKwJFk6fRYDh9fQZHcJ2o7",
     "name": "STSS Validator",
-    "activeStake": 486580596918262,
+    "activeStake": 487348216098040,
     "softwareClient": "HarmonicAgave"
-  },
-  {
-    "account": "hy1oMaD3ViyJ8i6w1xjP79zAWBBaRd1zWdTW8zYXnwu",
-    "name": "Hylo",
-    "activeStake": 486346528994608,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "LeDbQ99QT342j9S5YdyXLrsq2Gu3T3dMGajExdAuE3V",
-    "name": "Ledger by Bitwise",
-    "activeStake": 484782548428190,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "E5UXkzUxqEXpeDf3WsrMZHTs2ZSSBpAz7G4hpGwgRGDT",
-    "name": "QubitNexus",
-    "activeStake": 480531842378637,
-    "softwareClient": "JitoLabs"
   },
   {
     "account": "Cu9Ls6dsTL6cxFHZdStHwVSh1uy2ynXz8qPJMS5FRq86",
     "name": "Stardust Staking - 0% fee forever + MEV 0% fee",
-    "activeStake": 477744812278315,
+    "activeStake": 485649211912421,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "HSDTxfgrqY8ZK88Q5Fx2DdX7zxMDqXgxJKgErTBSLoQJ",
-    "name": "SOL Prime",
-    "activeStake": 460288394330537,
+    "account": "E5UXkzUxqEXpeDf3WsrMZHTs2ZSSBpAz7G4hpGwgRGDT",
+    "name": "QubitNexus",
+    "activeStake": 445153523116194,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "Certusm1sa411sMpV9FPqU5dXAYhmmhygvxJ23S6hJ24",
     "name": "Asymmetric Research",
-    "activeStake": 437934426830526,
+    "activeStake": 437725541679187,
     "softwareClient": "Frankendancer Vanilla"
   },
   {
     "account": "HW4zorvt6xDwhU36RqjcWNwU8YMj9tiqnAafBKW4cqV",
     "name": "Moise",
-    "activeStake": 431066663227948,
+    "activeStake": 431743398338290,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "32ke3uf1qL3xLqbwzU76T2sbG2XaJrGuSCNdUnien3zm",
     "name": "FalconX",
-    "activeStake": 426678236008288,
+    "activeStake": 426948418207828,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "7GkMBmtrTZz8QbjSe1sXvAUtz7Pp42SQxfT5ymmJD4We",
     "name": "Phantom Validator",
-    "activeStake": 417036525044241,
+    "activeStake": 417567668087001,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "3RXKQBRv7xKTQeNdLSPhCiD4QcUfxEQ12rtgUkMf5LnS",
     "name": "Chainode Tech & MEV(0% Fee)",
-    "activeStake": 413437299220248,
+    "activeStake": 411233305213381,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "8cqck84coxk8TGXYBD95QosKCEA6fKwXLevcEv3oGmu8",
-    "name": "Orbyval",
-    "activeStake": 403380776631712,
-    "softwareClient": "JitoLabs"
+    "account": "LA1NEzryoih6CQW3gwQqJQffK2mKgnXcjSQZSRpM3wc",
+    "name": "Laine ❤️  by SOL Strategies",
+    "activeStake": 401892387371356,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "9iFPQbP1jGkj67sXg6YLLGRUBVEDMcapdS6jmCZSnz8R",
     "name": null,
-    "activeStake": 399001549117399,
+    "activeStake": 395986199058849,
     "softwareClient": "Harmonic"
   },
   {
-    "account": "BGAjnivVWqLqByqCVT9dSyPUFicvyJrz7vRvrvui3SEk",
-    "name": null,
-    "activeStake": 391422327576775,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "4NwpynvugnHvyLzr5h9Y7mw44saGJXDNoBjm6wgMiYDr",
-    "name": null,
-    "activeStake": 387011078417571,
+    "account": "8cqck84coxk8TGXYBD95QosKCEA6fKwXLevcEv3oGmu8",
+    "name": "Orbyval",
+    "activeStake": 392773927380007,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "FLwV8tm3pL8pZj6d927VASzPrgW51Gf4nRJuTewrfega",
     "name": "Velox Validator",
-    "activeStake": 386726834681017,
+    "activeStake": 387970740263480,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "ANC1u9sY36q3mi2MyVhtz71un8yLgTsFBUuyLcSPzKsk",
+    "name": "Anchorage Digital",
+    "activeStake": 387835921891462,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "4NwpynvugnHvyLzr5h9Y7mw44saGJXDNoBjm6wgMiYDr",
+    "name": null,
+    "activeStake": 387240470681864,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "DF1owXYZ1fk5vWyHJ8s1cJeAozgkqsi1JUVqvktqrpwd",
     "name": "DFlow",
-    "activeStake": 385720095687938,
+    "activeStake": 385937298760656,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "3ytgyJXpm3teGLwkHqp9h2qqYNpY4Z1QpWAeVpz79gpJ",
     "name": null,
-    "activeStake": 374700009080256,
+    "activeStake": 374915435441063,
     "softwareClient": "Frankendancer Vanilla"
   },
   {
     "account": "CVvaeDPR2o7P1eawG5c9TPFLzSXAewwPovPmREaEL4Cm",
     "name": "Lion3d | 0% Forever + Block Rewards Sharing",
-    "activeStake": 372599992875376,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "ALp2GdA1eJV8vZHMHazCtTxNXe3BLUSco9LDASgjDs8R",
-    "name": "🌸 SOLGirl MEV ⚡️👩‍💻",
-    "activeStake": 371464679855545,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "LA1NEzryoih6CQW3gwQqJQffK2mKgnXcjSQZSRpM3wc",
-    "name": "Laine ❤️  by SOL Strategies",
-    "activeStake": 371230395838224,
+    "activeStake": 372765822105564,
     "softwareClient": "AgaveBam"
   },
   {
@@ -1124,163 +1118,181 @@
   {
     "account": "Bi9kKNxfW2XqgCmLcuhHt6A3x55GuAGmrVZxRHLyVoQ4",
     "name": null,
-    "activeStake": 370152129546626,
+    "activeStake": 370371537372340,
     "softwareClient": "HarmonicFrankendancer"
   },
   {
     "account": "6vG7fgweSfvY7JRViG4HwKgV9u6JKhMpf2bqr6TKNjUW",
     "name": "InfraMesh",
-    "activeStake": 363785309598785,
+    "activeStake": 366914379594070,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "ALp2GdA1eJV8vZHMHazCtTxNXe3BLUSco9LDASgjDs8R",
+    "name": "🌸 SOLGirl MEV ⚡️👩‍💻",
+    "activeStake": 365159442735757,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "A4hyMd3FyvUJSRafDUSwtLLaQcxRP4r1BRC9w2AJ1to2",
     "name": "Jito2 (Experimental)",
-    "activeStake": 360021226523139,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "EfPYQ4BUMiKa6736qqrtnCBGkUSRDGSr1WvtyUgWHuyp",
-    "name": null,
-    "activeStake": 358422294406048,
+    "activeStake": 358919041758146,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "5d9Mdc2Zk8as8GL1AxQeXxv5htBBvC5bjfmsXC7UUWwG",
     "name": "Maera",
-    "activeStake": 357654122745138,
+    "activeStake": 357855517378934,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "Diman2GphWLwECE3swjrAEAJniezpYLxK1edUydiDZau",
     "name": "diman",
-    "activeStake": 351999126775331,
+    "activeStake": 354074143945002,
     "softwareClient": "Agave"
   },
   {
     "account": "9WzPWqKSqbE5PT9hMsmCDFjzpurAXEYCE9qrpVWp28KR",
     "name": null,
-    "activeStake": 348753329013270,
+    "activeStake": 348931920628127,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "oPaLtitM6cwpFVzP2rDhLsJLdY2vcbuZiJJyD1TFUKs",
     "name": "Temporal Opal",
-    "activeStake": 348457221687903,
+    "activeStake": 348663770059969,
     "softwareClient": "HarmonicFrankendancer"
+  },
+  {
+    "account": "AurseT3W3tk1dATBWAXtWR6oubBgECqintfcvP74teU3",
+    "name": "Aursen",
+    "activeStake": 347449930755745,
+    "softwareClient": "HarmonicAgave"
   },
   {
     "account": "mint13XHZSSxtgHuTSM9qPDEJSbWktpmpM4CZxeLB8f",
     "name": "Hanabi Staking 🎆 | Staking Champions | DoubleZero | ❌BAM",
-    "activeStake": 345612859333816,
+    "activeStake": 346517848945889,
     "softwareClient": "HarmonicAgave"
   },
   {
     "account": "BoNKmNCGvoHS4CkKvYRnF21iEpUP827pZjhFGdA4t5as",
     "name": "BONK",
-    "activeStake": 343903782263604,
+    "activeStake": 346085624346249,
     "softwareClient": "Harmonic"
   },
   {
-    "account": "4XspXDcJy3DWZsVdaXrt8pE1xhcLpXDKkhj9XyjmWWNy",
-    "name": "Ubik Capital - 0% Fee, MEV",
-    "activeStake": 339888458987932,
+    "account": "EfPYQ4BUMiKa6736qqrtnCBGkUSRDGSr1WvtyUgWHuyp",
+    "name": null,
+    "activeStake": 343528446603032,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "FyrwfMaomErzqrFUXMjCJ7mA4u81DsiDdrzC3MJD6d4j",
     "name": "1dad | Solfege",
-    "activeStake": 338907664207717,
+    "activeStake": 341925856667775,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "4XspXDcJy3DWZsVdaXrt8pE1xhcLpXDKkhj9XyjmWWNy",
+    "name": "Ubik Capital - 0% Fee, MEV",
+    "activeStake": 339609630939828,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "mds4GEuiSgQRqveGyktWpETBFCb4AS2wDnhqwLHcT6Z",
     "name": null,
-    "activeStake": 338679262531708,
+    "activeStake": 338859935823914,
     "softwareClient": "Agave"
-  },
-  {
-    "account": "BULKzVM41WAyQZfL34vxqdsYwEYH9mJAJyzRS4xraf8b",
-    "name": "BULK",
-    "activeStake": 337161595374628,
-    "softwareClient": "JitoLabs"
   },
   {
     "account": "74MzXStH8pLPZjbNxZKdtDGJehur2JgjZNeTPqSn37nE",
     "name": "Uphold",
-    "activeStake": 333659233275283,
+    "activeStake": 333089804820725,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "BULKzVM41WAyQZfL34vxqdsYwEYH9mJAJyzRS4xraf8b",
+    "name": "BULK",
+    "activeStake": 325566538450588,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "2Mob8FJkb8chZY5pTBMpKfLwgZAQHE5i9jAC5zbASitD",
     "name": null,
-    "activeStake": 317184226762820,
+    "activeStake": 317361745442374,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "D1Vbgkrhp1TmLGhfUD1urRMx5Ntz9AqQpgdX8DR8QMC1",
-    "name": "Next Finance Tech",
-    "activeStake": 316251080376692,
-    "softwareClient": "Rakurai"
+    "account": "BGAjnivVWqLqByqCVT9dSyPUFicvyJrz7vRvrvui3SEk",
+    "name": null,
+    "activeStake": 316807953187602,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "5VrW7YNBccVnhnZVmooCePdLFcs2UjfxRT3hoY9mN8Ec",
     "name": "Appleyello",
-    "activeStake": 314897890642473,
+    "activeStake": 316078738988908,
     "softwareClient": "Rakurai"
   },
   {
-    "account": "HzrEstnLfzsijhaD6z5frkSE2vWZEH5EUfn3bU9swo1f",
-    "name": "StakeWolf",
-    "activeStake": 312622136221632,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "D2RV1q6FgePVVjrMa7AMzVbvvAeg5oS7TAV7qdNKSDsX",
-    "name": "Validatore",
-    "activeStake": 309841135161657,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "UPSCQNqdbiaqrQou9X9y8mr43ZHzvoNpKC26Mo7GubF",
-    "name": null,
-    "activeStake": 309509578557309,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "5tfcGyf3NQFcufDigvbRt9kWoVN2KPEkBRUY3UaC3Zwm",
-    "name": null,
-    "activeStake": 309261378573560,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "gUvo3g5LfH4Pd8qnG7T6MPEFa5bPr8LhDdxDahwYqis",
-    "name": null,
-    "activeStake": 305158405572414,
+    "account": "D1Vbgkrhp1TmLGhfUD1urRMx5Ntz9AqQpgdX8DR8QMC1",
+    "name": "Next Finance Tech",
+    "activeStake": 315737156706280,
     "softwareClient": "Rakurai"
   },
   {
     "account": "HcZvwZ83PfjrQDiq3GLHxisTs17aGURs6bJ2LwtmL4qv",
     "name": "SolGuardian",
-    "activeStake": 301516335031312,
+    "activeStake": 312575091775235,
     "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "HzrEstnLfzsijhaD6z5frkSE2vWZEH5EUfn3bU9swo1f",
+    "name": "StakeWolf",
+    "activeStake": 311733766245310,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "D2RV1q6FgePVVjrMa7AMzVbvvAeg5oS7TAV7qdNKSDsX",
+    "name": "Validatore",
+    "activeStake": 310668408287246,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "UPSCQNqdbiaqrQou9X9y8mr43ZHzvoNpKC26Mo7GubF",
+    "name": null,
+    "activeStake": 309678354915466,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "5tfcGyf3NQFcufDigvbRt9kWoVN2KPEkBRUY3UaC3Zwm",
+    "name": null,
+    "activeStake": 309122445459931,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "gUvo3g5LfH4Pd8qnG7T6MPEFa5bPr8LhDdxDahwYqis",
+    "name": null,
+    "activeStake": 305339281447251,
+    "softwareClient": "Rakurai"
   },
   {
     "account": "CEL22Qx7p85qY6gmhCZaYJrrnynJitkVRMQo6qZdT8Ns",
     "name": "🚀🚀Super🚀🚀 Validator",
-    "activeStake": 301010807902564,
+    "activeStake": 300741006381788,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "9AW87WqARQonyJYhx1G25fKfvjURFYVmHs79z1NUXDPD",
     "name": "🔥Aurora staking",
-    "activeStake": 300661011002605,
+    "activeStake": 300393002350773,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "HT41udB8mLZZf7tev9tUoHYJ41TP8GWZ6zFMbjiviXk5",
     "name": "Neumann",
-    "activeStake": 300341656603309,
+    "activeStake": 300073459250972,
     "softwareClient": "AgaveBam"
   },
   {
@@ -1298,62 +1310,80 @@
   {
     "account": "EdFUcP2f6j9iBg5BqsgJn3WDr1JieiKCo41hZ5Zrsk6w",
     "name": "Bitget Wallet",
-    "activeStake": 299607523289484,
+    "activeStake": 299803491851200,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "3B2mGaZoFwzAnWCoZ4EAKdps4FbYbDKQ48jo8u1XWynU",
-    "name": "Low Fee Validation TOP API 🔥",
-    "activeStake": 299047579142715,
-    "softwareClient": "Rakurai"
-  },
-  {
-    "account": "43Am3PKFeo9cACpqYL5Sk95rpVdxLw3Mc22PqRqZXEW2",
-    "name": "Titan Analytics",
-    "activeStake": 296073476554565,
-    "softwareClient": "AgaveBam"
+    "account": "9xcXe4WRAfbVoVgQmFD5xgFHioL9dD7c74pQZ7PeczT",
+    "name": "Raiku",
+    "activeStake": 299664654827242,
+    "softwareClient": "Raiku"
   },
   {
     "account": "9gFxqsXbFyrKXUkqpAatonn47uYZ7sEZSnMxhzQoXrUJ",
     "name": "LUX8 Validator",
-    "activeStake": 291581395526704,
+    "activeStake": 298911225101503,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "AfZTWYoFQbzqCMmUBTD7XwxFvjob1FVyCvkaXRryxtKc",
+    "name": "Digital Energy",
+    "activeStake": 298876513780666,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "43Am3PKFeo9cACpqYL5Sk95rpVdxLw3Mc22PqRqZXEW2",
+    "name": "Titan Analytics",
+    "activeStake": 298299607852720,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "4VRs6A9zBRXz6MLcmQGsBiSoWE2JjHrmw7LintC3T4Nv",
+    "name": null,
+    "activeStake": 298066023117492,
+    "softwareClient": "Frankendancer Vanilla"
+  },
+  {
+    "account": "3B2mGaZoFwzAnWCoZ4EAKdps4FbYbDKQ48jo8u1XWynU",
+    "name": "Low Fee Validation TOP API 🔥",
+    "activeStake": 297448108755774,
+    "softwareClient": "Rakurai"
+  },
+  {
+    "account": "4k6wgP5WPBKQpsFGtzuXNrjcTE2fKWLj17nDvFeG5zSF",
+    "name": "DawnLabs | 0% Fee + Block Rewards Sharing",
+    "activeStake": 293101322359271,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "Raydiumm3w3a4nGanDBLkUtKxMFooSPmeg9qwUKMsMc",
     "name": "Raydium",
-    "activeStake": 291477782256328,
+    "activeStake": 291641916471971,
     "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "AfZTWYoFQbzqCMmUBTD7XwxFvjob1FVyCvkaXRryxtKc",
-    "name": "Digital Energy",
-    "activeStake": 290028468633022,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "MARiKM3t7pDCyXtvLq24ErWDAvYu84yXqCthkR1GS33",
-    "name": "🇻🇪 Customized Rewards (5.94% APY)",
-    "activeStake": 289831313840633,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "9xcXe4WRAfbVoVgQmFD5xgFHioL9dD7c74pQZ7PeczT",
-    "name": "Raiku",
-    "activeStake": 286903049727041,
-    "softwareClient": "Raiku"
-  },
-  {
-    "account": "FNTPSUuRpDoJx1hwFmB5ncNLLMX42aE83P4hsFYUfNRL",
-    "name": "Nodz",
-    "activeStake": 282000151910539,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "8yjHdsCgx3bp2zEwGiWSMgwpFaCSzfYAHT1vk7KJBqhN",
     "name": "JStaking: 0% fee · top returns",
-    "activeStake": 281616346459311,
+    "activeStake": 284675439150114,
     "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "MARiKM3t7pDCyXtvLq24ErWDAvYu84yXqCthkR1GS33",
+    "name": "🧑‍🍳 Customized Rewards (5.90% APY)",
+    "activeStake": 283916915751698,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "FNTPSUuRpDoJx1hwFmB5ncNLLMX42aE83P4hsFYUfNRL",
+    "name": "Nodz",
+    "activeStake": 282195990401110,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "SSmBEooM7RkmyuXxuKgAhTvhQZ36Z3G2WsmLGJKoQLY",
+    "name": "SOL Strategies",
+    "activeStake": 280984268234014,
+    "softwareClient": "Frankendancer Vanilla"
   },
   {
     "account": "2oHUYyW2PU9VJh4XBs5TbGgzdernunvGqyKth3kxW4ns",
@@ -1362,40 +1392,40 @@
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "SSmBEooM7RkmyuXxuKgAhTvhQZ36Z3G2WsmLGJKoQLY",
-    "name": "SOL Strategies",
-    "activeStake": 280424803575201,
-    "softwareClient": "Frankendancer Vanilla"
-  },
-  {
     "account": "8vk6QpG93JSaQCSgnycBsv5qmfQBk4qC9FjNA35E5JhU",
     "name": "Tinydancer",
-    "activeStake": 279474454435835,
+    "activeStake": 280315450335402,
     "softwareClient": "HarmonicFrankendancer"
   },
   {
-    "account": "4VRs6A9zBRXz6MLcmQGsBiSoWE2JjHrmw7LintC3T4Nv",
-    "name": null,
-    "activeStake": 278951520428650,
-    "softwareClient": "Frankendancer Vanilla"
+    "account": "FACb6bbTDRBHCK999V8ox8jga5JBnt1r3vvzmAYAMv2o",
+    "name": "Lantern",
+    "activeStake": 278845955165008,
+    "softwareClient": "AgaveBam"
   },
   {
-    "account": "rsbp8zMHbGCpLoRktmsjspYv77VcjxAzH1KxPCD9BiU",
-    "name": "Albert is Great",
-    "activeStake": 278890296575031,
-    "softwareClient": "JitoLabs"
+    "account": "7mF8NZJdREuM1uwYcvKffuY9QJBEoHhNp4hZ4NS2fuXW",
+    "name": "Meria",
+    "activeStake": 277379741127427,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "5MAGJ3zShtXMMVXjZRoFqtFF7XhP8iLSyZrxdL7KpjcB",
     "name": null,
-    "activeStake": 274963484910780,
+    "activeStake": 275121579041575,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "7RtC1QgiNVLANGRTEKxASz4bRiMYyf2hUVLs1XGuJ6Gr",
     "name": null,
-    "activeStake": 274844896957038,
+    "activeStake": 274928968403995,
     "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "qZMH9GWnnBkx7aM1h98iKSv2Lz5N78nwNSocAxDQrbP",
+    "name": "Spectrum Staking",
+    "activeStake": 274899175178886,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "6k5hZkHGa4x3xEU7Wz2LxWwueqZtVvX3fpymGugB14yB",
@@ -1404,39 +1434,45 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "AurseT3W3tk1dATBWAXtWR6oubBgECqintfcvP74teU3",
-    "name": "Aursen",
-    "activeStake": 274336180098171,
-    "softwareClient": "HarmonicAgave"
+    "account": "WUNoB9YQXmXXRcJsjY1G8PfVag5aAfnyGmFd6YwJVwp",
+    "name": "StakeCraft",
+    "activeStake": 274554279256620,
+    "softwareClient": "Rakurai"
+  },
+  {
+    "account": "inWVrrYJ38VihdE62LXNQvgV5CeRrdKEXpNtXLyqUWD",
+    "name": "Golden Validator - 0% Fee & MEV",
+    "activeStake": 273199561165033,
+    "softwareClient": "JitoLabs"
   },
   {
     "account": "2mDrrmhSzpSyaF12izGk8hnFjtKCGeCFPwQHpRiJDby2",
     "name": "S4Mar",
-    "activeStake": 271742149297795,
+    "activeStake": 272986466005868,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "gridqZmeBcsUKT2Mv4M9YFHFN3tVLFb2TCtTcLD1cAd",
+    "name": "Grid Systems",
+    "activeStake": 271673537130298,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "7Zm1pE4FubFYZDyAQ5Labh3A4cxDcvve1s3WCRgEAZ84",
     "name": "7Zm1pE4FubFYZDyAQ5Labh3A4cxDcvve1s3WCRgEAZ84",
-    "activeStake": 271490788353464,
+    "activeStake": 271638635966904,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "2dfgsiSaZ51QYPsECMYMG247PXxyKdwkV9wTHoQb8YEC",
     "name": "Astraeus",
-    "activeStake": 270980904798987,
+    "activeStake": 271153483402823,
     "softwareClient": "Rakurai"
-  },
-  {
-    "account": "FACb6bbTDRBHCK999V8ox8jga5JBnt1r3vvzmAYAMv2o",
-    "name": "Lantern",
-    "activeStake": 269809435417748,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "PuRposE4utktenW49N8DCtVzdVEwYrmsrroboEUram4",
     "name": null,
-    "activeStake": 268773289033618,
+    "activeStake": 269929617120791,
     "softwareClient": "JitoLabs"
   },
   {
@@ -1446,57 +1482,33 @@
     "softwareClient": "Agave"
   },
   {
-    "account": "2gDeeRa3mwPPtw1CMWPkEhRWo9v5izNBBfEXanr8uibX",
-    "name": "NuFi",
-    "activeStake": 266756325734732,
-    "softwareClient": "AgaveBam"
-  },
-  {
     "account": "radM7PKUpZwJ9bYPAJ7V8FXHeUmH1zim6iaXUKkftP9",
     "name": "Radiants",
-    "activeStake": 266531560767264,
+    "activeStake": 267331361726468,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "WUNoB9YQXmXXRcJsjY1G8PfVag5aAfnyGmFd6YwJVwp",
-    "name": "StakeCraft",
-    "activeStake": 266303241139536,
+    "account": "icex1C6pnZxznQWiHZZANjGU8nZ8kNquFnjyY7XXrXE",
+    "name": "BrewlabsHQ",
+    "activeStake": 266855934993727,
     "softwareClient": "Rakurai"
-  },
-  {
-    "account": "qZMH9GWnnBkx7aM1h98iKSv2Lz5N78nwNSocAxDQrbP",
-    "name": "Spectrum Staking",
-    "activeStake": 265814818103874,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "Tri1F8B6YtjkBztGCwBNSLEZib1EAqMUEUM7dTT7ZG3",
-    "name": "Trillium",
-    "activeStake": 265373408270622,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "ALPHA6rdHZkx1om79xp47vX1iZXcbM3qfEwLyttZ1T7R",
     "name": "Lifetime 0% fee + full MEV payout | Alphasearch",
-    "activeStake": 264774652337736,
+    "activeStake": 266310546844337,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "DP9SwUE9Wi4NijWxgKDmmVsqGtQ597AKKmDBwzpt8GgZ",
     "name": null,
-    "activeStake": 264379756036170,
+    "activeStake": 264531765662841,
     "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "4k6wgP5WPBKQpsFGtzuXNrjcTE2fKWLj17nDvFeG5zSF",
-    "name": "DawnLabs | 0% Fee + Block Rewards Sharing",
-    "activeStake": 263884692195059,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "3KiDz3wuZrJfsgKt5KEvRb1WPpbci1PWj78aPVF5ei3F",
     "name": "Nemertes",
-    "activeStake": 263756737841797,
+    "activeStake": 263905226717121,
     "softwareClient": "AgaveBam"
   },
   {
@@ -1506,16 +1518,16 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "gridqZmeBcsUKT2Mv4M9YFHFN3tVLFb2TCtTcLD1cAd",
-    "name": "Grid Systems",
-    "activeStake": 263362662906796,
-    "softwareClient": "AgaveBam"
-  },
-  {
     "account": "AHNX2YiD8Sb36yLA7bjx1bNs4jqCdDt3KKrwMZJMVedb",
     "name": null,
-    "activeStake": 262849146454279,
+    "activeStake": 262992484846965,
     "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "2gDeeRa3mwPPtw1CMWPkEhRWo9v5izNBBfEXanr8uibX",
+    "name": "NuFi",
+    "activeStake": 262567215244802,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "5ikB9XZNVsjwKb6hHT3FS3So1Z1SrDvU5yaniWEQyDEG",
@@ -1526,25 +1538,43 @@
   {
     "account": "phz1CRbEsCtFCh2Ro5tjyu588VU1WPMwW9BJS9yFNn2",
     "name": "YIELD",
-    "activeStake": 261045709360285,
+    "activeStake": 261867892985180,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "Tri1F8B6YtjkBztGCwBNSLEZib1EAqMUEUM7dTT7ZG3",
+    "name": "Trillium",
+    "activeStake": 261499635417319,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "adramSYKBv1yHoZTub4kepcmF5LybPxwyJcsz4fpfi7",
+    "name": "Adrastea Validator",
+    "activeStake": 261462966496029,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "EQhTjikb1L2jvxsCaSW2o2TuRXh4Do6HzBEWCxpeM44W",
     "name": "JM",
-    "activeStake": 260987140939471,
+    "activeStake": 261275440401140,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "LFGGGJtnBLvq78DyMz1gTeedM6f8owck76qHThDABBC",
     "name": "Alpha Waves",
-    "activeStake": 259615683880511,
+    "activeStake": 260832547548858,
     "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "vALigXFg9wnnhVHN16vNxHxXtAXiBv5QjAE6udoniBY",
+    "name": "Valigator Open",
+    "activeStake": 260724441108957,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "CTDGxTK789ZvhgyHZHtSnxTtysbyY1mrywXEJiYYqXxC",
     "name": "Cointelegraph Decentralization Guardians",
-    "activeStake": 257289321276496,
+    "activeStake": 259094749941649,
     "softwareClient": "AgaveBam"
   },
   {
@@ -1556,79 +1586,79 @@
   {
     "account": "G8kUFxhR7eSmSyAtVYEAyhvkBKdR49n7d8BKqpBo55kJ",
     "name": null,
-    "activeStake": 256699288112634,
+    "activeStake": 256843838222775,
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "icex1C6pnZxznQWiHZZANjGU8nZ8kNquFnjyY7XXrXE",
-    "name": "BrewlabsHQ",
-    "activeStake": 254370557046966,
-    "softwareClient": "Rakurai"
-  },
-  {
-    "account": "3WDh9HgusCujDmXCVhophLrHvoKHQd1Sd4uFHz1Awo35",
-    "name": "Absolute Guard",
-    "activeStake": 250219758269269,
+    "account": "FwnWx7x99rGwLmipzz8ii15NqcHkKRo2oS1Y7j6LivgZ",
+    "name": "Prompt Logic",
+    "activeStake": 254793676700686,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "61QB1Evn9E3noQtpJm4auFYyHSXS5FPgqKtPgwJJfEQk",
     "name": "Pigs in Blankets",
-    "activeStake": 249249188490435,
+    "activeStake": 253289299122789,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "vALigXFg9wnnhVHN16vNxHxXtAXiBv5QjAE6udoniBY",
-    "name": "Valigator Open",
-    "activeStake": 249236158260231,
+    "account": "3WDh9HgusCujDmXCVhophLrHvoKHQd1Sd4uFHz1Awo35",
+    "name": "Absolute Guard",
+    "activeStake": 250805646910572,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "7VZM7YHcX73TpGoXDeBu61g4QKC86GwAEnew8dA7Y2xn",
+    "name": "BLOCKSIZE",
+    "activeStake": 250666697749696,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "Lake8NXDThihebhxS3Js7mFnj9fthmus93zEdsFNrsL",
     "name": "LakeStake",
-    "activeStake": 248002097290001,
+    "activeStake": 248705150719501,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "FugJZepeGfh1Ruunhep19JC4F3Hr2FL3oKUMezoK8ajp",
     "name": "Temporal Topaz",
-    "activeStake": 247164577623194,
+    "activeStake": 247123237797254,
     "softwareClient": "Harmonic"
   },
   {
-    "account": "FwnWx7x99rGwLmipzz8ii15NqcHkKRo2oS1Y7j6LivgZ",
-    "name": "Prompt Logic",
-    "activeStake": 246322162881861,
+    "account": "3s97yjq2MhoPVPC3U9VeE3Z5S643Pweovg88ysvrQPw5",
+    "name": "Starke Finance",
+    "activeStake": 246886826610110,
     "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "AG1PsJMQcutNUX64RD3bAhW7NpxWeFkqkgGizBznYFKW",
-    "name": null,
-    "activeStake": 243870610889500,
-    "softwareClient": "HarmonicAgave"
   },
   {
     "account": "BNtHBLo1L2vAG7PBQ6mJvWz7GqVPxBnioXsY2Gjtubrg",
     "name": "CatalystX - Innovation OnChain",
-    "activeStake": 243261744352932,
+    "activeStake": 243842587193418,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "yJeahQNRHNWtL9Z1SqPX3SBwTYXr5ECMYYVK4uYVwxt",
     "name": "Dosirak 🇰🇷",
-    "activeStake": 242063810482628,
+    "activeStake": 243205093477730,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "ETcW7iuVraMKLMJayNCCsr9bLvKrJPDczy1CMVMPmXTc",
     "name": "stakeware.xyz | ferric",
-    "activeStake": 242019161539262,
+    "activeStake": 243160192935045,
     "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "AG1PsJMQcutNUX64RD3bAhW7NpxWeFkqkgGizBznYFKW",
+    "name": null,
+    "activeStake": 243025392187423,
+    "softwareClient": "HarmonicAgave"
   },
   {
     "account": "8NpDWRcKHkBjn8mbHMYgDm2Z2DRvXXuDiSScPsGSdSgr",
     "name": "P2P.org Labs",
-    "activeStake": 241581745358025,
+    "activeStake": 240109532849607,
     "softwareClient": "JitoLabs"
   },
   {
@@ -1638,82 +1668,76 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "7mF8NZJdREuM1uwYcvKffuY9QJBEoHhNp4hZ4NS2fuXW",
-    "name": "Meria",
-    "activeStake": 238097306884115,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "3s97yjq2MhoPVPC3U9VeE3Z5S643Pweovg88ysvrQPw5",
-    "name": "Starke Finance",
-    "activeStake": 237801855716373,
-    "softwareClient": "AgaveBam"
-  },
-  {
     "account": "EdGevanA2MZsDpxDXK6b36FH7RCcTuDZZRcc6MEyE9hy",
     "name": "Edgevana",
-    "activeStake": 237417395451351,
+    "activeStake": 238664500253244,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "PAWsME7oYbjt5TRNc11mBa33JhKnQr9AYherdr9YAZ6",
+    "name": "Paws🐾 0% Fee/MEV",
+    "activeStake": 234782595982074,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "9GHvMeJ4ZWuAX6sDGscFL1TBMszx2EehnrcTVUy4MZJQ",
     "name": null,
-    "activeStake": 232092347636547,
+    "activeStake": 232026139289136,
     "softwareClient": "Harmonic"
-  },
-  {
-    "account": "PAWsME7oYbjt5TRNc11mBa33JhKnQr9AYherdr9YAZ6",
-    "name": "Paws🐾 0% Fee/MEV",
-    "activeStake": 231952746384277,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "Ey3DkEVbfBxfWmkTsG7Hqj7jshYf5Zx9H8462Zjjkykf",
     "name": "SolBrothers",
-    "activeStake": 230403608470780,
+    "activeStake": 231623491663508,
     "softwareClient": "Frankendancer Vanilla"
   },
   {
-    "account": "adramSYKBv1yHoZTub4kepcmF5LybPxwyJcsz4fpfi7",
-    "name": "Adrastea Validator",
-    "activeStake": 230137194057773,
+    "account": "BuoZ7q6faiJNTN24r7Kcj8dp96axs5XPEKXmWGsh2pDE",
+    "name": null,
+    "activeStake": 228056231926683,
+    "softwareClient": "HarmonicAgave"
+  },
+  {
+    "account": "PRGNnb8DxVcP2WjSHfVRGgc8SkA5u6dbMwoTVV1BGKN",
+    "name": "Paragon",
+    "activeStake": 227318161984973,
+    "softwareClient": "Frankendancer Vanilla"
+  },
+  {
+    "account": "forb5u56XgvzxiKfRt4FVNFQKJrd2LWAfNCsCqL6P7q",
+    "name": "Forbole",
+    "activeStake": 227241459672585,
+    "softwareClient": "Rakurai"
+  },
+  {
+    "account": "DViARWAWKkxAzp4UCgbw5B9pLSrBY3PaztFErcwgVUKX",
+    "name": "Code-Breader",
+    "activeStake": 226281851934358,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "spcti6GQVvinbtHU9UAkbXhjTcBJaba1NVx4tmK4M5F",
     "name": "Staker Space",
-    "activeStake": 227619382573016,
+    "activeStake": 224581972963941,
     "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "PRGNnb8DxVcP2WjSHfVRGgc8SkA5u6dbMwoTVV1BGKN",
-    "name": "Paragon",
-    "activeStake": 226868958749405,
-    "softwareClient": "Frankendancer Vanilla"
-  },
-  {
-    "account": "DViARWAWKkxAzp4UCgbw5B9pLSrBY3PaztFErcwgVUKX",
-    "name": "Code-Breader",
-    "activeStake": 226125444102019,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "forb5u56XgvzxiKfRt4FVNFQKJrd2LWAfNCsCqL6P7q",
-    "name": "Forbole",
-    "activeStake": 226111307240343,
-    "softwareClient": "Rakurai"
-  },
-  {
-    "account": "BuoZ7q6faiJNTN24r7Kcj8dp96axs5XPEKXmWGsh2pDE",
-    "name": null,
-    "activeStake": 225670650661137,
-    "softwareClient": "HarmonicAgave"
   },
   {
     "account": "5pZvwjSpGYCxpJeySwSbSAji7kZe4YntL7rQvXM3YcNT",
     "name": "Solstice",
-    "activeStake": 224774715760689,
+    "activeStake": 224130608987110,
     "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "4b1onMDEasBh4BuPekQWijx3BYR64hAE1z2jJyeZUkck",
+    "name": "4BLOCK 0% Fee + Jito All MEV",
+    "activeStake": 221485189241092,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "Pid6HQnMCFb9izqX9i7X6ePdUPieGmjHoPxC1Jfooix",
+    "name": "Pine Stake",
+    "activeStake": 220629687750611,
+    "softwareClient": "JitoLabs"
   },
   {
     "account": "6MiEjXqYksCtKnJpvAp3CAoEZnnWZyoSxu41HCzAYNdc",
@@ -1722,21 +1746,21 @@
     "softwareClient": "Frankendancer Rev"
   },
   {
-    "account": "inWVrrYJ38VihdE62LXNQvgV5CeRrdKEXpNtXLyqUWD",
-    "name": "😎😎🔥 TELETUBBY VALIDATOR 💸",
-    "activeStake": 219559585800781,
-    "softwareClient": "JitoLabs"
-  },
-  {
     "account": "4DraK9wUrMSpzbGjUbSWTHAhJimMyB49HyKhvfwe6e51",
     "name": "Y8 Crypto",
-    "activeStake": 218943291014365,
+    "activeStake": 220247894062872,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "8pyp3vfVPRziYdAYEyqkwytdBbdVbQmHqfQAVDcRV3w",
     "name": "Rustiq Technology",
-    "activeStake": 218451249729690,
+    "activeStake": 219547079380114,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "8W8v28d1fBZE1fkaaHbowJM4hGZGnVHWNK1NyhUsob6Z",
+    "name": "Michigan Blockchain",
+    "activeStake": 218856505608845,
     "softwareClient": "AgaveBam"
   },
   {
@@ -1746,376 +1770,412 @@
     "softwareClient": "HarmonicAgave"
   },
   {
-    "account": "4b1onMDEasBh4BuPekQWijx3BYR64hAE1z2jJyeZUkck",
-    "name": "4BLOCK 0% Fee + Jito All MEV",
-    "activeStake": 216176151451156,
+    "account": "BeSovDCzhEAfgwDyXBuhmCFKsu5WQ3PaX61GEfteNzXM",
+    "name": "Yonta Labs - LST 0%Fee MEV -",
+    "activeStake": 216300078154373,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "SLNDCSGTEsA6KHpgR32MBt9UAurZnVSJGUtW2tRpdU2",
     "name": "Solend",
-    "activeStake": 214028766977668,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "AsMpvJ3DZ2Ydu1WTRMAyMH4QjSLiUG39rKzfzvtE1bWr",
-    "name": "Nordic Staking 0% fee top APY 3+ years",
-    "activeStake": 214004871907778,
+    "activeStake": 214750220290653,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "mD1afZhSisoXfJLT8nYwSFANqjr1KPoDUEpYTEfFX1e",
     "name": "Block Parliament 🦉",
-    "activeStake": 213936941079396,
+    "activeStake": 214587648756027,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "7VZM7YHcX73TpGoXDeBu61g4QKC86GwAEnew8dA7Y2xn",
-    "name": "BLOCKSIZE",
-    "activeStake": 211508921716221,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "sTepQGoReJq2tBKStL19DT6nnGHcGiAvFjyYaokLyuM",
-    "name": "Step Finance",
-    "activeStake": 209892814187771,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "2UBhtRuyr9nvWsUnrbWrvJiYWEU8TVBD4PLYQJKiRa9H",
-    "name": "Luna Labs",
-    "activeStake": 209847878301482,
-    "softwareClient": "AgaveBam"
+    "account": "Ed9WjPnZfAXsPttcqxMwj94qsuXVRyBsyXnDkxFva2Zv",
+    "name": "Rakurai | High TPS | High rewards",
+    "activeStake": 213975064508094,
+    "softwareClient": "Rakurai"
   },
   {
     "account": "puffinQSvKFriPbyE5atyx1ptfnyytovbzxybr1jsyy",
     "name": "Puffin",
-    "activeStake": 209219809471238,
+    "activeStake": 213844205460329,
     "softwareClient": "Frankendancer Vanilla"
   },
   {
-    "account": "Pid6HQnMCFb9izqX9i7X6ePdUPieGmjHoPxC1Jfooix",
-    "name": "Pine Stake",
-    "activeStake": 209172090314263,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "BeSovDCzhEAfgwDyXBuhmCFKsu5WQ3PaX61GEfteNzXM",
-    "name": "Yonta Labs - LST 0%Fee MEV -",
-    "activeStake": 209094675947995,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "mastWEbKEMjvBCd1uaUBpNjWcfSPhXMWnH9tTrgzn1g",
-    "name": "MAS DeFi",
-    "activeStake": 208112506533070,
-    "softwareClient": "Frankendancer Vanilla"
-  },
-  {
-    "account": "ABC1U4cf9DZMwqy8ktEr4WJj8VHmVBQibbC57gEJthwY",
-    "name": "algo|stake",
-    "activeStake": 208098297167431,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "UNrgBLmc8JT6A3dxXY9DWeHvDezt2DZQbhg1KPQfqEL",
-    "name": "Unruggable",
-    "activeStake": 207746801794127,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "TREEir31FswHK7JZBS5oFQteS72dobi6inpmQha88dA",
-    "name": "Tree Validator",
-    "activeStake": 205359316458548,
-    "softwareClient": "HarmonicFrankendancer"
-  },
-  {
-    "account": "grptonHnt7YSmJokGK9TJJTBXDT8ca4LSWMHCCfzzPa",
-    "name": "gripto",
-    "activeStake": 203866773503697,
+    "account": "zeroT6PTAEjipvZuACTh1mbGCqTHgA6i1ped9DcuidX",
+    "name": "0base.vc 🇰🇷 | MEV 🔥",
+    "activeStake": 213054244003104,
     "softwareClient": "HarmonicFrankendancer"
   },
   {
     "account": "9FXD1NXrK6xFU8i4gLAgjj2iMEWTqJhSuQN8tQuDfm2e",
     "name": "Grassets Tech | Jito-BAM | IBRL",
-    "activeStake": 202650811762533,
+    "activeStake": 212539420836622,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "sTepQGoReJq2tBKStL19DT6nnGHcGiAvFjyYaokLyuM",
+    "name": "Step Finance",
+    "activeStake": 209816622625287,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "2UBhtRuyr9nvWsUnrbWrvJiYWEU8TVBD4PLYQJKiRa9H",
+    "name": "Luna Labs",
+    "activeStake": 209804519046171,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "AsMpvJ3DZ2Ydu1WTRMAyMH4QjSLiUG39rKzfzvtE1bWr",
+    "name": "Nordic Staking 0% fee top APY 3+ years",
+    "activeStake": 209481922801569,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "HE2REn7YRhFEghuctv3y1dUEK9aWhw8QQSUpRiHd819r",
+    "name": "Coinbase 06",
+    "activeStake": 209466665919662,
+    "softwareClient": "HarmonicAgave"
+  },
+  {
+    "account": "mastWEbKEMjvBCd1uaUBpNjWcfSPhXMWnH9tTrgzn1g",
+    "name": "MAS DeFi",
+    "activeStake": 209268530123992,
+    "softwareClient": "Frankendancer Vanilla"
+  },
+  {
+    "account": "ABC1U4cf9DZMwqy8ktEr4WJj8VHmVBQibbC57gEJthwY",
+    "name": "algo|stake",
+    "activeStake": 209231643528850,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "UNrgBLmc8JT6A3dxXY9DWeHvDezt2DZQbhg1KPQfqEL",
+    "name": "Unruggable",
+    "activeStake": 208449437268588,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "H9ENbtmy2tWFtAJNmpC8xQtbcr1NTp4FXLdphRaG8L2T",
     "name": "Bubbles",
-    "activeStake": 202431283056625,
+    "activeStake": 206627495994351,
     "softwareClient": "HarmonicAgave"
   },
   {
-    "account": "Ed9WjPnZfAXsPttcqxMwj94qsuXVRyBsyXnDkxFva2Zv",
-    "name": "Rakurai | High TPS | High rewards",
-    "activeStake": 201576858572221,
-    "softwareClient": "Rakurai"
+    "account": "TREEir31FswHK7JZBS5oFQteS72dobi6inpmQha88dA",
+    "name": "Tree Validator",
+    "activeStake": 206223427478236,
+    "softwareClient": "HarmonicFrankendancer"
   },
   {
-    "account": "zeroT6PTAEjipvZuACTh1mbGCqTHgA6i1ped9DcuidX",
-    "name": "0base.vc 🇰🇷 | MEV 🔥",
-    "activeStake": 201319207702106,
-    "softwareClient": "HarmonicFrankendancer"
+    "account": "MBVyz9s72WSfUmbr1S8fgHjDJQkPs1Q4Wxi6A2Mees9",
+    "name": "WIZE Validator",
+    "activeStake": 206170898506159,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "91oPXTs2oq8VvJpQ5TnvXakFGnnJSpEB6HFWDtSctwMt",
+    "name": "Stronghold",
+    "activeStake": 205169625149267,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "97jbhVBYcSmwGXjrx5PPWXucDsVBqwyoQ6rzP3B6eeMt",
     "name": "anarcheuz",
-    "activeStake": 199614960465385,
+    "activeStake": 200475145767127,
     "softwareClient": "HarmonicFrankendancer"
-  },
-  {
-    "account": "73hojLdq1vZDSxeVQEqVFJ4iwLngdvEJPEpEHkSdv6BZ",
-    "name": "SuperteamDE x Staking Facilities | Public Goods Validator",
-    "activeStake": 198882342212909,
-    "softwareClient": "JitoLabs"
   },
   {
     "account": "sTEAKPk59EtPPbixCweyv6oRLNCDEE8pnnef6gUfbiW",
     "name": "STEAK.NET 🥩",
-    "activeStake": 198844058948604,
+    "activeStake": 200105364147009,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "4VrjyXQT61WFSjuG3ehgqZUK1jqvYqB46veQbXLotq3n",
+    "name": "Vault X | 0% fee +MEV",
+    "activeStake": 200003682122422,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "2t53LvZfskcpXkdwLaBnfZLbNgyVHPu2BNFpcRBaEBhM",
+    "name": "Kevred",
+    "activeStake": 199904373309561,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "dcntruDNP5SEcGV4RxnsqXFURdDZGT3DTQv68Q8H7Vu",
+    "name": "Decentra",
+    "activeStake": 199769038601566,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "73hojLdq1vZDSxeVQEqVFJ4iwLngdvEJPEpEHkSdv6BZ",
+    "name": "SuperteamDE x Staking Facilities | Public Goods Validator",
+    "activeStake": 199720148149925,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "5marvipGzf98hxnoJFXsZbGHSXcEQ3yRGJ4ps7D3V4ou",
+    "name": "MARVEL+MEV!",
+    "activeStake": 198964931845311,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "AwcMVMvmT1aCETVYV42WE1cSMCyNp4vZqVjLsvs6dM4o",
     "name": "Beachside",
-    "activeStake": 198835435149250,
+    "activeStake": 198284243658409,
     "softwareClient": "Rakurai"
-  },
-  {
-    "account": "91oPXTs2oq8VvJpQ5TnvXakFGnnJSpEB6HFWDtSctwMt",
-    "name": "Stronghold",
-    "activeStake": 197394012643734,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "HrpWeJSYnQVtZe3BKxFCBrAEr8GRCmYUbQev4hoGDBs6",
     "name": null,
-    "activeStake": 196529904756771,
+    "activeStake": 197645421935688,
     "softwareClient": "Frankendancer Vanilla"
-  },
-  {
-    "account": "GwHH8ciFhR8vejWCqmg8FWZUCNtubPY2esALvy5tBvji",
-    "name": "ART3MIS.CLOUD ☘️",
-    "activeStake": 196346895827417,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "GFXVa19rX6iwfs3sLS5UvX9Exu2usRsG4V5MRMDRo23V",
     "name": "GooseFX - 0% Fees",
-    "activeStake": 195821614972563,
+    "activeStake": 197279998955799,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "Stakex4B2tpDHPWGvV1dninfiaYCGdakgTknpzPitLh",
     "name": "Stake.org",
-    "activeStake": 195795398621784,
+    "activeStake": 196909390530382,
     "softwareClient": "Rakurai"
   },
   {
-    "account": "4VrjyXQT61WFSjuG3ehgqZUK1jqvYqB46veQbXLotq3n",
-    "name": "Vault X | 0% fee +MEV",
-    "activeStake": 195698164505664,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "A23LfQn6khffj2hGhGfXr6P52W2pxrVcCaHVQLYQgiX2",
-    "name": "vladika",
-    "activeStake": 195135307160179,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "SLAY6uN1zZpXBTfbuDDCesNmM5D288xrz8uYvfS3n41",
-    "name": "Solayer Validator [5% Commission + 100% MEV Kickback]",
-    "activeStake": 194595821292922,
-    "softwareClient": "Rakurai"
+    "account": "rsbp8zMHbGCpLoRktmsjspYv77VcjxAzH1KxPCD9BiU",
+    "name": "Albert is Great",
+    "activeStake": 196833854598755,
+    "softwareClient": "JitoLabs"
   },
   {
     "account": "4vcmYPfLztUckU3c3FvXDwSq8aDNDqwEpvEiqAv97LGJ",
     "name": null,
-    "activeStake": 194400755087675,
+    "activeStake": 195515203862817,
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "GiYSnFRrXrmkJMC54A1j3K4xT6ZMfx1NSThEe5X2WpDe",
-    "name": "MonkeDAO",
-    "activeStake": 193082249286375,
-    "softwareClient": "Rakurai"
-  },
-  {
-    "account": "2t53LvZfskcpXkdwLaBnfZLbNgyVHPu2BNFpcRBaEBhM",
-    "name": "Kevred",
-    "activeStake": 192922587882509,
+    "account": "BPKAfGkkzF5u1QRjjB1nWYYbPMUCMPJe1xZPmwEMNMCT",
+    "name": "GateOmega | SolCircl.app",
+    "activeStake": 195328231775869,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "5HYjArGt81naevDdwMaEx8yeGNw9jYBSDJa8YavT9Mp4",
-    "name": "Sol Hack3rs",
-    "activeStake": 191178275795992,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "fdzip81euDS8jEZHx5H1mn27zGVMLzkgpQuzYRBfBYG",
-    "name": "fd1.zip 📦",
-    "activeStake": 190445380635121,
-    "softwareClient": "HarmonicFrankendancer"
-  },
-  {
-    "account": "CVRr5oHCAAooVbYze7CvXtRp4FUtkMCSqBZU7MVu8v8e",
-    "name": "Coverlet+MEV | 0% ALL FEES ✅",
-    "activeStake": 190415735196101,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "MCFmmmXdzTKjBEoMggi8JGFJmd856uYSowuH2sCU5kx",
-    "name": "MCF",
-    "activeStake": 189333647907427,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "3tzpLMWRkWucvTRWU5PjgKzN1iwJuV69yCCjmuuo4gTk",
-    "name": "TruFin by Twinstake",
-    "activeStake": 188796857954472,
-    "softwareClient": "HarmonicAgave"
-  },
-  {
-    "account": "BTGPbq4KuFENn4CKuaKGqkaDd3TJD3TEgtMjSrsZnMLb",
-    "name": null,
-    "activeStake": 188692461682885,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "1KXvrkPXwkGF6NK1zyzVuJqbXfpenPVPP6hoiK9bsK3",
-    "name": "1000X.sh",
-    "activeStake": 188205159243613,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "dxa6QFqLcByyHykLCAW5tv1VYNVQFV3v6oovM2h8inH",
-    "name": "Fidelity Center for Applied Technology (FCAT®)",
-    "activeStake": 187918851656517,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "8W8v28d1fBZE1fkaaHbowJM4hGZGnVHWNK1NyhUsob6Z",
-    "name": "Michigan Blockchain",
-    "activeStake": 187143505726927,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "NordEHiwa6wT5TCjdeWJzpsA7DSmWQPqfSS7m2b6cv3",
-    "name": "nordstar ⭐ reliable staking +MEV",
-    "activeStake": 187005134420780,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "sbidYi7fbif6qNsMpwBKvyF5DKcLCbjaegpADsKqNux",
-    "name": "SolBlaze",
-    "activeStake": 186651811581103,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "HVXXmNKkmDZbZwj74iL2Y9Wu4SyrchBoxAfFYVAktLrG",
-    "name": "fat tails lab",
-    "activeStake": 186500957727271,
+    "account": "8Nvaxzif1NrdvxNkRetjT8xJvd33EHkKVrfL8EDkgaNy",
+    "name": "South",
+    "activeStake": 195155361850661,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "DeXsDvvZzKhVux4YfDFE6p4acJLGzr8yKt5pSTjzZB8t",
     "name": "LootGo",
-    "activeStake": 186277886006899,
+    "activeStake": 194983741946937,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "Fudp7uPDYNYQRxoq1Q4JiwJnzyxhVz37bGqRki3PBzS",
-    "name": "huglester",
-    "activeStake": 185585886183202,
-    "softwareClient": "Frankendancer Vanilla"
-  },
-  {
-    "account": "popscoyTKVksa4TyTXw488b3vvFxM7qQEyTBeMQopKu",
-    "name": "P-OPS Team",
-    "activeStake": 184770809794883,
+    "account": "GwHH8ciFhR8vejWCqmg8FWZUCNtubPY2esALvy5tBvji",
+    "name": "ART3MIS.CLOUD ☘️",
+    "activeStake": 194882661580750,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "DidkDYa64DEMx97P4iahDwsWtgUTnLiEhHSMUbQGihi5",
-    "name": null,
-    "activeStake": 184681264364003,
+    "account": "A23LfQn6khffj2hGhGfXr6P52W2pxrVcCaHVQLYQgiX2",
+    "name": "vladika",
+    "activeStake": 194740853382366,
     "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "SLAY6uN1zZpXBTfbuDDCesNmM5D288xrz8uYvfS3n41",
+    "name": "Solayer Validator [5% Commission + 100% MEV Kickback]",
+    "activeStake": 193608004683825,
+    "softwareClient": "Rakurai"
   },
   {
     "account": "2N7v8pDKDYhtBUJBQUgxvysUjgM9s4ULPCmeEiPWTf6Z",
     "name": "HAKUHODO KEY3",
-    "activeStake": 184448580895952,
+    "activeStake": 193228760634908,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "vaoJKVZYPAsqc52T2nNQhABR1gU6Cy2koDKfCQaEiva",
-    "name": "polkachu.com",
-    "activeStake": 184219118270786,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "NdMV1C3XMCRqSBwBtNmoUNnKctYh95Ug4xb6FSTcAWr",
-    "name": "Neodyme",
-    "activeStake": 183477925243808,
-    "softwareClient": "Frankendancer Vanilla"
-  },
-  {
-    "account": "5zm9g3zgAPWzX3wmUB2JtTkcwCqe74NWsTmt5wLFwCKK",
-    "name": "Allied Validator",
-    "activeStake": 183323979987225,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "DDnAqxJVFo2GVTujibHt5cjevHMSE9bo8HJaydHoshdp",
-    "name": "Block Logic +MEV +Triton",
-    "activeStake": 183131062738582,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "BPKAfGkkzF5u1QRjjB1nWYYbPMUCMPJe1xZPmwEMNMCT",
-    "name": "GateOmega | SolCircl.app",
-    "activeStake": 182661751328110,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "SFundNVpuWk89g211WKUZGkuu4BsKSp7PbnmRsPZLos",
-    "name": "Staking Fund",
-    "activeStake": 182069395465452,
-    "softwareClient": "HarmonicFrankendancer"
-  },
-  {
-    "account": "2P9ZYA4vBoBBr56hrEFTmrd5ctuz3r7wtvRYmbgk6jRL",
-    "name": "Sunshine",
-    "activeStake": 181973118651280,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "5aD6KB8g4MPt3xJafmMmun86hHMDnoFiGbd5gYiMFZw7",
-    "name": "Daiko",
-    "activeStake": 181807299178311,
+    "account": "4QNekaDqrLmUENqkVhGCJrgHziPxkX9kridbKwunx9su",
+    "name": "Stakeconomy 🚀 Jito MEV + Triton.One",
+    "activeStake": 193072199370606,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "9pBHfuE19q7PRbupJf8CZAMwv6RHjasdyMN9U9du7Nx2",
     "name": "H2O Nodes💧",
-    "activeStake": 181485444110731,
+    "activeStake": 192662258075912,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "GiYSnFRrXrmkJMC54A1j3K4xT6ZMfx1NSThEe5X2WpDe",
+    "name": "MonkeDAO",
+    "activeStake": 191297994541572,
+    "softwareClient": "Rakurai"
+  },
+  {
+    "account": "fdzip81euDS8jEZHx5H1mn27zGVMLzkgpQuzYRBfBYG",
+    "name": "fd1.zip 📦",
+    "activeStake": 191292120863933,
+    "softwareClient": "HarmonicFrankendancer"
+  },
+  {
+    "account": "CVRr5oHCAAooVbYze7CvXtRp4FUtkMCSqBZU7MVu8v8e",
+    "name": "Coverlet+MEV | 0% ALL FEES ✅",
+    "activeStake": 190832966302607,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "MCFmmmXdzTKjBEoMggi8JGFJmd856uYSowuH2sCU5kx",
+    "name": "MCF",
+    "activeStake": 190258397338377,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "BTGPbq4KuFENn4CKuaKGqkaDd3TJD3TEgtMjSrsZnMLb",
+    "name": null,
+    "activeStake": 189335706649827,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "1KXvrkPXwkGF6NK1zyzVuJqbXfpenPVPP6hoiK9bsK3",
+    "name": "1000X.sh",
+    "activeStake": 189270999086407,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "dxa6QFqLcByyHykLCAW5tv1VYNVQFV3v6oovM2h8inH",
+    "name": "Fidelity Center for Applied Technology (FCAT®)",
+    "activeStake": 188616807393792,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "3tzpLMWRkWucvTRWU5PjgKzN1iwJuV69yCCjmuuo4gTk",
+    "name": "TruFin by Twinstake",
+    "activeStake": 188308681880956,
+    "softwareClient": "HarmonicAgave"
+  },
+  {
+    "account": "NordEHiwa6wT5TCjdeWJzpsA7DSmWQPqfSS7m2b6cv3",
+    "name": "nordstar ⭐ reliable staking +MEV",
+    "activeStake": 188000370540197,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "sbidYi7fbif6qNsMpwBKvyF5DKcLCbjaegpADsKqNux",
+    "name": "SolBlaze",
+    "activeStake": 187391057997977,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "DDnAqxJVFo2GVTujibHt5cjevHMSE9bo8HJaydHoshdp",
+    "name": "Block Logic +MEV +Triton",
+    "activeStake": 186764545600470,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "Fudp7uPDYNYQRxoq1Q4JiwJnzyxhVz37bGqRki3PBzS",
+    "name": "huglester",
+    "activeStake": 186696671328470,
+    "softwareClient": "Frankendancer Vanilla"
+  },
+  {
+    "account": "DidkDYa64DEMx97P4iahDwsWtgUTnLiEhHSMUbQGihi5",
+    "name": null,
+    "activeStake": 186358138491814,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "popscoyTKVksa4TyTXw488b3vvFxM7qQEyTBeMQopKu",
+    "name": "P-OPS Team",
+    "activeStake": 185259160672391,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "soLStaCk5TiGCpeLKa9Fvv6f5JQGMa6S3uhLh826e9N",
+    "name": "SolStack by Corvus Labs",
+    "activeStake": 185203569028078,
+    "softwareClient": "Agave"
+  },
+  {
+    "account": "NdMV1C3XMCRqSBwBtNmoUNnKctYh95Ug4xb6FSTcAWr",
+    "name": "Neodyme",
+    "activeStake": 184579847938815,
+    "softwareClient": "Frankendancer Vanilla"
+  },
+  {
+    "account": "vaoJKVZYPAsqc52T2nNQhABR1gU6Cy2koDKfCQaEiva",
+    "name": "polkachu.com",
+    "activeStake": 184080928729019,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "b1ueZK9bWTywN2587zsScyLTaH18wfRfN5W15XnkiqF",
+    "name": "Blue Sky",
+    "activeStake": 183374268619638,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "SFundNVpuWk89g211WKUZGkuu4BsKSp7PbnmRsPZLos",
+    "name": "Staking Fund",
+    "activeStake": 183011599288507,
+    "softwareClient": "HarmonicFrankendancer"
+  },
+  {
+    "account": "5aD6KB8g4MPt3xJafmMmun86hHMDnoFiGbd5gYiMFZw7",
+    "name": "Daiko",
+    "activeStake": 182975168988524,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "5HYjArGt81naevDdwMaEx8yeGNw9jYBSDJa8YavT9Mp4",
+    "name": "Sol Hack3rs",
+    "activeStake": 182914852361149,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "CLsFr1KZVbAyz16iFpwg2e4hiekR1unpwyxfNdjBMaoE",
+    "name": "Vault",
+    "activeStake": 182295840601428,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "2P9ZYA4vBoBBr56hrEFTmrd5ctuz3r7wtvRYmbgk6jRL",
+    "name": "Sunshine",
+    "activeStake": 181304361785923,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "5zuNci3TV79w6zLoJZzbZujMvkVZb2FcSPhgv9aT24AK",
     "name": "Solana Japan Validator🇯🇵",
-    "activeStake": 179803090215344,
+    "activeStake": 181246482764415,
     "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "AmjX7CerZbHrU814UeBp2gJC7gANNG3KrP4c3RyD7TSD",
+    "name": "NTT DOCOMO GLOBAL",
+    "activeStake": 179531055849057,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "simpRo1FrQYGa1moicfgnPDp6KyE38d4gYrZzhjXYJb",
+    "name": "Simpdigit",
+    "activeStake": 179517224758589,
+    "softwareClient": "Harmonic"
   },
   {
     "account": "5XKJwdKB2Hs7pkEXzifAysjSk6q7Rt6k5KfHwmAMPtoQ",
     "name": "Moonlet",
-    "activeStake": 178997879030099,
+    "activeStake": 179307448306749,
     "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "idCE5k2BtTpwXdwAC7Var1enT9reut9fWECcxQP7LY7",
+    "name": "🔥💃🇸🇬 CeriumXYZ",
+    "activeStake": 179205990729041,
+    "softwareClient": "Frankendancer Vanilla"
   },
   {
     "account": "UMi1r5J3SagSu4HC3waB3YFzbXi82rRSScgW2e8NTfr",
@@ -2124,213 +2184,213 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "idCE5k2BtTpwXdwAC7Var1enT9reut9fWECcxQP7LY7",
-    "name": "🔥💃🇸🇬 CeriumXYZ",
-    "activeStake": 178308377639542,
-    "softwareClient": "Frankendancer Vanilla"
-  },
-  {
-    "account": "4QNekaDqrLmUENqkVhGCJrgHziPxkX9kridbKwunx9su",
-    "name": "Stakeconomy 🚀 Jito MEV + Triton.One",
-    "activeStake": 178011137092218,
-    "softwareClient": "AgaveBam"
-  },
-  {
     "account": "5AsoSeQtLoN8eLsf3wKrR3LwxHME4sTBGR6dpTCP1k3H",
     "name": "some name",
-    "activeStake": 177222532663356,
+    "activeStake": 178168198662858,
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "bxrAptB5ZpZBhoLedJpoGWY5hBjjt3zvVBr2323Rrq6",
-    "name": "bloXroute EU",
-    "activeStake": 177155355059307,
+    "account": "GWJyUxzcVwRRtpLuLiu1mpiUQsZ4onYFAYfCjQnuLmz5",
+    "name": "Pacific Meta",
+    "activeStake": 177235954781337,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "THWsLPufeq9LWs2H9vYPbtFwdxAHbQHvSbT6pztG8x1",
     "name": "THW Validator",
-    "activeStake": 176365979220404,
+    "activeStake": 176786532330279,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "AmhQFcGvH2hjkucP78rn6GMKSbstYwyFpCDVKZUwBGrG",
     "name": "myhauz",
-    "activeStake": 175720199270390,
-    "softwareClient": "Frankendancer Vanilla"
-  },
-  {
-    "account": "6gnbmed7kzwQVQ7ghsjgEuCoYmGeWciV2qCwni6WS6HU",
-    "name": "Capital Alliance 🔥",
-    "activeStake": 173030948037266,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "D4r6Rcua2L7nHHhdaiZe2k2bTfPg2WQqcNYpG6bugvCG",
-    "name": "Limitless Systems",
-    "activeStake": 172507883263057,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "nymsHergYedT9CJMgtGMvqXUTGcbs5o3MiWTJUbqTGY",
-    "name": "Hypo Nyms",
-    "activeStake": 172201521633754,
-    "softwareClient": "HarmonicAgave"
-  },
-  {
-    "account": "PAD9aPiKJGcbGxuVLbc8o4Vf65GPq3fJQ7PkHWuX6a8",
-    "name": "BlueLotus 👩‍💻",
-    "activeStake": 170714231618878,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "74Xkp2iLXm315h69sFRiCFjmKnaWkMV8W2LgJwPRSgN5",
-    "name": null,
-    "activeStake": 170328081805683,
-    "softwareClient": "Frankendancer Vanilla"
-  },
-  {
-    "account": "11AMA4mnNbsrPQeuoNN7uiZVJZtqEzQHrTfa5vnbcjk",
-    "name": "11ama Validator",
-    "activeStake": 170020719564932,
+    "activeStake": 176612580942804,
     "softwareClient": "Frankendancer Vanilla"
   },
   {
     "account": "4uH4G6YiD5G8rU3mtPg73C2Uqamrqedy3FboTZcZrh6x",
     "name": "Windfall",
-    "activeStake": 169379500220862,
+    "activeStake": 176248609428603,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "simpRo1FrQYGa1moicfgnPDp6KyE38d4gYrZzhjXYJb",
-    "name": "Simpdigit",
-    "activeStake": 169154393182889,
-    "softwareClient": "Harmonic"
+    "account": "PAD9aPiKJGcbGxuVLbc8o4Vf65GPq3fJQ7PkHWuX6a8",
+    "name": "BlueLotus 👩‍💻",
+    "activeStake": 175711044886483,
+    "softwareClient": "AgaveBam"
   },
   {
-    "account": "HE2REn7YRhFEghuctv3y1dUEK9aWhw8QQSUpRiHd819r",
-    "name": "Coinbase 06",
-    "activeStake": 169001273281270,
+    "account": "8uPW9msN75rfaKiwy8y8NxEX5zSk2WejtVv5YhZr3jCo",
+    "name": "Lumos Maxima",
+    "activeStake": 174579550922521,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "D4r6Rcua2L7nHHhdaiZe2k2bTfPg2WQqcNYpG6bugvCG",
+    "name": "Limitless Systems",
+    "activeStake": 173939980462176,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "nymsHergYedT9CJMgtGMvqXUTGcbs5o3MiWTJUbqTGY",
+    "name": "Hypo Nyms",
+    "activeStake": 173054466199768,
     "softwareClient": "HarmonicAgave"
   },
   {
-    "account": "8T8AJfUCXwPFwEMmjca8gCRSktPrqbUBVa6ggNyhLhFJ",
-    "name": "StudentSOL",
-    "activeStake": 168638133084086,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "parafiUS6h6oLhCFwhjvEmQJKw8pF1iXsxMJdTq46dS",
-    "name": "ParaFi Technologies",
-    "activeStake": 168270014695747,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "b1ueZK9bWTywN2587zsScyLTaH18wfRfN5W15XnkiqF",
-    "name": "Blue Sky",
-    "activeStake": 168161653392306,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "8GLRbAstsabZuZUx73AoyfGi1FRCWSUhRgMugFyofEz7",
-    "name": "Syncnode | 0% Fees  | Genesis Validator",
-    "activeStake": 167487125713527,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "nebu15XQKGpxzhhckADBX9PgvGN5qk9RRJCFLKc118w",
-    "name": "Nebula Node",
-    "activeStake": 167375215578942,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "8Nvaxzif1NrdvxNkRetjT8xJvd33EHkKVrfL8EDkgaNy",
-    "name": "South",
-    "activeStake": 167013273844212,
+    "account": "novaeuhY2JH2WHhc9KVTHDx2cyJZdXJC6faf4CtARZn",
+    "name": "Nova Consortium",
+    "activeStake": 172593992935441,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "3rqEEEGjHRyndHuduBcjkf17rX3hgmGACpYTQYeZ5Ltk",
     "name": "StakeThat +MEV",
-    "activeStake": 166519682775750,
+    "activeStake": 172325379486188,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "GWJyUxzcVwRRtpLuLiu1mpiUQsZ4onYFAYfCjQnuLmz5",
-    "name": "Pacific Meta",
-    "activeStake": 166438248902618,
+    "account": "6gnbmed7kzwQVQ7ghsjgEuCoYmGeWciV2qCwni6WS6HU",
+    "name": "Capital Alliance 🔥",
+    "activeStake": 171082079921577,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "11AMA4mnNbsrPQeuoNN7uiZVJZtqEzQHrTfa5vnbcjk",
+    "name": "11ama Validator",
+    "activeStake": 170708560804998,
+    "softwareClient": "Frankendancer Vanilla"
+  },
+  {
+    "account": "74Xkp2iLXm315h69sFRiCFjmKnaWkMV8W2LgJwPRSgN5",
+    "name": null,
+    "activeStake": 170688936054450,
+    "softwareClient": "Frankendancer Vanilla"
+  },
+  {
+    "account": "JC7bH7HSZoDhwggBXtRF31cVt71WiizY2J6YDDQfG5er",
+    "name": "Valid Blocks",
+    "activeStake": 170205337577096,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "8T8AJfUCXwPFwEMmjca8gCRSktPrqbUBVa6ggNyhLhFJ",
+    "name": "StudentSOL",
+    "activeStake": 169164014374475,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "NLMSHTjmSiRxGJPs3uaqtsFBC2dTGYwK41U18Nmw5kH",
+    "name": "T-STAKE Systems",
+    "activeStake": 169116242478131,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "parafiUS6h6oLhCFwhjvEmQJKw8pF1iXsxMJdTq46dS",
+    "name": "ParaFi Technologies",
+    "activeStake": 168124334692581,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "nebu15XQKGpxzhhckADBX9PgvGN5qk9RRJCFLKc118w",
+    "name": "Nebula Node",
+    "activeStake": 167861883597674,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "HVXXmNKkmDZbZwj74iL2Y9Wu4SyrchBoxAfFYVAktLrG",
+    "name": "fat tails lab",
+    "activeStake": 167688639442140,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "PKdLMugp1Mf88Ji1GkdqRDBewaUh2cqg79CBEo6eJoQ",
     "name": "PK",
-    "activeStake": 165952041606060,
+    "activeStake": 166493578404729,
     "softwareClient": "Frankendancer Vanilla"
+  },
+  {
+    "account": "ciTyjzN9iyobidMycjyqRRM7vXAHXkFzH3m8vEr6cQj",
+    "name": "Phase Stake",
+    "activeStake": 166488086476661,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "5ivRNcK1yThcK3koZR1oikAfuNm6rj1LceMskayoVSzc",
     "name": null,
-    "activeStake": 165938682979852,
+    "activeStake": 166027205983572,
     "softwareClient": "Harmonic"
+  },
+  {
+    "account": "8GLRbAstsabZuZUx73AoyfGi1FRCWSUhRgMugFyofEz7",
+    "name": "Syncnode | 0% Fees  | Genesis Validator",
+    "activeStake": 165407652592290,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "capyS1jerxhFp1RehdWRG6kbWi8bnWF3fkEG2RGLsQf",
     "name": "capy",
-    "activeStake": 165908092366643,
+    "activeStake": 165326852683180,
     "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "8AkVj5aAtJ27tYXeq89cnSf68V43NarFHMx2iSDjZv7c",
-    "name": "Theta",
-    "activeStake": 162600462578720,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "vahMVcSS3v6uwyFormV7FDAUbQSHwmy6vUedp1P7L42",
     "name": "StakeITeasy🚀High APY + 0% fee✅ + MEV🔥",
-    "activeStake": 162486574455156,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "YuRBAsy9Stw1u46A8dMp7WQVBFweLP1PKuYibzYAMmQ",
-    "name": "Yurbason",
-    "activeStake": 160373211596971,
+    "activeStake": 163192017484420,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "BitokuDHQiAhpUKrwx1VssAAoW5Rst8zB6gpfoaxM3Kh",
     "name": "Xandeum Labs low fee + MEV = 🔥APY %",
-    "activeStake": 160220259786061,
+    "activeStake": 162314693733294,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "8AkVj5aAtJ27tYXeq89cnSf68V43NarFHMx2iSDjZv7c",
+    "name": "Theta",
+    "activeStake": 162293903939835,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "YuRBAsy9Stw1u46A8dMp7WQVBFweLP1PKuYibzYAMmQ",
+    "name": "Yurbason",
+    "activeStake": 160137149074515,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "RAuSNo4DRjo83uGhdgg4fPqYBVszi1KsrQGpqcPHK1D",
     "name": "Hubra",
-    "activeStake": 158502713138784,
+    "activeStake": 159846636617941,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "6k1YkmTKwPRUhChnxA9ryJmbtuQMbro4xFTL6mL9jycB",
-    "name": "Sign Labs 🤟",
-    "activeStake": 158381733690416,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "2X7WoaXX9KPqNrNfvguhnwo3rjFPNsfw2t75fGjWRthz",
-    "name": "Stakely | 0% fee",
-    "activeStake": 158334269825220,
+    "account": "N43JWBg42ZoUFMkHsRUVbP7wGVdxaHKanqaF9BBNiFC",
+    "name": "Quantix",
+    "activeStake": 158707083972603,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "jagBNeXYncnn1hzwSq1JJ16XhWTgQ7DCFVqndSJZ6vT",
     "name": "Jaguar",
-    "activeStake": 158269202190720,
+    "activeStake": 158313874722463,
     "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "6k1YkmTKwPRUhChnxA9ryJmbtuQMbro4xFTL6mL9jycB",
+    "name": "Sign Labs 🤟",
+    "activeStake": 157785278889873,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "57i31UEyDg4koaZMZ1wAHbYuezXv3AVaHtvJgJarxt3f",
     "name": "[Public Good] Chive 🌱 - 0% Fee + MEV + BlockReward",
-    "activeStake": 158044695454204,
+    "activeStake": 157366333233971,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "2X7WoaXX9KPqNrNfvguhnwo3rjFPNsfw2t75fGjWRthz",
+    "name": "Stakely | 0% fee",
+    "activeStake": 157361368420143,
     "softwareClient": "AgaveBam"
   },
   {
@@ -2340,526 +2400,466 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "NLMSHTjmSiRxGJPs3uaqtsFBC2dTGYwK41U18Nmw5kH",
-    "name": "T-STAKE Systems",
-    "activeStake": 157124255063322,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "N43JWBg42ZoUFMkHsRUVbP7wGVdxaHKanqaF9BBNiFC",
-    "name": "Quantix",
-    "activeStake": 156693579845046,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "dcntruDNP5SEcGV4RxnsqXFURdDZGT3DTQv68Q8H7Vu",
-    "name": "Decentra",
-    "activeStake": 156219228257054,
-    "softwareClient": "AgaveBam"
-  },
-  {
     "account": "Hj2jzpAp57KyM3SmnYwJbDVrQ8tTWizMon2hhzYzwxet",
     "name": "A Unicorn Julia",
-    "activeStake": 155696387347691,
+    "activeStake": 156062605705290,
     "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "ECZx4Dfyn2o55KTYbM9r3Dt4VZRcrdfdrst7sUbWgrdU",
-    "name": "Orca",
-    "activeStake": 155416321615398,
-    "softwareClient": "Frankendancer Vanilla"
   },
   {
     "account": "MagiCBYNPD9iTBXqiFybAFCREQzG6MSM4LmFLXQZxuV",
     "name": "Magic Eden Validator",
-    "activeStake": 154652046890959,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "93Q99nhdKjuSe6WNXgMBbC3s8QVQEAoHKt91PNRkUkMn",
-    "name": "STEALTH",
-    "activeStake": 154604213240308,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "HLXxkmjb47spcmbbKi3UCfZ2qmFY29t8MN562AEmh2Qh",
-    "name": "🧬 HelixNode 0% fee 🧬",
-    "activeStake": 154073354662308,
+    "activeStake": 154975771568905,
     "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "6xFDLX751L7H9d5fQT9sf2SM5RWWE9LDgqz25pPDbWoJ",
-    "name": "TdrSys",
-    "activeStake": 154061452001564,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "cybi55ebub37HZW9YmRaLh59Lh3kqaLTsEBQwW6vFkC",
-    "name": "CyberAlex 👑 MEV",
-    "activeStake": 152254388708444,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "8a4juhtQScHcXPAcqVF3otxLMqxZMDALcE3FEVGBnKu8",
-    "name": null,
-    "activeStake": 151622821439434,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "8aySXUFrqJz5kath6aVijrkBH8ZtxMWJGhYXwYBpKmHK",
-    "name": "L0vd 0% fee +MEV",
-    "activeStake": 151202613090105,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "3x9nibnhgBHWKMRiGnsXJELRBjviQpKyigfrXtKW27KJ",
-    "name": "Staking kiwi validator",
-    "activeStake": 150939237905723,
-    "softwareClient": "HarmonicAgave"
-  },
-  {
-    "account": "8hAYbagNt7CMBooFfqVJhBgLqLffpjXTWJMk8yybjJsN",
-    "name": "Hive Validator",
-    "activeStake": 150906065558296,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "AiBEt9kE8yZ4CnaLfTCGMp7Fg2wCtqhPTfvJ8D3zrLfu",
-    "name": "nodtech",
-    "activeStake": 150727750821010,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "HwN6eoEe9N3kwHi66hpQDBMFPk6ASQGthWKPX5MZmisp",
-    "name": "Solya",
-    "activeStake": 150404398243638,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "7nzTzRZzezmugqE5ZjHRMxarhXunpwZ2PUdjV7uYzt7A",
-    "name": "Solar | Empowering Youth | 0% Fee + MEV Rewards",
-    "activeStake": 149896199215279,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "bookoVmqw4QjVj5BbkFacouadx9M7816wyRkfM7A5Lo",
-    "name": "The Library",
-    "activeStake": 149554687304407,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "8augxYLUge2iWmitQMwbcBL5VQEpsM6aJdRofhwpnzyw",
-    "name": "Stake.Cake",
-    "activeStake": 149447539754851,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "BuonuQoAR74GoMwCFhxKWVWWSGGt2wfbNmQ3cizaJ97G",
     "name": "Solarius☀️",
-    "activeStake": 149305080987596,
+    "activeStake": 154450853261483,
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "7Nu9ckgtjobZ3MkbadGFKEvRymYuah9HmcxiUJKMM9NB",
-    "name": "SoLyrae",
-    "activeStake": 148889297659773,
+    "account": "93Q99nhdKjuSe6WNXgMBbC3s8QVQEAoHKt91PNRkUkMn",
+    "name": "STEALTH",
+    "activeStake": 154342366908019,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "CLsFr1KZVbAyz16iFpwg2e4hiekR1unpwyxfNdjBMaoE",
-    "name": "Vault",
-    "activeStake": 148604418964659,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "6xUK9Nbonr4eoJNtHGoUEMmYKoPz5mipKzyDBv6deX4d",
-    "name": "LuSOL +MEV",
-    "activeStake": 147770857554987,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "ECNnK4VjcKTsABiw8FAp3JCE6tCmYyrEJthYVyMazmxi",
-    "name": "NCValidator",
-    "activeStake": 147252620415247,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "CTwsruptUccEtZGNxBDbuusHYxkBX3P6ndrxVjSG213y",
-    "name": "CryptoVik",
-    "activeStake": 147055743080932,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "DnQBmTJyLbBMgJYQLJDqJz25AJModNkyexL5LdVRGnG4",
-    "name": "Tane",
-    "activeStake": 147005717048200,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "3V2xaccDpFib4DbTksdiveNDmiwpXBqSWyjSof3w1Bg7",
-    "name": "Aurora Validator",
-    "activeStake": 146842782668484,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "8ebFZA8NPLBZD91CwsG1HWQsa2B5Ludgdyf5Hi3sYhhs",
-    "name": "stake.systems",
-    "activeStake": 146600507631814,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "JC7bH7HSZoDhwggBXtRF31cVt71WiizY2J6YDDQfG5er",
-    "name": "Valid Blocks",
-    "activeStake": 144182739227575,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "SyndicAgdEphcy5xhAKZAomTYhcF8xhC7za2UD9xeug",
-    "name": "Syndica",
-    "activeStake": 143747394053952,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "nSGZ3tv2UhskkPqiB666yDVj7PTi9qKgDqvjHyw5JgM",
-    "name": "OranG3cluB",
-    "activeStake": 143378673605769,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "9ppJrpsbbuGNjiMhhD52Ueco4KXUzVfrtNQ6tAcDab4f",
-    "name": "johndoe",
-    "activeStake": 142897657609754,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "5fSQdv4zsAJNx6RKpGho6sL6rY6a8nziaqcmwaRJB9NE",
-    "name": "Blossom",
-    "activeStake": 142795978628769,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "FCWkGAHDWK41ANjiaoPudkCZRkvTecaEkoZQugezUnpr",
-    "name": "maxfillipov",
-    "activeStake": 142222365202625,
+    "account": "8hAYbagNt7CMBooFfqVJhBgLqLffpjXTWJMk8yybjJsN",
+    "name": "Hive Validator",
+    "activeStake": 152974634519361,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "BSGMRbK97DcgLe4u4kfNQnmTVZGVnwdtKQBJqWRBTZxU",
     "name": "Black Sea Gold",
-    "activeStake": 141824055405807,
+    "activeStake": 152779599186258,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "8a4juhtQScHcXPAcqVF3otxLMqxZMDALcE3FEVGBnKu8",
+    "name": null,
+    "activeStake": 152185971208589,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "5zm9g3zgAPWzX3wmUB2JtTkcwCqe74NWsTmt5wLFwCKK",
+    "name": "Allied Validator",
+    "activeStake": 152103595796673,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "AiBEt9kE8yZ4CnaLfTCGMp7Fg2wCtqhPTfvJ8D3zrLfu",
+    "name": "nodtech",
+    "activeStake": 152004215858147,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "6xFDLX751L7H9d5fQT9sf2SM5RWWE9LDgqz25pPDbWoJ",
+    "name": "TdrSys",
+    "activeStake": 151849159925798,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "HLXxkmjb47spcmbbKi3UCfZ2qmFY29t8MN562AEmh2Qh",
+    "name": "🧬 HelixNode 0% fee 🧬",
+    "activeStake": 151465028017614,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "7nzTzRZzezmugqE5ZjHRMxarhXunpwZ2PUdjV7uYzt7A",
+    "name": "Solar | Empowering Youth | 0% Fee + MEV Rewards",
+    "activeStake": 151233677479038,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "cybi55ebub37HZW9YmRaLh59Lh3kqaLTsEBQwW6vFkC",
+    "name": "CyberAlex 👑 MEV",
+    "activeStake": 150880393058801,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "bookoVmqw4QjVj5BbkFacouadx9M7816wyRkfM7A5Lo",
+    "name": "The Library",
+    "activeStake": 149887972331187,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "8aySXUFrqJz5kath6aVijrkBH8ZtxMWJGhYXwYBpKmHK",
+    "name": "L0vd 0% fee +MEV",
+    "activeStake": 149627364425265,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "HwN6eoEe9N3kwHi66hpQDBMFPk6ASQGthWKPX5MZmisp",
+    "name": "Solya",
+    "activeStake": 149529156274124,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "8ebFZA8NPLBZD91CwsG1HWQsa2B5Ludgdyf5Hi3sYhhs",
+    "name": "stake.systems",
+    "activeStake": 149173790376612,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "6xUK9Nbonr4eoJNtHGoUEMmYKoPz5mipKzyDBv6deX4d",
+    "name": "LuSOL +MEV",
+    "activeStake": 148591414605704,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "8augxYLUge2iWmitQMwbcBL5VQEpsM6aJdRofhwpnzyw",
+    "name": "Stake.Cake",
+    "activeStake": 148423934152736,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "grptonHnt7YSmJokGK9TJJTBXDT8ca4LSWMHCCfzzPa",
+    "name": "gripto",
+    "activeStake": 147828963712134,
+    "softwareClient": "HarmonicFrankendancer"
+  },
+  {
+    "account": "bxrAptB5ZpZBhoLedJpoGWY5hBjjt3zvVBr2323Rrq6",
+    "name": "bloXroute EU",
+    "activeStake": 147755305260759,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "7Nu9ckgtjobZ3MkbadGFKEvRymYuah9HmcxiUJKMM9NB",
+    "name": "SoLyrae",
+    "activeStake": 147449553790821,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "3V2xaccDpFib4DbTksdiveNDmiwpXBqSWyjSof3w1Bg7",
+    "name": "Aurora Validator",
+    "activeStake": 147116843489790,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "ECNnK4VjcKTsABiw8FAp3JCE6tCmYyrEJthYVyMazmxi",
+    "name": "NCValidator",
+    "activeStake": 146864749845225,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "CTwsruptUccEtZGNxBDbuusHYxkBX3P6ndrxVjSG213y",
+    "name": "CryptoVik",
+    "activeStake": 145913075652708,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "4aRPyjsqqFsf5488a9QAaHJLQJMGwoL5P6wRtLmroe2d",
+    "name": "SoLove",
+    "activeStake": 145026961247223,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "SyndicAgdEphcy5xhAKZAomTYhcF8xhC7za2UD9xeug",
+    "name": "Syndica",
+    "activeStake": 144195691774188,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "9ppJrpsbbuGNjiMhhD52Ueco4KXUzVfrtNQ6tAcDab4f",
+    "name": "johndoe",
+    "activeStake": 143514209234279,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "FCWkGAHDWK41ANjiaoPudkCZRkvTecaEkoZQugezUnpr",
+    "name": "maxfillipov",
+    "activeStake": 142850163238981,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "ReFiqMfGnc7tW8WQtFFcJRPZSDAWDBnAsdoFYF2QnfR",
     "name": "ReFi Hub",
-    "activeStake": 140687180145431,
+    "activeStake": 141533858781649,
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "4Kbcyn7JVPAWLRLPsNGTPmcNMvCkLTw51ZLRhqsUC6jP",
-    "name": null,
-    "activeStake": 140050830267518,
-    "softwareClient": "Frankendancer Vanilla"
-  },
-  {
-    "account": "LimeA3gMLb2SjxrKbP7NsWk1UwTZrw4B6Ctc9dmVU6E",
-    "name": "LimeChain",
-    "activeStake": 139934780081909,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "3CKKAoVi94EnfX8QcVxEmk8CAvZTc6nAYzXp1WkSUofX",
-    "name": "Solid State Nodes",
-    "activeStake": 139897095447016,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "mXv18ov8qCiQGs3ieoen981LdgZzYJjJak6reK6fpNC",
-    "name": "MX Validator",
-    "activeStake": 139240520306699,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "RoYFUUD7QD9aQ34UCMcwfye8dC5YvJeXz2J3mmoy5S4",
-    "name": "Lifinity Protocol",
-    "activeStake": 139094594385659,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "Ee8dX3qtwrDRnxYK6NGQfmMeKT3Qpp2QZHpxiAiw23W9",
-    "name": "StakeNode777",
-    "activeStake": 139093942131052,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "ciTyjzN9iyobidMycjyqRRM7vXAHXkFzH3m8vEr6cQj",
-    "name": "Phase Stake",
-    "activeStake": 138897609941743,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "EydLxzdWfD434DDxZYXkTcajvK5VKH7p6CofEDCRUkJ4",
-    "name": "Bernardo Beacon",
-    "activeStake": 138453742103169,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "8uPW9msN75rfaKiwy8y8NxEX5zSk2WejtVv5YhZr3jCo",
-    "name": "Lumos Maxima",
-    "activeStake": 137695217564601,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "AmjX7CerZbHrU814UeBp2gJC7gANNG3KrP4c3RyD7TSD",
-    "name": "NTT DOCOMO GLOBAL",
-    "activeStake": 137238205974213,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "EATpCzQNs8BzZh1mx1hXMAJm3o1MLXakTXr4UEmcsY7f",
-    "name": "EAT TRIBE",
-    "activeStake": 134705768408509,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "Av8EnYrPBnSJHK5e2wmTdnCpSy7nzmBgyFaUKSyLnBfe",
-    "name": "AndrewInUA",
-    "activeStake": 133671410606687,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "axy3tCRL3wmFMVG4c69rYurcf4fXhBo2RcuBj9ADnJ4",
-    "name": "Somos Validator",
-    "activeStake": 133156637739482,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "SQDS9iwyWvT2mQbSZzuNKGoxuBug5jRHouF6SuMRBkA",
-    "name": "Squads",
-    "activeStake": 132631324168284,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "9PRr9k87HjjdLMRkxtxygidjxVta9VQ1kAsqgLBWXKdQ",
-    "name": "Golden Tower Staking",
-    "activeStake": 132244006163211,
-    "softwareClient": "Rakurai"
-  },
-  {
-    "account": "gojir4WnhS7VS1JdbnanJMzaMfr4UD7KeX1ixWAHEmw",
-    "name": "Gojira",
-    "activeStake": 131709735134589,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "DiveRaPKviyDnQyiiMFdV4rujsCBJzMNvPjKfvGNLGvL",
-    "name": "Onchain Divers",
-    "activeStake": 131687765617695,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "soLStaCk5TiGCpeLKa9Fvv6f5JQGMa6S3uhLh826e9N",
-    "name": "SolStack by Corvus Labs",
-    "activeStake": 131675595477121,
-    "softwareClient": "Agave"
-  },
-  {
-    "account": "avnujiRNoSRe9PcET42DPKznyfYnb2LRaZAsqv6REZo",
-    "name": "AVNU",
-    "activeStake": 131672007944505,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "CjmXSapt1ouz3CZzgkRJckBEwMSo5fVdVrizLeRscwYD",
-    "name": "Mad Lads",
-    "activeStake": 130589912748060,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "DP9iBgK9c7tJYb83KhxQMFNc1LXYu7nE7EhWpEzQnjmg",
-    "name": "Sec3",
-    "activeStake": 130247674363378,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "6NDen7aDi65apHo8m1Vea4nuS6LyjQeM6pDNqcW4Q5Pg",
-    "name": "0node.io",
-    "activeStake": 129540731213345,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "7MTjmteQHhthwwTZhUzsc2dP4NBvGNRqj8jzdqNxHFGE",
-    "name": "WEB34EVER ∞ POSTHUMAN",
-    "activeStake": 129238569175840,
+    "account": "nSGZ3tv2UhskkPqiB666yDVj7PTi9qKgDqvjHyw5JgM",
+    "name": "OranG3cluB",
+    "activeStake": 141489193333176,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "SaGAgdkowooXBrHihpmE8gsjf1dUG7n5SqnyJxYFnXJ",
     "name": "Saga DAO",
-    "activeStake": 128749723317837,
+    "activeStake": 141264820785039,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "6qwYjs5vCSEKaTMBbHinnW8fvdGj1r8cpzPoAV1EHKsw",
-    "name": "Fast Runner",
-    "activeStake": 128109740695003,
+    "account": "4Kbcyn7JVPAWLRLPsNGTPmcNMvCkLTw51ZLRhqsUC6jP",
+    "name": null,
+    "activeStake": 140731280798101,
+    "softwareClient": "Frankendancer Vanilla"
+  },
+  {
+    "account": "5fSQdv4zsAJNx6RKpGho6sL6rY6a8nziaqcmwaRJB9NE",
+    "name": "Blossom",
+    "activeStake": 140707975995511,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "DnQBmTJyLbBMgJYQLJDqJz25AJModNkyexL5LdVRGnG4",
+    "name": "Tane",
+    "activeStake": 140510712236257,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "MBVyz9s72WSfUmbr1S8fgHjDJQkPs1Q4Wxi6A2Mees9",
-    "name": "WIZE Validator",
-    "activeStake": 127671649151475,
+    "account": "LimeA3gMLb2SjxrKbP7NsWk1UwTZrw4B6Ctc9dmVU6E",
+    "name": "LimeChain",
+    "activeStake": 139800225223930,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "bay3wXfJsu9ds1zQBoQQ4DUwFGs3NP6q4gca9WM5G1z",
+    "name": "Bay3",
+    "activeStake": 139469376951777,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "Ee8dX3qtwrDRnxYK6NGQfmMeKT3Qpp2QZHpxiAiw23W9",
+    "name": "StakeNode777",
+    "activeStake": 139349898644408,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "mXv18ov8qCiQGs3ieoen981LdgZzYJjJak6reK6fpNC",
+    "name": "MX Validator",
+    "activeStake": 139322933386479,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "RoYFUUD7QD9aQ34UCMcwfye8dC5YvJeXz2J3mmoy5S4",
+    "name": "Lifinity Protocol",
+    "activeStake": 139205024332960,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "3CKKAoVi94EnfX8QcVxEmk8CAvZTc6nAYzXp1WkSUofX",
+    "name": "Solid State Nodes",
+    "activeStake": 137784610558643,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "axy3tCRL3wmFMVG4c69rYurcf4fXhBo2RcuBj9ADnJ4",
+    "name": "Somos Validator",
+    "activeStake": 134094720124562,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "9PRr9k87HjjdLMRkxtxygidjxVta9VQ1kAsqgLBWXKdQ",
+    "name": "Golden Tower Staking",
+    "activeStake": 133070604822979,
+    "softwareClient": "Rakurai"
+  },
+  {
+    "account": "Av8EnYrPBnSJHK5e2wmTdnCpSy7nzmBgyFaUKSyLnBfe",
+    "name": "AndrewInUA",
+    "activeStake": 132861982122608,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "avnujiRNoSRe9PcET42DPKznyfYnb2LRaZAsqv6REZo",
+    "name": "AVNU",
+    "activeStake": 132758278155900,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "EATpCzQNs8BzZh1mx1hXMAJm3o1MLXakTXr4UEmcsY7f",
+    "name": "EAT TRIBE",
+    "activeStake": 132596553476094,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "SQDS9iwyWvT2mQbSZzuNKGoxuBug5jRHouF6SuMRBkA",
+    "name": "Squads",
+    "activeStake": 132570440848858,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "gojir4WnhS7VS1JdbnanJMzaMfr4UD7KeX1ixWAHEmw",
+    "name": "Gojira",
+    "activeStake": 131368938492201,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "DP9iBgK9c7tJYb83KhxQMFNc1LXYu7nE7EhWpEzQnjmg",
+    "name": "Sec3",
+    "activeStake": 131303240067236,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "CjmXSapt1ouz3CZzgkRJckBEwMSo5fVdVrizLeRscwYD",
+    "name": "Mad Lads",
+    "activeStake": 130949003945396,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "EydLxzdWfD434DDxZYXkTcajvK5VKH7p6CofEDCRUkJ4",
+    "name": "Bernardo Beacon",
+    "activeStake": 129571902327097,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "6NDen7aDi65apHo8m1Vea4nuS6LyjQeM6pDNqcW4Q5Pg",
+    "name": "0node.io",
+    "activeStake": 129451287784270,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "7MTjmteQHhthwwTZhUzsc2dP4NBvGNRqj8jzdqNxHFGE",
+    "name": "WEB34EVER ∞ POSTHUMAN",
+    "activeStake": 129091114975720,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "9Wmaz9VPpEnH67ZqrvYd9bcH66DtsGaEKcSQE1ac5wkf",
     "name": "LumLabs",
-    "activeStake": 127663608638755,
+    "activeStake": 129057267390612,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "ADjyeNzWd8yhEjCVyAqT87eqoyGRbimERQsNhFQcXjop",
+    "name": "💥InfiniteSOL💥 0% Fees",
+    "activeStake": 127689440623155,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "FGiEdzde7Fco2WLpNQMat299hUVoykJdaA5hxdmCzHiS",
     "name": "Vnode",
-    "activeStake": 127595714900139,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "5marvipGzf98hxnoJFXsZbGHSXcEQ3yRGJ4ps7D3V4ou",
-    "name": "MARVEL+MEV!",
-    "activeStake": 127359994960658,
+    "activeStake": 127667560693204,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "hxMhrsuGPDmkLJ4mTxEjyeMST3VGhTiwJvS9XgHwePj",
     "name": "Suzuko Stake",
-    "activeStake": 126664091746570,
+    "activeStake": 126748136638727,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "FSyAsxcE7g8pSSEu5nx7Hkz44rMZiYio5Wz8Lszh3Nbi",
-    "name": "Honeybee 🐝 +Jito",
-    "activeStake": 126321985802087,
+    "account": "CpNnGGhgVATJAbzHUXdrcGfpPiGuZyPka4QUmH7YgavX",
+    "name": "DICS - Degen Infrastructure Core Services",
+    "activeStake": 126438752139837,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "SWD1LwTcEtpCRL683CT4HYDaGgMyMZ9LpSa5Foarsq4",
     "name": null,
-    "activeStake": 126106580798769,
-    "softwareClient": "Frankendancer Vanilla"
-  },
-  {
-    "account": "novaeuhY2JH2WHhc9KVTHDx2cyJZdXJC6faf4CtARZn",
-    "name": "Nova Consortium",
-    "activeStake": 125898433110451,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "2zykwzzo1pd3H2oSj5j5SRLTvmpa9Nr2S2Bh8tTVd5Tq",
-    "name": "zim.one | 0️⃣0️⃣",
-    "activeStake": 125843765494133,
-    "softwareClient": "AgaveBam"
+    "activeStake": 126178576871450,
+    "softwareClient": "Firedancer"
   },
   {
     "account": "9q16BB7WGmBxf1nJTdxH5zPnBUhtHqdqXqRFjSjuM4k7",
     "name": "JDO Mainnet Validator",
-    "activeStake": 125417664835632,
+    "activeStake": 125603791720171,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "FSyAsxcE7g8pSSEu5nx7Hkz44rMZiYio5Wz8Lszh3Nbi",
+    "name": "Honeybee 🐝 +Jito",
+    "activeStake": 125394643697366,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "DiveRaPKviyDnQyiiMFdV4rujsCBJzMNvPjKfvGNLGvL",
+    "name": "Onchain Divers",
+    "activeStake": 124127365213446,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "CtzN7ysR5rX69qd168Aosbuc83mPozhi81bEHbG7ecNP",
     "name": "Citizen Node",
-    "activeStake": 123924327429813,
+    "activeStake": 124033922180371,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "2AKKnirWVZMhnzuwqpizw9SwfZjGpRFLx2zCCNtPWpbc",
     "name": "The Chimpions",
-    "activeStake": 123866071887637,
-    "softwareClient": "AgaveBam"
+    "activeStake": 123921292212111,
+    "softwareClient": "JitoLabs"
   },
   {
-    "account": "meshRrDTME9cL2FSQ9E56EncfkZ7vL8apwcCFsw3o6Y",
-    "name": "Mesh Validator",
-    "activeStake": 122777589411400,
+    "account": "EUDis6LJeJzDHTEBgfHGQyjHp63XZkGkx4E69xunC2Ej",
+    "name": "Validator 1",
+    "activeStake": 123722414365374,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "c3rtoMCHSbFrLRTAdw4iRowKSn4BrDtvSPbuyJwkHwx",
     "name": "Latitude.sh",
-    "activeStake": 122616156531943,
+    "activeStake": 123641270006265,
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "3BeharBd3j4sKQp7Qze27JLQLd9AEEwGTX9TC7dXYSNw",
-    "name": "Dragon Trust Stake",
-    "activeStake": 122298118247805,
+    "account": "meshRrDTME9cL2FSQ9E56EncfkZ7vL8apwcCFsw3o6Y",
+    "name": "Mesh Validator",
+    "activeStake": 123419123307701,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "9hQqNe3DQTiwhspatewA8EXhz12e6sq5UJVJ2qNRwnTf",
     "name": "Stake Shark",
-    "activeStake": 122186667385074,
+    "activeStake": 121915440280479,
     "softwareClient": "Agave"
+  },
+  {
+    "account": "3BeharBd3j4sKQp7Qze27JLQLd9AEEwGTX9TC7dXYSNw",
+    "name": "Dragon Trust Stake",
+    "activeStake": 121907106593723,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "ssx2rHZNVy6J1mbFjBdmnF244kbKf46SDwokjuhb477",
     "name": "dogo",
-    "activeStake": 121295072670418,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "1Link6hB1NpkCwJt3ZtpQKZszKauhEcKgiWjaU8PRDG",
-    "name": "OneLink Solutions",
-    "activeStake": 118941125398673,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "GQiWnDYrzHMALWG9avt5FCu1wisAQHjGY5ve7GMBiPEe",
-    "name": "Nam-dok-mai 🤑 stake-earn-repeat",
-    "activeStake": 118934777610729,
+    "activeStake": 119265401310685,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "BiGcsiuFCLuiTzXoQgfLdge9sfpwr55YzdT8Kp7bCXmS",
     "name": null,
-    "activeStake": 118811594365968,
+    "activeStake": 118882020191370,
     "softwareClient": "HarmonicFrankendancer"
   },
   {
     "account": "NATsUSZGohWw8xtLdxG4yus21UCkaes4FLfM2eqKbRk",
     "name": "Kisetsu Stake",
-    "activeStake": 118620539918900,
-    "softwareClient": "AgaveBam"
+    "activeStake": 118670292866146,
+    "softwareClient": "JitoLabs"
   },
   {
-    "account": "G4GT8z4AKWNoy3x6nuzxW83UfFXLXzrwn7DZQt4GvWdU",
-    "name": "FREEZZ",
-    "activeStake": 118619931388275,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "HMWXfjaeSHhww1wvdBhqhHVP9v96mFB4LJ9xP2MXbDGH",
-    "name": "CyberVillage",
-    "activeStake": 118468738194950,
+    "account": "GQiWnDYrzHMALWG9avt5FCu1wisAQHjGY5ve7GMBiPEe",
+    "name": "Nam-dok-mai 🤑 stake-earn-repeat",
+    "activeStake": 118607846356678,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "YE11a5nVJtUNqsojkphYuWc7StqBzbCeFH6BjhAAUEV",
     "name": "Mellow Yellow",
-    "activeStake": 117838143086091,
+    "activeStake": 118481857613516,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "EPFZFVrXuveEQar9LaEkt5kDRPMnbvK54qu5FwCxpkcy",
-    "name": "AiSol",
-    "activeStake": 117434945277374,
+    "account": "2jS8AX38m8F9C5juToW1FmTufEbb1DfDzZJj9HSJcWwo",
+    "name": "0% Fees | Easy 2 Stake | Jito MEV",
+    "activeStake": 118129769962032,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "HnwMGBAw5PxaX56eSYc969MorEy2NzEMPLkmBkdnJmeq",
-    "name": "⭐StepByStep⭐ Jito BAM",
-    "activeStake": 117099727087480,
-    "softwareClient": "JitoLabs"
+    "account": "HMWXfjaeSHhww1wvdBhqhHVP9v96mFB4LJ9xP2MXbDGH",
+    "name": "CyberVillage",
+    "activeStake": 118011396219438,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "LunaowJnt875WWoqDkhHhE93SNYHa6tfFNVn1rqc57c",
+    "name": "LunaNova",
+    "activeStake": 117378973117044,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "kom1oNHyyt84XLGVfi5Jo1qkVkU5xG1sBxPG19rWknE",
@@ -2868,321 +2868,363 @@
     "softwareClient": "Frankendancer Vanilla"
   },
   {
-    "account": "2jS8AX38m8F9C5juToW1FmTufEbb1DfDzZJj9HSJcWwo",
-    "name": "0% Fees | Easy 2 Stake | Jito MEV",
-    "activeStake": 117053544355484,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "LunaowJnt875WWoqDkhHhE93SNYHa6tfFNVn1rqc57c",
-    "name": "LunaNova",
-    "activeStake": 116567165358198,
-    "softwareClient": "AgaveBam"
-  },
-  {
     "account": "38zm5bBgDaNRSQBDUAL72kMH3RsX4UKmZiNmmrjuTq8W",
     "name": "MAVAN Infrastructure",
-    "activeStake": 115525736191554,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "99rG5AhkVagxJ7y8NpMAmy1h1u9GhT3h1Cimu2X3cwaJ",
-    "name": null,
-    "activeStake": 115522492628082,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "3Pfubj3ytkRxFAGwFb5vtacuZJUxko5Du39xie9MBXuC",
-    "name": "[NODERS]",
-    "activeStake": 114913045690486,
+    "activeStake": 115853973166906,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "huinBRP3muBuqZLMW8ARjdn4mBnEmFFcxiBzrkQz553",
     "name": "Huisky Staking",
-    "activeStake": 114459054902213,
+    "activeStake": 115382014653940,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "gVALrRd3xq4D62KJNGDCpMMGz976w2x1Vo79mSNn4bh",
-    "name": "Guardian Validator",
-    "activeStake": 113917584873460,
-    "softwareClient": "Rakurai"
+    "account": "3Pfubj3ytkRxFAGwFb5vtacuZJUxko5Du39xie9MBXuC",
+    "name": "[NODERS]",
+    "activeStake": 115277292691158,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "1Link6hB1NpkCwJt3ZtpQKZszKauhEcKgiWjaU8PRDG",
+    "name": "OneLink Solutions",
+    "activeStake": 114792027324404,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "EN5F2BU5juUEWr9zRNNqKuQMi9zBUY1YLPHV5EyMrvnW",
     "name": "SunshineVR",
-    "activeStake": 113506759572969,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "ADjyeNzWd8yhEjCVyAqT87eqoyGRbimERQsNhFQcXjop",
-    "name": "💥InfiniteSOL💥 0% Fees",
-    "activeStake": 113425809804722,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "BRAZAtTTzR2Es8c98hJvcngerTEyRGSdgkHU59n4A6GT",
-    "name": "Superteam Brazil",
-    "activeStake": 113072406940447,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "eyeYaqg9e2L6xw7YwsSLm27eWJfhLNAm6ETQm8TXNoK",
-    "name": "Eyenotion",
-    "activeStake": 113054246446282,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "2VKu11f8zc3huqDQUN6WJTFpX32PgHpXXjf72P6YvYMd",
-    "name": "Marco Polo 0% Fee +MEV",
-    "activeStake": 113007326897447,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "revtecFsGSRCdF29atQvchSXrjwBesA9vSisD4fyH5K",
-    "name": "RevTec | 100% Block Reward",
-    "activeStake": 112401918604741,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "GGX3BEoZDqjxcw4AbCdu62ZTMrkpSgmPt81oP2mVuZNS",
-    "name": "HashKey Cloud",
-    "activeStake": 111965331645491,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "EUDis6LJeJzDHTEBgfHGQyjHp63XZkGkx4E69xunC2Ej",
-    "name": "Validator 1",
-    "activeStake": 111732371620169,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "EAW9vxqogvdPNapq7QTDpiVTHK6o7begUhPVnf854VTc",
-    "name": "Solana Qubits",
-    "activeStake": 111457026850321,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "CeJjdkRwfqYjrb7ZgKgqTurxx88H6kZyRadJwNJBcQwC",
-    "name": null,
-    "activeStake": 111376750748300,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "R2D2imoV8nXk1ngT9v4dEK65We4uLNyUarTBdWbFruq",
-    "name": "🤖 RoboRun.xyz",
-    "activeStake": 111218900022603,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "adre1Xia7ekGsEqNgHeFc7MYwkfzTQNeJgQmZ2agAKZ",
-    "name": "Systems",
-    "activeStake": 111031951263330,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "peNgUgnzs1jGogUPW8SThXMvzNpzKSNf3om78xVPAYx",
-    "name": "PENGU Validator",
-    "activeStake": 110837035759871,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "LitxAVo3RnYXD2sX1TyRJxfnKy48amXgyGiysPZjZwE",
-    "name": "Litx - 0% Commission",
-    "activeStake": 110681576890015,
+    "activeStake": 114722199872585,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "4JahMMrVRS1gimWoXpD5H6KwKc2MrsoTDFMaStMttL1E",
     "name": "xSTAKE | 0% fee",
-    "activeStake": 110504434985984,
+    "activeStake": 114623731624169,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "nateKhsYkrVc992UuTfAhEEFQqr2zQfpGg9RafNkxdC",
-    "name": "Epoch.Day",
-    "activeStake": 110260989899819,
+    "account": "CtvdyHYt8cMuGVHFarV2RADfoCdnrbd8e9jAsB225uMW",
+    "name": "SolanaBull 🚀",
+    "activeStake": 114619971368016,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "99rG5AhkVagxJ7y8NpMAmy1h1u9GhT3h1Cimu2X3cwaJ",
+    "name": null,
+    "activeStake": 114204518000465,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "6qwYjs5vCSEKaTMBbHinnW8fvdGj1r8cpzPoAV1EHKsw",
+    "name": "Fast Runner",
+    "activeStake": 114024003034729,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "BRAZAtTTzR2Es8c98hJvcngerTEyRGSdgkHU59n4A6GT",
+    "name": "Superteam Brazil",
+    "activeStake": 113980068506580,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "2VKu11f8zc3huqDQUN6WJTFpX32PgHpXXjf72P6YvYMd",
+    "name": "Marco Polo 0% Fee +MEV",
+    "activeStake": 113738415440203,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "eyeYaqg9e2L6xw7YwsSLm27eWJfhLNAm6ETQm8TXNoK",
+    "name": "Eyenotion",
+    "activeStake": 113440738454762,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "dmMwc4RazLHkvDZYrWAfbHQ6cViAvNa5szCJKaiun8S",
+    "name": "Ded Monkes",
+    "activeStake": 113382835095283,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "revtecFsGSRCdF29atQvchSXrjwBesA9vSisD4fyH5K",
+    "name": "RevTec | 100% Block Reward",
+    "activeStake": 112263790860374,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "GGX3BEoZDqjxcw4AbCdu62ZTMrkpSgmPt81oP2mVuZNS",
+    "name": "HashKey Cloud",
+    "activeStake": 112197120893697,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "R2D2imoV8nXk1ngT9v4dEK65We4uLNyUarTBdWbFruq",
+    "name": "🤖 RoboRun.xyz",
+    "activeStake": 112063581298898,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "EAW9vxqogvdPNapq7QTDpiVTHK6o7begUhPVnf854VTc",
+    "name": "Solana Qubits",
+    "activeStake": 111642546927735,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "CeJjdkRwfqYjrb7ZgKgqTurxx88H6kZyRadJwNJBcQwC",
+    "name": null,
+    "activeStake": 111620437927276,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "peNgUgnzs1jGogUPW8SThXMvzNpzKSNf3om78xVPAYx",
+    "name": "PENGU Validator",
+    "activeStake": 111230309460195,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "G1eAmANVWf6ZeoxG4aMbS1APauyEDHqLxHFytzk5hZqN",
+    "name": "Gleam",
+    "activeStake": 110996924138599,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "adre1Xia7ekGsEqNgHeFc7MYwkfzTQNeJgQmZ2agAKZ",
+    "name": "Systems",
+    "activeStake": 110916850178023,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "HyperSPG8w4jgdHgmA8ExrhRL1L1BriRTHD9UFdXJUud",
     "name": "Hyper 🫨",
-    "activeStake": 110156519604092,
+    "activeStake": 110239523784879,
     "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "G1eAmANVWf6ZeoxG4aMbS1APauyEDHqLxHFytzk5hZqN",
-    "name": "Gleam",
-    "activeStake": 110137325176657,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "9dH6wfdJVgnDcbCUjT8rkmejAzTnGQaFarmLfvBYXANK",
-    "name": "4CRYPTO",
-    "activeStake": 109448268146320,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "vnd1Ps8w3fsi54qUMJxBhUWARES34Qw7JQXDZxvbysd",
-    "name": "Vandal",
-    "activeStake": 109092602671952,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "GkFT5nmcFVmJiLwuE98PjdF3LReMeq4WbejFHfwrnsgw",
-    "name": "KAST",
-    "activeStake": 109051779222735,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "3DaPk6TdeGnEBwTR8fEyZSLkdayk6vZXrqGZhAgYK8BV",
-    "name": "Stand With Ukraine",
-    "activeStake": 109042963599007,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "h3ZXAE168mNxsszYYrUfkMVSCWx6DU2Uvrx97Kb1Nch",
     "name": "Validation Cloud",
-    "activeStake": 108815803687661,
+    "activeStake": 110068156001736,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "FjYEr2UCeFzNfAKiFrbhG34Zv8LxbmfHYAFhAfc7SLQL",
-    "name": "Easytoken.me",
-    "activeStake": 108522875335388,
+    "account": "2zykwzzo1pd3H2oSj5j5SRLTvmpa9Nr2S2Bh8tTVd5Tq",
+    "name": "zim.one | 0️⃣0️⃣",
+    "activeStake": 110025699885372,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "gVALrRd3xq4D62KJNGDCpMMGz976w2x1Vo79mSNn4bh",
+    "name": "Guardian Validator",
+    "activeStake": 109915260399562,
+    "softwareClient": "Rakurai"
+  },
+  {
+    "account": "vnd1Ps8w3fsi54qUMJxBhUWARES34Qw7JQXDZxvbysd",
+    "name": "Vandal",
+    "activeStake": 109894468221411,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "nateKhsYkrVc992UuTfAhEEFQqr2zQfpGg9RafNkxdC",
+    "name": "Epoch.Day",
+    "activeStake": 109786333709792,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "3DaPk6TdeGnEBwTR8fEyZSLkdayk6vZXrqGZhAgYK8BV",
+    "name": "Stand With Ukraine",
+    "activeStake": 109758736350452,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "GK2YYwmQk58xA2k2SeugY3i334SJVViqTT8sT5wim3Dk",
+    "name": "Node1",
+    "activeStake": 109309290139077,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "CZanBzZHFzrGY5qKzaX3CNhJ5smHEMTWFFnoeUi4J6dr",
     "name": "Omakase",
-    "activeStake": 108313945811412,
+    "activeStake": 109098066083636,
     "softwareClient": "HarmonicAgave"
   },
   {
-    "account": "CtvdyHYt8cMuGVHFarV2RADfoCdnrbd8e9jAsB225uMW",
-    "name": "SolanaBull 🚀",
-    "activeStake": 106641211258131,
+    "account": "GkFT5nmcFVmJiLwuE98PjdF3LReMeq4WbejFHfwrnsgw",
+    "name": "KAST",
+    "activeStake": 108522036170796,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "GHQsq6bAdgooi998uKhwdzFubsJ7R3SuhTE9gJ83gctU",
+    "name": "Axis",
+    "activeStake": 107091031736859,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "9dH6wfdJVgnDcbCUjT8rkmejAzTnGQaFarmLfvBYXANK",
+    "name": "4CRYPTO",
+    "activeStake": 107047104590540,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "rapXHroUoGG3KvZ3qwjvGMdA7siWXwXpiNC1bYarvSC",
     "name": "Raposa Coffee",
-    "activeStake": 106576146122311,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "spur5CDwBvTZszvy1ozGjRc1x2TuDWo3VF4jrq7zgvD",
-    "name": null,
-    "activeStake": 106406089163616,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "uEhHSnCXvWgtgvVaYscPHjG13G3peMmngQQ2ghC54i3",
-    "name": "Satellite Staking",
-    "activeStake": 106398550201223,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "te1ee9rGf369wxYQkuxkvuvMuTJ9cksgZySmNUF8rNY",
-    "name": "Telemetry",
-    "activeStake": 105244533597730,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "GHQsq6bAdgooi998uKhwdzFubsJ7R3SuhTE9gJ83gctU",
-    "name": "Axis",
-    "activeStake": 104753665541312,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "4aRPyjsqqFsf5488a9QAaHJLQJMGwoL5P6wRtLmroe2d",
-    "name": "SoLove",
-    "activeStake": 103859554722012,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "LodeuWMHPiPj2PUHUyca2bkpFv9HyzR3gaDBmGJ9TSS",
-    "name": "The Lode (Sentries)",
-    "activeStake": 102606601441475,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "jntr1vkzvSujfckGR6ANmFmirVoPBMNr5XJGKP5uDQA",
-    "name": "Janitor",
-    "activeStake": 102450481901647,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "dst2u7mXMyDvb14cSErRNA1mxH1d5VXbSXgZ3DKE9xH",
-    "name": "Dust Eleven",
-    "activeStake": 102442590646764,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "TopjgY7N1fJdnW89S9fX6t7LF61nspgXGL1NpgAKhDG",
-    "name": "TopReward - 0% fee and mev, top APY!",
-    "activeStake": 102343048034951,
-    "softwareClient": "Rakurai"
-  },
-  {
-    "account": "D8xKNftHzFcCekENuTEcFC1eoL9y8wNHEg4Q5z57KK4e",
-    "name": "Mice Stakin'",
-    "activeStake": 102326210999912,
+    "activeStake": 107030785675966,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "MicoB9cA9R6jsicdhzWFjwd9HMkV8FA4o3WxYU6Z2yz",
     "name": "MICOBO",
-    "activeStake": 102047972220319,
+    "activeStake": 106842837171956,
     "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "odcvDWH5wHVKz9XtmGGxTj5ZsmawTjCCty3nyBKDGzS",
+    "name": "Odyssey",
+    "activeStake": 106589863939161,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "spur5CDwBvTZszvy1ozGjRc1x2TuDWo3VF4jrq7zgvD",
+    "name": null,
+    "activeStake": 106473373348737,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "te1ee9rGf369wxYQkuxkvuvMuTJ9cksgZySmNUF8rNY",
+    "name": "Telemetry",
+    "activeStake": 106114255144409,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "TopjgY7N1fJdnW89S9fX6t7LF61nspgXGL1NpgAKhDG",
+    "name": "TopReward - 0% fee and mev, top APY!",
+    "activeStake": 105106023207124,
+    "softwareClient": "Rakurai"
+  },
+  {
+    "account": "FjYEr2UCeFzNfAKiFrbhG34Zv8LxbmfHYAFhAfc7SLQL",
+    "name": "Easytoken.me",
+    "activeStake": 104768859708624,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "LitxAVo3RnYXD2sX1TyRJxfnKy48amXgyGiysPZjZwE",
+    "name": "Litx - 0% Commission",
+    "activeStake": 103632805461545,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "EBk678aQvc3cUkfGyoehfw21JQfJXjmWuBeopYc89RSV",
+    "name": "佛金疯 Solana Chinese Community",
+    "activeStake": 103601113582085,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "LodeuWMHPiPj2PUHUyca2bkpFv9HyzR3gaDBmGJ9TSS",
+    "name": "The Lode (Sentries)",
+    "activeStake": 103409702474878,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "dst2u7mXMyDvb14cSErRNA1mxH1d5VXbSXgZ3DKE9xH",
+    "name": "Dust Eleven",
+    "activeStake": 103380365747128,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "G4GT8z4AKWNoy3x6nuzxW83UfFXLXzrwn7DZQt4GvWdU",
+    "name": "FREEZZ",
+    "activeStake": 102754806644027,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "chrtyETASKQhsndRM9pr6qC3gAHG5MuRwCgXSNVqnJL",
+    "name": "Charity Soul",
+    "activeStake": 102667763924267,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "HnwMGBAw5PxaX56eSYc969MorEy2NzEMPLkmBkdnJmeq",
+    "name": "⭐StepByStep⭐ Jito BAM",
+    "activeStake": 102420328356462,
+    "softwareClient": "JitoLabs"
   },
   {
     "account": "DCKyEmMENQMtLXgbmUoHRmgP9XdJ9HsR5WxrKnSDCzKA",
     "name": "Dicky",
-    "activeStake": 101434273319011,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "hnhCMmnrmod4rcyc3QRKkLEC9XnPTvYJ2gBvjgFiV4o",
-    "name": "Hodl & Hodl LLLP",
-    "activeStake": 101425417357275,
+    "activeStake": 102413065581921,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "RoYLttggWwa2st3KAGEjnPhsq4NPD5QwaNVyyR8pTz4",
     "name": "Royal",
-    "activeStake": 101205740598360,
+    "activeStake": 102185097659263,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "1i1yPyh843bTfi5qPgqozTbDcEX65rUNEFcUT2KAs2i",
     "name": "Lilith",
-    "activeStake": 101158283164383,
+    "activeStake": 102137462053332,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "D8xKNftHzFcCekENuTEcFC1eoL9y8wNHEg4Q5z57KK4e",
+    "name": "Mice Stakin'",
+    "activeStake": 102113524009811,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "BJvrWSfonXnS2Km8iA9KLY6D6vS3GcsaUwUNPFBumTca",
     "name": "rossi-mainnet",
-    "activeStake": 100761924266175,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "FdH9QEQBxPQfaF2JpcjgdfcMnDb7rjZkCDRCWLRjTQwj",
-    "name": "Solana Ukraine 🇺🇦",
-    "activeStake": 100594228507298,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "2XmhZKHmfjku3T3nC9xKhgr5bm1CAmWXqNsNt49mo82C",
-    "name": "Soldea Kitchen",
-    "activeStake": 100547120155574,
+    "activeStake": 101750733542880,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "sTEVErNNwF2qPnV6DuNPkWpEyCt4UU6k2Y3Hyn7WUFu",
     "name": "STEVE",
-    "activeStake": 100516389342622,
+    "activeStake": 101506638154612,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "jntr1vkzvSujfckGR6ANmFmirVoPBMNr5XJGKP5uDQA",
+    "name": "Janitor",
+    "activeStake": 101398133609705,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "chdvWr6T14nqGRFD37KY36dsvhkCtDaufW5rpu3AfHe",
+    "name": "CH Dev",
+    "activeStake": 101201239396347,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "2XmhZKHmfjku3T3nC9xKhgr5bm1CAmWXqNsNt49mo82C",
+    "name": "Soldea Kitchen",
+    "activeStake": 101181294085287,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "hnhCMmnrmod4rcyc3QRKkLEC9XnPTvYJ2gBvjgFiV4o",
+    "name": "Hodl & Hodl LLLP",
+    "activeStake": 101156384687326,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "EPFZFVrXuveEQar9LaEkt5kDRPMnbvK54qu5FwCxpkcy",
+    "name": "AiSol",
+    "activeStake": 100989850038342,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "FdH9QEQBxPQfaF2JpcjgdfcMnDb7rjZkCDRCWLRjTQwj",
+    "name": "Solana Ukraine 🇺🇦",
+    "activeStake": 100791580901609,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "uEhHSnCXvWgtgvVaYscPHjG13G3peMmngQQ2ghC54i3",
+    "name": "Satellite Staking",
+    "activeStake": 100694159371257,
     "softwareClient": "AgaveBam"
   },
   {
@@ -3192,123 +3234,135 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "chdvWr6T14nqGRFD37KY36dsvhkCtDaufW5rpu3AfHe",
-    "name": "CH Dev",
-    "activeStake": 100483264393497,
-    "softwareClient": "AgaveBam"
-  },
-  {
     "account": "BhNnboEZb3mKkVADMH11cYGWCqefAfmhzx5rU4eRTKGY",
     "name": "Firstset",
-    "activeStake": 99350203452100,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "mrgn28BhocwdAUEenen3Sw2MR9cPKDpLkDvzDdR7DBD",
-    "name": "Project 0 Horizon",
-    "activeStake": 99171687492036,
-    "softwareClient": "HarmonicFrankendancer"
-  },
-  {
-    "account": "1ggyZGbYtEo1WrV1kmXfnvhPeSPxrYAXoDBeApnszLT",
-    "name": "Iggyz",
-    "activeStake": 98965088051509,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "Ste1115xFGdAYK5jaWA3dEFcUc1S5jEbVvD8e327zty",
-    "name": "Stellium",
-    "activeStake": 98697477583423,
+    "activeStake": 100497216315000,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "AWZhUiQjrjtxL8MEMWsCFbMausFQKkdTnDsFW2i411hN",
     "name": "MeshMap",
-    "activeStake": 98448765050520,
+    "activeStake": 99763403043103,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "Ste1115xFGdAYK5jaWA3dEFcUc1S5jEbVvD8e327zty",
+    "name": "Stellium",
+    "activeStake": 99685270569034,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "sfvTq7ojrEc5WdXcHijz676eX1pc5MgoLxbkYSdRDAB",
     "name": "soltop.sh",
-    "activeStake": 98447855783841,
+    "activeStake": 99173325150838,
     "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "1ggyZGbYtEo1WrV1kmXfnvhPeSPxrYAXoDBeApnszLT",
+    "name": "Iggyz",
+    "activeStake": 99020738008601,
+    "softwareClient": "JitoLabs"
   },
   {
     "account": "GvfaiJUhNCRZGVGumsEF1eHDb8JpAeFAyHSrTifyhrbt",
     "name": "Vybe Validator",
-    "activeStake": 97576223959752,
+    "activeStake": 98701157196563,
     "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "mrgn28BhocwdAUEenen3Sw2MR9cPKDpLkDvzDdR7DBD",
+    "name": "Project 0 Horizon",
+    "activeStake": 98693893083680,
+    "softwareClient": "HarmonicFrankendancer"
+  },
+  {
+    "account": "BCJN2vZFAHDYmufBDcbD5UAQHSyerXfc6UQkgX3mSWuh",
+    "name": "TomYum",
+    "activeStake": 98040007707219,
+    "softwareClient": "JitoLabs"
   },
   {
     "account": "7CR6whiYULVf1Knj4J5PxUS37opdk8UAx2WnDzBQKiVe",
     "name": "DataHive AI | Missions",
-    "activeStake": 97290422519895,
+    "activeStake": 97995176835849,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "By8MseMKtZQQaQjMHJiyetmc5AC8RZZv8C2ss33ktrHt",
     "name": "Wave",
-    "activeStake": 96803767204266,
+    "activeStake": 97017442587912,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "5FbKKGdEaFcxGxxaLKVvBes2JxiKbreh8w2ZpMcSQ2a5",
     "name": "Table Rock Jungle Lodge",
-    "activeStake": 96801765302605,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "BCJN2vZFAHDYmufBDcbD5UAQHSyerXfc6UQkgX3mSWuh",
-    "name": "TomYum",
-    "activeStake": 96665177655368,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "8nbE53mcKhy74HLiGZ1q5HRocwiCvgh49csSaHSdtukr",
-    "name": "Moutai Validator 🚀 Performant, Secure and NO Fees",
-    "activeStake": 96262327721819,
+    "activeStake": 96962330559255,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "BR1aTt4ZZUCwWJDkSYf1hqkYJjo7Mb7Ar8iVTkeSwUB8",
     "name": "Abacus",
-    "activeStake": 95508253421655,
+    "activeStake": 96743524711111,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "8nbE53mcKhy74HLiGZ1q5HRocwiCvgh49csSaHSdtukr",
+    "name": "Moutai Validator 🚀 Performant, Secure and NO Fees",
+    "activeStake": 96669488484334,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "fhsM2sxME8cHrrk3qvtMsRRDv5AoLFja7NjNnHeYZxe",
+    "name": "Fountainhead 🌱 Funding Dev WITH max APY",
+    "activeStake": 95135517654461,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "6Rk694kh1QTyQkirdb1uDZmS5xqG9bNaYtxx8d311Mr7",
     "name": "Anode ⚡️ Beta",
-    "activeStake": 94131101547540,
+    "activeStake": 94801817830600,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "3Rv6ZVGUuRczP76322LyhTTYw2iM4avV4B5xFJocQJer",
     "name": "Gaxx Validator",
-    "activeStake": 93733822373720,
+    "activeStake": 94569973877081,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "7Nn8qBJey7vXtVFMNBbbuN8UkujU8Y6nWzbHVGuf49yV",
     "name": "livechanger",
-    "activeStake": 92986593112686,
+    "activeStake": 93845792594476,
     "softwareClient": "Rakurai"
   },
   {
-    "account": "9bkyxgYxRrysC1ijd6iByp9idn112CnYTw243fdH2Uvr",
-    "name": "Legends",
-    "activeStake": 92336658686830,
+    "account": "Lua1fxRRHCnjVAYdfGyv2GbUsRHGM2DN2wgpWuF2WSb",
+    "name": "Lua Sol Foundation",
+    "activeStake": 93624394883332,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "mALL2W6DUgDDtcyurC9v5YTF2CMMeuRwPBkf6tEoG3y",
     "name": "mallow",
-    "activeStake": 91577701259818,
+    "activeStake": 93578246534545,
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "CpNnGGhgVATJAbzHUXdrcGfpPiGuZyPka4QUmH7YgavX",
-    "name": "DICS - Degen Infrastructure Core Services",
-    "activeStake": 89680671203348,
+    "account": "9bkyxgYxRrysC1ijd6iByp9idn112CnYTw243fdH2Uvr",
+    "name": "Legends",
+    "activeStake": 91436843113051,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "chopskqnudaeCTENWzUjfFCBSLcxprqbdMoCAucAwfb",
+    "name": "Choplet Studios",
+    "activeStake": 91094099353679,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "SWiz7QwnYPm61pWWUUkMhj4r5pZLP1SvYibdHcB2cov",
+    "name": "BOOP Wizard",
+    "activeStake": 89635728026517,
     "softwareClient": "AgaveBam"
   },
   {
@@ -3320,92 +3374,128 @@
   {
     "account": "9ueKvL3WiLM4mNUZrfWqPTYY2Np5YwzFTYvAiPibx1Zq",
     "name": null,
-    "activeStake": 88257812128689,
+    "activeStake": 88487797343853,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "NoditgWLFbgnbPjfHP8QQrjxvuhCayTZWHw9pM4EJpu",
     "name": "Nodit",
-    "activeStake": 86790966713152,
+    "activeStake": 88255510851597,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "2uxEHizFmmnLekKG2LZJwxNabhpymEYfdVCpgDxjt87m",
     "name": "🍀PADDY - 💰JITO-BAM",
-    "activeStake": 86632226085720,
+    "activeStake": 87928924340019,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "FphFJA451qptiGyCeCN3xvrDi8cApGAnyR5vw2KxxQ1q",
     "name": "ex1arey 💫 0% fee + MEV!",
-    "activeStake": 86488708768961,
+    "activeStake": 86965802962819,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "CARBN9PY1Qej1aCg4885pfoYH8EHfjWuMy59pVa48ky",
     "name": "Cloak",
-    "activeStake": 86029023805178,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "gotasRuLTuJNZDtLHmaDJpEUjCWZqkHcuwbLhkgCwCX",
-    "name": "Gotas",
-    "activeStake": 85673638141706,
+    "activeStake": 86698634442416,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "6pEtDovpyd1zUMYPuNhMCPU37sUTEAtzzgoVVAh1G1JL",
     "name": "Zemnoi 👾",
-    "activeStake": 85257577578246,
+    "activeStake": 86483798356577,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "DefiihS7gLkj6xLjjhcr87bFuwpVVNYpeNBaBeFe56CY",
     "name": "Yield Lab",
-    "activeStake": 85007831902545,
+    "activeStake": 86474699121082,
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "xLabscif2DLnYg39rQThqi7A9E45L9qiysRZhmZ1ARE",
-    "name": "xLabs",
-    "activeStake": 85004623757521,
-    "softwareClient": "Frankendancer Vanilla"
-  },
-  {
-    "account": "Hu7pi2Xg5Kav8vSAUUr5CCZaEmMCzT6FgCTpueu3oBtW",
-    "name": null,
-    "activeStake": 84849327261031,
-    "softwareClient": "HarmonicAgave"
+    "account": "gotasRuLTuJNZDtLHmaDJpEUjCWZqkHcuwbLhkgCwCX",
+    "name": "Gotas",
+    "activeStake": 86372898303271,
+    "softwareClient": "JitoLabs"
   },
   {
     "account": "7G4RfctwLLgqG4ZWfCirU8dfJd87mKQWgB4EHQRv8i7v",
     "name": "☄️ The Mandalorian ☄️",
-    "activeStake": 84769267932794,
+    "activeStake": 86019351447261,
     "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "xLabscif2DLnYg39rQThqi7A9E45L9qiysRZhmZ1ARE",
+    "name": "xLabs",
+    "activeStake": 85926366987607,
+    "softwareClient": "Frankendancer Vanilla"
   },
   {
     "account": "DZKTNGR3r4Akj3G42ReZatKhkmgEXoZjk5Ed2tFwRyqm",
     "name": "Dante 🐾",
-    "activeStake": 84505393231443,
+    "activeStake": 85755405831294,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "CpgSfd6QUoBw1267rTtJoZhELqC5q7isKLojBifSbNEE",
     "name": "WestSide 🖖",
-    "activeStake": 83774779890919,
+    "activeStake": 85040719272614,
     "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "Hu7pi2Xg5Kav8vSAUUr5CCZaEmMCzT6FgCTpueu3oBtW",
+    "name": null,
+    "activeStake": 84897104799278,
+    "softwareClient": "HarmonicAgave"
   },
   {
     "account": "5ysfTZ42VT1TjnjzQShZSrix7wdVtjXwssocSeYKDs5d",
     "name": "LEVMA - 0% fee",
-    "activeStake": 83705198098157,
+    "activeStake": 84627596356127,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "ByszyWdqC3rVMWy8f6jwK5cmwkpwYdwsr7UL58xS5vnm",
+    "name": "ILY♡ Validator ➕ Firedancer🔥 ||neochibi culture X:@ILY_validator",
+    "activeStake": 84622673664656,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "ArMBx6veRq33ffEP9sxHafiPRgrtzww4XvbwZbSMfXiM",
+    "name": "Luke",
+    "activeStake": 84441900436787,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "As9NxA9bCfhrVLAFyGeWG5X5iLYPGhU3R7nLfX3tN6am",
+    "name": "Elysium 🧊 0% fee",
+    "activeStake": 83878803474257,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "BxkAkLR2W3agWtjMXBNvhxmB8vsn7zhjNQcyfost99KY",
     "name": "🪐 To The Stars 🪐",
-    "activeStake": 83619902169594,
+    "activeStake": 83822897530802,
     "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "VicAQ3U2GjjAuF3tPCtEQZdZKnpAAxkr5Q3zjDKmdo7",
+    "name": "LightNode",
+    "activeStake": 83147872935718,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "7PpXQgDb9eCHN1Uudgi77Wm89cRz4T85YgDw83qvaJXd",
+    "name": "Nodance 💃 00",
+    "activeStake": 82924006901695,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "FoXyHJXdQGK2eHoTjSAzHq4hzxWdJvpGgyzrtPS9eAk",
+    "name": "Famous Foxes",
+    "activeStake": 82886258178917,
+    "softwareClient": "JitoLabs"
   },
   {
     "account": "2dxz129YxB1xtf7Mx6HUT5JspexArNNtQt84FYueWZV7",
@@ -3414,136 +3504,106 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "ArMBx6veRq33ffEP9sxHafiPRgrtzww4XvbwZbSMfXiM",
-    "name": "Luke",
-    "activeStake": 82611908410099,
+    "account": "ECZx4Dfyn2o55KTYbM9r3Dt4VZRcrdfdrst7sUbWgrdU",
+    "name": "Orca",
+    "activeStake": 82660796426253,
+    "softwareClient": "Frankendancer Vanilla"
+  },
+  {
+    "account": "D3htsc6iRQJLqCNWcC2xcZgUuvcd1JT8zoYNqraNcTQz",
+    "name": "pico🙄.sol",
+    "activeStake": 82345101519317,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "As9NxA9bCfhrVLAFyGeWG5X5iLYPGhU3R7nLfX3tN6am",
-    "name": "Elysium 🧊 0% fee",
-    "activeStake": 82587882444245,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "BLUEHGDihXD9CqqC5XFSQzDC3aS5jASohb2BAsXaJokR",
-    "name": "Bluestone 💙",
-    "activeStake": 82208169453014,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "FoXyHJXdQGK2eHoTjSAzHq4hzxWdJvpGgyzrtPS9eAk",
-    "name": "Famous Foxes",
-    "activeStake": 82095102014520,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "7PpXQgDb9eCHN1Uudgi77Wm89cRz4T85YgDw83qvaJXd",
-    "name": "Nodance 💃 00",
-    "activeStake": 82001063880226,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "SWiz7QwnYPm61pWWUUkMhj4r5pZLP1SvYibdHcB2cov",
-    "name": "BOOP Wizard",
-    "activeStake": 81871315757112,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "VicAQ3U2GjjAuF3tPCtEQZdZKnpAAxkr5Q3zjDKmdo7",
-    "name": "LightNode",
-    "activeStake": 81819826809721,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "bay3wXfJsu9ds1zQBoQQ4DUwFGs3NP6q4gca9WM5G1z",
-    "name": "Bay3",
-    "activeStake": 81045608667398,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "Fy7RCjDdFLG8wLn7TBKbccaKwYX1FetdSoVDREdUHf5o",
-    "name": "3SDK",
-    "activeStake": 80450469960868,
+    "account": "FyLVPAKkgdAy8Gn9jnFYN5yjC1ubQWRkw2EHt2UnC8uA",
+    "name": "Solary | 0% +MEV",
+    "activeStake": 81935659275180,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "AdSHK6vpQnwHRSw7jXUwjMEytmhFwnynZSENhvpAxL1y",
     "name": "crypto-jack-sparrow",
-    "activeStake": 80292230972507,
+    "activeStake": 81833976508301,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "DupN8puwoPdFo9EYm8AXemEn9cMsore1QmZzfPaxyUG4",
-    "name": "Buffalo Steve",
-    "activeStake": 79690555725584,
+    "account": "Fy7RCjDdFLG8wLn7TBKbccaKwYX1FetdSoVDREdUHf5o",
+    "name": "3SDK",
+    "activeStake": 81548692842237,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "7HMHSdQkjDwz9Q5zAhEy83uzW3XHJchjdpMYapKXcKt5",
     "name": "GERSIA",
-    "activeStake": 79571780457434,
+    "activeStake": 81199084142570,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "DupN8puwoPdFo9EYm8AXemEn9cMsore1QmZzfPaxyUG4",
+    "name": "Buffalo Steve",
+    "activeStake": 81011584417860,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "BLUEHGDihXD9CqqC5XFSQzDC3aS5jASohb2BAsXaJokR",
+    "name": "Bluestone 💙",
+    "activeStake": 80858178585926,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "HFTcVVrX93SJwYHAiiHAssb3c4zXqSsF4mNjg5arGPEj",
     "name": "Alien 👽 0% +Mev rewards",
-    "activeStake": 79490039645168,
+    "activeStake": 80848781037896,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "nodeEgRVkbYLAQePtMx2zCN7CGw7qRgzKMCBtjMfN1D",
     "name": "Node Integration",
-    "activeStake": 79103383185603,
+    "activeStake": 80691985685608,
     "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "GK2YYwmQk58xA2k2SeugY3i334SJVViqTT8sT5wim3Dk",
-    "name": "Node1",
-    "activeStake": 78292990332804,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "MFLKSo4XDfrBf4FByx76zYM2dXSWcigag7ec2bCHTR4",
-    "name": "The Mindfolk",
-    "activeStake": 77990306120442,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "ABREU5YkQcfpDZymoQ97iGUgQcfgjctWUUxEMfumiPdV",
-    "name": "ABREU Foundation",
-    "activeStake": 77838272625114,
-    "softwareClient": "JitoLabs"
   },
   {
     "account": "5t4shVsKnUqgjmhK3fFNsvyju2E6Rd7cc4S5pmqqEVEW",
     "name": "SteakStache",
-    "activeStake": 76383819077469,
+    "activeStake": 79671738665101,
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "dmMwc4RazLHkvDZYrWAfbHQ6cViAvNa5szCJKaiun8S",
-    "name": "Ded Monkes",
-    "activeStake": 76101244106725,
-    "softwareClient": "AgaveBam"
+    "account": "MFLKSo4XDfrBf4FByx76zYM2dXSWcigag7ec2bCHTR4",
+    "name": "The Mindfolk",
+    "activeStake": 78934375754997,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "3x9nibnhgBHWKMRiGnsXJELRBjviQpKyigfrXtKW27KJ",
+    "name": "Staking Kiwi",
+    "activeStake": 78886821328696,
+    "softwareClient": "HarmonicAgave"
+  },
+  {
+    "account": "ABREU5YkQcfpDZymoQ97iGUgQcfgjctWUUxEMfumiPdV",
+    "name": "ABREU Foundation",
+    "activeStake": 78729263879651,
+    "softwareClient": "JitoLabs"
   },
   {
     "account": "ppppoqHcHVzigV6SK4856BAsNxhTAi32hqQQWrziyHE",
     "name": "Pesky Penguins 🔥💃 NOOT NOOT",
-    "activeStake": 75881434849828,
-    "softwareClient": "Frankendancer Vanilla"
+    "activeStake": 77486622024626,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "mythxvB89eT3C1TKwwhsvdHfYq2aoCt2es8vLoDFYyk",
+    "name": "Mythx",
+    "activeStake": 76303649829656,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "BaDhUB1eWfunwD21Tu3WywyYQ9wZx5hS9WXeHHNGZUPy",
     "name": null,
     "activeStake": 75000025475225,
     "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "mythxvB89eT3C1TKwwhsvdHfYq2aoCt2es8vLoDFYyk",
-    "name": "Mythx",
-    "activeStake": 74751750744820,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "STPTshazcjH6cZMHzQBrggFSPHXYCTRGB7ctqS1AjkH",
@@ -3554,38 +3614,56 @@
   {
     "account": "GqDCbnafLmKkdqiqf278jDLXqjjZMB2sViZQtR82jPUf",
     "name": "SolLana",
-    "activeStake": 73585516567655,
+    "activeStake": 72398035938534,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "KAoSp3EudGqUBXv46tQoDwbZxSm3iXa9wM2aF4ySbJJ",
+    "name": "Aepalizage",
+    "activeStake": 71364802339251,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "pineXRUnbaLNFMxaM3zBmFfTiKgQMGqT9jYHXZWq2Fw",
+    "name": "Pine Analytics",
+    "activeStake": 71277171900084,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "D1A4F2yh38JLQExKjDiCi4G2tCMwj93c3sikseSSePKe",
     "name": null,
-    "activeStake": 69434893957696,
+    "activeStake": 69476049935918,
     "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "pineXRUnbaLNFMxaM3zBmFfTiKgQMGqT9jYHXZWq2Fw",
-    "name": "Pine Analytics",
-    "activeStake": 69276421158589,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "B94PGWcxE9iEDov8sZobTkqEY96Yb5gfcsYWSWpQxh6S",
-    "name": "SUNREN",
-    "activeStake": 68966408225995,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "odcvDWH5wHVKz9XtmGGxTj5ZsmawTjCCty3nyBKDGzS",
-    "name": "Odyssey",
-    "activeStake": 68471471132068,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "BCeczqpTRPigndHVJu1KEzno1Uhb4hjrE7ttmAndrV1p",
     "name": "GlobalStake [Bare Metal]",
-    "activeStake": 68408600952932,
+    "activeStake": 68453233784039,
     "softwareClient": "Rakurai"
+  },
+  {
+    "account": "B94PGWcxE9iEDov8sZobTkqEY96Yb5gfcsYWSWpQxh6S",
+    "name": "SUNREN",
+    "activeStake": 67972955101561,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "prt1st4RSxAt32ams4zsXCe1kavzmKeoR7eh1sdYRXW",
+    "name": "Portals",
+    "activeStake": 67867000171990,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "KAW1LjxH73tRBd1XsaqsRsgeERFkg4WpdXUSqR4QjkW",
+    "name": "Kawil",
+    "activeStake": 67426035842233,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "tkmaiSoZ3F8MofkQBVWG6JYSCzyN6ioe7ReYXohx3WJ",
+    "name": "Tokamai",
+    "activeStake": 66970907773800,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "REA1zKzM5WjDEcpB27Zx2Rk16foNPtLGTETy93LLgNw",
@@ -3594,27 +3672,27 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "6gL3uHvuUjaPp9mTBf2VZ4tpKiYhbWyPrAPboGByzEHd",
-    "name": "Mira Validator",
-    "activeStake": 66633198941735,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "prt1st4RSxAt32ams4zsXCe1kavzmKeoR7eh1sdYRXW",
-    "name": "Portals",
-    "activeStake": 66111789237859,
+    "account": "7d7x84jiVtqpz9NK88ocLmu4L15uhdnzMEDmo8Py8oVi",
+    "name": "Validatize Validator",
+    "activeStake": 65822551412656,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "EBk678aQvc3cUkfGyoehfw21JQfJXjmWuBeopYc89RSV",
-    "name": "佛金疯 Solana Chinese Community",
-    "activeStake": 65578638227772,
-    "softwareClient": "JitoLabs"
+    "account": "E99w1XfS4UNM1xUKXWEuDmj8Mduy7u65jm2NCULTspSV",
+    "name": "Project Super",
+    "activeStake": 64851222151825,
+    "softwareClient": "AgaveBam"
   },
   {
-    "account": "chrtyETASKQhsndRM9pr6qC3gAHG5MuRwCgXSNVqnJL",
-    "name": "Charity Soul",
-    "activeStake": 64416988157344,
+    "account": "AccReGBNBdUCEJ7ZyP231jw7uVJ3eF9u4cLBFAyqQuWm",
+    "name": "Accretion | r0bre",
+    "activeStake": 64802361010040,
+    "softwareClient": "Frankendancer Vanilla"
+  },
+  {
+    "account": "kyzzzgRymGpePUsLyr48kQHt53kh5CSfRH1qfvz1xgj",
+    "name": "Kyzzen",
+    "activeStake": 64649898908215,
     "softwareClient": "AgaveBam"
   },
   {
@@ -3624,27 +3702,15 @@
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "FyLVPAKkgdAy8Gn9jnFYN5yjC1ubQWRkw2EHt2UnC8uA",
-    "name": "Solary | 0% +MEV",
-    "activeStake": 63640237361986,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "tkmaiSoZ3F8MofkQBVWG6JYSCzyN6ioe7ReYXohx3WJ",
-    "name": "Tokamai",
-    "activeStake": 62879119383243,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "kyzzzgRymGpePUsLyr48kQHt53kh5CSfRH1qfvz1xgj",
-    "name": "Kyzzen",
-    "activeStake": 62610735482972,
-    "softwareClient": "Frankendancer Vanilla"
-  },
-  {
     "account": "E9hD3ikumJx1GVswDjnpCt6Uu4WG5mz1PDWCqdE5uhmo",
     "name": "cp0x_by_STAKRspace",
-    "activeStake": 62561382514220,
+    "activeStake": 63221797116854,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "2Eq6YD8P8QXTeoz9h6JHjgZ55t8RSxNdx4waMDCoPmQU",
+    "name": "EvasMainnet",
+    "activeStake": 62888592261650,
     "softwareClient": "AgaveBam"
   },
   {
@@ -3654,10 +3720,22 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "AccReGBNBdUCEJ7ZyP231jw7uVJ3eF9u4cLBFAyqQuWm",
-    "name": "Accretion | r0bre",
-    "activeStake": 61699624231142,
-    "softwareClient": "Frankendancer Vanilla"
+    "account": "MargusJeV9bkePFLWbbzRNsMVo3Re6h9wKB5Ago8Tfj",
+    "name": "MARGUS.ONE 💎 0% fee +MEV!",
+    "activeStake": 61656233877044,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "ExCHWgfeJyKRzpfryiQn4W6aYaWhbSAEnsoUnBGNqjWD",
+    "name": "Exchange Art Validator",
+    "activeStake": 61205425323055,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "sCANXAaS1a7yB8jz3USvGNLfd8DSc9r7TNzNSKKPkfY",
+    "name": "Range",
+    "activeStake": 60834079299917,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "BCS95L5JHBWHvWkcEJBEF3BH5QHxKcPeaTgoYmHLvfFh",
@@ -3674,13 +3752,13 @@
   {
     "account": "4MKi9PLRv4x6Ey2Sc7KmuPGNhGmLW4NCcDVZd1PBdNSR",
     "name": null,
-    "activeStake": 60372892614861,
+    "activeStake": 60406173403845,
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "ExCHWgfeJyKRzpfryiQn4W6aYaWhbSAEnsoUnBGNqjWD",
-    "name": "Exchange Art Validator",
-    "activeStake": 60211906734784,
+    "account": "LiFiDJwJjW98MB8wxcnXpafKYsuz1hwpUkuszkERiX6",
+    "name": "LI.FI",
+    "activeStake": 60169562348350,
     "softwareClient": "AgaveBam"
   },
   {
@@ -3696,51 +3774,45 @@
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "sCANXAaS1a7yB8jz3USvGNLfd8DSc9r7TNzNSKKPkfY",
-    "name": "Range",
-    "activeStake": 59206213034854,
-    "softwareClient": "AgaveBam"
-  },
-  {
     "account": "sce2zXNjLpPMcSCATTrLiQhAAvHNNMKypTFVtg2H37U",
     "name": null,
-    "activeStake": 58431036545545,
+    "activeStake": 58462196552537,
     "softwareClient": "Agave"
   },
   {
     "account": "scb1Z7du8NVSaHFXsafSjRdXr6xBjWR3iugikL739Y1",
     "name": null,
-    "activeStake": 58404062902863,
+    "activeStake": 58435212471500,
     "softwareClient": "Agave"
   },
   {
     "account": "sce1oTWYVXv7a7Hy2skxREozs5nwkQ4wDT8XJSi5tgE",
     "name": null,
-    "activeStake": 58384796806427,
+    "activeStake": 58415752288026,
     "softwareClient": "Agave"
-  },
-  {
-    "account": "9U4WqNGVywKt3gG9HSt9tGVXBDXJvgid6BVweRysaJmg",
-    "name": "6hTLQ5HSdWcpZkbXmZxXaGjCgTh7zh8UeWKWKgGE1BPp",
-    "activeStake": 58328096916683,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "scb2TYPmwHgKxXJaJNq6gHKwYkVyLKx58hz9RbCKZZR",
     "name": null,
-    "activeStake": 58313323741170,
+    "activeStake": 58344416893307,
     "softwareClient": "Agave"
   },
   {
     "account": "scs2Ra91pMbvqFAP7uitrN5U25SoyBTqZgBbhpVMJko",
     "name": null,
-    "activeStake": 58306353952191,
+    "activeStake": 58337427324510,
     "softwareClient": "Agave"
+  },
+  {
+    "account": "9U4WqNGVywKt3gG9HSt9tGVXBDXJvgid6BVweRysaJmg",
+    "name": "6hTLQ5HSdWcpZkbXmZxXaGjCgTh7zh8UeWKWKgGE1BPp",
+    "activeStake": 58322242767733,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "scs1NCSTafrUX6RBx113B9YDCepo1QdEzU8WwEkf25i",
     "name": null,
-    "activeStake": 58162771048638,
+    "activeStake": 58193531534513,
     "softwareClient": "Agave"
   },
   {
@@ -3750,39 +3822,39 @@
     "softwareClient": "JitoLabs"
   },
   {
+    "account": "svsD6T44XJnuXQWB15sy1pBxxruzrFy8rR7gXy8Jsj3",
+    "name": "Solana Vibe Station",
+    "activeStake": 58080686958338,
+    "softwareClient": "Frankendancer Vanilla"
+  },
+  {
     "account": "sce3TfT81rxYYcdbP1kBFMcTK3ZBc8hvHVeXD6WLSzE",
     "name": null,
-    "activeStake": 58045528568103,
+    "activeStake": 58076494052225,
     "softwareClient": "Agave"
   },
   {
     "account": "Mwz8VgAEnPtfqS62r3ixrFiMJwnNfEwR141CGnsTo5k",
     "name": "Rain Works💧MEV💧0% fees",
-    "activeStake": 57882573849290,
+    "activeStake": 57782706334441,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "2icWF7TvxyycF7d1NHpMZYuJJqiRy2h7wmjFSbqUij1B",
     "name": null,
-    "activeStake": 57694800993160,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "MargusJeV9bkePFLWbbzRNsMVo3Re6h9wKB5Ago8Tfj",
-    "name": "MARGUS.ONE 💎 0% fee +MEV!",
-    "activeStake": 57528466517246,
+    "activeStake": 57728999719123,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "mds2fZEpJP688PqJHvfLxGyf2VFrcNkvjuUxNYCwjrq",
     "name": null,
-    "activeStake": 57313622477895,
+    "activeStake": 57344197519499,
     "softwareClient": "Agave"
   },
   {
     "account": "mds1WWedpezW3qvgML4WgP341jZksYAy5SbMLwjP5KC",
     "name": null,
-    "activeStake": 57214300071375,
+    "activeStake": 57244822116409,
     "softwareClient": "Agave"
   },
   {
@@ -3792,64 +3864,64 @@
     "softwareClient": "JitoLabs"
   },
   {
+    "account": "3KNGMiXwhy2CAWVNpLoUt25sNngFnX1mZpaiEeVccBA6",
+    "name": "01node",
+    "activeStake": 56900474834998,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "3tm92VTxwyZ5MDhGoYR4tVTkwWYkzfam6hwBjauUACCk",
+    "name": "Sora Validator",
+    "activeStake": 56807038548756,
+    "softwareClient": "AgaveBam"
+  },
+  {
     "account": "CVGwNaC1FaG95hRBHUuieDLyQU2hJuGhPduu2cMyHnw6",
     "name": null,
-    "activeStake": 56363556130769,
+    "activeStake": 56574634112976,
     "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "EKgSCR3ahdypkxXcBY43ZNxdmyZqPkKNPey3rwKjqbz7",
+    "name": null,
+    "activeStake": 56294838524663,
+    "softwareClient": "Frankendancer Rev"
   },
   {
     "account": "mds3Df1ieBonG2qS8ZoKTqshq5MgTUNfZgc78cjiCdq",
     "name": null,
-    "activeStake": 56251752470823,
+    "activeStake": 56281761017980,
     "softwareClient": "Agave"
   },
   {
-    "account": "Lua1fxRRHCnjVAYdfGyv2GbUsRHGM2DN2wgpWuF2WSb",
-    "name": "Lua Sol Foundation",
-    "activeStake": 55970747620448,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "svsD6T44XJnuXQWB15sy1pBxxruzrFy8rR7gXy8Jsj3",
-    "name": "Solana Vibe Station",
-    "activeStake": 55793806718187,
-    "softwareClient": "Frankendancer Vanilla"
-  },
-  {
-    "account": "SPHERExTW7GaMgS4RN6MbghYvXU2REfFWHgpxMH1P69",
-    "name": "Sphere",
-    "activeStake": 55317340013832,
+    "account": "KTMkUG8WCw9FdH44jLMBpc1teGafnYL6SgP4fHHbsNM",
+    "name": "ERPC",
+    "activeStake": 55590392385053,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "2nhGaJvR17TeytzJVajPfABHQcAwinKoCG8F69gRdQot",
     "name": "WinStake Labs",
-    "activeStake": 54894181051406,
+    "activeStake": 54898139849798,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "7ZjHeeYEesmBs4N6aDvCQimKdtJX2bs5boXpJmpG2bZJ",
-    "name": "Chainflow Experimental",
-    "activeStake": 53996356586629,
-    "softwareClient": "Harmonic"
+    "account": "SA1LFXr4os2P4VKGUyRv84uFfuUYgcQkFh2uA4SmRcr",
+    "name": "Salmon Wallet",
+    "activeStake": 54747947405501,
+    "softwareClient": "JitoLabs"
   },
   {
-    "account": "4W3jdXyqhLCjzA3Liu8ZNjViwrc6N9YjSB7obbxfjcKE",
-    "name": "Glory to Ukraine",
-    "activeStake": 53699705694237,
-    "softwareClient": "Rakurai"
+    "account": "DeepM3FDWaAb7o53rvyZk5YvHLG3FvDiVXJLRY78z51p",
+    "name": "DeepStake",
+    "activeStake": 53595299401918,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "4kL5QD8ir5CvkuvCUnQhBDuWhq3Xfnz3UfQLt4CqPQZQ",
     "name": "Swyke | ISO27001",
     "activeStake": 53569308996639,
     "softwareClient": "Firedancer"
-  },
-  {
-    "account": "DeepM3FDWaAb7o53rvyZk5YvHLG3FvDiVXJLRY78z51p",
-    "name": "DeepStake",
-    "activeStake": 53475002370060,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "1unarWPGGseFag2WfnoFv8o9P7vTPU8eHex9GinP3eY",
@@ -3870,27 +3942,9 @@
     "softwareClient": "Frankendancer Vanilla"
   },
   {
-    "account": "D3htsc6iRQJLqCNWcC2xcZgUuvcd1JT8zoYNqraNcTQz",
-    "name": "pico🙄.sol",
-    "activeStake": 52775279394287,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "SA1LFXr4os2P4VKGUyRv84uFfuUYgcQkFh2uA4SmRcr",
-    "name": "Salmon Wallet",
-    "activeStake": 52236310035764,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "5ghoFEVrsXeAPB6SUmBpZ2xq3KvHEjNMeSaBnxEBXkHV",
-    "name": "DarkTower",
-    "activeStake": 52228688801754,
-    "softwareClient": "Rakurai"
-  },
-  {
-    "account": "chopskqnudaeCTENWzUjfFCBSLcxprqbdMoCAucAwfb",
-    "name": "Choplet Studios",
-    "activeStake": 52209327813192,
+    "account": "6gL3uHvuUjaPp9mTBf2VZ4tpKiYhbWyPrAPboGByzEHd",
+    "name": "Mira Validator",
+    "activeStake": 52330483085143,
     "softwareClient": "AgaveBam"
   },
   {
@@ -3898,12 +3952,6 @@
     "name": "Hydex",
     "activeStake": 51834441924202,
     "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "3tm92VTxwyZ5MDhGoYR4tVTkwWYkzfam6hwBjauUACCk",
-    "name": "Sora Validator",
-    "activeStake": 51827405254463,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "ELE1xBTfmHB7vuhSH94q23r6j3tuvTXYTqgm1u4uzMLk",
@@ -3954,15 +4002,15 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "5ZjxMYBbnKd4VFxLjAChSWMTeQ96147HnxZvQJxUseHV",
-    "name": "Watatsumi Validator",
-    "activeStake": 50404899149976,
+    "account": "SPHERExTW7GaMgS4RN6MbghYvXU2REfFWHgpxMH1P69",
+    "name": "Sphere",
+    "activeStake": 50437515686516,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "pitch9cMruwjDtAnisNS4mwZUPhMsBztNEGu2weMg55",
-    "name": "DePitch Academy",
-    "activeStake": 50015741096398,
+    "account": "5ZjxMYBbnKd4VFxLjAChSWMTeQ96147HnxZvQJxUseHV",
+    "name": "Watatsumi Validator",
+    "activeStake": 50155016292891,
     "softwareClient": "AgaveBam"
   },
   {
@@ -3972,28 +4020,10 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "fhsM2sxME8cHrrk3qvtMsRRDv5AoLFja7NjNnHeYZxe",
-    "name": "Fountainhead 🌱 Funding Dev WITH max APY",
-    "activeStake": 49213049078945,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "EKgSCR3ahdypkxXcBY43ZNxdmyZqPkKNPey3rwKjqbz7",
-    "name": null,
-    "activeStake": 49135228404669,
-    "softwareClient": "Frankendancer Rev"
-  },
-  {
-    "account": "KTMkUG8WCw9FdH44jLMBpc1teGafnYL6SgP4fHHbsNM",
-    "name": "ERPC",
-    "activeStake": 48568077775936,
-    "softwareClient": "AgaveBam"
-  },
-  {
     "account": "65pHd5P2VrehonT1cdJ2JUnq5wi3WUgfL3A8RhYH7Kg7",
     "name": null,
     "activeStake": 47772425429164,
-    "softwareClient": "HarmonicAgave"
+    "softwareClient": "JitoLabs"
   },
   {
     "account": "BeRtYZnaaZLFwYQRPaZcxuuHBmyFBSGP32C8Ls5xnrZP",
@@ -4004,13 +4034,13 @@
   {
     "account": "2abwQG3v2xRemFxRszVHSfnjJNe9zu5X8duKgxjyLeaK",
     "name": "Bitwise Onchain Solutions Research",
-    "activeStake": 46556635086351,
+    "activeStake": 44675336199343,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "7pR7t5axFfkg2VZB1uAuFNUvpAeowq2v15J4gw5MmHTB",
     "name": null,
-    "activeStake": 44203349966413,
+    "activeStake": 44127512315208,
     "softwareClient": "AgaveBam"
   },
   {
@@ -4026,9 +4056,9 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "ByszyWdqC3rVMWy8f6jwK5cmwkpwYdwsr7UL58xS5vnm",
-    "name": "ILY♡ Validator ➕ Firedancer🔥 ||neochibi culture X:@ILY_validator",
-    "activeStake": 42567821332284,
+    "account": "DEU4agzdUCA5oZ1QSLxCyZb1smvdu5j1NXXsK2r823Uu",
+    "name": null,
+    "activeStake": 43287925304945,
     "softwareClient": "AgaveBam"
   },
   {
@@ -4046,19 +4076,13 @@
   {
     "account": "ark1hdnnfmusE24wGHkyVG1gdRCqfmXs9drasDAdABZ",
     "name": null,
-    "activeStake": 41963029444112,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "3DaifGfDESUzer5ggUeo6UDjqEKMkCpdNSrrvyuggHVe",
-    "name": "Speedlanding Validator",
-    "activeStake": 41657806592303,
+    "activeStake": 41985224878352,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "rssaJ2iKcE9QWsFYRZr8Q66TQh5bRk9DxYrzxGMzWQr",
     "name": "RSSA validator",
-    "activeStake": 41140730463922,
+    "activeStake": 41203264020273,
     "softwareClient": "AgaveBam"
   },
   {
@@ -4068,16 +4092,22 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "2Eq6YD8P8QXTeoz9h6JHjgZ55t8RSxNdx4waMDCoPmQU",
-    "name": "EvasMainnet",
-    "activeStake": 40797302216348,
+    "account": "7knvB4bbqHCKuNp3ef2hJWdwqoH6WAUi55NQt6LdRfkx",
+    "name": "AutoStake ⚡️ 0% fee",
+    "activeStake": 40041090016191,
     "softwareClient": "AgaveBam"
   },
   {
-    "account": "7knvB4bbqHCKuNp3ef2hJWdwqoH6WAUi55NQt6LdRfkx",
-    "name": "AutoStake ⚡️ 0% fee",
-    "activeStake": 39973075246675,
-    "softwareClient": "AgaveBam"
+    "account": "4W3jdXyqhLCjzA3Liu8ZNjViwrc6N9YjSB7obbxfjcKE",
+    "name": "Glory to Ukraine",
+    "activeStake": 39745939790246,
+    "softwareClient": "Rakurai"
+  },
+  {
+    "account": "5ghoFEVrsXeAPB6SUmBpZ2xq3KvHEjNMeSaBnxEBXkHV",
+    "name": "DarkTower",
+    "activeStake": 38267422776868,
+    "softwareClient": "Rakurai"
   },
   {
     "account": "DTELykegBxxEn9c15GbH1zbYFr9CFd8VHQnhTGfz5JLb",
@@ -4092,15 +4122,15 @@
     "softwareClient": "Frankendancer Vanilla"
   },
   {
-    "account": "omeg2wsojzB7tfyAxsFhp8npxHL8yxVnaf51poXCwSd",
-    "name": "OmegaNode Validator",
-    "activeStake": 37207602750212,
+    "account": "777idJ8gG2cZXjc5Wvcq7RBtkvcU1TJ8WoLQSHaU8nN2",
+    "name": "Sextant",
+    "activeStake": 37795875543590,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "9D3o3EYeknhTrRvXS1PnD2euGXnMFa3HwpYBq5gPZJDA",
     "name": null,
-    "activeStake": 36283739142119,
+    "activeStake": 36303566794952,
     "softwareClient": "Agave"
   },
   {
@@ -4112,19 +4142,7 @@
   {
     "account": "EWARp8Syq8cTWGWHtP5LT9fKAn5GvXfSCH8LfAwpgQ6m",
     "name": "SOLrainDrops",
-    "activeStake": 35593939359113,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "777idJ8gG2cZXjc5Wvcq7RBtkvcU1TJ8WoLQSHaU8nN2",
-    "name": "Sextant",
-    "activeStake": 35172295745704,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "7d7x84jiVtqpz9NK88ocLmu4L15uhdnzMEDmo8Py8oVi",
-    "name": "Validatize Validator",
-    "activeStake": 35038585616104,
+    "activeStake": 35405942671936,
     "softwareClient": "AgaveBam"
   },
   {
@@ -4134,15 +4152,15 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "CpdzCVzaR9gjFymmEVE8xHboJFHaDnimRZ448cMBs6Rn",
-    "name": "Anti 🔥 +JitoMEV",
-    "activeStake": 34533001053459,
+    "account": "omeg2wsojzB7tfyAxsFhp8npxHL8yxVnaf51poXCwSd",
+    "name": "OmegaNode Validator",
+    "activeStake": 34295788836167,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "Fb77sbwgXmtjmkjkaoSckGp5yg3nqdtD8zf1dyxxiCSf",
     "name": "GXFC Validator",
-    "activeStake": 34202016650488,
+    "activeStake": 34222277724229,
     "softwareClient": "AgaveBam"
   },
   {
@@ -4152,39 +4170,39 @@
     "softwareClient": "JitoLabs"
   },
   {
+    "account": "3YX7PQuESmR2h95FDgjahEQjyCBhmY1Ts2MsrM1Kg9DS",
+    "name": "Banana Business (BB)",
+    "activeStake": 33766130936860,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "CpdzCVzaR9gjFymmEVE8xHboJFHaDnimRZ448cMBs6Rn",
+    "name": "Anti 🔥 +JitoMEV",
+    "activeStake": 33753940833336,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "3DaifGfDESUzer5ggUeo6UDjqEKMkCpdNSrrvyuggHVe",
+    "name": "Speedlanding Validator",
+    "activeStake": 33366116833221,
+    "softwareClient": "AgaveBam"
+  },
+  {
     "account": "HgozywotiKv4F5g3jCgideF3gh9sdD3vz4QtgXKjWCtB",
     "name": "coyote.staking",
-    "activeStake": 33149929789521,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "KAoSp3EudGqUBXv46tQoDwbZxSm3iXa9wM2aF4ySbJJ",
-    "name": "Aepalizage",
-    "activeStake": 32885472123126,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "KAW1LjxH73tRBd1XsaqsRsgeERFkg4WpdXUSqR4QjkW",
-    "name": "Kawil",
-    "activeStake": 32776589534090,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "4GEEKSwuiBHWTff9WaqrDcToZjbX6KYdyB4c578Zxse2",
-    "name": "Sol4Geeks",
-    "activeStake": 32542669523324,
-    "softwareClient": "AgaveBam"
-  },
-  {
-    "account": "CpuDNi3iVoHXbaT8gHpzKe6rqeBasoYjEKi21q7NRVJS",
-    "name": "val37",
-    "activeStake": 32371423899994,
+    "activeStake": 32748235754687,
     "softwareClient": "AgaveBam"
   },
   {
     "account": "49j9bnkdgVNxLwsZ9h88sPR5MYEmsUyKrrJ6ZW8ijBrb",
     "name": "StakeChain",
-    "activeStake": 32291617247282,
+    "activeStake": 32610720909844,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "4GEEKSwuiBHWTff9WaqrDcToZjbX6KYdyB4c578Zxse2",
+    "name": "Sol4Geeks",
+    "activeStake": 32467960281836,
     "softwareClient": "AgaveBam"
   },
   {
@@ -4208,14 +4226,8 @@
   {
     "account": "gangtCrQg5RmKf5yxvhvZThPugPX58pDSdQ5UuS26vN",
     "name": "The Lotus Validator",
-    "activeStake": 30731530603517,
+    "activeStake": 30620796226255,
     "softwareClient": "HarmonicAgave"
-  },
-  {
-    "account": "E99w1XfS4UNM1xUKXWEuDmj8Mduy7u65jm2NCULTspSV",
-    "name": "Project Super",
-    "activeStake": 30573693318043,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "Uf7TePem6vihMBiRg2d1ivnoNtRapdATfe5o99NuZH6",
@@ -4236,12 +4248,6 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "3YX7PQuESmR2h95FDgjahEQjyCBhmY1Ts2MsrM1Kg9DS",
-    "name": "Banana Business (BB)",
-    "activeStake": 29880480646177,
-    "softwareClient": "JitoLabs"
-  },
-  {
     "account": "DtY5Bzxd75iWQRvKwM2xLUxqwLT1RRoeNwmVvgS2JANA",
     "name": "00💥Green House Crypto⚡️Jito BAM (Retiring @ epoch 949)",
     "activeStake": 29863992889686,
@@ -4250,19 +4256,19 @@
   {
     "account": "2bpfa8JbFfZUGUsedDsemu6vQUxbhcEM8ALSH3PgXd2d",
     "name": "EAC",
-    "activeStake": 29658296785770,
+    "activeStake": 29674997684558,
     "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "LandXxwDqbxP2aaC2LfbrXytwXJtPUpiRr3J5kpy5xx",
-    "name": "LANDX",
-    "activeStake": 29470024823998,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "23U4mgK9DMCxsv2StC4y2qAptP25Xv5b2cybKCeJ1to3",
     "name": "BONK - Powered by Jito",
-    "activeStake": 29164758984808,
+    "activeStake": 29548666365433,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "LandXxwDqbxP2aaC2LfbrXytwXJtPUpiRr3J5kpy5xx",
+    "name": "LANDX",
+    "activeStake": 29271922444105,
     "softwareClient": "AgaveBam"
   },
   {
@@ -4280,7 +4286,7 @@
   {
     "account": "mrgn4sJJu5GBa5wbKyjuASzhyCifvcedGoLtpKjB3Wf",
     "name": "Project 0 Meridian",
-    "activeStake": 27240524464631,
+    "activeStake": 27187688557025,
     "softwareClient": "HarmonicAgave"
   },
   {
@@ -4304,13 +4310,13 @@
   {
     "account": "STaKesuXJH6UGRizuEVSWG1tyLu5ycKgWj3i1HUdvs5",
     "name": "Private",
-    "activeStake": 25605605626166,
+    "activeStake": 25603145014901,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "Atom7LRkdXj6MBoWJPgjaetrCMrgB9nnkQBYXTWE8Z3S",
     "name": "Quantum Crypto",
-    "activeStake": 25043516370673,
+    "activeStake": 25023107383720,
     "softwareClient": "AgaveBam"
   },
   {
@@ -4328,7 +4334,7 @@
   {
     "account": "UZBmptMjMSQEPKm4WyUkJeAuvZSqTuNK3cQCKFqJcXT",
     "name": "🌀Quantum Private!",
-    "activeStake": 23602639201451,
+    "activeStake": 23535494398184,
     "softwareClient": "JitoLabs"
   },
   {
@@ -4338,21 +4344,9 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "ECeaWy82CxpeJQr3EG3XNmYXc9NrVeWDH5ag9Lt6TPVR",
-    "name": "SolX +Mev",
-    "activeStake": 21747638376915,
-    "softwareClient": "AgaveBam"
-  },
-  {
     "account": "NWY18yrPHsTogTDq78HpB51D7gC5AGRsvJ5pPqSchkH",
     "name": null,
     "activeStake": 20831849786806,
-    "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "3KNGMiXwhy2CAWVNpLoUt25sNngFnX1mZpaiEeVccBA6",
-    "name": "01node",
-    "activeStake": 20421568028923,
     "softwareClient": "JitoLabs"
   },
   {
@@ -4364,13 +4358,13 @@
   {
     "account": "SANDCxXBbQhvbUqNtiLqKdFEY1uQhVo1UgUACaS4mXU",
     "name": "Goldsand",
-    "activeStake": 20152121601325,
+    "activeStake": 20163289737596,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "2Le6TjeEescF87qDA8Ftdz6U8Kq6SNVwoLJLhzBCHUr5",
     "name": "U1S1 Validator 🚀 Performant, Secure and NO Fees",
-    "activeStake": 20126058079486,
+    "activeStake": 20137987828543,
     "softwareClient": "JitoLabs"
   },
   {
@@ -4386,15 +4380,9 @@
     "softwareClient": "Frankendancer Rev"
   },
   {
-    "account": "FFevTkywysWf8PJvH4DZkEp4v9ks9HJPJhZWbhhJiYnr",
-    "name": "Hinode Technologies",
-    "activeStake": 19074861224419,
-    "softwareClient": "AgaveBam"
-  },
-  {
     "account": "dzBhD4wikyy7xqwiJvT49gdrKqWVjfs9M6cTssmRX8Y",
     "name": "IBRL",
-    "activeStake": 18130718023295,
+    "activeStake": 18140927269976,
     "softwareClient": "Agave"
   },
   {
@@ -4406,7 +4394,7 @@
   {
     "account": "D4KUs6wFY8qh7H1euCoCCpRMh6841cskzzfNcjmGBt6e",
     "name": "Tramplin",
-    "activeStake": 17902517488652,
+    "activeStake": 17797528605963,
     "softwareClient": "JitoLabs"
   },
   {
@@ -4422,12 +4410,6 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "ChaossRPGKnsVhX1GfPC78yq5Sqju4cMThcAsKZNz5d6",
-    "name": "Udder Chaos 🐄",
-    "activeStake": 17370625024601,
-    "softwareClient": "JitoLabs"
-  },
-  {
     "account": "6tpuCGuvAZyUwQPFLKmiUfGUKSBjk3yVHJ314cfJV4ZF",
     "name": "Valor Node Capital",
     "activeStake": 16205100892538,
@@ -4436,7 +4418,7 @@
   {
     "account": "DiFeTctQSaNczJNmZ5121kYqLaBe9wDpM9sjCzTELJLE",
     "name": "Serhio911",
-    "activeStake": 16073976379390,
+    "activeStake": 16030012373776,
     "softwareClient": "Agave"
   },
   {
@@ -4452,21 +4434,15 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "4YGgmwyqztpJeAi3pzHQ4Gf9cWrMHCjZaWeWoCK6zz6X",
-    "name": "Chainlayer",
-    "activeStake": 15312155334757,
-    "softwareClient": "AgaveBam"
-  },
-  {
     "account": "6bBw4LYVzXQoNs1TH4yVavtpCu5cdwYGvmuXVcZmNeKy",
     "name": "XStake Validator",
-    "activeStake": 15205500229543,
+    "activeStake": 15214513325415,
     "softwareClient": "JitoLabs"
   },
   {
     "account": "t23p8aBQN6P6tziMuN5XPmzqVRrip9oes7KuQwSmate",
     "name": "Solmate - RockawayX powered",
-    "activeStake": 14692811508313,
+    "activeStake": 14701509871661,
     "softwareClient": "Frankendancer Vanilla"
   },
   {
@@ -4482,15 +4458,27 @@
     "softwareClient": "JitoLabs"
   },
   {
+    "account": "pitch9cMruwjDtAnisNS4mwZUPhMsBztNEGu2weMg55",
+    "name": "DePitch Academy",
+    "activeStake": 14141130543180,
+    "softwareClient": "AgaveBam"
+  },
+  {
     "account": "DZVySotZvrvJyVAcgjFtUDm93zoCaq9wBruMAUz83CWW",
     "name": null,
     "activeStake": 13634252505420,
     "softwareClient": "Frankendancer Vanilla"
   },
   {
-    "account": "DEU4agzdUCA5oZ1QSLxCyZb1smvdu5j1NXXsK2r823Uu",
-    "name": null,
-    "activeStake": 12308941646155,
+    "account": "4YGgmwyqztpJeAi3pzHQ4Gf9cWrMHCjZaWeWoCK6zz6X",
+    "name": "Chainlayer",
+    "activeStake": 13134394170123,
+    "softwareClient": "AgaveBam"
+  },
+  {
+    "account": "ChaossRPGKnsVhX1GfPC78yq5Sqju4cMThcAsKZNz5d6",
+    "name": "Udder Chaos 🐄",
+    "activeStake": 12947040801233,
     "softwareClient": "AgaveBam"
   },
   {
@@ -4502,14 +4490,8 @@
   {
     "account": "7zAHbRxEQaNjKnQMjFm7j8LebHSGfzsQDdm2ZpUNPa7G",
     "name": "Bitprim SOL Validator",
-    "activeStake": 11618727297253,
+    "activeStake": 11625268414057,
     "softwareClient": "JitoLabs"
-  },
-  {
-    "account": "LiFiDJwJjW98MB8wxcnXpafKYsuz1hwpUkuszkERiX6",
-    "name": "LI.FI",
-    "activeStake": 11582881297618,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "6YDWxPaJWpZxJ6JLGaBeTJaGQn3gi3Pwtivii9cDyDHo",
@@ -4520,13 +4502,19 @@
   {
     "account": "AS4i8EXUZnPbmNT5ZXmoTEbrXQrbFoReiWwwFB43Ds5z",
     "name": "Majestysol | 🔥 0% Fee + ⚡ MEV",
-    "activeStake": 11178646011530,
+    "activeStake": 11148273471597,
     "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "71F3mXrwguQ7euZkJAuSZ8o8N4EDAVnTsjMpffXEhaPy",
+    "name": "Solopia",
+    "activeStake": 10952593828772,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "AYY1TCe347UZ7zueBmF4MyoFkeEZquRUNVBNoUZiRoew",
     "name": "Fthr Validator",
-    "activeStake": 10894663132435,
+    "activeStake": 10928111001540,
     "softwareClient": "JitoLabs"
   },
   {
@@ -4538,7 +4526,7 @@
   {
     "account": "5429ouKuzSkH8TV5GULMLtqkEGnJ7H6RsfhDLyscqXoB",
     "name": null,
-    "activeStake": 10709198939116,
+    "activeStake": 10715356364538,
     "softwareClient": "HarmonicAgave"
   },
   {
@@ -4550,7 +4538,7 @@
   {
     "account": "Xoir1BnQX9TbEvon9HRbD8tkjcD9dorsxmNjZAV64Re",
     "name": "YYDS Validator 🚀 Performant, Secure and NO Fees",
-    "activeStake": 10163825956026,
+    "activeStake": 10169850584176,
     "softwareClient": "JitoLabs"
   },
   {
@@ -4558,12 +4546,6 @@
     "name": "Cryptology",
     "activeStake": 10105866096448,
     "softwareClient": "Agave"
-  },
-  {
-    "account": "71F3mXrwguQ7euZkJAuSZ8o8N4EDAVnTsjMpffXEhaPy",
-    "name": "Solopia",
-    "activeStake": 10070796139183,
-    "softwareClient": "AgaveBam"
   },
   {
     "account": "H9METtoxNp2PhcDNxXwqpzBarJw9zJezhzdDEFgBqv8w",
@@ -4680,16 +4662,22 @@
     "softwareClient": "Rakurai"
   },
   {
-    "account": "574rvsKGZg8rBuSNX7k8gG2mHFvUMwt22sSgJJBMCQVy",
-    "name": "Khaos",
-    "activeStake": 2739068561534,
-    "softwareClient": "Frankendancer Vanilla"
+    "account": "ECeaWy82CxpeJQr3EG3XNmYXc9NrVeWDH5ag9Lt6TPVR",
+    "name": "SolX +Mev",
+    "activeStake": 3009805347821,
+    "softwareClient": "JitoLabs"
   },
   {
     "account": "CVgwMrWo9chKEuEPCe6Za9KJe8jamnAcoeWzaMeNubr6",
     "name": "SelfLiquidity",
-    "activeStake": 2707304423436,
+    "activeStake": 2905710516364,
     "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "574rvsKGZg8rBuSNX7k8gG2mHFvUMwt22sSgJJBMCQVy",
+    "name": "Khaos",
+    "activeStake": 2739068561534,
+    "softwareClient": "Frankendancer Vanilla"
   },
   {
     "account": "SENDa18d6LsC1f85AJXXMncBxQyFQKSJWZ1jaop5K87",
@@ -4700,7 +4688,7 @@
   {
     "account": "HPJ2KUVgRnG889NyfEcUyZkGD1abrZxjZVmsYAjLZU1N",
     "name": null,
-    "activeStake": 2652609247666,
+    "activeStake": 2654071447269,
     "softwareClient": "Rakurai"
   },
   {
@@ -4776,10 +4764,16 @@
     "softwareClient": "JitoLabs"
   },
   {
-    "account": "AjGby82yXeYgj3kmng9y3c4nQpZFmiPpJKecLJTHbfbP",
-    "name": "🍞 STAKERY 🍞",
-    "activeStake": 1055576407100,
+    "account": "CpuDNi3iVoHXbaT8gHpzKe6rqeBasoYjEKi21q7NRVJS",
+    "name": "val37",
+    "activeStake": 1111106883286,
     "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "FFevTkywysWf8PJvH4DZkEp4v9ks9HJPJhZWbhhJiYnr",
+    "name": "Hinode Technologies",
+    "activeStake": 965977913770,
+    "softwareClient": "AgaveBam"
   },
   {
     "account": "Spiky3mMSLHGhffuEhYR7ptMNZ8NddddwrTjki4VhWk",
@@ -4808,7 +4802,7 @@
   {
     "account": "ARKk6RgiFq4MJCD2JX9fYWQJsW2U5JDgpEV3cwvmfju",
     "name": null,
-    "activeStake": 635744793459,
+    "activeStake": 636083925367,
     "softwareClient": "Rakurai"
   },
   {
@@ -4824,9 +4818,15 @@
     "softwareClient": "HarmonicFrankendancer"
   },
   {
+    "account": "AjGby82yXeYgj3kmng9y3c4nQpZFmiPpJKecLJTHbfbP",
+    "name": "🍞 STAKERY 🍞",
+    "activeStake": 524049644167,
+    "softwareClient": "JitoLabs"
+  },
+  {
     "account": "CRNyGD7xNPThLjNviGdxoAiHpQXZKx3UeyCfrxnmTi8r",
     "name": null,
-    "activeStake": 520107889485,
+    "activeStake": 520410017346,
     "softwareClient": "JitoLabs"
   },
   {
@@ -4854,10 +4854,22 @@
     "softwareClient": "HarmonicAgave"
   },
   {
+    "account": "3PZSgErg4p6iFiVwjfpK27pC38rPUaGYLjryZ7RPAwUn",
+    "name": null,
+    "activeStake": 218971567644,
+    "softwareClient": "JitoLabs"
+  },
+  {
     "account": "DCdTPyDbXNHrmdv4ZyPPzEfY4mPAqH4hDPtowAteoNgv",
     "name": "bloXroute US",
     "activeStake": 206946578816,
     "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "7ZjHeeYEesmBs4N6aDvCQimKdtJX2bs5boXpJmpG2bZJ",
+    "name": "Chainflow Experimental",
+    "activeStake": 174697834068,
+    "softwareClient": "Harmonic"
   },
   {
     "account": "PoN1E3VyqwqoGQEhC8ExpkRKTuyhxtGLnHHH3DwbgTU",
@@ -4870,12 +4882,6 @@
     "name": "Bandito Stake",
     "activeStake": 159614912894,
     "softwareClient": "Frankendancer Vanilla"
-  },
-  {
-    "account": "3PZSgErg4p6iFiVwjfpK27pC38rPUaGYLjryZ7RPAwUn",
-    "name": null,
-    "activeStake": 139157530871,
-    "softwareClient": "JitoLabs"
   },
   {
     "account": "ZoD1XLMhxdMveAJL4x9oab4FhRKP5NThTnSCH19Tdjp",
@@ -4904,7 +4910,7 @@
   {
     "account": "F6kVwubXEfZZo6e4Kozrtg7WoWk5wTRmrC8pwoxSLa7S",
     "name": null,
-    "activeStake": 119503947016,
+    "activeStake": 119567747136,
     "softwareClient": "JitoLabs"
   },
   {
@@ -4934,7 +4940,7 @@
   {
     "account": "Drk2bcinK75JVAdAuvd2QQurEUeD397MWNiJvv5xS1DE",
     "name": null,
-    "activeStake": 75157227521,
+    "activeStake": 75167764465,
     "softwareClient": "JitoLabs"
   },
   {
@@ -5010,6 +5016,12 @@
     "softwareClient": "JitoLabs"
   },
   {
+    "account": "DaRKu4L3qAgXLpuUfk7k8mTB9VzXBEj5hxLVe2mQS1dE",
+    "name": null,
+    "activeStake": 9295434240,
+    "softwareClient": "JitoLabs"
+  },
+  {
     "account": "hyp3Eo67t6FgeuWg5Qxbeme8NPXJPXXdKT4iJ4DsLf2",
     "name": "EpRvips2doUUdxvs3Qhf4MCLqVeJEPu47Aci5QbBXASV",
     "activeStake": 7799532555,
@@ -5019,6 +5031,12 @@
     "account": "pitMDEaMmWmr7qP8HsNqarPQkd3jhZbLJibhhQnL5RG",
     "name": "KitBull ✅ MEV Rewards",
     "activeStake": 6749151885,
+    "softwareClient": "JitoLabs"
+  },
+  {
+    "account": "BADc8V9fi8KsZfF26K6DgZsywcJYZTX5EW5jypnVCB8d",
+    "name": null,
+    "activeStake": 5000000000,
     "softwareClient": "JitoLabs"
   },
   {
@@ -5050,12 +5068,6 @@
     "name": null,
     "activeStake": 1497717120,
     "softwareClient": "Rakurai"
-  },
-  {
-    "account": "BADc8V9fi8KsZfF26K6DgZsywcJYZTX5EW5jypnVCB8d",
-    "name": null,
-    "activeStake": 1021060858,
-    "softwareClient": "HarmonicAgave"
   },
   {
     "account": "2ufnDYz755WuHqGCczry1ACTNUVZdn2cm43bCyyPSZtH",

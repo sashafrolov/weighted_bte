@@ -20,10 +20,13 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
+from solana_script_utils import (
+    VALIDATOR_DISTRIBUTION_STEM,
+    timestamped_data_path,
+)
+
 
 DEFAULT_URL = "https://schedulerwar.vercel.app/"
-SCRIPT_DIR = Path(__file__).resolve().parent
-DEFAULT_OUTPUT = SCRIPT_DIR / "data" / "solana_validator_distribution.json"
 MAX_PAGE_BYTES = 20 * 1024 * 1024
 USER_AGENT = (
     "Mozilla/5.0 (compatible; SchedulerWarValidatorFetcher/1.0; "
@@ -232,8 +235,10 @@ def parse_args() -> argparse.Namespace:
         "-o",
         "--output",
         type=Path,
-        default=DEFAULT_OUTPUT,
-        help=f"output JSON path (default: {DEFAULT_OUTPUT})",
+        help=(
+            "output JSON path (default: a UTC-timestamped file in "
+            "scripts/data)"
+        ),
     )
     parser.add_argument(
         "--stdout",
@@ -258,13 +263,18 @@ def main() -> int:
     try:
         html = fetch_html(args.url, args.timeout)
         records = validate_and_normalize(extract_validator_array(html))
-        output = None if args.stdout else args.output
+        output = (
+            None
+            if args.stdout
+            else args.output
+            or timestamped_data_path(VALIDATOR_DISTRIBUTION_STEM, ".json")
+        )
         write_json(records, output)
     except (HTTPError, URLError, OSError, UnicodeError, ValueError) as error:
         print(f"error: {error}", file=sys.stderr)
         return 1
 
-    destination = "stdout" if args.stdout else str(args.output)
+    destination = "stdout" if output is None else str(output)
     total_stake = sum(record["activeStake"] for record in records)
     print(
         f"wrote {len(records):,} validators ({total_stake:,} raw stake) "
