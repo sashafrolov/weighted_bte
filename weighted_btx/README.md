@@ -76,18 +76,18 @@ and executes the scheme:
 
 ```console
 cargo run --release --manifest-path weighted_btx/Cargo.toml \
-  --example paper_reproduction
+  --example paper_reproduction -- \
+  --approximation-error 1/16
 ```
 
 It selects the newest `solana_share_weights_*.json`, then selects one entry of
-its `allocations` array by approximation error. The top-level
-`APPROXIMATION_ERROR` constant in `paper_reproduction.rs` controls that choice
-and defaults to `"1/16"`. The example reads the selected entry's `share_count`
-as `W` and its `weights` as the real parties' virtual weights; it deliberately
-does not substitute the separate nominal resolution `selected_resolution_m`.
+its `allocations` array using the required `--approximation-error`
+command-line argument. The example reads the selected entry's `share_count` as
+`W` and its `weights` as the real parties' virtual weights; it deliberately does
+not substitute the separate nominal resolution `selected_resolution_m`.
 
-The scripts default to target reconstruction ratio `1/2`, making the default
-`1/16` stake interval `[7/16, 9/16]`. The generated
+The scripts default to target reconstruction ratio `1/2`; selecting `1/16`
+uses the stake interval `[7/16, 9/16]`. The generated
 `reconstruction_threshold` is the minimum reconstructing weight `q`. Since
 weighted BTX authorizes a set when its weight is strictly greater than `t`, the
 example passes `t = q - 1` to key generation. For the current `1/16` profile
@@ -100,6 +100,7 @@ The paper does not specify a batch size or thread count for this experiment.
 The runnable defaults are therefore actual/max batch size 8 and one Rayon
 thread. Runtime input and performance choices can be changed with:
 
+- `--approximation-error <ERROR>` (required, after Cargo's `--` separator);
 - `WEIGHTED_BTX_WEIGHTS_FILE`;
 - `WEIGHTED_BTX_BATCH_SIZE`;
 - `WEIGHTED_BTX_THREADS`.

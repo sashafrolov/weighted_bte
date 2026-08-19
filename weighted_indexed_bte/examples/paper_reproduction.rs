@@ -21,7 +21,7 @@ use weighted_indexed_bte::{
 
 /// Symmetric approximation-error profile selected from the distribution.
 /// Change this to another generated profile such as `"1/16"` or `"1/128"`.
-const APPROXIMATION_ERROR: &str = "1/64";
+const APPROXIMATION_ERROR: &str = "1/16";
 const DEFAULT_BATCH_SIZE: usize = 8;
 const DEFAULT_THREADS: usize = 1;
 const MAX_WEIGHTS_FILE_BYTES: u64 = 16 * 1024 * 1024;
@@ -751,7 +751,7 @@ mod tests {
 
     fn profile() -> Value {
         json!({
-            "error": "1/16",
+            "error": "1/64",
             "lower_stake_ratio": "7/16",
             "upper_stake_ratio": "9/16",
             "selected_resolution_m": 7,

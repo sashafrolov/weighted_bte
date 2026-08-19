@@ -118,8 +118,8 @@ cargo bench --manifest-path weighted_pfe/Cargo.toml --bench phases
 The reproduction example reads a generated Solana allocation from
 `scripts/data`, maps its `share_count` to `W`, maps its positive `weights`
 entries to real parties, and passes `reconstruction_threshold - 1` as `t`.
-Its top-level `APPROXIMATION_ERROR` constant selects the allocation profile and
-defaults to `"1/64"`.
+The required `--approximation-error` command-line argument selects the
+allocation profile.
 
 ```console
 RUSTFLAGS="-C target-cpu=native" \
@@ -127,11 +127,14 @@ WEIGHTED_PFE_BATCH_SIZE=32 \
 WEIGHTED_PFE_THREADS=12 \
 WEIGHTED_PFE_REPETITIONS=1 \
 cargo run --release --manifest-path weighted_pfe/Cargo.toml \
-  --example paper_reproduction
+  --example paper_reproduction -- \
+  --approximation-error 1/16
 ```
 
-The runtime overrides are:
+The runtime argument and overrides are:
 
+- `--approximation-error <ERROR>`: required allocation profile selector,
+  passed after Cargo's `--` separator;
 - `WEIGHTED_PFE_WEIGHTS_FILE`: an explicit allocation JSON; otherwise the
   lexicographically newest `scripts/data/solana_share_weights_*.json` is used;
 - `WEIGHTED_PFE_BATCH_SIZE`: exact power-of-two batch size;

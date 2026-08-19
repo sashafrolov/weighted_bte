@@ -20,9 +20,6 @@ use weighted_pfe::{
     prepare_decryption, validate_batch, CauchyKernel, Ciphertext, KeyMaterial,
 };
 
-/// Symmetric approximation-error profile selected from the distribution.
-/// Change this to another generated profile such as `"1/32"` or `"1/128"`.
-const APPROXIMATION_ERROR: &str = "1/64";
 const DEFAULT_BATCH_SIZE: usize = 32;
 const DEFAULT_THREADS: usize = 12;
 const DEFAULT_REPETITIONS: usize = 1;
@@ -119,6 +116,15 @@ struct SelectedAllocation {
 }
 
 #[derive(Debug, Eq, PartialEq)]
+enum Command {
+    Run { approximation_error: String },
+    Help,
+}
+
+const USAGE: &str =
+    "Usage: paper_reproduction --approximation-error <ERROR>\n\nExample: --approximation-error 1/16";
+
+#[derive(Debug, Eq, PartialEq)]
 struct SerializedSizes {
     g1_bytes: usize,
     g2_bytes: usize,
@@ -148,7 +154,24 @@ struct SerializedSizes {
 }
 
 fn main() -> ExitCode {
-    match run() {
+    let command = match parse_command(env::args().skip(1)) {
+        Ok(command) => command,
+        Err(error) => {
+            eprintln!("error: {error}\n\n{USAGE}");
+            return ExitCode::FAILURE;
+        }
+    };
+    let approximation_error = match command {
+        Command::Run {
+            approximation_error,
+        } => approximation_error,
+        Command::Help => {
+            println!("{USAGE}");
+            return ExitCode::SUCCESS;
+        }
+    };
+
+    match run(&approximation_error) {
         Ok(()) => ExitCode::SUCCESS,
         Err(error) => {
             eprintln!("error: {error}");
@@ -157,7 +180,7 @@ fn main() -> ExitCode {
     }
 }
 
-fn run() -> Result<(), Box<dyn Error>> {
+fn run(approximation_error: &str) -> Result<(), Box<dyn Error>> {
     let batch_size = env_usize("WEIGHTED_PFE_BATCH_SIZE", DEFAULT_BATCH_SIZE)?;
     if batch_size == 0 || !batch_size.is_power_of_two() {
         return Err(invalid_input("WEIGHTED_PFE_BATCH_SIZE must be a nonzero power of two").into());
@@ -168,7 +191,7 @@ fn run() -> Result<(), Box<dyn Error>> {
     require_positive("WEIGHTED_PFE_REPETITIONS", repetitions)?;
 
     let (weights_path, path_overridden) = weights_path()?;
-    let allocation = load_allocation(&weights_path, APPROXIMATION_ERROR)?;
+    let allocation = load_allocation(&weights_path, approximation_error)?;
     let profile = &allocation.profile;
     let total_weight = profile.share_count;
     let reconstruction_threshold = profile.reconstruction_threshold;
@@ -252,10 +275,7 @@ fn run() -> Result<(), Box<dyn Error>> {
     println!("Distribution method: {}", allocation.method);
     println!();
     println!("Selected approximation profile");
-    println!(
-        "error e={}: top-level APPROXIMATION_ERROR configuration",
-        profile.error
-    );
+    println!("error e={}: --approximation-error", profile.error);
     println!(
         "target stake ratio={}, interval=[{}, {}]",
         allocation.target_reconstruction_ratio,
@@ -427,7 +447,7 @@ fn run() -> Result<(), Box<dyn Error>> {
     report(
         "committee interpolation / G2 MSMs",
         average.committee_preparation,
-        None,
+        Some(batch_size),
     );
     report(
         "ciphertext-dependent Cauchy precompute",
@@ -451,6 +471,48 @@ fn run() -> Result<(), Box<dyn Error>> {
     );
     println!("Decryption successful in the warm-up and every measured repetition.");
 
+    Ok(())
+}
+
+fn parse_command(args: impl IntoIterator<Item = String>) -> io::Result<Command> {
+    let mut args = args.into_iter();
+    let mut approximation_error = None;
+
+    while let Some(argument) = args.next() {
+        match argument.as_str() {
+            "-h" | "--help" => return Ok(Command::Help),
+            "--approximation-error" => {
+                let value = args.next().ok_or_else(|| {
+                    invalid_input("--approximation-error requires a value such as 1/16")
+                })?;
+                set_approximation_error(&mut approximation_error, value)?;
+            }
+            _ => {
+                if let Some(value) = argument.strip_prefix("--approximation-error=") {
+                    set_approximation_error(&mut approximation_error, value.to_owned())?;
+                } else {
+                    return Err(invalid_input(format!("unknown argument {argument:?}")));
+                }
+            }
+        }
+    }
+
+    approximation_error
+        .map(|approximation_error| Command::Run {
+            approximation_error,
+        })
+        .ok_or_else(|| invalid_input("missing required --approximation-error <ERROR> argument"))
+}
+
+fn set_approximation_error(slot: &mut Option<String>, value: String) -> io::Result<()> {
+    if value.is_empty() {
+        return Err(invalid_input("--approximation-error must not be empty"));
+    }
+    if slot.replace(value).is_some() {
+        return Err(invalid_input(
+            "--approximation-error may only be specified once",
+        ));
+    }
     Ok(())
 }
 
@@ -663,35 +725,51 @@ fn print_serialized_sizes(
         sizes.g1_bytes, sizes.g2_bytes, sizes.scalar_bytes, PAPER_GT_BYTES, sizes.canonical_gt_bytes
     );
     println!(
-        "party verification keys: {} G2 points, {} bytes = N*B",
-        sizes.verification_points, sizes.verification_bytes
+        "party verification keys: {} G2 points, {} bytes ({:.3} kB) = N*B",
+        sizes.verification_points,
+        sizes.verification_bytes,
+        sizes.verification_bytes as f64 / 1024.0
     );
     println!(
-        "core D1/D2/global material: {} G2 points, {} bytes = 2*W*B+1",
-        sizes.core_points, sizes.core_bytes
+        "core D1/D2/global material: {} G2 points, {} bytes ({:.3} kB) = 2*W*B+1",
+        sizes.core_points,
+        sizes.core_bytes,
+        sizes.core_bytes as f64 / 1024.0
     );
     println!(
-        "public decryption key: {} G2 points, {} bytes = (2W+N)B+1",
-        sizes.public_decryption_points, sizes.public_decryption_bytes
+        "public decryption key: {} G2 points, {} bytes ({:.3} kB) = (2W+N)B+1",
+        sizes.public_decryption_points,
+        sizes.public_decryption_bytes,
+        sizes.public_decryption_bytes as f64 / 1024.0
     );
     println!(
-        "encryption key: one GT, {} bytes in Table 3, {} bytes canonical",
-        PAPER_GT_BYTES, sizes.canonical_gt_bytes
+        "encryption key: one GT, {} bytes ({:.3} kB) in Table 3, {} bytes ({:.3} kB) canonical",
+        PAPER_GT_BYTES,
+        PAPER_GT_BYTES as f64 / 1024.0,
+        sizes.canonical_gt_bytes,
+        sizes.canonical_gt_bytes as f64 / 1024.0
     );
     println!(
-        "total public material, paper encoding: {} bytes = public decryption key + one GT encryption key",
-        sizes.paper_public_bytes
+        "total public material, paper encoding: {} bytes ({:.3} kB) = public decryption key + one GT encryption key",
+        sizes.paper_public_bytes,
+        sizes.paper_public_bytes as f64 / 1024.0
     );
     println!(
-        "total public material, canonical cryptographic-element encoding: {} bytes",
-        sizes.canonical_public_bytes
+        "total public material, canonical cryptographic-element encoding: {} bytes ({:.3} kB)",
+        sizes.canonical_public_bytes,
+        sizes.canonical_public_bytes as f64 / 1024.0
     );
     println!(
         "implementation structured proof CRS: 0 bytes (Fiat-Shamir Schnorr); paper abstract Pi_DL CRS: unspecified and excluded by Table 3"
     );
     println!(
-        "one party secret key: {} bytes = B={} scalars; all N={} secret keys: {} bytes",
-        sizes.party_secret_key_bytes, batch_size, party_count, sizes.all_secret_key_bytes
+        "one party secret key: {} bytes ({:.3} kB) = B={} scalars; all N={} secret keys: {} bytes ({:.3} kB)",
+        sizes.party_secret_key_bytes,
+        sizes.party_secret_key_bytes as f64 / 1024.0,
+        batch_size,
+        party_count,
+        sizes.all_secret_key_bytes,
+        sizes.all_secret_key_bytes as f64 / 1024.0
     );
     println!(
         "one ciphertext proof: {} bytes = one compressed G1 commitment + one scalar response",
@@ -801,7 +879,7 @@ fn parse_allocation_document(
     requested_error: &str,
 ) -> io::Result<SelectedAllocation> {
     if requested_error.is_empty() {
-        return Err(invalid_input("APPROXIMATION_ERROR must not be empty"));
+        return Err(invalid_input("--approximation-error must not be empty"));
     }
 
     let document: AllocationDocument = serde_json::from_str(json).map_err(|error| {
@@ -1018,6 +1096,41 @@ mod tests {
             "allocations": allocations
         })
         .to_string()
+    }
+
+    #[test]
+    fn parses_approximation_error_argument() {
+        assert_eq!(
+            parse_command(["--approximation-error", "1/16"].map(str::to_owned)).unwrap(),
+            Command::Run {
+                approximation_error: "1/16".to_owned()
+            }
+        );
+        assert_eq!(
+            parse_command(["--approximation-error=1/32"].map(str::to_owned)).unwrap(),
+            Command::Run {
+                approximation_error: "1/32".to_owned()
+            }
+        );
+    }
+
+    #[test]
+    fn rejects_invalid_command_lines() {
+        assert!(parse_command(Vec::<String>::new()).is_err());
+        assert!(parse_command(
+            [
+                "--approximation-error",
+                "1/16",
+                "--approximation-error=1/32"
+            ]
+            .map(str::to_owned)
+        )
+        .is_err());
+        assert!(parse_command(["--unknown"].map(str::to_owned)).is_err());
+        assert_eq!(
+            parse_command(["--help"].map(str::to_owned)).unwrap(),
+            Command::Help
+        );
     }
 
     #[test]

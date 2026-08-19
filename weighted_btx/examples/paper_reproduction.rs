@@ -19,9 +19,6 @@ use weighted_btx::{
     prepare_decryption, validate_batch,
 };
 
-/// Symmetric approximation-error profile selected from the distribution.
-/// Change this to another generated profile such as `"1/32"` or `"1/64"`.
-const APPROXIMATION_ERROR: &str = "1/64";
 const DEFAULT_BATCH_SIZE: usize = 8;
 const DEFAULT_THREADS: usize = 1;
 const MAX_WEIGHTS_FILE_BYTES: u64 = 16 * 1024 * 1024;
@@ -67,8 +64,34 @@ struct SelectedAllocation {
     profile: AllocationProfile,
 }
 
+#[derive(Debug, Eq, PartialEq)]
+enum Command {
+    Run { approximation_error: String },
+    Help,
+}
+
+const USAGE: &str =
+    "Usage: paper_reproduction --approximation-error <ERROR>\n\nExample: --approximation-error 1/16";
+
 fn main() -> ExitCode {
-    match run() {
+    let command = match parse_command(env::args().skip(1)) {
+        Ok(command) => command,
+        Err(error) => {
+            eprintln!("error: {error}\n\n{USAGE}");
+            return ExitCode::FAILURE;
+        }
+    };
+    let approximation_error = match command {
+        Command::Run {
+            approximation_error,
+        } => approximation_error,
+        Command::Help => {
+            println!("{USAGE}");
+            return ExitCode::SUCCESS;
+        }
+    };
+
+    match run(&approximation_error) {
         Ok(()) => ExitCode::SUCCESS,
         Err(error) => {
             eprintln!("error: {error}");
@@ -77,14 +100,14 @@ fn main() -> ExitCode {
     }
 }
 
-fn run() -> Result<(), Box<dyn Error>> {
+fn run(approximation_error: &str) -> Result<(), Box<dyn Error>> {
     let batch_size = env_usize("WEIGHTED_BTX_BATCH_SIZE", DEFAULT_BATCH_SIZE)?;
     require_positive("WEIGHTED_BTX_BATCH_SIZE", batch_size)?;
     let threads = env_usize("WEIGHTED_BTX_THREADS", DEFAULT_THREADS)?;
     require_positive("WEIGHTED_BTX_THREADS", threads)?;
 
     let (weights_path, path_overridden) = weights_path()?;
-    let allocation = load_allocation(&weights_path, APPROXIMATION_ERROR)?;
+    let allocation = load_allocation(&weights_path, approximation_error)?;
     let profile = &allocation.profile;
     let total_weight = profile.share_count;
     let reconstruction_threshold = profile.reconstruction_threshold;
@@ -145,10 +168,7 @@ fn run() -> Result<(), Box<dyn Error>> {
     println!("Distribution method: {}", allocation.method);
     println!();
     println!("Selected approximation profile");
-    println!(
-        "error e={}: top-level APPROXIMATION_ERROR configuration",
-        profile.error
-    );
+    println!("error e={}: --approximation-error", profile.error);
     println!(
         "target stake ratio={}, interval=[{}, {}]",
         allocation.target_reconstruction_ratio,
@@ -181,11 +201,18 @@ fn run() -> Result<(), Box<dyn Error>> {
     println!();
     println!("Estimated public G2 material (excluding the NIZK CRS)");
     println!("compressed G2 serialization: {bytes_per_g2_point} bytes/point");
-    println!("core D_(omega,d): {core_points} points, {core_bytes} bytes = (2B_max-1)W");
     println!(
-        "party verification keys: {verification_points} points, {verification_bytes} bytes = N*B_max"
+        "core D_(omega,d): {core_points} points, {core_bytes} bytes ({:.3} kB) = (2B_max-1)W",
+        core_bytes as f64 / 1024.0
     );
-    println!("public decryption key total: {public_key_points} points, {public_key_bytes} bytes");
+    println!(
+        "party verification keys: {verification_points} points, {verification_bytes} bytes ({:.3} kB) = N*B_max",
+        verification_bytes as f64 / 1024.0
+    );
+    println!(
+        "public decryption key total: {public_key_points} points, {public_key_bytes} bytes ({:.3} kB)",
+        public_key_bytes as f64 / 1024.0
+    );
 
     let pool = rayon::ThreadPoolBuilder::new()
         .num_threads(threads)
@@ -287,11 +314,15 @@ fn run() -> Result<(), Box<dyn Error>> {
         timings.partial_decryption,
         Some(selected_party_count),
     );
-    report("batched share acceptance", timings.share_acceptance, None);
+    report(
+        "batched share acceptance",
+        timings.share_acceptance,
+        Some(selected_party_count),
+    );
     report(
         "committee / FFT preparation",
         timings.committee_preparation,
-        None,
+        Some(batch_size),
     );
     report(
         "cross-term precompute",
@@ -308,6 +339,48 @@ fn run() -> Result<(), Box<dyn Error>> {
     report("decryption pipeline total", decryption_total, None);
     println!("Decryption successful.");
 
+    Ok(())
+}
+
+fn parse_command(args: impl IntoIterator<Item = String>) -> io::Result<Command> {
+    let mut args = args.into_iter();
+    let mut approximation_error = None;
+
+    while let Some(argument) = args.next() {
+        match argument.as_str() {
+            "-h" | "--help" => return Ok(Command::Help),
+            "--approximation-error" => {
+                let value = args.next().ok_or_else(|| {
+                    invalid_input("--approximation-error requires a value such as 1/16")
+                })?;
+                set_approximation_error(&mut approximation_error, value)?;
+            }
+            _ => {
+                if let Some(value) = argument.strip_prefix("--approximation-error=") {
+                    set_approximation_error(&mut approximation_error, value.to_owned())?;
+                } else {
+                    return Err(invalid_input(format!("unknown argument {argument:?}")));
+                }
+            }
+        }
+    }
+
+    approximation_error
+        .map(|approximation_error| Command::Run {
+            approximation_error,
+        })
+        .ok_or_else(|| invalid_input("missing required --approximation-error <ERROR> argument"))
+}
+
+fn set_approximation_error(slot: &mut Option<String>, value: String) -> io::Result<()> {
+    if value.is_empty() {
+        return Err(invalid_input("--approximation-error must not be empty"));
+    }
+    if slot.replace(value).is_some() {
+        return Err(invalid_input(
+            "--approximation-error may only be specified once",
+        ));
+    }
     Ok(())
 }
 
@@ -390,7 +463,7 @@ fn parse_allocation_document(
     requested_error: &str,
 ) -> io::Result<SelectedAllocation> {
     if requested_error.is_empty() {
-        return Err(invalid_input("APPROXIMATION_ERROR must not be empty"));
+        return Err(invalid_input("--approximation-error must not be empty"));
     }
 
     let document: AllocationDocument = serde_json::from_str(json).map_err(|error| {
@@ -598,6 +671,41 @@ mod tests {
             "allocations": allocations
         })
         .to_string()
+    }
+
+    #[test]
+    fn parses_approximation_error_argument() {
+        assert_eq!(
+            parse_command(["--approximation-error", "1/16"].map(str::to_owned)).unwrap(),
+            Command::Run {
+                approximation_error: "1/16".to_owned()
+            }
+        );
+        assert_eq!(
+            parse_command(["--approximation-error=1/32"].map(str::to_owned)).unwrap(),
+            Command::Run {
+                approximation_error: "1/32".to_owned()
+            }
+        );
+    }
+
+    #[test]
+    fn rejects_invalid_command_lines() {
+        assert!(parse_command(Vec::<String>::new()).is_err());
+        assert!(parse_command(
+            [
+                "--approximation-error",
+                "1/16",
+                "--approximation-error=1/32"
+            ]
+            .map(str::to_owned)
+        )
+        .is_err());
+        assert!(parse_command(["--unknown"].map(str::to_owned)).is_err());
+        assert_eq!(
+            parse_command(["--help"].map(str::to_owned)).unwrap(),
+            Command::Help
+        );
     }
 
     #[test]
