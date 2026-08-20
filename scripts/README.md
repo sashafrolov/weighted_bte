@@ -3,6 +3,54 @@
 These scripts download the current Solana validator stake distribution and
 approximate it with integer weights.
 
+## Run the paper parameter sweeps
+
+The two executable sweep scripts run the paper-reproduction examples and print
+a `PARAMETERS` line plus the exact command before every measurement. Run them
+from any directory; they resolve crate and data paths relative to their own
+location.
+
+```console
+./scripts/new_schemes_parameter_sweep.sh | tee new-schemes-sweep.log
+./scripts/baseline_schemes_parameter_sweep.sh | tee baseline-schemes-sweep.log
+```
+
+`new_schemes_parameter_sweep.sh` runs `weighted_btx` (the repository name for
+the weighted-BTE scheme) and `weighted_pfe`. The baseline script runs `btx`,
+`pfe`, and `weighted_indexed_bte`. For unweighted BTX and PFE, each unit of
+virtual weight becomes one party: `N = W`, and the polynomial-degree threshold
+is `t = q - 1`, where `q` is the profile's minimum reconstruction weight.
+
+Each script contains two four-row sections:
+
+- approximation errors `1/8`, `1/16`, `1/32`, and `1/64` at `B=32`; and
+- batch sizes `32`, `64`, `128`, and `256` at approximation error `1/16`.
+
+The common `(B=32, error=1/16)` point is deliberately run in both sections so
+each output table is self-contained. The new-scheme script makes 16 runs; the
+baseline script makes 24. The naïvely expanded baseline rows, especially the
+`1/64` profile with thousands of parties, can take substantially longer.
+
+The scripts use 12 threads and one measured repetition by default. Override
+those choices, select a specific allocation file, or inspect all commands
+without running the benchmarks with:
+
+```console
+SWEEP_THREADS=8 \
+SWEEP_REPETITIONS=3 \
+SWEEP_WEIGHTS_FILE=scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json \
+./scripts/new_schemes_parameter_sweep.sh
+
+SWEEP_DRY_RUN=1 ./scripts/baseline_schemes_parameter_sweep.sh
+```
+
+`SWEEP_REPETITIONS` applies to examples that support measured repetitions;
+the weighted-BTX and indexed weighted-BTE examples perform one run. Unless it
+is already set, the scripts use `RUSTFLAGS="-C target-cpu=native"`. Without a
+`SWEEP_WEIGHTS_FILE` override, they select the lexicographically newest
+`solana_share_weights_*.json` file and preflight every requested profile's
+weight and threshold fields before starting the first measurement.
+
 ## Download the validator distribution
 
 `fetch_solana_validator_distribution.py` fetches validator records

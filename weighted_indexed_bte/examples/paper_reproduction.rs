@@ -19,9 +19,6 @@ use weighted_indexed_bte::{
     prepare_decryption, setup, validate_batch, IndexedMiddleProductKernel,
 };
 
-/// Symmetric approximation-error profile selected from the distribution.
-/// Change this to another generated profile such as `"1/16"` or `"1/128"`.
-const APPROXIMATION_ERROR: &str = "1/16";
 const DEFAULT_BATCH_SIZE: usize = 8;
 const DEFAULT_THREADS: usize = 1;
 const MAX_WEIGHTS_FILE_BYTES: u64 = 16 * 1024 * 1024;
@@ -69,8 +66,34 @@ struct SelectedAllocation {
     profile: AllocationProfile,
 }
 
+#[derive(Debug, Eq, PartialEq)]
+enum Command {
+    Run { approximation_error: String },
+    Help,
+}
+
+const USAGE: &str =
+    "Usage: paper_reproduction --approximation-error <ERROR>\n\nExample: --approximation-error 1/16";
+
 fn main() -> ExitCode {
-    match run() {
+    let command = match parse_command(env::args().skip(1)) {
+        Ok(command) => command,
+        Err(error) => {
+            eprintln!("error: {error}\n\n{USAGE}");
+            return ExitCode::FAILURE;
+        }
+    };
+    let approximation_error = match command {
+        Command::Run {
+            approximation_error,
+        } => approximation_error,
+        Command::Help => {
+            println!("{USAGE}");
+            return ExitCode::SUCCESS;
+        }
+    };
+
+    match run(&approximation_error) {
         Ok(()) => ExitCode::SUCCESS,
         Err(error) => {
             eprintln!("error: {error}");
@@ -79,7 +102,7 @@ fn main() -> ExitCode {
     }
 }
 
-fn run() -> Result<(), Box<dyn Error>> {
+fn run(approximation_error: &str) -> Result<(), Box<dyn Error>> {
     let batch_size = env_usize("WEIGHTED_INDEXED_BTE_BATCH_SIZE", DEFAULT_BATCH_SIZE)?;
     if batch_size < 2 {
         return Err(invalid_input(
@@ -91,7 +114,7 @@ fn run() -> Result<(), Box<dyn Error>> {
     require_positive("WEIGHTED_INDEXED_BTE_THREADS", threads)?;
 
     let (weights_path, path_overridden) = weights_path()?;
-    let allocation = load_allocation(&weights_path, APPROXIMATION_ERROR)?;
+    let allocation = load_allocation(&weights_path, approximation_error)?;
     let profile = &allocation.profile;
     let total_weight = profile.share_count;
     let reconstruction_threshold = profile.reconstruction_threshold;
@@ -206,10 +229,7 @@ fn run() -> Result<(), Box<dyn Error>> {
     println!("Distribution method: {}", allocation.method);
     println!();
     println!("Selected approximation profile");
-    println!(
-        "error e={}: top-level APPROXIMATION_ERROR configuration",
-        profile.error
-    );
+    println!("error e={}: --approximation-error", profile.error);
     println!(
         "target stake ratio={}, interval=[{}, {}]",
         allocation.target_reconstruction_ratio,
@@ -481,6 +501,48 @@ fn run() -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
+fn parse_command(args: impl IntoIterator<Item = String>) -> io::Result<Command> {
+    let mut args = args.into_iter();
+    let mut approximation_error = None;
+
+    while let Some(argument) = args.next() {
+        match argument.as_str() {
+            "-h" | "--help" => return Ok(Command::Help),
+            "--approximation-error" => {
+                let value = args.next().ok_or_else(|| {
+                    invalid_input("--approximation-error requires a value such as 1/16")
+                })?;
+                set_approximation_error(&mut approximation_error, value)?;
+            }
+            _ => {
+                if let Some(value) = argument.strip_prefix("--approximation-error=") {
+                    set_approximation_error(&mut approximation_error, value.to_owned())?;
+                } else {
+                    return Err(invalid_input(format!("unknown argument {argument:?}")));
+                }
+            }
+        }
+    }
+
+    approximation_error
+        .map(|approximation_error| Command::Run {
+            approximation_error,
+        })
+        .ok_or_else(|| invalid_input("missing required --approximation-error <ERROR> argument"))
+}
+
+fn set_approximation_error(slot: &mut Option<String>, value: String) -> io::Result<()> {
+    if value.is_empty() {
+        return Err(invalid_input("--approximation-error must not be empty"));
+    }
+    if slot.replace(value).is_some() {
+        return Err(invalid_input(
+            "--approximation-error may only be specified once",
+        ));
+    }
+    Ok(())
+}
+
 fn weights_path() -> io::Result<(PathBuf, bool)> {
     if let Some(path) = env::var_os("WEIGHTED_INDEXED_BTE_WEIGHTS_FILE") {
         if path.is_empty() {
@@ -562,7 +624,7 @@ fn parse_allocation_document(
     requested_error: &str,
 ) -> io::Result<SelectedAllocation> {
     if requested_error.is_empty() {
-        return Err(invalid_input("APPROXIMATION_ERROR must not be empty"));
+        return Err(invalid_input("--approximation-error must not be empty"));
     }
 
     let document: AllocationDocument = serde_json::from_str(json).map_err(|error| {
@@ -751,7 +813,7 @@ mod tests {
 
     fn profile() -> Value {
         json!({
-            "error": "1/64",
+            "error": "1/16",
             "lower_stake_ratio": "7/16",
             "upper_stake_ratio": "9/16",
             "selected_resolution_m": 7,
@@ -770,6 +832,42 @@ mod tests {
             "allocations": allocations
         })
         .to_string()
+    }
+
+    #[test]
+    fn parses_approximation_error_argument() {
+        assert_eq!(
+            parse_command(["--approximation-error", "1/16"].map(str::to_owned)).unwrap(),
+            Command::Run {
+                approximation_error: "1/16".to_owned()
+            }
+        );
+        assert_eq!(
+            parse_command(["--approximation-error=1/32"].map(str::to_owned)).unwrap(),
+            Command::Run {
+                approximation_error: "1/32".to_owned()
+            }
+        );
+    }
+
+    #[test]
+    fn rejects_invalid_command_lines() {
+        assert!(parse_command(Vec::<String>::new()).is_err());
+        assert!(parse_command(
+            [
+                "--approximation-error",
+                "1/16",
+                "--approximation-error=1/32"
+            ]
+            .map(str::to_owned)
+        )
+        .is_err());
+        assert!(parse_command(["--approximation-error="].map(str::to_owned)).is_err());
+        assert!(parse_command(["--unknown"].map(str::to_owned)).is_err());
+        assert_eq!(
+            parse_command(["--help"].map(str::to_owned)).unwrap(),
+            Command::Help
+        );
     }
 
     #[test]

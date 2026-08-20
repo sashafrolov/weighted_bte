@@ -72,19 +72,22 @@ cyclotomic inverse transforms.
 ## Solana paper-reproduction example
 
 The example reads the newest `solana_share_weights_*.json` file from
-`scripts/data`, selects the profile configured by the top-level
-`APPROXIMATION_ERROR` constant, and assigns its integer weights to the real
-parties. The constant defaults to `"1/64"`.
+`scripts/data`, selects the profile requested by the required
+`--approximation-error` argument, and assigns its integer weights to the real
+parties.
 
 ```console
 RUSTFLAGS="-C target-cpu=native" \
 WEIGHTED_INDEXED_BTE_BATCH_SIZE=32 \
 WEIGHTED_INDEXED_BTE_THREADS=12 \
 cargo run --release --manifest-path weighted_indexed_bte/Cargo.toml \
-  --example paper_reproduction
+  --example paper_reproduction -- \
+  --approximation-error 1/16
 ```
 
-Runtime choices are controlled by:
+The approximation error may also use the equals form, for example
+`--approximation-error=1/64`. The selected allocation file must contain exactly
+one profile with that error. Other runtime choices are controlled by:
 
 - `WEIGHTED_INDEXED_BTE_WEIGHTS_FILE`;
 - `WEIGHTED_INDEXED_BTE_BATCH_SIZE` (also `n = B_max`, minimum 2); and
