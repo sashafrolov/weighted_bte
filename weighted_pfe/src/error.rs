@@ -21,6 +21,7 @@ pub enum Error {
         threshold_weight: usize,
     },
     InvalidPartyIndex(usize),
+    InvalidSecretKey,
     InvalidProof,
     InsufficientWeight {
         accepted: usize,
@@ -82,6 +83,10 @@ impl fmt::Display for Error {
                 "invalid weighted committee of {party_count} parties: threshold weight {threshold_weight} must be smaller than total weight {total_weight}"
             ),
             Self::InvalidPartyIndex(index) => write!(formatter, "invalid party index {index}"),
+            Self::InvalidSecretKey => write!(
+                formatter,
+                "the party secret key produces a zero partial-fraction denominator"
+            ),
             Self::InvalidProof => write!(formatter, "the ciphertext batch contains an invalid proof"),
             Self::InsufficientWeight {
                 accepted,

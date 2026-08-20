@@ -227,7 +227,7 @@ impl DecryptionPrecomputation {
     }
 }
 
-/// Compute `sigma_j = sum_i g_{j,i}(x) ct_i[1]` with one affine G1 MSM.
+/// Compute `sigma_j = sum_i g_{j,i} ct_i[1]` with one affine G1 MSM.
 pub fn partial_decrypt(
     party_key: &PartySecretKey,
     batch: &ValidatedBatch,
@@ -241,12 +241,10 @@ pub fn partial_decrypt(
             actual: batch.batch_size,
         });
     }
+    let fractions = party_key.fractions()?;
     Ok(DecryptionShare {
         party_index: party_key.party_index,
-        sigma: g1_multi_exp_affine_bytes(
-            &batch.first_affine,
-            &scalars_to_le_bytes(party_key.fractions()),
-        ),
+        sigma: g1_multi_exp_affine_bytes(&batch.first_affine, &scalars_to_le_bytes(fractions)),
         batch_digest: batch.digest,
         setup_id: batch.setup_id,
     })
@@ -1041,7 +1039,7 @@ mod tests {
     }
 
     #[test]
-    fn optimized_opening_matches_construction_two_displayed_formula() {
+    fn optimized_opening_matches_construction_five_displayed_formula() {
         let fixture = fixture(8);
         let key = &fixture.material.decryption_key;
         let optimized = open_fixture(&fixture);

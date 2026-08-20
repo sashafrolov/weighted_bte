@@ -11,8 +11,9 @@ const THRESHOLD_WEIGHT: usize = 67;
 
 fn phase_benchmarks(criterion: &mut Criterion) {
     for batch_size in [32usize, 64, 128, 256, 512] {
-        // Construction 2 is exact-size: alpha_i, every party secret key, and
-        // both W-by-B public tables depend on the padded batch size.
+        // Construction 5 is exact-size: alpha_i, the derived per-party
+        // fraction caches, and both W-by-B public tables depend on the padded
+        // batch size.
         let material = keygen(batch_size, PARTY_WEIGHTS, THRESHOLD_WEIGHT).expect("keygen");
         let messages = (0..batch_size)
             .map(|slot| Gt::generator() * Scalar::from((slot + 1) as u64))

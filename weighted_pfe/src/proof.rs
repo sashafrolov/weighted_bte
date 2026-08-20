@@ -1,10 +1,9 @@
 //! Fiat--Shamir Schnorr proofs for ciphertext well-formedness.
 //!
-//! Construction 2 writes the proof statement as knowledge of the scalar in
-//! `ct[1]`.  Its CCA game also needs the masked `ct[2]` component to be
-//! immutable.  The transcript therefore binds both components and the setup
-//! identifier while keeping the proof itself to one compressed G1 point and
-//! one scalar.
+//! Construction 5 binds the complete ciphertext statement while proving
+//! knowledge of the scalar in `ct[1]`. The transcript also binds the setup
+//! identifier and keeps the proof itself to one compressed G1 point and one
+//! scalar.
 
 use blstrs::{G1Affine, G1Projective, Gt, Scalar};
 use ff::Field;

@@ -1,4 +1,4 @@
-//! Encryption for Construction 2's one-G1 partial-fraction ciphertext.
+//! Encryption for Construction 5's one-G1 partial-fraction ciphertext.
 
 use blstrs::{G1Affine, G1Projective, Gt, Scalar};
 use ff::Field;

@@ -1,6 +1,6 @@
 //! Partial-fraction weighted batch threshold encryption over BLS12-381.
 //!
-//! This crate implements Construction 2 of the weighted-BTE paper.  It keeps
+//! This crate implements Construction 5 of the weighted-BTE paper.  It keeps
 //! one constant-size response per real party while assigning a contiguous set
 //! of Shamir evaluation points to that party according to its integer weight.
 

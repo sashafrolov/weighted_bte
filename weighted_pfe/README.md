@@ -1,16 +1,16 @@
 # Partial-fraction weighted BTE
 
-This crate implements Construction 2 of
-[`papers/weighted_batch_threshold_encryption.pdf`](../papers/weighted_batch_threshold_encryption.pdf):
+This crate implements Construction 5 of
+[`papers/weighted_batch_threshold_encryption_new.pdf`](../papers/weighted_batch_threshold_encryption_new.pdf):
 the partial-fraction weighted batch threshold encryption scheme. It uses
 BLS12-381 through `blstrs` and BLST, assigns multiple virtual Shamir shares to
 each weighted real party, and keeps that party's pre-decryption response to one
 G1 element for the complete batch, independent of its weight.
 
 This is a research and reproduction implementation. It has not been audited
-and should not be used as production cryptography. In particular, the current
-paper draft does not contain a complete CCA-security statement or proof for
-Construction 2; see [Security status and paper issues](#security-status-and-paper-issues).
+and should not be used as production cryptography. Its Fiat--Shamir proof does
+not by itself instantiate every NIZK property assumed by the paper; see
+[Security status and paper issues](#security-status-and-paper-issues).
 
 ## Construction mapping
 
@@ -25,28 +25,28 @@ be the total virtual weight. The corruption threshold is `t < W`; a committee
 is authorized exactly when its weight is greater than `t`, so the minimum
 reconstruction weight is `q = t + 1`.
 
-Setup samples a degree-`t` polynomial `Z` with `Z(0) = z`. For
+Setup samples a polynomial `Z` of degree at most `t` with `Z(0) = z`, global
+masks `beta_{-1}, beta_0`, and one secret shift `rho_j` per party. For
 
 ```text
-p_a(X)       = 1 / (X + a)
-g_{j,i}(X)   = p_{rho_j + alpha_i}(X)
-u_{j,i}(X)   = g_{j,i}(X)^2
-               + p_{-1}(X) / (alpha_i + 1)
-               + p_0(X) / alpha_i,
+g_{j,i} = 1 / (rho_j + alpha_i)
+u_{j,i} = g_{j,i}^2
+          + beta_{-1} / (alpha_i + 1)
+          + beta_0 / alpha_i,
 ```
 
 the implementation maps the paper's objects as follows.
 
 | Paper object or phase | Implementation |
 |---|---|
-| `ek = [z p_0(x)]_T` | `EncryptionKey` |
-| `sk_j = (g_{j,i}(x))_i` | `PartySecretKey`, exactly `B` scalars regardless of `w_j` |
-| `vk_{j,i} = [g_{j,i}(x)]_2` | `PublicDecryptionKey::verification_keys`, `N * B` G2 points |
-| `D_{omega,i} = [Z(omega) g_{owner(omega),i}(x)]_2` | the slot-major `d1` table, `W * B` G2 points |
-| `U_{omega,i} = [Z(omega) u_{owner(omega),i}(x)]_2` | the slot-major `d2` table, `W * B` G2 points |
-| `V = [z(p_{-1}(x) + p_0(x))]_2` | `global_key`, one G2 point |
+| `ek = [z beta_0]_T` | `EncryptionKey` |
+| `sk_j = rho_j` | `PartySecretKey`, one canonical scalar; the `B` derived `g_{j,i}` values are cached in memory |
+| `vk_{j,i} = [g_{j,i}]_2` | `PublicDecryptionKey::verification_keys`, `N * B` G2 points |
+| `D_{omega,i} = [Z(omega) g_{owner(omega),i}]_2` | the slot-major `d1` table, `W * B` G2 points |
+| `U_{omega,i} = [Z(omega) u_{owner(omega),i}]_2` | the slot-major `d2` table, `W * B` G2 points |
+| `V = [z(beta_{-1} + beta_0)]_2` | `global_key`, one G2 point |
 | `ct_i = ([r_i]_1, m_i + r_i ek, pi_i)` | `Ciphertext { first, second, proof }` |
-| `sigma_j = sum_i g_{j,i}(x) ct_i[1]` | `partial_decrypt`, one size-`B` G1 MSM |
+| `sigma_j = sum_i g_{j,i} ct_i[1]` | `partial_decrypt`, one size-`B` G1 MSM |
 | ciphertext and share checks | `validate_batch`, `verify_decryption_share`, and `accept_decryption_shares` |
 | weighted interpolation and opening keys | `prepare_decryption` |
 | the two Cauchy cross-term families | `precompute_batch` |
@@ -58,12 +58,12 @@ power of two at least `W`; evaluating `Z` uses a scalar FFT. The internal FFT
 domain padding does not add virtual shares or public-key entries.
 
 The batch size `B` must be a nonzero power of two. This construction is
-exact-size: its `alpha_i` values, every party secret key, and both `W * B`
-public tables depend on `B`. Every call to `validate_batch` therefore expects
-exactly `B` ciphertexts. A shorter logical batch needs valid dummy
+exact-size: its `alpha_i` values, derived party fraction caches, and both
+`W * B` public tables depend on `B`. Every call to `validate_batch` therefore
+expects exactly `B` ciphertexts. A shorter logical batch needs valid dummy
 ciphertexts, or a separately generated setup; the crate does not silently
 compact or reindex a batch. If any client proof is invalid, validation rejects
-the whole batch, matching Construction 2's `PreDec` pseudocode.
+the whole batch, matching Construction 5's `PreDec` pseudocode.
 
 ## Public API
 
@@ -103,7 +103,7 @@ cargo test --all-targets --manifest-path weighted_pfe/Cargo.toml
 The tests cover heterogeneous weighted authorization, malformed-share blame
 and fallback, cross-setup/batch/committee binding, serialization dimensions,
 proof tampering, optimized-versus-quadratic Cauchy transforms, and optimized
-opening versus the displayed Construction 2 formula.
+opening versus the displayed Construction 5 formula.
 
 The Criterion benchmark separates client checking, one-party partial
 decryption, batched share acceptance, committee preparation, Cauchy
@@ -158,8 +158,9 @@ the generated counts rather than recomputing them.
 
 ## Serialized sizes
 
-Size reporting uses compressed/canonical wire sizes, not Rust in-memory
-layouts:
+Size reporting follows the paper's cryptographic-payload accounting. It uses
+compressed/canonical element sizes and excludes Rust/container metadata,
+setup identifiers, and public domain descriptors:
 
 ```text
 BLS12-381 scalar     32 bytes
@@ -178,12 +179,14 @@ ciphertext components may include the identity; size accessors report the
 actual 289-byte encoding in either case.
 
 For `N` real parties, total virtual weight `W`, batch size `B`, and accepted
-real-party count `tau`, the paper's Table 3 and this implementation give:
+real-party count `tau`, Construction 5 and this implementation give the
+following sizes. The public, ciphertext, and response rows correspond to the
+paper's Table 3; its stale party-secret-key row is noted below.
 
 | Quantity | Group/scalar count | Serialized bytes |
 |---|---:|---:|
 | Encryption key | one GT | 289 in this crate; 288 in the paper model |
-| One party secret key | `B` scalars | `32B` |
+| One party secret key (metadata excluded) | one canonical scalar | `32` |
 | One party verification key | `B` G2 | `96B` |
 | All verification keys | `NB` G2 | `96NB` |
 | Core `D`, `U`, `V` material | `(2WB + 1)` G2 | `96(2WB + 1)` |
@@ -227,6 +230,9 @@ The implementation follows the optimization level of the sibling `btx` and
   avoids retaining all `2WB` points in projective form simultaneously;
 - batch inversion for all setup fractions and a scalar FFT for Shamir
   evaluation;
+- one-scalar canonical party keys with non-serialized derived-fraction caches;
+  `keygen` seeds each cache, while a deserialized key rebuilds it once on its
+  first `partial_decrypt` call;
 - a product-tree/FFT path for Lagrange coefficients at Solana-sized accepted
   weights, rather than quadratic interpolation;
 - randomized aggregate client-proof and server-share verification, with
@@ -241,7 +247,7 @@ The implementation follows the optimization level of the sibling `btx` and
 - Rayon parallelism over independent setup blocks, MSMs, Miller loops, final
   exponentiations, and opening outputs.
 
-The main Construction 2 specialization concerns the public slot points. The
+The main Construction 5 specialization concerns the public slot points. The
 paper permits arbitrary distinct `alpha_i` outside `{0, -1}`. This crate uses
 
 ```text
@@ -272,7 +278,7 @@ the aggregate `D` operands. Their hard final exponentiations are deferred.
 `open_batch` then performs `B` multipairings of arity `tau` and the remaining
 `B` ordinary mask pairings. For each output it combines all three easy-final-
 exponentiated terms before one hard final exponentiation. Thus the optimized
-path follows Table 3's pairing inputs,
+path follows Table 4's pairing inputs,
 
 ```text
 B * MP(tau) + 2B ordinary pairings.
@@ -283,13 +289,10 @@ exponentiations to `B`.
 
 ## Deviations and resolved ambiguities
 
-- **Ciphertext-proof transcript.** Construction 2 writes
-  `Pi_DL.Prove(ct[1]; r)` and verifies only `ct[1]`. In the paper's CCA game,
-  however, changing `ct[2]` while reusing the proof would turn a permitted
-  decryption query into a direct transformation of the challenge ciphertext.
-  This implementation intentionally binds compressed `ct[1]`, the complete
-  canonical `ct[2]`, and the setup identifier into the Fiat--Shamir transcript.
-  This strengthening does not change proof size or group-operation counts.
+- **Ciphertext-proof transcript.** As in Construction 5, the Fiat--Shamir
+  transcript binds compressed `ct[1]` and the complete canonical `ct[2]`.
+  This implementation additionally binds the setup identifier. That associated
+  context does not change proof size or group-operation counts.
 - **Setup binding.** A SHA-256 setup identifier commits to the public
   dimensions, weights, domains, encryption key, and G2 material. Ciphertext,
   validated-batch, response, and committee precomputations are checked against
@@ -297,18 +300,20 @@ exponentiations to `B`.
   than an extra ciphertext field.
 - **Structured `alpha_i`.** The affine root-of-unity specialization described
   above is required for the implemented `O(B log B)` cyclic Cauchy path. The
-  paper gives only arbitrary distinct points and does not state the structure
-  needed by its FFT cost row.
+  paper describes the multiplicative choice `alpha_i = gamma * omega^(i-1)`;
+  this crate instead uses an affine root-of-unity coset. The additive shift
+  cancels from every `alpha_k - alpha_i`, giving the same cyclic structure with
+  the kernel implemented here.
 - **Sampling `rho_j`.** The paper requires all `rho_j + alpha_i` labels to be
   globally distinct and every fraction denominator to be nonzero, but does
   not give a sampling algorithm. Setup implements explicit rejection
   sampling for both collision and pole conditions.
-- **Nondegenerate randomness.** Setup samples nonzero `z`, chooses
-  `x` outside `{0, 1}`, and encryption samples nonzero `r`. These checks rule
-  out degenerate public keys, ciphertexts, and fraction poles that the
-  pseudocode's unrestricted field sampling would otherwise permit.
+- **Nondegenerate randomness.** Setup samples nonzero `z`, enforces
+  `beta_0 != 0` and `beta_{-1} + beta_0 != 0`, and encryption samples nonzero
+  `r`. These checks rule out degenerate public keys and ciphertexts. Explicit
+  rejection sampling also rules out fraction poles.
 - **Exact-size padding.** The syntax says “up to” the maximum batch size while
-  Construction 2 and its Cauchy formulas operate on a full padded batch. Since
+  Construction 5 and its Cauchy formulas operate on a full padded batch. Since
   no dummy-padding convention is specified, the crate requires exactly the
   configured power-of-two `B` and leaves logical padding to the caller.
 - **Accepted committee.** After share verification, the paper allows any
@@ -318,20 +323,21 @@ exponentiations to `B`.
 
 ## Security status and paper issues
 
-- Section 4.2, “Distributed Key Generation for Construction 2,” is empty, so
-  this crate implements trusted setup only.
-- Section 4.4, “Assumption and CCA Security,” is empty. Section 4.5's Lemma 2
-  refers to **“Assumption ??”** and to handles `H_{j,i}` that are not defined
-  by Construction 2. There is no formal Construction 2 assumption or CCA
-  theorem in the current draft. The generic-group sketch is useful evidence,
-  but it is not a complete CCA proof.
+- The new paper specifies a two-step DKG for Construction 5 in Section 4.3.
+  This crate currently implements the trusted-dealer `Setup` algorithm only.
+- The paper states static WB-IND-CCA security under its WQuadRankDef assumption
+  and the specified simulation-extractable NIZK properties. Those are claims
+  about the abstract construction, not an audit or proof of this crate.
 - Fiat--Shamir Schnorr is compact and has no structured CRS, but it is not a
   standard plain-random-oracle online simulation-extractable NIZK of the kind
   required by the paper's abstract `Pi_DL`. The implementation therefore does
   not claim to instantiate the paper's full proof-system assumption.
-- Section 4.3 says that `B * MP(tau) + 2B * P` is `tau + 1` pairing inputs per
-  ciphertext. The arithmetic gives `tau + 2`, and Table 3 correctly retains
-  the two ordinary pairings. The implementation follows Table 3.
+- Construction 5 defines `sk_j = rho_j`, but the new paper's storage table
+  still lists `B` field elements. This crate treats `rho_j` as the one-scalar
+  canonical key and the `B` derived `g_{j,i}` values as a non-serialized cache.
+- The setup-ID domain is versioned for Construction 5. The party-key encoding
+  contains an explicit format tag, `rho_j`, and a compact public alpha-domain
+  descriptor; deserialization rejects the legacy Construction 2 key layout.
 - The regenerated Solana allocation file targets `1/2` and currently has
   experimental `W` values `764`, `1,576`, `3,060`, and `6,486`. Section 5's
   stale prose/table values are `764`, `1,580`, `3,063`, and `6,489`.

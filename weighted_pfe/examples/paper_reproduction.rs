@@ -195,7 +195,7 @@ fn run(approximation_error: &str) -> Result<(), Box<dyn Error>> {
     let profile = &allocation.profile;
     let total_weight = profile.share_count;
     let reconstruction_threshold = profile.reconstruction_threshold;
-    // The allocation's q is the minimum reconstructing weight. Construction 2
+    // The allocation's q is the minimum reconstructing weight. Construction 5
     // authorizes weight strictly greater than t, so its polynomial degree is q-1.
     let threshold_weight = reconstruction_threshold
         .checked_sub(1)
@@ -262,7 +262,7 @@ fn run(approximation_error: &str) -> Result<(), Box<dyn Error>> {
         "opening multi-pairing input count",
     )?;
 
-    println!("Weighted PFE Solana paper reproduction (Construction 2)");
+    println!("Weighted PFE Solana paper reproduction (Construction 5)");
     println!("Input allocation: {}", weights_path.display());
     println!(
         "Input selection: {}",
@@ -373,7 +373,7 @@ fn run(approximation_error: &str) -> Result<(), Box<dyn Error>> {
     assert!(material
         .party_keys
         .iter()
-        .all(|party_key| party_key.scalar_count() == batch_size));
+        .all(|party_key| party_key.scalar_count() == 1));
 
     let messages = (0..batch_size)
         .map(|index| Gt::generator() * Scalar::from((index as u64).wrapping_add(1)))
@@ -629,8 +629,7 @@ fn serialized_sizes(
         .checked_add(canonical_gt_bytes)
         .ok_or_else(|| invalid_input("canonical public-material byte count overflows usize"))?;
 
-    let party_secret_key_bytes =
-        checked_mul(batch_size, scalar_bytes, "party secret-key byte count")?;
+    let party_secret_key_bytes = scalar_bytes;
     let all_secret_key_bytes = checked_mul(
         party_count,
         party_secret_key_bytes,
@@ -763,7 +762,7 @@ fn print_serialized_sizes(
         "implementation structured proof CRS: 0 bytes (Fiat-Shamir Schnorr); paper abstract Pi_DL CRS: unspecified and excluded by Table 3"
     );
     println!(
-        "one party secret key: {} bytes ({:.3} kB) = B={} scalars; all N={} secret keys: {} bytes ({:.3} kB)",
+        "one party secret key: {} bytes ({:.3} kB) = one rho_j scalar (B={} derived fractions may be cached); all N={} secret keys: {} bytes ({:.3} kB)",
         sizes.party_secret_key_bytes,
         sizes.party_secret_key_bytes as f64 / 1024.0,
         batch_size,
@@ -1226,7 +1225,8 @@ mod tests {
         assert_eq!(sizes.canonical_batch_without_proofs_bytes, 4 * 337);
         assert_eq!(sizes.paper_batch_with_proofs_bytes, 4 * 416);
         assert_eq!(sizes.canonical_batch_with_proofs_bytes, 4 * 417);
-        assert_eq!(sizes.party_secret_key_bytes, 4 * 32);
+        assert_eq!(sizes.party_secret_key_bytes, 32);
+        assert_eq!(sizes.all_secret_key_bytes, 3 * 32);
         assert_eq!(sizes.party_response_bytes, 48);
         assert_eq!(sizes.selected_response_bytes, 2 * 48);
     }
