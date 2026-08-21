@@ -1,0 +1,1013 @@
+New-scheme approximation-error sweep (fixed B=16)
+
+================================================================================
+PARAMETERS run=1/18 sweep=approximation_error scheme=weighted_bte implementation=weighted_btx B=16 approximation_error=1/8 parties=234 total_weight=764 q=368 t=367 threads=12 repetitions=1
+WEIGHTS_FILE /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+COMMAND env RUSTFLAGS=-C\ target-cpu=native WEIGHTED_BTX_WEIGHTS_FILE=/Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json WEIGHTED_BTX_BATCH_SIZE=16 WEIGHTED_BTX_THREADS=12 cargo run --quiet --release --locked --manifest-path /Users/afrolov/Documents/weighted_bte/weighted_btx/Cargo.toml --example paper_reproduction -- --approximation-error 1/8
+================================================================================
+Weighted BTX Solana paper reproduction
+Input allocation: /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+Input selection: WEIGHTED_BTX_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/8: --approximation-error
+target stake ratio=1/2, interval=[3/8, 5/8]
+nominal resolution M=862, actual cryptographic share count W=764
+minimum reconstruction weight q=368; weighted-BTX threshold t=367 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.589528519766070573603598814483
+
+Runtime choices
+B_max=B=16
+Rayon threads=12
+
+Allocation summary
+real parties N=234, total virtual weight W=764, min/max party weight=1/30
+minimal-party authorized set: 29 parties, weight 373 >= q=368 (largest weights first, index tie-break)
+
+Estimated public G2 material (excluding the NIZK CRS)
+compressed G2 serialization: 96 bytes/point
+core D_(omega,d): 23684 points, 2273664 bytes (2220.375 kB) = (2B_max-1)W
+party verification keys: 3744 points, 359424 bytes (351.000 kB) = N*B_max
+public decryption key total: 27428 points, 2633088 bytes (2571.375 kB)
+
+Measured phase durations
+trusted key generation                    416.815 ms
+encrypt batch                               1.282 ms total     0.080 ms/item
+client proof validation                     0.506 ms total     0.032 ms/item
+partial decryptions, all selected           1.984 ms total     0.068 ms/item
+batched share acceptance                    5.467 ms total     0.189 ms/item
+committee / FFT preparation                75.876 ms total     4.742 ms/item
+cross-term precompute                       7.096 ms total     0.444 ms/item
+opening                                     6.182 ms total     0.386 ms/item
+decryption pipeline total                  96.605 ms
+Decryption successful.
+
+================================================================================
+PARAMETERS run=2/18 sweep=approximation_error scheme=weighted_pfe implementation=weighted_pfe B=16 approximation_error=1/8 parties=234 total_weight=764 q=368 t=367 threads=12 repetitions=1
+WEIGHTS_FILE /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+COMMAND env RUSTFLAGS=-C\ target-cpu=native WEIGHTED_PFE_WEIGHTS_FILE=/Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json WEIGHTED_PFE_BATCH_SIZE=16 WEIGHTED_PFE_THREADS=12 WEIGHTED_PFE_REPETITIONS=1 cargo run --quiet --release --locked --manifest-path /Users/afrolov/Documents/weighted_bte/weighted_pfe/Cargo.toml --example paper_reproduction -- --approximation-error 1/8
+================================================================================
+Weighted PFE Solana paper reproduction (Construction 5)
+Input allocation: /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+Input selection: WEIGHTED_PFE_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/8: --approximation-error
+target stake ratio=1/2, interval=[3/8, 5/8]
+nominal resolution M=862, actual cryptographic share count W=764
+minimum reconstruction weight q=368; weighted-PFE threshold t=367 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.589528519766070573603598814483
+
+Runtime choices
+B_max=B=16
+Rayon threads=12
+measured online repetitions=1, plus one unmeasured online warm-up
+
+Allocation summary
+real parties N=234, total virtual weight W=764, min/max party weight=1/30
+minimal-party authorized set: tau=29 parties, W_T=373 >= q=368 (largest weights first, index tie-break)
+
+Table 3 serialized material
+accounting: compressed cryptographic elements; indices, setup IDs, batch digests, integer metadata, and container framing excluded
+compressed encodings: G1=48 bytes, G2=96 bytes, scalar=32 bytes, paper GT=288 bytes, canonical identity-tagged GT=289 bytes
+party verification keys: 3744 G2 points, 359424 bytes (351.000 kB) = N*B
+core D1/D2/global material: 24449 G2 points, 2347104 bytes (2292.094 kB) = 2*W*B+1
+public decryption key: 28193 G2 points, 2706528 bytes (2643.094 kB) = (2W+N)B+1
+encryption key: one GT, 288 bytes (0.281 kB) in Table 3, 289 bytes (0.282 kB) canonical
+total public material, paper encoding: 2706816 bytes (2643.375 kB) = public decryption key + one GT encryption key
+total public material, canonical cryptographic-element encoding: 2706817 bytes (2643.376 kB)
+implementation structured proof CRS: 0 bytes (Fiat-Shamir Schnorr); paper abstract Pi_DL CRS: unspecified and excluded by Table 3
+one party secret key: 32 bytes (0.031 kB) = one rho_j scalar (B=16 derived fractions may be cached); all N=234 secret keys: 7488 bytes (7.312 kB)
+one ciphertext proof: 80 bytes = one compressed G1 commitment + one scalar response
+one ciphertext excluding its proof (Table 3): 336 bytes with paper GT, 337 bytes with canonical tagged GT
+one ciphertext including this implementation's proof: 416 bytes with paper GT, 417 bytes canonical
+B=16 ciphertexts excluding proofs: 5376/5392 bytes (paper/canonical); including proofs: 6656/6672 bytes
+one party cryptographic response: 48 bytes = one compressed G1; selected tau=29 responses: 1392 bytes
+formula parameters used above: N=234, W=764, B=16
+
+Optimized online work dimensions
+ctxtCheck(B): one randomized G1 MSM with 33=2B+1 bases
+selected PreDec: 29 G1 MSMs of 16 terms (464 scalar-point terms)
+batched acceptance: one 29-term G1 MSM, 16 G2 MSMs of 29 terms (464 terms), and one pairing product of arity 17
+committee preparation: 464 party-block G2 MSMs plus 16 whole-committee G2 MSMs, 11936=2B*W_T total scalar-point terms
+committee finishing: 16 size-2 G2 mask combinations, 448 party-key additions, normalization of 496 points, and 32 prepared line tables
+Cauchy precompute: forward+inverse size-16 G1 transforms, 16 prepared-G2 pairings, and forward+inverse cyclotomic transforms
+opening: 16 multi-pairings of arity 29 (464 inputs) plus 16 prepared-G2 mask pairings; all target terms fuse before 16 hard final exponentiations
+
+One-time setup and input preparation
+trusted weighted key generation               365.071 ms
+encrypt batch                                   1.289 ms total     0.081 ms/item
+fixed Cauchy FFT kernel                         0.016 ms
+
+Average over 1 measured online repetition(s)
+ctxtCheck(B), batched client proofs             0.749 ms total     0.047 ms/item
+PreDec(B), all selected parties                 1.828 ms total     0.063 ms/item
+batched response acceptance                    14.875 ms total     0.513 ms/item
+committee interpolation / G2 MSMs              72.299 ms total     4.519 ms/item
+ciphertext-dependent Cauchy precompute          2.663 ms total     0.166 ms/item
+weighted opening / unmask                       7.138 ms total     0.446 ms/item
+full cold-committee path incl checks           99.552 ms
+full cached-committee path incl checks         27.253 ms
+Decryption successful in the warm-up and every measured repetition.
+
+================================================================================
+PARAMETERS run=3/18 sweep=approximation_error scheme=weighted_bte implementation=weighted_btx B=16 approximation_error=1/16 parties=419 total_weight=1576 q=789 t=788 threads=12 repetitions=1
+WEIGHTS_FILE /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+COMMAND env RUSTFLAGS=-C\ target-cpu=native WEIGHTED_BTX_WEIGHTS_FILE=/Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json WEIGHTED_BTX_BATCH_SIZE=16 WEIGHTED_BTX_THREADS=12 cargo run --quiet --release --locked --manifest-path /Users/afrolov/Documents/weighted_bte/weighted_btx/Cargo.toml --example paper_reproduction -- --approximation-error 1/16
+================================================================================
+Weighted BTX Solana paper reproduction
+Input allocation: /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+Input selection: WEIGHTED_BTX_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/16: --approximation-error
+target stake ratio=1/2, interval=[7/16, 9/16]
+nominal resolution M=1612, actual cryptographic share count W=1576
+minimum reconstruction weight q=789; weighted-BTX threshold t=788 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.562471257047755780430521588276
+
+Runtime choices
+B_max=B=16
+Rayon threads=12
+
+Allocation summary
+real parties N=419, total virtual weight W=1576, min/max party weight=1/57
+minimal-party authorized set: 38 parties, weight 794 >= q=789 (largest weights first, index tie-break)
+
+Estimated public G2 material (excluding the NIZK CRS)
+compressed G2 serialization: 96 bytes/point
+core D_(omega,d): 48856 points, 4690176 bytes (4580.250 kB) = (2B_max-1)W
+party verification keys: 6704 points, 643584 bytes (628.500 kB) = N*B_max
+public decryption key total: 55560 points, 5333760 bytes (5208.750 kB)
+
+Measured phase durations
+trusted key generation                    677.831 ms
+encrypt batch                               0.982 ms total     0.061 ms/item
+client proof validation                     0.351 ms total     0.022 ms/item
+partial decryptions, all selected           2.089 ms total     0.055 ms/item
+batched share acceptance                    6.401 ms total     0.168 ms/item
+committee / FFT preparation               124.326 ms total     7.770 ms/item
+cross-term precompute                       6.994 ms total     0.437 ms/item
+opening                                     7.651 ms total     0.478 ms/item
+decryption pipeline total                 147.462 ms
+Decryption successful.
+
+================================================================================
+PARAMETERS run=4/18 sweep=approximation_error scheme=weighted_pfe implementation=weighted_pfe B=16 approximation_error=1/16 parties=419 total_weight=1576 q=789 t=788 threads=12 repetitions=1
+WEIGHTS_FILE /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+COMMAND env RUSTFLAGS=-C\ target-cpu=native WEIGHTED_PFE_WEIGHTS_FILE=/Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json WEIGHTED_PFE_BATCH_SIZE=16 WEIGHTED_PFE_THREADS=12 WEIGHTED_PFE_REPETITIONS=1 cargo run --quiet --release --locked --manifest-path /Users/afrolov/Documents/weighted_bte/weighted_pfe/Cargo.toml --example paper_reproduction -- --approximation-error 1/16
+================================================================================
+Weighted PFE Solana paper reproduction (Construction 5)
+Input allocation: /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+Input selection: WEIGHTED_PFE_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/16: --approximation-error
+target stake ratio=1/2, interval=[7/16, 9/16]
+nominal resolution M=1612, actual cryptographic share count W=1576
+minimum reconstruction weight q=789; weighted-PFE threshold t=788 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.562471257047755780430521588276
+
+Runtime choices
+B_max=B=16
+Rayon threads=12
+measured online repetitions=1, plus one unmeasured online warm-up
+
+Allocation summary
+real parties N=419, total virtual weight W=1576, min/max party weight=1/57
+minimal-party authorized set: tau=38 parties, W_T=794 >= q=789 (largest weights first, index tie-break)
+
+Table 3 serialized material
+accounting: compressed cryptographic elements; indices, setup IDs, batch digests, integer metadata, and container framing excluded
+compressed encodings: G1=48 bytes, G2=96 bytes, scalar=32 bytes, paper GT=288 bytes, canonical identity-tagged GT=289 bytes
+party verification keys: 6704 G2 points, 643584 bytes (628.500 kB) = N*B
+core D1/D2/global material: 50433 G2 points, 4841568 bytes (4728.094 kB) = 2*W*B+1
+public decryption key: 57137 G2 points, 5485152 bytes (5356.594 kB) = (2W+N)B+1
+encryption key: one GT, 288 bytes (0.281 kB) in Table 3, 289 bytes (0.282 kB) canonical
+total public material, paper encoding: 5485440 bytes (5356.875 kB) = public decryption key + one GT encryption key
+total public material, canonical cryptographic-element encoding: 5485441 bytes (5356.876 kB)
+implementation structured proof CRS: 0 bytes (Fiat-Shamir Schnorr); paper abstract Pi_DL CRS: unspecified and excluded by Table 3
+one party secret key: 32 bytes (0.031 kB) = one rho_j scalar (B=16 derived fractions may be cached); all N=419 secret keys: 13408 bytes (13.094 kB)
+one ciphertext proof: 80 bytes = one compressed G1 commitment + one scalar response
+one ciphertext excluding its proof (Table 3): 336 bytes with paper GT, 337 bytes with canonical tagged GT
+one ciphertext including this implementation's proof: 416 bytes with paper GT, 417 bytes canonical
+B=16 ciphertexts excluding proofs: 5376/5392 bytes (paper/canonical); including proofs: 6656/6672 bytes
+one party cryptographic response: 48 bytes = one compressed G1; selected tau=38 responses: 1824 bytes
+formula parameters used above: N=419, W=1576, B=16
+
+Optimized online work dimensions
+ctxtCheck(B): one randomized G1 MSM with 33=2B+1 bases
+selected PreDec: 38 G1 MSMs of 16 terms (608 scalar-point terms)
+batched acceptance: one 38-term G1 MSM, 16 G2 MSMs of 38 terms (608 terms), and one pairing product of arity 17
+committee preparation: 608 party-block G2 MSMs plus 16 whole-committee G2 MSMs, 25408=2B*W_T total scalar-point terms
+committee finishing: 16 size-2 G2 mask combinations, 592 party-key additions, normalization of 640 points, and 32 prepared line tables
+Cauchy precompute: forward+inverse size-16 G1 transforms, 16 prepared-G2 pairings, and forward+inverse cyclotomic transforms
+opening: 16 multi-pairings of arity 38 (608 inputs) plus 16 prepared-G2 mask pairings; all target terms fuse before 16 hard final exponentiations
+
+One-time setup and input preparation
+trusted weighted key generation               680.480 ms
+encrypt batch                                   1.057 ms total     0.066 ms/item
+fixed Cauchy FFT kernel                         0.117 ms
+
+Average over 1 measured online repetition(s)
+ctxtCheck(B), batched client proofs             0.803 ms total     0.050 ms/item
+PreDec(B), all selected parties                 2.197 ms total     0.058 ms/item
+batched response acceptance                     6.311 ms total     0.166 ms/item
+committee interpolation / G2 MSMs             119.457 ms total     7.466 ms/item
+ciphertext-dependent Cauchy precompute          3.066 ms total     0.192 ms/item
+weighted opening / unmask                       8.779 ms total     0.549 ms/item
+full cold-committee path incl checks          140.611 ms
+full cached-committee path incl checks         21.154 ms
+Decryption successful in the warm-up and every measured repetition.
+
+================================================================================
+PARAMETERS run=5/18 sweep=approximation_error scheme=weighted_bte implementation=weighted_btx B=16 approximation_error=1/32 parties=598 total_weight=3060 q=1531 t=1530 threads=12 repetitions=1
+WEIGHTS_FILE /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+COMMAND env RUSTFLAGS=-C\ target-cpu=native WEIGHTED_BTX_WEIGHTS_FILE=/Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json WEIGHTED_BTX_BATCH_SIZE=16 WEIGHTED_BTX_THREADS=12 cargo run --quiet --release --locked --manifest-path /Users/afrolov/Documents/weighted_bte/weighted_btx/Cargo.toml --example paper_reproduction -- --approximation-error 1/32
+================================================================================
+Weighted BTX Solana paper reproduction
+Input allocation: /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+Input selection: WEIGHTED_BTX_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/32: --approximation-error
+target stake ratio=1/2, interval=[15/32, 17/32]
+nominal resolution M=3065, actual cryptographic share count W=3060
+minimum reconstruction weight q=1531; weighted-BTX threshold t=1530 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.531246194748737585742195954630
+
+Runtime choices
+B_max=B=16
+Rayon threads=12
+
+Allocation summary
+real parties N=598, total virtual weight W=3060, min/max party weight=1/108
+minimal-party authorized set: 40 parties, weight 1538 >= q=1531 (largest weights first, index tie-break)
+
+Estimated public G2 material (excluding the NIZK CRS)
+compressed G2 serialization: 96 bytes/point
+core D_(omega,d): 94860 points, 9106560 bytes (8893.125 kB) = (2B_max-1)W
+party verification keys: 9568 points, 918528 bytes (897.000 kB) = N*B_max
+public decryption key total: 104428 points, 10025088 bytes (9790.125 kB)
+
+Measured phase durations
+trusted key generation                   1152.063 ms
+encrypt batch                               1.069 ms total     0.067 ms/item
+client proof validation                     0.383 ms total     0.024 ms/item
+partial decryptions, all selected           2.193 ms total     0.055 ms/item
+batched share acceptance                    6.571 ms total     0.164 ms/item
+committee / FFT preparation               205.788 ms total    12.862 ms/item
+cross-term precompute                       7.119 ms total     0.445 ms/item
+opening                                     8.546 ms total     0.534 ms/item
+decryption pipeline total                 230.218 ms
+Decryption successful.
+
+================================================================================
+PARAMETERS run=6/18 sweep=approximation_error scheme=weighted_pfe implementation=weighted_pfe B=16 approximation_error=1/32 parties=598 total_weight=3060 q=1531 t=1530 threads=12 repetitions=1
+WEIGHTS_FILE /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+COMMAND env RUSTFLAGS=-C\ target-cpu=native WEIGHTED_PFE_WEIGHTS_FILE=/Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json WEIGHTED_PFE_BATCH_SIZE=16 WEIGHTED_PFE_THREADS=12 WEIGHTED_PFE_REPETITIONS=1 cargo run --quiet --release --locked --manifest-path /Users/afrolov/Documents/weighted_bte/weighted_pfe/Cargo.toml --example paper_reproduction -- --approximation-error 1/32
+================================================================================
+Weighted PFE Solana paper reproduction (Construction 5)
+Input allocation: /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+Input selection: WEIGHTED_PFE_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/32: --approximation-error
+target stake ratio=1/2, interval=[15/32, 17/32]
+nominal resolution M=3065, actual cryptographic share count W=3060
+minimum reconstruction weight q=1531; weighted-PFE threshold t=1530 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.531246194748737585742195954630
+
+Runtime choices
+B_max=B=16
+Rayon threads=12
+measured online repetitions=1, plus one unmeasured online warm-up
+
+Allocation summary
+real parties N=598, total virtual weight W=3060, min/max party weight=1/108
+minimal-party authorized set: tau=40 parties, W_T=1538 >= q=1531 (largest weights first, index tie-break)
+
+Table 3 serialized material
+accounting: compressed cryptographic elements; indices, setup IDs, batch digests, integer metadata, and container framing excluded
+compressed encodings: G1=48 bytes, G2=96 bytes, scalar=32 bytes, paper GT=288 bytes, canonical identity-tagged GT=289 bytes
+party verification keys: 9568 G2 points, 918528 bytes (897.000 kB) = N*B
+core D1/D2/global material: 97921 G2 points, 9400416 bytes (9180.094 kB) = 2*W*B+1
+public decryption key: 107489 G2 points, 10318944 bytes (10077.094 kB) = (2W+N)B+1
+encryption key: one GT, 288 bytes (0.281 kB) in Table 3, 289 bytes (0.282 kB) canonical
+total public material, paper encoding: 10319232 bytes (10077.375 kB) = public decryption key + one GT encryption key
+total public material, canonical cryptographic-element encoding: 10319233 bytes (10077.376 kB)
+implementation structured proof CRS: 0 bytes (Fiat-Shamir Schnorr); paper abstract Pi_DL CRS: unspecified and excluded by Table 3
+one party secret key: 32 bytes (0.031 kB) = one rho_j scalar (B=16 derived fractions may be cached); all N=598 secret keys: 19136 bytes (18.688 kB)
+one ciphertext proof: 80 bytes = one compressed G1 commitment + one scalar response
+one ciphertext excluding its proof (Table 3): 336 bytes with paper GT, 337 bytes with canonical tagged GT
+one ciphertext including this implementation's proof: 416 bytes with paper GT, 417 bytes canonical
+B=16 ciphertexts excluding proofs: 5376/5392 bytes (paper/canonical); including proofs: 6656/6672 bytes
+one party cryptographic response: 48 bytes = one compressed G1; selected tau=40 responses: 1920 bytes
+formula parameters used above: N=598, W=3060, B=16
+
+Optimized online work dimensions
+ctxtCheck(B): one randomized G1 MSM with 33=2B+1 bases
+selected PreDec: 40 G1 MSMs of 16 terms (640 scalar-point terms)
+batched acceptance: one 40-term G1 MSM, 16 G2 MSMs of 40 terms (640 terms), and one pairing product of arity 17
+committee preparation: 640 party-block G2 MSMs plus 16 whole-committee G2 MSMs, 49216=2B*W_T total scalar-point terms
+committee finishing: 16 size-2 G2 mask combinations, 624 party-key additions, normalization of 672 points, and 32 prepared line tables
+Cauchy precompute: forward+inverse size-16 G1 transforms, 16 prepared-G2 pairings, and forward+inverse cyclotomic transforms
+opening: 16 multi-pairings of arity 40 (640 inputs) plus 16 prepared-G2 mask pairings; all target terms fuse before 16 hard final exponentiations
+
+One-time setup and input preparation
+trusted weighted key generation              1187.983 ms
+encrypt batch                                   1.631 ms total     0.102 ms/item
+fixed Cauchy FFT kernel                         0.018 ms
+
+Average over 1 measured online repetition(s)
+ctxtCheck(B), batched client proofs             0.761 ms total     0.048 ms/item
+PreDec(B), all selected parties                 2.071 ms total     0.052 ms/item
+batched response acceptance                     6.392 ms total     0.160 ms/item
+committee interpolation / G2 MSMs             205.410 ms total    12.838 ms/item
+ciphertext-dependent Cauchy precompute          2.697 ms total     0.169 ms/item
+weighted opening / unmask                       9.467 ms total     0.592 ms/item
+full cold-committee path incl checks          226.798 ms
+full cached-committee path incl checks         21.388 ms
+Decryption successful in the warm-up and every measured repetition.
+
+================================================================================
+PARAMETERS run=7/18 sweep=approximation_error scheme=weighted_bte implementation=weighted_btx B=16 approximation_error=1/64 parties=688 total_weight=6486 q=3244 t=3243 threads=12 repetitions=1
+WEIGHTS_FILE /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+COMMAND env RUSTFLAGS=-C\ target-cpu=native WEIGHTED_BTX_WEIGHTS_FILE=/Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json WEIGHTED_BTX_BATCH_SIZE=16 WEIGHTED_BTX_THREADS=12 cargo run --quiet --release --locked --manifest-path /Users/afrolov/Documents/weighted_bte/weighted_btx/Cargo.toml --example paper_reproduction -- --approximation-error 1/64
+================================================================================
+Weighted BTX Solana paper reproduction
+Input allocation: /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+Input selection: WEIGHTED_BTX_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/64: --approximation-error
+target stake ratio=1/2, interval=[31/64, 33/64]
+nominal resolution M=6488, actual cryptographic share count W=6486
+minimum reconstruction weight q=3244; weighted-BTX threshold t=3243 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.515619313293275680770699764821
+
+Runtime choices
+B_max=B=16
+Rayon threads=12
+
+Allocation summary
+real parties N=688, total virtual weight W=6486, min/max party weight=1/229
+minimal-party authorized set: 40 parties, weight 3255 >= q=3244 (largest weights first, index tie-break)
+
+Estimated public G2 material (excluding the NIZK CRS)
+compressed G2 serialization: 96 bytes/point
+core D_(omega,d): 201066 points, 19302336 bytes (18849.938 kB) = (2B_max-1)W
+party verification keys: 11008 points, 1056768 bytes (1032.000 kB) = N*B_max
+public decryption key total: 212074 points, 20359104 bytes (19881.938 kB)
+
+Measured phase durations
+trusted key generation                   2386.467 ms
+encrypt batch                               1.022 ms total     0.064 ms/item
+client proof validation                     0.398 ms total     0.025 ms/item
+partial decryptions, all selected           2.239 ms total     0.056 ms/item
+batched share acceptance                    6.455 ms total     0.161 ms/item
+committee / FFT preparation               381.793 ms total    23.862 ms/item
+cross-term precompute                       7.020 ms total     0.439 ms/item
+opening                                     8.051 ms total     0.503 ms/item
+decryption pipeline total                 405.557 ms
+Decryption successful.
+
+================================================================================
+PARAMETERS run=8/18 sweep=approximation_error scheme=weighted_pfe implementation=weighted_pfe B=16 approximation_error=1/64 parties=688 total_weight=6486 q=3244 t=3243 threads=12 repetitions=1
+WEIGHTS_FILE /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+COMMAND env RUSTFLAGS=-C\ target-cpu=native WEIGHTED_PFE_WEIGHTS_FILE=/Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json WEIGHTED_PFE_BATCH_SIZE=16 WEIGHTED_PFE_THREADS=12 WEIGHTED_PFE_REPETITIONS=1 cargo run --quiet --release --locked --manifest-path /Users/afrolov/Documents/weighted_bte/weighted_pfe/Cargo.toml --example paper_reproduction -- --approximation-error 1/64
+================================================================================
+Weighted PFE Solana paper reproduction (Construction 5)
+Input allocation: /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+Input selection: WEIGHTED_PFE_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/64: --approximation-error
+target stake ratio=1/2, interval=[31/64, 33/64]
+nominal resolution M=6488, actual cryptographic share count W=6486
+minimum reconstruction weight q=3244; weighted-PFE threshold t=3243 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.515619313293275680770699764821
+
+Runtime choices
+B_max=B=16
+Rayon threads=12
+measured online repetitions=1, plus one unmeasured online warm-up
+
+Allocation summary
+real parties N=688, total virtual weight W=6486, min/max party weight=1/229
+minimal-party authorized set: tau=40 parties, W_T=3255 >= q=3244 (largest weights first, index tie-break)
+
+Table 3 serialized material
+accounting: compressed cryptographic elements; indices, setup IDs, batch digests, integer metadata, and container framing excluded
+compressed encodings: G1=48 bytes, G2=96 bytes, scalar=32 bytes, paper GT=288 bytes, canonical identity-tagged GT=289 bytes
+party verification keys: 11008 G2 points, 1056768 bytes (1032.000 kB) = N*B
+core D1/D2/global material: 207553 G2 points, 19925088 bytes (19458.094 kB) = 2*W*B+1
+public decryption key: 218561 G2 points, 20981856 bytes (20490.094 kB) = (2W+N)B+1
+encryption key: one GT, 288 bytes (0.281 kB) in Table 3, 289 bytes (0.282 kB) canonical
+total public material, paper encoding: 20982144 bytes (20490.375 kB) = public decryption key + one GT encryption key
+total public material, canonical cryptographic-element encoding: 20982145 bytes (20490.376 kB)
+implementation structured proof CRS: 0 bytes (Fiat-Shamir Schnorr); paper abstract Pi_DL CRS: unspecified and excluded by Table 3
+one party secret key: 32 bytes (0.031 kB) = one rho_j scalar (B=16 derived fractions may be cached); all N=688 secret keys: 22016 bytes (21.500 kB)
+one ciphertext proof: 80 bytes = one compressed G1 commitment + one scalar response
+one ciphertext excluding its proof (Table 3): 336 bytes with paper GT, 337 bytes with canonical tagged GT
+one ciphertext including this implementation's proof: 416 bytes with paper GT, 417 bytes canonical
+B=16 ciphertexts excluding proofs: 5376/5392 bytes (paper/canonical); including proofs: 6656/6672 bytes
+one party cryptographic response: 48 bytes = one compressed G1; selected tau=40 responses: 1920 bytes
+formula parameters used above: N=688, W=6486, B=16
+
+Optimized online work dimensions
+ctxtCheck(B): one randomized G1 MSM with 33=2B+1 bases
+selected PreDec: 40 G1 MSMs of 16 terms (640 scalar-point terms)
+batched acceptance: one 40-term G1 MSM, 16 G2 MSMs of 40 terms (640 terms), and one pairing product of arity 17
+committee preparation: 640 party-block G2 MSMs plus 16 whole-committee G2 MSMs, 104160=2B*W_T total scalar-point terms
+committee finishing: 16 size-2 G2 mask combinations, 624 party-key additions, normalization of 672 points, and 32 prepared line tables
+Cauchy precompute: forward+inverse size-16 G1 transforms, 16 prepared-G2 pairings, and forward+inverse cyclotomic transforms
+opening: 16 multi-pairings of arity 40 (640 inputs) plus 16 prepared-G2 mask pairings; all target terms fuse before 16 hard final exponentiations
+
+One-time setup and input preparation
+trusted weighted key generation              2390.967 ms
+encrypt batch                                   1.049 ms total     0.066 ms/item
+fixed Cauchy FFT kernel                         0.018 ms
+
+Average over 1 measured online repetition(s)
+ctxtCheck(B), batched client proofs             0.849 ms total     0.053 ms/item
+PreDec(B), all selected parties                 2.279 ms total     0.057 ms/item
+batched response acceptance                     6.500 ms total     0.163 ms/item
+committee interpolation / G2 MSMs             364.820 ms total    22.801 ms/item
+ciphertext-dependent Cauchy precompute          3.043 ms total     0.190 ms/item
+weighted opening / unmask                       8.892 ms total     0.556 ms/item
+full cold-committee path incl checks          386.383 ms
+full cached-committee path incl checks         21.563 ms
+Decryption successful in the warm-up and every measured repetition.
+
+New-scheme batch-size sweep (fixed approximation error=1/16)
+
+================================================================================
+PARAMETERS run=9/18 sweep=batch_size scheme=weighted_bte implementation=weighted_btx B=16 approximation_error=1/16 parties=419 total_weight=1576 q=789 t=788 threads=12 repetitions=1
+WEIGHTS_FILE /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+COMMAND env RUSTFLAGS=-C\ target-cpu=native WEIGHTED_BTX_WEIGHTS_FILE=/Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json WEIGHTED_BTX_BATCH_SIZE=16 WEIGHTED_BTX_THREADS=12 cargo run --quiet --release --locked --manifest-path /Users/afrolov/Documents/weighted_bte/weighted_btx/Cargo.toml --example paper_reproduction -- --approximation-error 1/16
+================================================================================
+Weighted BTX Solana paper reproduction
+Input allocation: /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+Input selection: WEIGHTED_BTX_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/16: --approximation-error
+target stake ratio=1/2, interval=[7/16, 9/16]
+nominal resolution M=1612, actual cryptographic share count W=1576
+minimum reconstruction weight q=789; weighted-BTX threshold t=788 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.562471257047755780430521588276
+
+Runtime choices
+B_max=B=16
+Rayon threads=12
+
+Allocation summary
+real parties N=419, total virtual weight W=1576, min/max party weight=1/57
+minimal-party authorized set: 38 parties, weight 794 >= q=789 (largest weights first, index tie-break)
+
+Estimated public G2 material (excluding the NIZK CRS)
+compressed G2 serialization: 96 bytes/point
+core D_(omega,d): 48856 points, 4690176 bytes (4580.250 kB) = (2B_max-1)W
+party verification keys: 6704 points, 643584 bytes (628.500 kB) = N*B_max
+public decryption key total: 55560 points, 5333760 bytes (5208.750 kB)
+
+Measured phase durations
+trusted key generation                    635.790 ms
+encrypt batch                               1.015 ms total     0.063 ms/item
+client proof validation                     0.375 ms total     0.023 ms/item
+partial decryptions, all selected           2.118 ms total     0.056 ms/item
+batched share acceptance                    6.265 ms total     0.165 ms/item
+committee / FFT preparation               124.063 ms total     7.754 ms/item
+cross-term precompute                       7.066 ms total     0.442 ms/item
+opening                                     7.617 ms total     0.476 ms/item
+decryption pipeline total                 147.129 ms
+Decryption successful.
+
+================================================================================
+PARAMETERS run=10/18 sweep=batch_size scheme=weighted_pfe implementation=weighted_pfe B=16 approximation_error=1/16 parties=419 total_weight=1576 q=789 t=788 threads=12 repetitions=1
+WEIGHTS_FILE /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+COMMAND env RUSTFLAGS=-C\ target-cpu=native WEIGHTED_PFE_WEIGHTS_FILE=/Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json WEIGHTED_PFE_BATCH_SIZE=16 WEIGHTED_PFE_THREADS=12 WEIGHTED_PFE_REPETITIONS=1 cargo run --quiet --release --locked --manifest-path /Users/afrolov/Documents/weighted_bte/weighted_pfe/Cargo.toml --example paper_reproduction -- --approximation-error 1/16
+================================================================================
+Weighted PFE Solana paper reproduction (Construction 5)
+Input allocation: /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+Input selection: WEIGHTED_PFE_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/16: --approximation-error
+target stake ratio=1/2, interval=[7/16, 9/16]
+nominal resolution M=1612, actual cryptographic share count W=1576
+minimum reconstruction weight q=789; weighted-PFE threshold t=788 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.562471257047755780430521588276
+
+Runtime choices
+B_max=B=16
+Rayon threads=12
+measured online repetitions=1, plus one unmeasured online warm-up
+
+Allocation summary
+real parties N=419, total virtual weight W=1576, min/max party weight=1/57
+minimal-party authorized set: tau=38 parties, W_T=794 >= q=789 (largest weights first, index tie-break)
+
+Table 3 serialized material
+accounting: compressed cryptographic elements; indices, setup IDs, batch digests, integer metadata, and container framing excluded
+compressed encodings: G1=48 bytes, G2=96 bytes, scalar=32 bytes, paper GT=288 bytes, canonical identity-tagged GT=289 bytes
+party verification keys: 6704 G2 points, 643584 bytes (628.500 kB) = N*B
+core D1/D2/global material: 50433 G2 points, 4841568 bytes (4728.094 kB) = 2*W*B+1
+public decryption key: 57137 G2 points, 5485152 bytes (5356.594 kB) = (2W+N)B+1
+encryption key: one GT, 288 bytes (0.281 kB) in Table 3, 289 bytes (0.282 kB) canonical
+total public material, paper encoding: 5485440 bytes (5356.875 kB) = public decryption key + one GT encryption key
+total public material, canonical cryptographic-element encoding: 5485441 bytes (5356.876 kB)
+implementation structured proof CRS: 0 bytes (Fiat-Shamir Schnorr); paper abstract Pi_DL CRS: unspecified and excluded by Table 3
+one party secret key: 32 bytes (0.031 kB) = one rho_j scalar (B=16 derived fractions may be cached); all N=419 secret keys: 13408 bytes (13.094 kB)
+one ciphertext proof: 80 bytes = one compressed G1 commitment + one scalar response
+one ciphertext excluding its proof (Table 3): 336 bytes with paper GT, 337 bytes with canonical tagged GT
+one ciphertext including this implementation's proof: 416 bytes with paper GT, 417 bytes canonical
+B=16 ciphertexts excluding proofs: 5376/5392 bytes (paper/canonical); including proofs: 6656/6672 bytes
+one party cryptographic response: 48 bytes = one compressed G1; selected tau=38 responses: 1824 bytes
+formula parameters used above: N=419, W=1576, B=16
+
+Optimized online work dimensions
+ctxtCheck(B): one randomized G1 MSM with 33=2B+1 bases
+selected PreDec: 38 G1 MSMs of 16 terms (608 scalar-point terms)
+batched acceptance: one 38-term G1 MSM, 16 G2 MSMs of 38 terms (608 terms), and one pairing product of arity 17
+committee preparation: 608 party-block G2 MSMs plus 16 whole-committee G2 MSMs, 25408=2B*W_T total scalar-point terms
+committee finishing: 16 size-2 G2 mask combinations, 592 party-key additions, normalization of 640 points, and 32 prepared line tables
+Cauchy precompute: forward+inverse size-16 G1 transforms, 16 prepared-G2 pairings, and forward+inverse cyclotomic transforms
+opening: 16 multi-pairings of arity 38 (608 inputs) plus 16 prepared-G2 mask pairings; all target terms fuse before 16 hard final exponentiations
+
+One-time setup and input preparation
+trusted weighted key generation               668.269 ms
+encrypt batch                                   1.012 ms total     0.063 ms/item
+fixed Cauchy FFT kernel                         0.022 ms
+
+Average over 1 measured online repetition(s)
+ctxtCheck(B), batched client proofs             0.808 ms total     0.050 ms/item
+PreDec(B), all selected parties                 2.106 ms total     0.055 ms/item
+batched response acceptance                     6.356 ms total     0.167 ms/item
+committee interpolation / G2 MSMs             120.355 ms total     7.522 ms/item
+ciphertext-dependent Cauchy precompute          2.773 ms total     0.173 ms/item
+weighted opening / unmask                       8.617 ms total     0.539 ms/item
+full cold-committee path incl checks          141.015 ms
+full cached-committee path incl checks         20.660 ms
+Decryption successful in the warm-up and every measured repetition.
+
+================================================================================
+PARAMETERS run=11/18 sweep=batch_size scheme=weighted_bte implementation=weighted_btx B=32 approximation_error=1/16 parties=419 total_weight=1576 q=789 t=788 threads=12 repetitions=1
+WEIGHTS_FILE /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+COMMAND env RUSTFLAGS=-C\ target-cpu=native WEIGHTED_BTX_WEIGHTS_FILE=/Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json WEIGHTED_BTX_BATCH_SIZE=32 WEIGHTED_BTX_THREADS=12 cargo run --quiet --release --locked --manifest-path /Users/afrolov/Documents/weighted_bte/weighted_btx/Cargo.toml --example paper_reproduction -- --approximation-error 1/16
+================================================================================
+Weighted BTX Solana paper reproduction
+Input allocation: /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+Input selection: WEIGHTED_BTX_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/16: --approximation-error
+target stake ratio=1/2, interval=[7/16, 9/16]
+nominal resolution M=1612, actual cryptographic share count W=1576
+minimum reconstruction weight q=789; weighted-BTX threshold t=788 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.562471257047755780430521588276
+
+Runtime choices
+B_max=B=32
+Rayon threads=12
+
+Allocation summary
+real parties N=419, total virtual weight W=1576, min/max party weight=1/57
+minimal-party authorized set: 38 parties, weight 794 >= q=789 (largest weights first, index tie-break)
+
+Estimated public G2 material (excluding the NIZK CRS)
+compressed G2 serialization: 96 bytes/point
+core D_(omega,d): 99288 points, 9531648 bytes (9308.250 kB) = (2B_max-1)W
+party verification keys: 13408 points, 1287168 bytes (1257.000 kB) = N*B_max
+public decryption key total: 112696 points, 10818816 bytes (10565.250 kB)
+
+Measured phase durations
+trusted key generation                   1305.933 ms
+encrypt batch                               1.969 ms total     0.062 ms/item
+client proof validation                     0.702 ms total     0.022 ms/item
+partial decryptions, all selected           3.072 ms total     0.081 ms/item
+batched share acceptance                   11.469 ms total     0.302 ms/item
+committee / FFT preparation               234.901 ms total     7.341 ms/item
+cross-term precompute                      18.516 ms total     0.579 ms/item
+opening                                    15.094 ms total     0.472 ms/item
+decryption pipeline total                 283.053 ms
+Decryption successful.
+
+================================================================================
+PARAMETERS run=12/18 sweep=batch_size scheme=weighted_pfe implementation=weighted_pfe B=32 approximation_error=1/16 parties=419 total_weight=1576 q=789 t=788 threads=12 repetitions=1
+WEIGHTS_FILE /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+COMMAND env RUSTFLAGS=-C\ target-cpu=native WEIGHTED_PFE_WEIGHTS_FILE=/Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json WEIGHTED_PFE_BATCH_SIZE=32 WEIGHTED_PFE_THREADS=12 WEIGHTED_PFE_REPETITIONS=1 cargo run --quiet --release --locked --manifest-path /Users/afrolov/Documents/weighted_bte/weighted_pfe/Cargo.toml --example paper_reproduction -- --approximation-error 1/16
+================================================================================
+Weighted PFE Solana paper reproduction (Construction 5)
+Input allocation: /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+Input selection: WEIGHTED_PFE_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/16: --approximation-error
+target stake ratio=1/2, interval=[7/16, 9/16]
+nominal resolution M=1612, actual cryptographic share count W=1576
+minimum reconstruction weight q=789; weighted-PFE threshold t=788 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.562471257047755780430521588276
+
+Runtime choices
+B_max=B=32
+Rayon threads=12
+measured online repetitions=1, plus one unmeasured online warm-up
+
+Allocation summary
+real parties N=419, total virtual weight W=1576, min/max party weight=1/57
+minimal-party authorized set: tau=38 parties, W_T=794 >= q=789 (largest weights first, index tie-break)
+
+Table 3 serialized material
+accounting: compressed cryptographic elements; indices, setup IDs, batch digests, integer metadata, and container framing excluded
+compressed encodings: G1=48 bytes, G2=96 bytes, scalar=32 bytes, paper GT=288 bytes, canonical identity-tagged GT=289 bytes
+party verification keys: 13408 G2 points, 1287168 bytes (1257.000 kB) = N*B
+core D1/D2/global material: 100865 G2 points, 9683040 bytes (9456.094 kB) = 2*W*B+1
+public decryption key: 114273 G2 points, 10970208 bytes (10713.094 kB) = (2W+N)B+1
+encryption key: one GT, 288 bytes (0.281 kB) in Table 3, 289 bytes (0.282 kB) canonical
+total public material, paper encoding: 10970496 bytes (10713.375 kB) = public decryption key + one GT encryption key
+total public material, canonical cryptographic-element encoding: 10970497 bytes (10713.376 kB)
+implementation structured proof CRS: 0 bytes (Fiat-Shamir Schnorr); paper abstract Pi_DL CRS: unspecified and excluded by Table 3
+one party secret key: 32 bytes (0.031 kB) = one rho_j scalar (B=32 derived fractions may be cached); all N=419 secret keys: 13408 bytes (13.094 kB)
+one ciphertext proof: 80 bytes = one compressed G1 commitment + one scalar response
+one ciphertext excluding its proof (Table 3): 336 bytes with paper GT, 337 bytes with canonical tagged GT
+one ciphertext including this implementation's proof: 416 bytes with paper GT, 417 bytes canonical
+B=32 ciphertexts excluding proofs: 10752/10784 bytes (paper/canonical); including proofs: 13312/13344 bytes
+one party cryptographic response: 48 bytes = one compressed G1; selected tau=38 responses: 1824 bytes
+formula parameters used above: N=419, W=1576, B=32
+
+Optimized online work dimensions
+ctxtCheck(B): one randomized G1 MSM with 65=2B+1 bases
+selected PreDec: 38 G1 MSMs of 32 terms (1216 scalar-point terms)
+batched acceptance: one 38-term G1 MSM, 32 G2 MSMs of 38 terms (1216 terms), and one pairing product of arity 33
+committee preparation: 1216 party-block G2 MSMs plus 32 whole-committee G2 MSMs, 50816=2B*W_T total scalar-point terms
+committee finishing: 32 size-2 G2 mask combinations, 1184 party-key additions, normalization of 1280 points, and 64 prepared line tables
+Cauchy precompute: forward+inverse size-32 G1 transforms, 32 prepared-G2 pairings, and forward+inverse cyclotomic transforms
+opening: 32 multi-pairings of arity 38 (1216 inputs) plus 32 prepared-G2 mask pairings; all target terms fuse before 32 hard final exponentiations
+
+One-time setup and input preparation
+trusted weighted key generation              1452.087 ms
+encrypt batch                                   1.919 ms total     0.060 ms/item
+fixed Cauchy FFT kernel                         0.017 ms
+
+Average over 1 measured online repetition(s)
+ctxtCheck(B), batched client proofs             1.358 ms total     0.042 ms/item
+PreDec(B), all selected parties                 3.138 ms total     0.083 ms/item
+batched response acceptance                    11.594 ms total     0.305 ms/item
+committee interpolation / G2 MSMs             226.177 ms total     7.068 ms/item
+ciphertext-dependent Cauchy precompute          8.296 ms total     0.259 ms/item
+weighted opening / unmask                      41.341 ms total     1.292 ms/item
+full cold-committee path incl checks          291.904 ms
+full cached-committee path incl checks         65.727 ms
+Decryption successful in the warm-up and every measured repetition.
+
+================================================================================
+PARAMETERS run=13/18 sweep=batch_size scheme=weighted_bte implementation=weighted_btx B=64 approximation_error=1/16 parties=419 total_weight=1576 q=789 t=788 threads=12 repetitions=1
+WEIGHTS_FILE /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+COMMAND env RUSTFLAGS=-C\ target-cpu=native WEIGHTED_BTX_WEIGHTS_FILE=/Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json WEIGHTED_BTX_BATCH_SIZE=64 WEIGHTED_BTX_THREADS=12 cargo run --quiet --release --locked --manifest-path /Users/afrolov/Documents/weighted_bte/weighted_btx/Cargo.toml --example paper_reproduction -- --approximation-error 1/16
+================================================================================
+Weighted BTX Solana paper reproduction
+Input allocation: /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+Input selection: WEIGHTED_BTX_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/16: --approximation-error
+target stake ratio=1/2, interval=[7/16, 9/16]
+nominal resolution M=1612, actual cryptographic share count W=1576
+minimum reconstruction weight q=789; weighted-BTX threshold t=788 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.562471257047755780430521588276
+
+Runtime choices
+B_max=B=64
+Rayon threads=12
+
+Allocation summary
+real parties N=419, total virtual weight W=1576, min/max party weight=1/57
+minimal-party authorized set: 38 parties, weight 794 >= q=789 (largest weights first, index tie-break)
+
+Estimated public G2 material (excluding the NIZK CRS)
+compressed G2 serialization: 96 bytes/point
+core D_(omega,d): 200152 points, 19214592 bytes (18764.250 kB) = (2B_max-1)W
+party verification keys: 26816 points, 2574336 bytes (2514.000 kB) = N*B_max
+public decryption key total: 226968 points, 21788928 bytes (21278.250 kB)
+
+Measured phase durations
+trusted key generation                   2563.701 ms
+encrypt batch                               3.389 ms total     0.053 ms/item
+client proof validation                     1.322 ms total     0.021 ms/item
+partial decryptions, all selected           4.919 ms total     0.129 ms/item
+batched share acceptance                   21.392 ms total     0.563 ms/item
+committee / FFT preparation               482.051 ms total     7.532 ms/item
+cross-term precompute                      45.814 ms total     0.716 ms/item
+opening                                    28.193 ms total     0.441 ms/item
+decryption pipeline total                 582.368 ms
+Decryption successful.
+
+================================================================================
+PARAMETERS run=14/18 sweep=batch_size scheme=weighted_pfe implementation=weighted_pfe B=64 approximation_error=1/16 parties=419 total_weight=1576 q=789 t=788 threads=12 repetitions=1
+WEIGHTS_FILE /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+COMMAND env RUSTFLAGS=-C\ target-cpu=native WEIGHTED_PFE_WEIGHTS_FILE=/Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json WEIGHTED_PFE_BATCH_SIZE=64 WEIGHTED_PFE_THREADS=12 WEIGHTED_PFE_REPETITIONS=1 cargo run --quiet --release --locked --manifest-path /Users/afrolov/Documents/weighted_bte/weighted_pfe/Cargo.toml --example paper_reproduction -- --approximation-error 1/16
+================================================================================
+Weighted PFE Solana paper reproduction (Construction 5)
+Input allocation: /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+Input selection: WEIGHTED_PFE_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/16: --approximation-error
+target stake ratio=1/2, interval=[7/16, 9/16]
+nominal resolution M=1612, actual cryptographic share count W=1576
+minimum reconstruction weight q=789; weighted-PFE threshold t=788 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.562471257047755780430521588276
+
+Runtime choices
+B_max=B=64
+Rayon threads=12
+measured online repetitions=1, plus one unmeasured online warm-up
+
+Allocation summary
+real parties N=419, total virtual weight W=1576, min/max party weight=1/57
+minimal-party authorized set: tau=38 parties, W_T=794 >= q=789 (largest weights first, index tie-break)
+
+Table 3 serialized material
+accounting: compressed cryptographic elements; indices, setup IDs, batch digests, integer metadata, and container framing excluded
+compressed encodings: G1=48 bytes, G2=96 bytes, scalar=32 bytes, paper GT=288 bytes, canonical identity-tagged GT=289 bytes
+party verification keys: 26816 G2 points, 2574336 bytes (2514.000 kB) = N*B
+core D1/D2/global material: 201729 G2 points, 19365984 bytes (18912.094 kB) = 2*W*B+1
+public decryption key: 228545 G2 points, 21940320 bytes (21426.094 kB) = (2W+N)B+1
+encryption key: one GT, 288 bytes (0.281 kB) in Table 3, 289 bytes (0.282 kB) canonical
+total public material, paper encoding: 21940608 bytes (21426.375 kB) = public decryption key + one GT encryption key
+total public material, canonical cryptographic-element encoding: 21940609 bytes (21426.376 kB)
+implementation structured proof CRS: 0 bytes (Fiat-Shamir Schnorr); paper abstract Pi_DL CRS: unspecified and excluded by Table 3
+one party secret key: 32 bytes (0.031 kB) = one rho_j scalar (B=64 derived fractions may be cached); all N=419 secret keys: 13408 bytes (13.094 kB)
+one ciphertext proof: 80 bytes = one compressed G1 commitment + one scalar response
+one ciphertext excluding its proof (Table 3): 336 bytes with paper GT, 337 bytes with canonical tagged GT
+one ciphertext including this implementation's proof: 416 bytes with paper GT, 417 bytes canonical
+B=64 ciphertexts excluding proofs: 21504/21568 bytes (paper/canonical); including proofs: 26624/26688 bytes
+one party cryptographic response: 48 bytes = one compressed G1; selected tau=38 responses: 1824 bytes
+formula parameters used above: N=419, W=1576, B=64
+
+Optimized online work dimensions
+ctxtCheck(B): one randomized G1 MSM with 129=2B+1 bases
+selected PreDec: 38 G1 MSMs of 64 terms (2432 scalar-point terms)
+batched acceptance: one 38-term G1 MSM, 64 G2 MSMs of 38 terms (2432 terms), and one pairing product of arity 65
+committee preparation: 2432 party-block G2 MSMs plus 64 whole-committee G2 MSMs, 101632=2B*W_T total scalar-point terms
+committee finishing: 64 size-2 G2 mask combinations, 2368 party-key additions, normalization of 2560 points, and 128 prepared line tables
+Cauchy precompute: forward+inverse size-64 G1 transforms, 64 prepared-G2 pairings, and forward+inverse cyclotomic transforms
+opening: 64 multi-pairings of arity 38 (2432 inputs) plus 64 prepared-G2 mask pairings; all target terms fuse before 64 hard final exponentiations
+
+One-time setup and input preparation
+trusted weighted key generation              2569.505 ms
+encrypt batch                                   3.240 ms total     0.051 ms/item
+fixed Cauchy FFT kernel                         0.017 ms
+
+Average over 1 measured online repetition(s)
+ctxtCheck(B), batched client proofs             2.369 ms total     0.037 ms/item
+PreDec(B), all selected parties                 4.802 ms total     0.126 ms/item
+batched response acceptance                    20.926 ms total     0.551 ms/item
+committee interpolation / G2 MSMs             436.649 ms total     6.823 ms/item
+ciphertext-dependent Cauchy precompute         21.595 ms total     0.337 ms/item
+weighted opening / unmask                      30.137 ms total     0.471 ms/item
+full cold-committee path incl checks          516.478 ms
+full cached-committee path incl checks         79.828 ms
+Decryption successful in the warm-up and every measured repetition.
+
+================================================================================
+PARAMETERS run=15/18 sweep=batch_size scheme=weighted_bte implementation=weighted_btx B=128 approximation_error=1/16 parties=419 total_weight=1576 q=789 t=788 threads=12 repetitions=1
+WEIGHTS_FILE /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+COMMAND env RUSTFLAGS=-C\ target-cpu=native WEIGHTED_BTX_WEIGHTS_FILE=/Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json WEIGHTED_BTX_BATCH_SIZE=128 WEIGHTED_BTX_THREADS=12 cargo run --quiet --release --locked --manifest-path /Users/afrolov/Documents/weighted_bte/weighted_btx/Cargo.toml --example paper_reproduction -- --approximation-error 1/16
+================================================================================
+Weighted BTX Solana paper reproduction
+Input allocation: /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+Input selection: WEIGHTED_BTX_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/16: --approximation-error
+target stake ratio=1/2, interval=[7/16, 9/16]
+nominal resolution M=1612, actual cryptographic share count W=1576
+minimum reconstruction weight q=789; weighted-BTX threshold t=788 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.562471257047755780430521588276
+
+Runtime choices
+B_max=B=128
+Rayon threads=12
+
+Allocation summary
+real parties N=419, total virtual weight W=1576, min/max party weight=1/57
+minimal-party authorized set: 38 parties, weight 794 >= q=789 (largest weights first, index tie-break)
+
+Estimated public G2 material (excluding the NIZK CRS)
+compressed G2 serialization: 96 bytes/point
+core D_(omega,d): 401880 points, 38580480 bytes (37676.250 kB) = (2B_max-1)W
+party verification keys: 53632 points, 5148672 bytes (5028.000 kB) = N*B_max
+public decryption key total: 455512 points, 43729152 bytes (42704.250 kB)
+
+Measured phase durations
+trusted key generation                   5131.722 ms
+encrypt batch                               6.495 ms total     0.051 ms/item
+client proof validation                     2.289 ms total     0.018 ms/item
+partial decryptions, all selected           7.998 ms total     0.210 ms/item
+batched share acceptance                   39.860 ms total     1.049 ms/item
+committee / FFT preparation               876.537 ms total     6.848 ms/item
+cross-term precompute                      19.912 ms total     0.156 ms/item
+opening                                    54.342 ms total     0.425 ms/item
+decryption pipeline total                 998.648 ms
+Decryption successful.
+
+================================================================================
+PARAMETERS run=16/18 sweep=batch_size scheme=weighted_pfe implementation=weighted_pfe B=128 approximation_error=1/16 parties=419 total_weight=1576 q=789 t=788 threads=12 repetitions=1
+WEIGHTS_FILE /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+COMMAND env RUSTFLAGS=-C\ target-cpu=native WEIGHTED_PFE_WEIGHTS_FILE=/Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json WEIGHTED_PFE_BATCH_SIZE=128 WEIGHTED_PFE_THREADS=12 WEIGHTED_PFE_REPETITIONS=1 cargo run --quiet --release --locked --manifest-path /Users/afrolov/Documents/weighted_bte/weighted_pfe/Cargo.toml --example paper_reproduction -- --approximation-error 1/16
+================================================================================
+Weighted PFE Solana paper reproduction (Construction 5)
+Input allocation: /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+Input selection: WEIGHTED_PFE_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/16: --approximation-error
+target stake ratio=1/2, interval=[7/16, 9/16]
+nominal resolution M=1612, actual cryptographic share count W=1576
+minimum reconstruction weight q=789; weighted-PFE threshold t=788 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.562471257047755780430521588276
+
+Runtime choices
+B_max=B=128
+Rayon threads=12
+measured online repetitions=1, plus one unmeasured online warm-up
+
+Allocation summary
+real parties N=419, total virtual weight W=1576, min/max party weight=1/57
+minimal-party authorized set: tau=38 parties, W_T=794 >= q=789 (largest weights first, index tie-break)
+
+Table 3 serialized material
+accounting: compressed cryptographic elements; indices, setup IDs, batch digests, integer metadata, and container framing excluded
+compressed encodings: G1=48 bytes, G2=96 bytes, scalar=32 bytes, paper GT=288 bytes, canonical identity-tagged GT=289 bytes
+party verification keys: 53632 G2 points, 5148672 bytes (5028.000 kB) = N*B
+core D1/D2/global material: 403457 G2 points, 38731872 bytes (37824.094 kB) = 2*W*B+1
+public decryption key: 457089 G2 points, 43880544 bytes (42852.094 kB) = (2W+N)B+1
+encryption key: one GT, 288 bytes (0.281 kB) in Table 3, 289 bytes (0.282 kB) canonical
+total public material, paper encoding: 43880832 bytes (42852.375 kB) = public decryption key + one GT encryption key
+total public material, canonical cryptographic-element encoding: 43880833 bytes (42852.376 kB)
+implementation structured proof CRS: 0 bytes (Fiat-Shamir Schnorr); paper abstract Pi_DL CRS: unspecified and excluded by Table 3
+one party secret key: 32 bytes (0.031 kB) = one rho_j scalar (B=128 derived fractions may be cached); all N=419 secret keys: 13408 bytes (13.094 kB)
+one ciphertext proof: 80 bytes = one compressed G1 commitment + one scalar response
+one ciphertext excluding its proof (Table 3): 336 bytes with paper GT, 337 bytes with canonical tagged GT
+one ciphertext including this implementation's proof: 416 bytes with paper GT, 417 bytes canonical
+B=128 ciphertexts excluding proofs: 43008/43136 bytes (paper/canonical); including proofs: 53248/53376 bytes
+one party cryptographic response: 48 bytes = one compressed G1; selected tau=38 responses: 1824 bytes
+formula parameters used above: N=419, W=1576, B=128
+
+Optimized online work dimensions
+ctxtCheck(B): one randomized G1 MSM with 257=2B+1 bases
+selected PreDec: 38 G1 MSMs of 128 terms (4864 scalar-point terms)
+batched acceptance: one 38-term G1 MSM, 128 G2 MSMs of 38 terms (4864 terms), and one pairing product of arity 129
+committee preparation: 4864 party-block G2 MSMs plus 128 whole-committee G2 MSMs, 203264=2B*W_T total scalar-point terms
+committee finishing: 128 size-2 G2 mask combinations, 4736 party-key additions, normalization of 5120 points, and 256 prepared line tables
+Cauchy precompute: forward+inverse size-128 G1 transforms, 128 prepared-G2 pairings, and forward+inverse cyclotomic transforms
+opening: 128 multi-pairings of arity 38 (4864 inputs) plus 128 prepared-G2 mask pairings; all target terms fuse before 128 hard final exponentiations
+
+One-time setup and input preparation
+trusted weighted key generation              5130.164 ms
+encrypt batch                                   6.229 ms total     0.049 ms/item
+fixed Cauchy FFT kernel                         0.021 ms
+
+Average over 1 measured online repetition(s)
+ctxtCheck(B), batched client proofs             4.196 ms total     0.033 ms/item
+PreDec(B), all selected parties                 8.000 ms total     0.211 ms/item
+batched response acceptance                    40.102 ms total     1.055 ms/item
+committee interpolation / G2 MSMs             861.280 ms total     6.729 ms/item
+ciphertext-dependent Cauchy precompute         54.145 ms total     0.423 ms/item
+weighted opening / unmask                      58.865 ms total     0.460 ms/item
+full cold-committee path incl checks         1026.588 ms
+full cached-committee path incl checks        165.308 ms
+Decryption successful in the warm-up and every measured repetition.
+
+================================================================================
+PARAMETERS run=17/18 sweep=batch_size scheme=weighted_bte implementation=weighted_btx B=256 approximation_error=1/16 parties=419 total_weight=1576 q=789 t=788 threads=12 repetitions=1
+WEIGHTS_FILE /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+COMMAND env RUSTFLAGS=-C\ target-cpu=native WEIGHTED_BTX_WEIGHTS_FILE=/Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json WEIGHTED_BTX_BATCH_SIZE=256 WEIGHTED_BTX_THREADS=12 cargo run --quiet --release --locked --manifest-path /Users/afrolov/Documents/weighted_bte/weighted_btx/Cargo.toml --example paper_reproduction -- --approximation-error 1/16
+================================================================================
+Weighted BTX Solana paper reproduction
+Input allocation: /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+Input selection: WEIGHTED_BTX_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/16: --approximation-error
+target stake ratio=1/2, interval=[7/16, 9/16]
+nominal resolution M=1612, actual cryptographic share count W=1576
+minimum reconstruction weight q=789; weighted-BTX threshold t=788 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.562471257047755780430521588276
+
+Runtime choices
+B_max=B=256
+Rayon threads=12
+
+Allocation summary
+real parties N=419, total virtual weight W=1576, min/max party weight=1/57
+minimal-party authorized set: 38 parties, weight 794 >= q=789 (largest weights first, index tie-break)
+
+Estimated public G2 material (excluding the NIZK CRS)
+compressed G2 serialization: 96 bytes/point
+core D_(omega,d): 805336 points, 77312256 bytes (75500.250 kB) = (2B_max-1)W
+party verification keys: 107264 points, 10297344 bytes (10056.000 kB) = N*B_max
+public decryption key total: 912600 points, 87609600 bytes (85556.250 kB)
+
+Measured phase durations
+trusted key generation                  10248.316 ms
+encrypt batch                              12.667 ms total     0.049 ms/item
+client proof validation                     4.576 ms total     0.018 ms/item
+partial decryptions, all selected          13.137 ms total     0.346 ms/item
+batched share acceptance                   77.206 ms total     2.032 ms/item
+committee / FFT preparation              1774.315 ms total     6.931 ms/item
+cross-term precompute                      44.168 ms total     0.173 ms/item
+opening                                   109.690 ms total     0.428 ms/item
+decryption pipeline total                2018.516 ms
+Decryption successful.
+
+================================================================================
+PARAMETERS run=18/18 sweep=batch_size scheme=weighted_pfe implementation=weighted_pfe B=256 approximation_error=1/16 parties=419 total_weight=1576 q=789 t=788 threads=12 repetitions=1
+WEIGHTS_FILE /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+COMMAND env RUSTFLAGS=-C\ target-cpu=native WEIGHTED_PFE_WEIGHTS_FILE=/Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json WEIGHTED_PFE_BATCH_SIZE=256 WEIGHTED_PFE_THREADS=12 WEIGHTED_PFE_REPETITIONS=1 cargo run --quiet --release --locked --manifest-path /Users/afrolov/Documents/weighted_bte/weighted_pfe/Cargo.toml --example paper_reproduction -- --approximation-error 1/16
+================================================================================
+Weighted PFE Solana paper reproduction (Construction 5)
+Input allocation: /Users/afrolov/Documents/weighted_bte/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json
+Input selection: WEIGHTED_PFE_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/16: --approximation-error
+target stake ratio=1/2, interval=[7/16, 9/16]
+nominal resolution M=1612, actual cryptographic share count W=1576
+minimum reconstruction weight q=789; weighted-PFE threshold t=788 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.562471257047755780430521588276
+
+Runtime choices
+B_max=B=256
+Rayon threads=12
+measured online repetitions=1, plus one unmeasured online warm-up
+
+Allocation summary
+real parties N=419, total virtual weight W=1576, min/max party weight=1/57
+minimal-party authorized set: tau=38 parties, W_T=794 >= q=789 (largest weights first, index tie-break)
+
+Table 3 serialized material
+accounting: compressed cryptographic elements; indices, setup IDs, batch digests, integer metadata, and container framing excluded
+compressed encodings: G1=48 bytes, G2=96 bytes, scalar=32 bytes, paper GT=288 bytes, canonical identity-tagged GT=289 bytes
+party verification keys: 107264 G2 points, 10297344 bytes (10056.000 kB) = N*B
+core D1/D2/global material: 806913 G2 points, 77463648 bytes (75648.094 kB) = 2*W*B+1
+public decryption key: 914177 G2 points, 87760992 bytes (85704.094 kB) = (2W+N)B+1
+encryption key: one GT, 288 bytes (0.281 kB) in Table 3, 289 bytes (0.282 kB) canonical
+total public material, paper encoding: 87761280 bytes (85704.375 kB) = public decryption key + one GT encryption key
+total public material, canonical cryptographic-element encoding: 87761281 bytes (85704.376 kB)
+implementation structured proof CRS: 0 bytes (Fiat-Shamir Schnorr); paper abstract Pi_DL CRS: unspecified and excluded by Table 3
+one party secret key: 32 bytes (0.031 kB) = one rho_j scalar (B=256 derived fractions may be cached); all N=419 secret keys: 13408 bytes (13.094 kB)
+one ciphertext proof: 80 bytes = one compressed G1 commitment + one scalar response
+one ciphertext excluding its proof (Table 3): 336 bytes with paper GT, 337 bytes with canonical tagged GT
+one ciphertext including this implementation's proof: 416 bytes with paper GT, 417 bytes canonical
+B=256 ciphertexts excluding proofs: 86016/86272 bytes (paper/canonical); including proofs: 106496/106752 bytes
+one party cryptographic response: 48 bytes = one compressed G1; selected tau=38 responses: 1824 bytes
+formula parameters used above: N=419, W=1576, B=256
+
+Optimized online work dimensions
+ctxtCheck(B): one randomized G1 MSM with 513=2B+1 bases
+selected PreDec: 38 G1 MSMs of 256 terms (9728 scalar-point terms)
+batched acceptance: one 38-term G1 MSM, 256 G2 MSMs of 38 terms (9728 terms), and one pairing product of arity 257
+committee preparation: 9728 party-block G2 MSMs plus 256 whole-committee G2 MSMs, 406528=2B*W_T total scalar-point terms
+committee finishing: 256 size-2 G2 mask combinations, 9472 party-key additions, normalization of 10240 points, and 512 prepared line tables
+Cauchy precompute: forward+inverse size-256 G1 transforms, 256 prepared-G2 pairings, and forward+inverse cyclotomic transforms
+opening: 256 multi-pairings of arity 38 (9728 inputs) plus 256 prepared-G2 mask pairings; all target terms fuse before 256 hard final exponentiations
+
+One-time setup and input preparation
+trusted weighted key generation             10245.971 ms
+encrypt batch                                  13.531 ms total     0.053 ms/item
+fixed Cauchy FFT kernel                         0.017 ms
+
+Average over 1 measured online repetition(s)
+ctxtCheck(B), batched client proofs             8.145 ms total     0.032 ms/item
+PreDec(B), all selected parties                13.374 ms total     0.352 ms/item
+batched response acceptance                    80.895 ms total     2.129 ms/item
+committee interpolation / G2 MSMs            1781.582 ms total     6.959 ms/item
+ciphertext-dependent Cauchy precompute         31.429 ms total     0.123 ms/item
+weighted opening / unmask                     119.433 ms total     0.467 ms/item
+full cold-committee path incl checks         2034.858 ms
+full cached-committee path incl checks        253.276 ms
+Decryption successful in the warm-up and every measured repetition.
+
+Completed 18 parameterized runs.

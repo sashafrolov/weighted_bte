@@ -11,8 +11,11 @@ from any directory; they resolve crate and data paths relative to their own
 location.
 
 ```console
-./scripts/new_schemes_parameter_sweep.sh | tee new-schemes-sweep.log
-./scripts/baseline_schemes_parameter_sweep.sh | tee baseline-schemes-sweep.log
+mkdir -p scripts/results
+./scripts/new_schemes_parameter_sweep.sh 2>&1 \
+  | tee scripts/results/new_schemes_results_2.txt
+./scripts/baseline_schemes_parameter_sweep.sh 2>&1 \
+  | tee scripts/results/baseline_schemes_results_2.txt
 ```
 
 `new_schemes_parameter_sweep.sh` runs `weighted_btx` (the repository name for
@@ -21,14 +24,15 @@ the weighted-BTE scheme) and `weighted_pfe`. The baseline script runs `btx`,
 virtual weight becomes one party: `N = W`, and the polynomial-degree threshold
 is `t = q - 1`, where `q` is the profile's minimum reconstruction weight.
 
-Each script contains two four-row sections:
+Each script contains two sweep sections:
 
-- approximation errors `1/8`, `1/16`, `1/32`, and `1/64` at `B=32`; and
-- batch sizes `32`, `64`, `128`, and `256` at approximation error `1/16`.
+- approximation errors `1/8`, `1/16`, `1/32`, and `1/64` at `B=16`; and
+- batch sizes `16`, `32`, `64`, `128`, and `256` at approximation error
+  `1/16`.
 
-The common `(B=32, error=1/16)` point is deliberately run in both sections so
-each output table is self-contained. The new-scheme script makes 16 runs; the
-baseline script makes 24. The naïvely expanded baseline rows, especially the
+The common `(B=16, error=1/16)` point is deliberately run in both sections so
+each output table is self-contained. The new-scheme script makes 18 runs; the
+baseline script makes 27. The naïvely expanded baseline rows, especially the
 `1/64` profile with thousands of parties, can take substantially longer.
 
 The scripts use 12 threads and one measured repetition by default. Override

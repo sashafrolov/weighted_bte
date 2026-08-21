@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Run the two four-row parameter sweeps for the three baseline schemes.
+# Run the parameter sweeps for the three baseline schemes.
 #
 # BTX and PFE are unweighted. For those schemes, this script naively expands
 # every unit of virtual weight into one party: N=W and t=q-1. The indexed
@@ -11,10 +11,10 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)
 REPO_ROOT=$(cd "$SCRIPT_DIR/.." && pwd -P)
 
 ERRORS=("1/8" "1/16" "1/32" "1/64")
-BATCH_SIZES=(32 64 128 256)
-FIXED_BATCH_SIZE=32
+BATCH_SIZES=(16 32 64 128 256)
+FIXED_BATCH_SIZE=16
 FIXED_ERROR="1/16"
-TOTAL_RUNS=24
+TOTAL_RUNS=27
 RUN_NUMBER=0
 
 SWEEP_THREADS=${SWEEP_THREADS:-12}

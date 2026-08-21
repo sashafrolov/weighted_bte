@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Run the two four-row parameter sweeps for the new weighted schemes.
+# Run the parameter sweeps for the new weighted schemes.
 #
 # The paper calls the first scheme weighted BTE; its crate is named
-# `weighted_btx` in this repository. The (B=32, error=1/16) point is run in
-# both sections so that each paper table has a complete set of four rows.
+# `weighted_btx` in this repository. The (B=16, error=1/16) point is run in
+# both sections so that each paper table is self-contained.
 
 set -euo pipefail
 
@@ -11,10 +11,10 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)
 REPO_ROOT=$(cd "$SCRIPT_DIR/.." && pwd -P)
 
 ERRORS=("1/8" "1/16" "1/32" "1/64")
-BATCH_SIZES=(32 64 128 256)
-FIXED_BATCH_SIZE=32
+BATCH_SIZES=(16 32 64 128 256)
+FIXED_BATCH_SIZE=16
 FIXED_ERROR="1/16"
-TOTAL_RUNS=16
+TOTAL_RUNS=18
 RUN_NUMBER=0
 
 SWEEP_THREADS=${SWEEP_THREADS:-12}
