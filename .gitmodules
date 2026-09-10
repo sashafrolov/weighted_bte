@@ -1,4 +1,0 @@
-[submodule "silent-threshold-encryption"]
-	path = silent-threshold-encryption
-	url = https://github.com/zz-sol/silent-threshold-encryption.git
-	branch = zz/blst
