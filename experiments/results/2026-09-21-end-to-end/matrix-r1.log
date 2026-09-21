@@ -1,0 +1,47 @@
+# Full online protocol results
+
+Milliseconds per 16 fresh ciphertexts, median [p10–p90]. Two rounds use reversed implementation order. Descriptive quantiles are not confidence intervals.
+
+## end_to_end
+
+| Backend / curve / SIMD / groups | Cold 1×16 | Cold 4×4 | Cached 1×16 | Cached 4×4 |
+| --- | ---: | ---: | ---: | ---: |
+| blst / bls12_381 / native / normal | 154.944 [153.079–159.313] | 66.127 [65.675–66.494] | 28.643 [28.570–28.804] | 20.374 [20.274–20.581] |
+| blst / bls12_381 / native / swapped | 83.613 [81.659–85.173] | 42.164 [41.704–43.045] | 32.927 [32.854–33.110] | 22.978 [22.728–23.302] |
+| mcl / bls12_381 / avx512 / normal | 128.036 [127.875–128.212] | 58.521 [58.147–58.905] | 22.809 [22.768–22.838] | 19.616 [19.501–19.728] |
+| mcl / bls12_381 / avx512 / swapped | 64.332 [64.209–64.715] | 35.233 [35.141–35.308] | 24.873 [24.811–25.034] | 20.739 [20.663–20.868] |
+| mcl / bls12_381 / off / normal | 128.495 [128.062–129.094] | 58.648 [58.330–58.970] | 22.781 [22.761–22.967] | 19.671 [19.564–19.750] |
+| mcl / bls12_381 / off / swapped | 75.217 [75.094–75.631] | 40.439 [40.376–40.567] | 24.745 [24.670–24.891] | 20.785 [20.701–20.834] |
+| mcl / bn254 / off / normal | 75.151 [74.971–75.304] | 36.217 [36.063–36.477] | 16.704 [16.633–16.718] | 14.163 [14.082–14.250] |
+| mcl / bn254 / off / swapped | 50.517 [50.358–51.152] | 28.576 [28.475–28.855] | 19.222 [19.185–19.281] | 16.384 [16.300–16.441] |
+
+## combiner
+
+| Backend / curve / SIMD / groups | Cold 1×16 | Cold 4×4 | Cached 1×16 | Cached 4×4 |
+| --- | ---: | ---: | ---: | ---: |
+| blst / bls12_381 / native / normal | 151.714 [149.856–156.085] | 62.799 [62.371–63.257] | 25.421 [25.368–25.568] | 17.123 [16.916–17.165] |
+| blst / bls12_381 / native / swapped | 77.653 [75.717–79.192] | 35.280 [35.098–36.152] | 27.022 [26.940–27.184] | 16.082 [16.053–16.122] |
+| mcl / bls12_381 / avx512 / normal | 124.964 [124.791–125.124] | 55.145 [54.782–55.533] | 19.740 [19.693–19.750] | 16.218 [16.128–16.325] |
+| mcl / bls12_381 / avx512 / swapped | 59.289 [59.222–59.663] | 29.909 [29.773–29.963] | 19.831 [19.778–19.975] | 15.379 [15.309–15.486] |
+| mcl / bls12_381 / off / normal | 125.405 [124.963–126.018] | 55.272 [54.953–55.592] | 19.702 [19.688–19.857] | 16.286 [16.183–16.347] |
+| mcl / bls12_381 / off / swapped | 70.181 [70.057–70.572] | 35.084 [35.004–35.201] | 19.694 [19.650–19.790] | 15.395 [15.322–15.451] |
+| mcl / bn254 / off / normal | 72.994 [72.830–73.145] | 33.856 [33.726–34.124] | 14.538 [14.504–14.587] | 11.815 [11.750–11.908] |
+| mcl / bn254 / off / swapped | 47.179 [47.042–47.624] | 25.148 [25.059–25.365] | 15.970 [15.914–16.014] | 12.915 [12.845–12.978] |
+
+## SIMD dispatch
+
+Counts are observed calls during the full timed online pipeline, excluding setup and warmups.
+
+| Curve / SIMD / groups / layout / cache | MSM calls per iteration | Batched scalar calls per iteration |
+| --- | ---: | ---: |
+| bls12_381 / avx512 / normal / 1x16 / cached | 0–0 | 0–0 |
+| bls12_381 / avx512 / normal / 1x16 / cold | 0–0 | 0–0 |
+| bls12_381 / avx512 / normal / 4x4 / cached | 0–0 | 0–0 |
+| bls12_381 / avx512 / normal / 4x4 / cold | 0–0 | 0–0 |
+| bls12_381 / avx512 / swapped / 1x16 / cached | 0–0 | 0–0 |
+| bls12_381 / avx512 / swapped / 1x16 / cold | 15–15 | 1–1 |
+| bls12_381 / avx512 / swapped / 4x4 / cached | 0–0 | 0–0 |
+| bls12_381 / avx512 / swapped / 4x4 / cold | 3–3 | 0–0 |
+
+All raw per-phase samples, correctness logs, and build metadata accompany this summary. Setup and networking are excluded; all selected validators are simulated on the same 12-core host.
+

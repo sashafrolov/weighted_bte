@@ -8,3 +8,8 @@ Directory structure:
 - weighted_btx: Implementation of our new scheme (weighted version of BTX)
 - weighted_indexed_bte: Our reimplementation of the prior work with weighted indexed BTE.
 - weighted_pfe: Implementation of our new scheme (weighted version of PFE)
+
+Experimental variants and benchmarks:
+- [weighted_btx_swapped](weighted_btx_swapped/README.md): G1/G2-swapped weighted BTX over BLS12-381.
+- [weighted_btx_mcl](weighted_btx_mcl/README.md): Complete in-memory protocol over BLS12-381 and BN254, with optional BLS G1 AVX-512 acceleration.
+- [experiments](experiments/README.md): Correctness-checked benchmarks for 1x16, 4x4, and 8x2 layouts, including reusable committee preparation and full online timings.

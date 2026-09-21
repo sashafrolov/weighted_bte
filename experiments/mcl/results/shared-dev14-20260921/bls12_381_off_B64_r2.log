@@ -1,0 +1,2 @@
+curve=bls12_381 mcl_curve=BLS12_381 scalar_modulus=52435875175126190479447740508185965837690552500527637822603658699938581184513 simd=off avx_msm_available=1 avx_each_available=1 B=64 T=38 W_T=794
+correctness_checks=passed sink=3370560705562682451

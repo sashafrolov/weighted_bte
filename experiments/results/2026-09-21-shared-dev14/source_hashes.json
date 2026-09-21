@@ -1,0 +1,8 @@
+{
+  "weighted_btx/benches/batch_layout.rs": "f7c6504e6299198be3dcef8abc517ba625025f93cc823862d86ad95f8f2c9925",
+  "weighted_btx_swapped/benches/batch_layout.rs": "7bae13358821f1bfa2a786b2c756ba37cd7d68586e610e4b3c7abdab74b2fa18",
+  "weighted_btx_swapped/examples/kernel_comparison.rs": "b2fa661935f353c407e2d11dfc1ebf57bb5376bc8f761737372a9be06225029a",
+  "weighted_btx_swapped/src/decryption.rs": "5e96947c0555b942aaa9ef9b3922f5b86ab45294a040dcb17430d6e0dd3cb045",
+  "weighted_btx_swapped/src/final_exponentiation.rs": "59f9b3ff7d3eb05147cc423e0f73dfcba52db502d1a031d0b6b566eb89e24bcf",
+  "scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json": "fe5cf443cc0bc08ff2dddc88276f9c26a122f1da1f5db2ecb427db865fbd3738"
+}

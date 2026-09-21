@@ -1,0 +1,17 @@
+phase,group,batch,median_us,msm_count,input_points,accepted_weight,parties,samples,min_sample_ms
+partial_decrypt_one_msm,G1,4,137.8285,1,4,794,38,5,70.528
+verification_key_msms,G1,4,3017.9230,4,152,794,38,5,96.529
+committee_opening_msms,G1,4,73574.3760,152,3176,794,38,5,73.561
+committee_positive_msms,G1,4,22932.3028,3,2382,794,38,5,91.725
+partial_decrypt_one_msm,G2,4,355.1613,1,4,794,38,5,90.908
+verification_key_msms,G2,4,8831.8280,4,152,794,38,5,70.608
+committee_opening_msms,G2,4,191961.5660,152,3176,794,38,5,191.808
+committee_positive_msms,G2,4,67835.8800,3,2382,794,38,5,67.824
+partial_decrypt_one_msm,G1,16,428.4613,1,16,794,38,5,54.837
+verification_key_msms,G1,16,12060.5795,16,608,794,38,5,96.450
+committee_opening_msms,G1,16,294256.8770,608,12704,794,38,5,294.249
+committee_positive_msms,G1,16,114755.7410,15,11910,794,38,5,114.711
+partial_decrypt_one_msm,G2,16,977.8722,1,16,794,38,5,62.568
+verification_key_msms,G2,16,35285.6895,16,608,794,38,5,70.548
+committee_opening_msms,G2,16,766594.4580,608,12704,794,38,5,766.500
+committee_positive_msms,G2,16,336746.3810,15,11910,794,38,5,336.682

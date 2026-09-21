@@ -1,0 +1,13 @@
+HEAD is now at cbb18eb0 Merge branch 'dev'
+make: Entering directory '<checkout>/experiments/mcl/build/mcl'
+cc  -g3 -Wall -Wextra -Wformat=2 -Wcast-qual -Wcast-align -Wwrite-strings -Wfloat-equal -Wpointer-arith -Wundef -m64 -I include -I test -fomit-frame-pointer -DNDEBUG -fno-stack-protector -O3 -mbmi2 -madx  -fpic -DMCL_FP_BIT=384 -DMCL_FR_BIT=256 -DMCL_USE_LLVM=1 -DMCL_BINT_ASM=1 -DMCL_MSM=1 -c src/asm/bint-x64-amd64.S -o obj/bint64.o
+c++ -c src/msm_avx.cpp -o obj/msm_avx.o  -g3 -Wall -Wextra -Wformat=2 -Wcast-qual -Wcast-align -Wwrite-strings -Wfloat-equal -Wpointer-arith -Wundef -m64 -I include -I test -fomit-frame-pointer -DNDEBUG -fno-stack-protector -O3 -mbmi2 -madx  -fpic -DMCL_FP_BIT=384 -DMCL_FR_BIT=256 -DMCL_USE_LLVM=1 -DMCL_BINT_ASM=1 -DMCL_MSM=1 -mavx512f -mavx512ifma -std=c++11  -MMD -MP -MF obj/msm_avx.d
+c++  -g3 -Wall -Wextra -Wformat=2 -Wcast-qual -Wcast-align -Wwrite-strings -Wfloat-equal -Wpointer-arith -Wundef -m64 -I include -I test -fomit-frame-pointer -DNDEBUG -fno-stack-protector -O3 -mbmi2 -madx  -fpic -DMCL_FP_BIT=384 -DMCL_FR_BIT=256 -DMCL_USE_LLVM=1 -DMCL_BINT_ASM=1 -DMCL_MSM=1 -c src/fp.cpp -o obj/fp.o -MMD -MP -MF obj/fp.d
+ar rv lib/libmcl.a obj/fp.o obj/base64.o obj/bint64.o obj/msm_avx.o
+ar: creating lib/libmcl.a
+a - obj/fp.o
+a - obj/base64.o
+a - obj/bint64.o
+a - obj/msm_avx.o
+make: Leaving directory '<checkout>/experiments/mcl/build/mcl'
+Built <checkout>/experiments/mcl/build/kernel_bench

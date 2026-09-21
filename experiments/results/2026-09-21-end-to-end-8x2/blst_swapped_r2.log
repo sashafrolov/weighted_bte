@@ -1,0 +1,8 @@
+E2E_CONFIG implementation=weighted_btx_swapped threads=12 samples=15 warmup=2 total=16 L=16 W=1576 q=789 parties=419 accepted_parties=38 accepted_weight=794
+E2E_SETUP keygen_us=276010.176
+E2E_CASE cold/1x16
+E2E_CASE cold/4x4
+E2E_CASE cold/8x2
+E2E_CASE cached/1x16
+E2E_CASE cached/4x4
+E2E_CASE cached/8x2

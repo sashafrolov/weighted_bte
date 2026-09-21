@@ -1,0 +1,1 @@
+Protocol: -O3 -DNDEBUG -std=c++17 MCL_FP_BIT=384 MCL_FR_BIT=256; std::thread pool; MCL static library built with MCL_MSM=1

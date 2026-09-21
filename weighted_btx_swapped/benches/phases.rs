@@ -1,7 +1,7 @@
 use blstrs::{Gt, Scalar};
 use criterion::{black_box, criterion_group, criterion_main, BenchmarkId, Criterion};
 use group::Group;
-use weighted_btx::{
+use weighted_btx_swapped::{
     accept_decryption_shares, encrypt, keygen, open_batch, partial_decrypt, precompute_batch,
     prepare_decryption, validate_batch,
 };
