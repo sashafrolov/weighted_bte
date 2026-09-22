@@ -22,6 +22,13 @@ with raw phase samples and correctness logs alongside it. The earlier
 [two-layout results](../experiments/results/2026-09-21-end-to-end/SUMMARY.md)
 remain separately archived.
 
+The [paper-table reproduction](../experiments/paper_tables/README.md) adds
+two-thirds-threshold weight profiles and workloads of 16-256 messages. Its
+`paper_benchmark` executable accepts total message count, working chunk size,
+and maximum setup size separately, and emits fresh-input phase samples together
+with exact public-key and response payload sizes. The paper-table report uses
+arithmetic means.
+
 ## Curves, groups, and API
 
 MCL is pinned to commit `cbb18eb08b86129cf936a6436b5e6c68a2ce8ddf`.

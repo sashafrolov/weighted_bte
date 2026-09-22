@@ -1,0 +1,9 @@
+Weight W,Messages M,BLST cold ms,Best cold variant,Best cold ms,Speedup,BN original cached ms
+764,16,131.14,BN254 swapped / 2,28.06,4.67x,18.12
+"1,580",16,210.43,BN254 swapped / 2,38.94,5.40x,22.91
+"3,063",16,325.41,BN254 swapped / 2,48.21,6.75x,23.72
+"6,489",16,556.06,BN254 swapped / 2,71.76,7.75x,23.70
+"1,580",32,378.67,BN254 swapped / 2,58.84,6.44x,37.94
+"1,580",64,758.11,BN254 original / 2,95.21,7.96x,71.39
+"1,580",128,"1,308.28",BN254 original / 2,180.04,7.27x,155.20
+"1,580",256,"2,604.53",BN254 original / 2,345.77,7.53x,311.57

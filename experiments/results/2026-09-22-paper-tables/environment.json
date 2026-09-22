@@ -1,0 +1,244 @@
+{
+  "hostname": "shared-dev14",
+  "platform": "Linux-6.8.0-134-generic-x86_64-with-glibc2.39",
+  "cpu_affinity": "0-11",
+  "threads": 12,
+  "rust_flags": "-C target-cpu=native; release thinLTO codegen-units=1",
+  "cxx_flags": "-O3 -DNDEBUG -std=c++17 -DMCL_FP_BIT=384 -DMCL_FR_BIT=256 -lpthread",
+  "compiler": "Ubuntu clang version 18.1.3 (1ubuntu1)\nTarget: x86_64-pc-linux-gnu\nThread model: posix\nInstalledDir: /usr/bin\n",
+  "mcl_commit": "cbb18eb08b86129cf936a6436b5e6c68a2ce8ddf",
+  "source_sha256": {
+    "experiments/paper_tables/profiles/1of16.txt": "7f224f94d552c8ec88a5ce4865ccd88b476fc302cf0f4d70d55d71ef3e1643d5",
+    "experiments/paper_tables/profiles/1of32.txt": "2f5ea2bc3967a0229b4e9eb30056433378f2dfa97d337ba9a62913e517faa807",
+    "experiments/paper_tables/profiles/1of64.txt": "534a70ab904216440e8d5dc00049ea996a5b4b4af0743ce674f9e0441b77ebb1",
+    "experiments/paper_tables/profiles/1of8.txt": "d885bca49068778f6298eb0f46119dc7beb9115a07657b24df47894dbd5c01ae",
+    "experiments/paper_tables/profiles/weights_2of3.json": "52be11ae2817ac5667b05583dc2ca0e369dd5b1198c018b8932ec89e1f252de4",
+    "experiments/paper_tables/run_optimized.py": "d984ea32297017fa7f5be15a1a0d543716e60f1b4576f5195aad2d62ffd99cbc",
+    "experiments/paper_tables/summarize_optimized.py": "3b9fbc4d09f0fb47aeffdfda17bed554586e7e9655823bd23fbd1e6eb0e6e440",
+    "weighted_btx/Cargo.lock": "5fbc934df323958485bf8cd3338b6e9403554a3ae56cdd90e3778ee522a3c4cc",
+    "weighted_btx/Cargo.toml": "263b64e02ea9b74e69c768e8510a11166135006228d2247a841918cbbe31e92d",
+    "weighted_btx/examples/paper_tables.rs": "3e018d1610fb426f5ec23f95151d402ade82670526ebe4d91bad8e21870568d0",
+    "weighted_btx/src/blst_utils.rs": "5051079767b3998c1813877a80d537f679c5f34482e13dbef0c87d39ec0f9781",
+    "weighted_btx/src/decryption.rs": "234cadbcc58c1da1a1a5cee21b9358420c5448bd951f30fdd62f70ad03178fe4",
+    "weighted_btx/src/encoding.rs": "d286fa915fbc52a6a6120146d7daed4c52de5477536832cbee8e3b57727b2c85",
+    "weighted_btx/src/encryption.rs": "dbd2668de126c06eb056a530a1b27cd75e38bd0478c759e143cfcb0652d14449",
+    "weighted_btx/src/error.rs": "0346897d38d31306cfffb462265ac88ce74d9068c5b9eccdc7fcb9bf85c69d90",
+    "weighted_btx/src/fft.rs": "549a0fb17a59457d63296289773b47ada9b246996d30b61db73408e555dce80b",
+    "weighted_btx/src/final_exponentiation.rs": "57e5e674c32371f617f016abf9366ff8ac7e2a240d1edb5672c269f415964d0c",
+    "weighted_btx/src/interpolation.rs": "e1d06fa41b3409c332fdc2e77ca7d741d3fc015799d50c6e67efdd3fe6c187c0",
+    "weighted_btx/src/lib.rs": "65a767f57be83d6c1976a0bb6edadbe022073458e5aa2129ae1a7fa4220e41cf",
+    "weighted_btx/src/proof.rs": "efcbd436a869f9eef50ef6d9635a938233d0ebb31426758aa8471a935f82a03e",
+    "weighted_btx/src/setup.rs": "d3897473692d5ae4f95437c0a88b622fa49c7bc1d4e28cbb4bc0a13c7704cfef",
+    "weighted_btx_mcl/benchmark.cpp": "27ddb5ad623401d2fe0be565c58bc9e445f90952afa4d314b59eba93c5e98b06",
+    "weighted_btx_mcl/build.sh": "601b9e5a53e34f7bd67ac69a6dbdf42a99ca83d7586497d2980bf94a7e4f1190",
+    "weighted_btx_mcl/paper_benchmark.cpp": "95c95e32aa92046568998273773c7ba8bbe45cdc86f7221e4783da20bf747797",
+    "weighted_btx_mcl/protocol.hpp": "d7c4955e83472773a45c47277123cd033a704d8014073fd1f69d367844c9b4d6",
+    "weighted_btx_mcl/protocol_math.hpp": "5245971a53b60041f4aa3db024d2e4329d591c9ef9895b9eddfacfc2aba8a3cc",
+    "weighted_btx_mcl/run_matrix.sh": "d5830fb29aae22fe09d6be42db26b92c0cdf542a2164cb0becf268eab5a67527",
+    "weighted_btx_mcl/tests.cpp": "2e5fe6310d2ca51dede8c2b09f9f2bf778b44a18303b8a5fa09d714e191b4a5c",
+    "weighted_btx_mcl/thread_pool.hpp": "e55c3e4ec2789711e0aac11a88f2a2c8474efedf07e4109e2ae586cbff3c4261",
+    "weighted_btx_swapped/Cargo.lock": "10aef959b142356c709d5f421bdd86bb99b9063b41c3b11b6ebef715316809bf",
+    "weighted_btx_swapped/Cargo.toml": "cf2445b415636e164ca70e46c6489b11f1295aa7b93d4dd7808ba4bc46276488",
+    "weighted_btx_swapped/examples/paper_tables.rs": "826ef39dbcb84abf0ef4ed8f50fb19d7b3d23fdea76212a2fc7774511d749f1b",
+    "weighted_btx_swapped/src/blst_utils.rs": "d3a4e0962e21ff69fc97e4d21d6e6bdc1656773dbc8a5d55c19f489f47e21f17",
+    "weighted_btx_swapped/src/decryption.rs": "84eec3cb576aae392efbabe8105af72d7f0f30e43234a8daa85ebea4f2f83e77",
+    "weighted_btx_swapped/src/encoding.rs": "d286fa915fbc52a6a6120146d7daed4c52de5477536832cbee8e3b57727b2c85",
+    "weighted_btx_swapped/src/encryption.rs": "b7fc0ae628805434d072a6a7f4b266860e53eddb2e9727d773a3fc68cc7d17be",
+    "weighted_btx_swapped/src/error.rs": "0346897d38d31306cfffb462265ac88ce74d9068c5b9eccdc7fcb9bf85c69d90",
+    "weighted_btx_swapped/src/fft.rs": "b9f83d3fe75e376e2c226b54bb4be7217a712a0be10f4658c32574cb125ebd9b",
+    "weighted_btx_swapped/src/final_exponentiation.rs": "59f9b3ff7d3eb05147cc423e0f73dfcba52db502d1a031d0b6b566eb89e24bcf",
+    "weighted_btx_swapped/src/interpolation.rs": "e1d06fa41b3409c332fdc2e77ca7d741d3fc015799d50c6e67efdd3fe6c187c0",
+    "weighted_btx_swapped/src/lib.rs": "a83e063f869856312d8413f8e06c458349bdc4cce87bf67f4ed6904acd87ea9b",
+    "weighted_btx_swapped/src/proof.rs": "46775d6e10a09ed1b9df5f2aa68035e8687d77b631fd7e4fd176cda5bd2d421c",
+    "weighted_btx_swapped/src/setup.rs": "d0d617a762ddddd0eaa0e349a6085f6883f9e13cff1802ce6ebce12d753146c9"
+  },
+  "binary_sha256": {
+    "weighted_btx/target/release/examples/paper_tables": "801b1a3d827f6dba907b0ef08ad90dacbe42028fe2df2407ac6fd728ec698634",
+    "weighted_btx_swapped/target/release/examples/paper_tables": "fe2d947dfc13523810805d7212412a5212f092c5f00a3ccd5f2dbd1cdf2f982b",
+    "weighted_btx_mcl/build/paper_benchmark": "506adb7afc61feee644236a5cc18f4c84c7d75fc8cc94d564acc91e8578a386a",
+    "experiments/mcl/build/mcl/lib/libmcl.a": "5c1da4f1177f5bbe7454a521b6439f0665848a306b5f06d39af8d813f3997fcd"
+  },
+  "lscpu": {
+    "lscpu": [
+      {
+        "field": "Architecture:",
+        "data": "x86_64"
+      },
+      {
+        "field": "CPU op-mode(s):",
+        "data": "32-bit, 64-bit"
+      },
+      {
+        "field": "Address sizes:",
+        "data": "52 bits physical, 57 bits virtual"
+      },
+      {
+        "field": "Byte Order:",
+        "data": "Little Endian"
+      },
+      {
+        "field": "CPU(s):",
+        "data": "48"
+      },
+      {
+        "field": "On-line CPU(s) list:",
+        "data": "0-47"
+      },
+      {
+        "field": "Vendor ID:",
+        "data": "AuthenticAMD"
+      },
+      {
+        "field": "Model name:",
+        "data": "AMD EPYC 9275F 24-Core Processor"
+      },
+      {
+        "field": "CPU family:",
+        "data": "26"
+      },
+      {
+        "field": "Model:",
+        "data": "2"
+      },
+      {
+        "field": "Thread(s) per core:",
+        "data": "2"
+      },
+      {
+        "field": "Core(s) per socket:",
+        "data": "24"
+      },
+      {
+        "field": "Socket(s):",
+        "data": "1"
+      },
+      {
+        "field": "Stepping:",
+        "data": "1"
+      },
+      {
+        "field": "Frequency boost:",
+        "data": "enabled"
+      },
+      {
+        "field": "CPU(s) scaling MHz:",
+        "data": "84%"
+      },
+      {
+        "field": "CPU max MHz:",
+        "data": "4816.6992"
+      },
+      {
+        "field": "CPU min MHz:",
+        "data": "1500.0000"
+      },
+      {
+        "field": "BogoMIPS:",
+        "data": "8189.06"
+      },
+      {
+        "field": "Flags:",
+        "data": "fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp ibrs_enhanced vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid cqm rdt_a avx512f avx512dq adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk avx_vnni avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd amd_ppin cppc amd_ibpb_ret arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif x2avic v_spec_ctrl vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq la57 rdpid bus_lock_detect movdiri movdir64b overflow_recov succor smca avx512_vp2intersect flush_l1d debug_swap srso_user_kernel_no"
+      },
+      {
+        "field": "Virtualization:",
+        "data": "AMD-V"
+      },
+      {
+        "field": "L1d cache:",
+        "data": "1.1 MiB (24 instances)"
+      },
+      {
+        "field": "L1i cache:",
+        "data": "768 KiB (24 instances)"
+      },
+      {
+        "field": "L2 cache:",
+        "data": "24 MiB (24 instances)"
+      },
+      {
+        "field": "L3 cache:",
+        "data": "256 MiB (8 instances)"
+      },
+      {
+        "field": "NUMA node(s):",
+        "data": "1"
+      },
+      {
+        "field": "NUMA node0 CPU(s):",
+        "data": "0-47"
+      },
+      {
+        "field": "Vulnerability Gather data sampling:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Indirect target selection:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Itlb multihit:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability L1tf:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Mds:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Meltdown:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Mmio stale data:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Reg file data sampling:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Retbleed:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Spec rstack overflow:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Spec store bypass:",
+        "data": "Mitigation; Speculative Store Bypass disabled via prctl"
+      },
+      {
+        "field": "Vulnerability Spectre v1:",
+        "data": "Mitigation; usercopy/swapgs barriers and __user pointer sanitization"
+      },
+      {
+        "field": "Vulnerability Spectre v2:",
+        "data": "Mitigation; Enhanced / Automatic IBRS; IBPB conditional; STIBP always-on; PBRSB-eIBRS Not affected; BHI Not affected"
+      },
+      {
+        "field": "Vulnerability Srbds:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Tsa:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Tsx async abort:",
+        "data": "Not affected"
+      },
+      {
+        "field": "Vulnerability Vmscape:",
+        "data": "Not affected"
+      }
+    ]
+  },
+  "provenance_notes": [
+    "Source and binary hashes were captured during the optimized sweep. All timed protocol and harness source files match the publication checkout. The result summarizer received additional metadata, serialization-size and AVX-counter validation after capture; recorded timing data and measured-source hashes are unchanged."
+  ]
+}

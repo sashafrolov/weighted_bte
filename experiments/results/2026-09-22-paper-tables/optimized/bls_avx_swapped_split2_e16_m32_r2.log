@@ -1,0 +1,4 @@
+metadata curve=bls12_381 mcl_curve=BLS12_381 simd=avx512 orientation=swapped total=32 batch=2 setup=32 chunks=16 threads=12 samples=15 warmup=2 N=419 W=1580 q=1060 t=1059 tau=76 W_T=1062 share_count=1216 setup_ms=498.762321 setup_avx_msm=0 setup_avx_each=0
+sizes g1_bytes=48 g2_bytes=96 scalar_bytes=32 target_full_fp12_bytes=576 cipher_group_bytes=96 public_group_bytes=48 core_points=99540 verification_points=13408 public_array_points=112948 public_array_compressed_bytes=5421504 proof_payload_bytes=128 ciphertext_payload_bytes=800 share_payload_bytes=96 validator_share_payload_bytes=1536 all_share_payload_bytes=116736
+correctness=passed layout=16x2 cache=cold iterations=17
+correctness=passed layout=16x2 cache=cached iterations=17

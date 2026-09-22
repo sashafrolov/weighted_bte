@@ -1,0 +1,23 @@
+BTX paper-parameter reproduction
+B_max=16, B=16, N=6489, t=4326, shares=4327, Rayon threads=12
+Measured repetitions=5, plus one full unmeasured warm-up
+
+Average over 5 measured repetition(s)
+
+One-time / input preparation
+trusted key generation               2496.243 ms
+encrypt batch                           8.467 ms total     0.529 ms/item
+fixed G2 FFT kernel                     6.628 ms
+
+Paper phase decomposition
+ctxtCheck(B)                            0.362 ms total     0.023 ms/item
+precompute(B)                           8.613 ms total     0.538 ms/item
+partialDecrypt(B), one server           0.171 ms total     0.011 ms/item
+combine(n)                            719.760 ms total     0.166 ms/item
+serverCheck(B,n)                        3.050 ms total     0.191 ms/item
+open(B)                                 0.748 ms total     0.047 ms/item
+core sequential total                 729.292 ms
+robust sequential total               732.705 ms
+
+Paper target at B=512, single core: ~598 ms core total; 0.959/0.019/0.171 ms per item for precompute/partial/open.
+Decryption successful in the warm-up and every measured repetition.

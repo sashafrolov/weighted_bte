@@ -1,0 +1,63 @@
+Weighted PFE Solana paper reproduction (Construction 5)
+Input allocation: experiments/paper_tables/profiles/weights_2of3.json
+Input selection: WEIGHTED_PFE_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/16: --approximation-error
+target stake ratio=2/3, interval=[29/48, 35/48]
+nominal resolution M=1615, actual cryptographic share count W=1580
+minimum reconstruction weight q=1060; weighted-PFE threshold t=1059 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.728841329902269386982038151812
+
+Runtime choices
+B_max=B=64
+Rayon threads=12
+measured online repetitions=15, plus one unmeasured online warm-up
+
+Allocation summary
+real parties N=419, total virtual weight W=1580, min/max party weight=1/57
+minimal-party authorized set: tau=76 parties, W_T=1062 >= q=1060 (largest weights first, index tie-break)
+
+Table 3 serialized material
+accounting: compressed cryptographic elements; indices, setup IDs, batch digests, integer metadata, and container framing excluded
+compressed encodings: G1=48 bytes, G2=96 bytes, scalar=32 bytes, paper GT=288 bytes, canonical identity-tagged GT=289 bytes
+party verification keys: 26816 G2 points, 2574336 bytes (2514.000 kB) = N*B
+core D1/D2/global material: 202241 G2 points, 19415136 bytes (18960.094 kB) = 2*W*B+1
+public decryption key: 229057 G2 points, 21989472 bytes (21474.094 kB) = (2W+N)B+1
+encryption key: one GT, 288 bytes (0.281 kB) in Table 3, 289 bytes (0.282 kB) canonical
+total public material, paper encoding: 21989760 bytes (21474.375 kB) = public decryption key + one GT encryption key
+total public material, canonical cryptographic-element encoding: 21989761 bytes (21474.376 kB)
+implementation structured proof CRS: 0 bytes (Fiat-Shamir Schnorr); paper abstract Pi_DL CRS: unspecified and excluded by Table 3
+one party secret key: 32 bytes (0.031 kB) = one rho_j scalar (B=64 derived fractions may be cached); all N=419 secret keys: 13408 bytes (13.094 kB)
+one ciphertext proof: 80 bytes = one compressed G1 commitment + one scalar response
+one ciphertext excluding its proof (Table 3): 336 bytes with paper GT, 337 bytes with canonical tagged GT
+one ciphertext including this implementation's proof: 416 bytes with paper GT, 417 bytes canonical
+B=64 ciphertexts excluding proofs: 21504/21568 bytes (paper/canonical); including proofs: 26624/26688 bytes
+one party cryptographic response: 48 bytes = one compressed G1; selected tau=76 responses: 3648 bytes
+formula parameters used above: N=419, W=1580, B=64
+
+Optimized online work dimensions
+ctxtCheck(B): one randomized G1 MSM with 129=2B+1 bases
+selected PreDec: 76 G1 MSMs of 64 terms (4864 scalar-point terms)
+batched acceptance: one 76-term G1 MSM, 64 G2 MSMs of 76 terms (4864 terms), and one pairing product of arity 65
+committee preparation: 4864 party-block G2 MSMs plus 64 whole-committee G2 MSMs, 135936=2B*W_T total scalar-point terms
+committee finishing: 64 size-2 G2 mask combinations, 4800 party-key additions, normalization of 4992 points, and 128 prepared line tables
+Cauchy precompute: forward+inverse size-64 G1 transforms, 64 prepared-G2 pairings, and forward+inverse cyclotomic transforms
+opening: 64 multi-pairings of arity 76 (4864 inputs) plus 64 prepared-G2 mask pairings; all target terms fuse before 64 hard final exponentiations
+
+One-time setup and input preparation
+trusted weighted key generation              2259.870 ms
+encrypt batch                                   3.235 ms total     0.051 ms/item
+fixed Cauchy FFT kernel                         0.014 ms
+
+Average over 15 measured online repetition(s)
+ctxtCheck(B), batched client proofs             2.466 ms total     0.039 ms/item
+PreDec(B), all selected parties                 7.979 ms total     0.105 ms/item
+batched response acceptance                    31.569 ms total     0.415 ms/item
+committee interpolation / G2 MSMs             573.759 ms total     8.965 ms/item
+ciphertext-dependent Cauchy precompute         26.908 ms total     0.420 ms/item
+weighted opening / unmask                      57.120 ms total     0.892 ms/item
+full cold-committee path incl checks          699.801 ms
+full cached-committee path incl checks        126.042 ms
+Decryption successful in the warm-up and every measured repetition.

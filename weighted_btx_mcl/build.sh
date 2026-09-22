@@ -13,7 +13,7 @@ if [[ ! -f "$mcl/lib/libmcl.a" ]]; then
   MCL_BUILD_DIR="$here/../experiments/mcl/build" bash "$here/../experiments/mcl/build.sh"
 fi
 test "$(git -C "$mcl" rev-parse HEAD)" = "$revision"
-for source in benchmark tests; do
+for source in benchmark paper_benchmark tests; do
   "${CXX:-c++}" -O3 -DNDEBUG -std=c++17 -DMCL_FP_BIT=384 -DMCL_FR_BIT=256 \
     -Wall -Wextra -I"$mcl/include" "$here/$source.cpp" "$mcl/lib/libmcl.a" \
     -lpthread -o "$build/$source"

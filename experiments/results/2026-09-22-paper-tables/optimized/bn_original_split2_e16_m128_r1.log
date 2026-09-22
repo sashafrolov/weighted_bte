@@ -1,0 +1,4 @@
+metadata curve=bn254 mcl_curve=BN_SNARK1 simd=off orientation=normal total=128 batch=2 setup=128 chunks=64 threads=12 samples=15 warmup=2 N=419 W=1580 q=1060 t=1059 tau=76 W_T=1062 share_count=4864 setup_ms=1730.96632 setup_avx_msm=0 setup_avx_each=0
+sizes g1_bytes=32 g2_bytes=64 scalar_bytes=32 target_full_fp12_bytes=384 cipher_group_bytes=32 public_group_bytes=64 core_points=402900 verification_points=53632 public_array_points=456532 public_array_compressed_bytes=29218048 proof_payload_bytes=64 ciphertext_payload_bytes=480 share_payload_bytes=32 validator_share_payload_bytes=2048 all_share_payload_bytes=155648
+correctness=passed layout=64x2 cache=cold iterations=17
+correctness=passed layout=64x2 cache=cached iterations=17

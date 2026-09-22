@@ -1,0 +1,4 @@
+PAPER_CONFIG implementation=weighted_btx_swapped threads=12 samples=15 warmup=2 total=16 batch=16 setup=16 N=598 W=3063 q=2044 tau=79 accepted_weight=2046 error=1/32
+PAPER_SETUP keygen_us=504170.463
+PAPER_CASE cold chunks=1 batch=16
+PAPER_CASE cached chunks=1 batch=16

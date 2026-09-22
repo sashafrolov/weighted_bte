@@ -1,6 +1,11 @@
 # Weighted BTX experiments
 
-**The latest full-protocol measurements include eight batches of two:** see
+**Paper-style performance tables using the two-thirds stake threshold** are in
+[the paper-table reproduction](paper_tables/README.md). They cover the paper's
+weight and batch-size sweeps, fresh dev-box baselines, optimized WBTX, and the
+unchanged comparison schemes.
+
+**The earlier one-half-threshold measurements include eight batches of two:** see
 [the 8x2 comparison](EIGHT_BATCHES.md). It includes fresh encryption, proofs,
 validation, all local validator shares, and opening. The fastest measured
 uncached case is 26.18 ms (BN254, swapped groups, 8x2); the fastest cached case

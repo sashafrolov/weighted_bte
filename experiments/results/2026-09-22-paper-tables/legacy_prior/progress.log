@@ -1,0 +1,113 @@
+[1/56] round=1 scheme=pfe error=1/8 messages=16 sample=internal-mean repetitions=5
+  verified 21 metrics
+[2/56] round=1 scheme=btx error=1/8 messages=16 sample=internal-mean repetitions=5
+  verified 21 metrics
+[3/56] round=1 scheme=beat error=1/8 messages=16 sample=1 repetitions=1
+  verified 22 metrics
+[4/56] round=1 scheme=beat error=1/8 messages=16 sample=2 repetitions=1
+  verified 22 metrics
+[5/56] round=1 scheme=beat error=1/8 messages=16 sample=3 repetitions=1
+  verified 22 metrics
+[6/56] round=1 scheme=beat error=1/8 messages=16 sample=4 repetitions=1
+  verified 22 metrics
+[7/56] round=1 scheme=beat error=1/8 messages=16 sample=5 repetitions=1
+  verified 22 metrics
+[8/56] round=1 scheme=pfe error=1/16 messages=16 sample=internal-mean repetitions=5
+  verified 21 metrics
+[9/56] round=1 scheme=btx error=1/16 messages=16 sample=internal-mean repetitions=5
+  verified 21 metrics
+[10/56] round=1 scheme=beat error=1/16 messages=16 sample=1 repetitions=1
+  verified 22 metrics
+[11/56] round=1 scheme=beat error=1/16 messages=16 sample=2 repetitions=1
+  verified 22 metrics
+[12/56] round=1 scheme=beat error=1/16 messages=16 sample=3 repetitions=1
+  verified 22 metrics
+[13/56] round=1 scheme=beat error=1/16 messages=16 sample=4 repetitions=1
+  verified 22 metrics
+[14/56] round=1 scheme=beat error=1/16 messages=16 sample=5 repetitions=1
+  verified 22 metrics
+[15/56] round=1 scheme=pfe error=1/32 messages=16 sample=internal-mean repetitions=5
+  verified 21 metrics
+[16/56] round=1 scheme=btx error=1/32 messages=16 sample=internal-mean repetitions=5
+  verified 21 metrics
+[17/56] round=1 scheme=beat error=1/32 messages=16 sample=1 repetitions=1
+  verified 22 metrics
+[18/56] round=1 scheme=beat error=1/32 messages=16 sample=2 repetitions=1
+  verified 22 metrics
+[19/56] round=1 scheme=beat error=1/32 messages=16 sample=3 repetitions=1
+  verified 22 metrics
+[20/56] round=1 scheme=beat error=1/32 messages=16 sample=4 repetitions=1
+  verified 22 metrics
+[21/56] round=1 scheme=beat error=1/32 messages=16 sample=5 repetitions=1
+  verified 22 metrics
+[22/56] round=1 scheme=pfe error=1/64 messages=16 sample=internal-mean repetitions=5
+  verified 21 metrics
+[23/56] round=1 scheme=btx error=1/64 messages=16 sample=internal-mean repetitions=5
+  verified 21 metrics
+[24/56] round=1 scheme=beat error=1/64 messages=16 sample=1 repetitions=1
+  verified 22 metrics
+[25/56] round=1 scheme=beat error=1/64 messages=16 sample=2 repetitions=1
+  verified 22 metrics
+[26/56] round=1 scheme=beat error=1/64 messages=16 sample=3 repetitions=1
+  verified 22 metrics
+[27/56] round=1 scheme=beat error=1/64 messages=16 sample=4 repetitions=1
+  verified 22 metrics
+[28/56] round=1 scheme=beat error=1/64 messages=16 sample=5 repetitions=1
+  verified 22 metrics
+[29/56] round=2 scheme=beat error=1/64 messages=16 sample=1 repetitions=1
+  verified 22 metrics
+[30/56] round=2 scheme=beat error=1/64 messages=16 sample=2 repetitions=1
+  verified 22 metrics
+[31/56] round=2 scheme=beat error=1/64 messages=16 sample=3 repetitions=1
+  verified 22 metrics
+[32/56] round=2 scheme=beat error=1/64 messages=16 sample=4 repetitions=1
+  verified 22 metrics
+[33/56] round=2 scheme=beat error=1/64 messages=16 sample=5 repetitions=1
+  verified 22 metrics
+[34/56] round=2 scheme=btx error=1/64 messages=16 sample=internal-mean repetitions=5
+  verified 21 metrics
+[35/56] round=2 scheme=pfe error=1/64 messages=16 sample=internal-mean repetitions=5
+  verified 21 metrics
+[36/56] round=2 scheme=beat error=1/32 messages=16 sample=1 repetitions=1
+  verified 22 metrics
+[37/56] round=2 scheme=beat error=1/32 messages=16 sample=2 repetitions=1
+  verified 22 metrics
+[38/56] round=2 scheme=beat error=1/32 messages=16 sample=3 repetitions=1
+  verified 22 metrics
+[39/56] round=2 scheme=beat error=1/32 messages=16 sample=4 repetitions=1
+  verified 22 metrics
+[40/56] round=2 scheme=beat error=1/32 messages=16 sample=5 repetitions=1
+  verified 22 metrics
+[41/56] round=2 scheme=btx error=1/32 messages=16 sample=internal-mean repetitions=5
+  verified 21 metrics
+[42/56] round=2 scheme=pfe error=1/32 messages=16 sample=internal-mean repetitions=5
+  verified 21 metrics
+[43/56] round=2 scheme=beat error=1/16 messages=16 sample=1 repetitions=1
+  verified 22 metrics
+[44/56] round=2 scheme=beat error=1/16 messages=16 sample=2 repetitions=1
+  verified 22 metrics
+[45/56] round=2 scheme=beat error=1/16 messages=16 sample=3 repetitions=1
+  verified 22 metrics
+[46/56] round=2 scheme=beat error=1/16 messages=16 sample=4 repetitions=1
+  verified 22 metrics
+[47/56] round=2 scheme=beat error=1/16 messages=16 sample=5 repetitions=1
+  verified 22 metrics
+[48/56] round=2 scheme=btx error=1/16 messages=16 sample=internal-mean repetitions=5
+  verified 21 metrics
+[49/56] round=2 scheme=pfe error=1/16 messages=16 sample=internal-mean repetitions=5
+  verified 21 metrics
+[50/56] round=2 scheme=beat error=1/8 messages=16 sample=1 repetitions=1
+  verified 22 metrics
+[51/56] round=2 scheme=beat error=1/8 messages=16 sample=2 repetitions=1
+  verified 22 metrics
+[52/56] round=2 scheme=beat error=1/8 messages=16 sample=3 repetitions=1
+  verified 22 metrics
+[53/56] round=2 scheme=beat error=1/8 messages=16 sample=4 repetitions=1
+  verified 22 metrics
+[54/56] round=2 scheme=beat error=1/8 messages=16 sample=5 repetitions=1
+  verified 22 metrics
+[55/56] round=2 scheme=btx error=1/8 messages=16 sample=internal-mean repetitions=5
+  verified 21 metrics
+[56/56] round=2 scheme=pfe error=1/8 messages=16 sample=internal-mean repetitions=5
+  verified 21 metrics
+Completed 56 serial invocations; 1216 metric rows

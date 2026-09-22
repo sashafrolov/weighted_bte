@@ -1,0 +1,24 @@
+PFE paper-parameter reproduction
+B_max=16, B=16, N=6489, t=4326, shares=4327, Rayon threads=12
+measured repetitions=5, plus one unmeasured full warm-up
+
+Average over 5 measured repetition(s)
+
+One-time / input preparation
+trusted key generation               2538.036 ms
+encrypt batch                           1.309 ms total     0.082 ms/item
+fixed PFE FFT/G2 kernel                 9.842 ms
+
+Paper phase decomposition
+ctxtCheck(B)                            0.475 ms total     0.030 ms/item
+precompute(B)                           7.716 ms total     0.482 ms/item
+partialDecrypt(B), one server           0.170 ms total     0.011 ms/item
+combine(n)                            723.123 ms total     0.167 ms/item
+serverCheck(B,n)                        2.457 ms total     0.154 ms/item
+open(B), fused 3-pair path              2.099 ms total     0.131 ms/item
+core sequential total                 733.108 ms
+robust sequential total               736.040 ms
+
+BTX paper's PFE target at B=512, single core: ~1197 ms core total; 1.596/0.019/0.723 ms per item for precompute/partial/open.
+This implementation additionally uses the corrected B-point circulant indexing and fused three-pair opening from the PFE authors' released code.
+Decryption successful in every warm-up and measured repetition.

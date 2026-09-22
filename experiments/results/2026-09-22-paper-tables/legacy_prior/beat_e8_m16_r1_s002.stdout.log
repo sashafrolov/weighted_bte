@@ -1,0 +1,61 @@
+Indexed weighted BTE Solana paper reproduction
+Input allocation: experiments/paper_tables/profiles/weights_2of3.json
+Input selection: WEIGHTED_INDEXED_BTE_WEIGHTS_FILE override
+Distribution method: aptos_dkg_nearest_rounding_q64_64
+
+Selected approximation profile
+error e=1/8: --approximation-error
+target stake ratio=2/3, interval=[13/24, 19/24]
+nominal resolution M=862, actual cryptographic share count W=764
+minimum reconstruction weight q=512; indexed weighted-BTE threshold t=511 because authorization is weight > t
+effective guaranteed reconstruction stake ratio=0.756581884035212104964215201752
+
+Runtime choices
+B_max=B=16
+index space n=16; ciphertext indices are fixed to 0..=15
+Rayon threads=12
+
+Allocation summary
+real parties N=234, total virtual weight W=764, min/max party weight=1/30
+minimal-party authorized set: 59 parties, weight 515 >= q=512 (largest weights first, index tie-break)
+
+old-paper robustness theorem requires t < floor(W/2)=382: NOT satisfied by this exact-half corruption threshold
+
+Serialized public material
+accounting: paper group elements with compressed encodings; derived identifiers, integer metadata, and container framing excluded
+compressed encodings: G1=48, G2=96, scalar=32 bytes
+powers-of-tau CRS pp: 16 G1 + 32 G2 points, 3840 bytes
+  g_i powers: 16 G1 points, 768 bytes = n
+  h_i powers: 32 G2 points, 3072 bytes = 2n (missing h_(n+1))
+weighted master public key: 250 G1 + 12224 G2 points, 1185504 bytes
+  delta_i: 16 G1 points, 768 bytes = n
+  party inverse verification keys: 234 G1 points, 11232 bytes = N
+  gamma_(i,j,omega): 12224 G2 points, 1173504 bytes = nW
+combined pp + master public key: 266 G1 + 12256 G2 points, 1189344 bytes
+additional structured DLEq proof CRS: 0 bytes (Fiat-Shamir)
+ciphertext cryptographic overhead: 160 bytes = 2 compressed G1 + 2 scalar proof elements (explicit index/framing and payload excluded)
+one party cryptographic response: 112 bytes
+Table-2 all-party response download: 26208 bytes = N * response size
+selected V retained for opening: 6608 bytes for N'=59 parties
+
+Optimized decryption work dimensions
+middle product: transform size m=32, one prepared-G2/input pairing per transform point
+committee preparation: 944 G2 MSMs with 8240 total scalar-point terms = B*N' MSMs, B*W_T terms
+opening: 16 multi-pairings of arity 59, 944 total pairing inputs
+
+Measured phase durations
+powers-of-tau CRS setup                     0.680 ms
+weighted master key generation            134.645 ms
+fixed G2 FFT kernel                         6.196 ms
+encrypt batch                               1.401 ms total     0.088 ms/item
+client proof validation                     0.468 ms total     0.029 ms/item
+partial decryptions, all N parties          3.335 ms total     0.014 ms/item
+all-N server proofs / select V              4.316 ms
+committee interpolation / G2 MSMs          54.352 ms
+cross-term precompute                       8.642 ms total     0.540 ms/item
+weighted PRF opening / unmask              14.070 ms total     0.879 ms/item
+post-validation cold-committee path        84.716 ms
+post-validation cached-committee path      30.364 ms
+full cold decryption incl client checks     85.184 ms
+full cached decryption incl client checks     30.832 ms
+Decryption successful.
