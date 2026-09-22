@@ -1,0 +1,33 @@
+[1/16] round=1 scheme=wpfe error=1/8 messages=16 sample=internal-mean repetitions=15
+  verified 24 metrics
+[2/16] round=1 scheme=wpfe error=1/16 messages=16 sample=internal-mean repetitions=15
+  verified 24 metrics
+[3/16] round=1 scheme=wpfe error=1/32 messages=16 sample=internal-mean repetitions=15
+  verified 24 metrics
+[4/16] round=1 scheme=wpfe error=1/64 messages=16 sample=internal-mean repetitions=15
+  verified 24 metrics
+[5/16] round=1 scheme=wpfe error=1/16 messages=32 sample=internal-mean repetitions=15
+  verified 24 metrics
+[6/16] round=1 scheme=wpfe error=1/16 messages=64 sample=internal-mean repetitions=15
+  verified 24 metrics
+[7/16] round=1 scheme=wpfe error=1/16 messages=128 sample=internal-mean repetitions=15
+  verified 24 metrics
+[8/16] round=1 scheme=wpfe error=1/16 messages=256 sample=internal-mean repetitions=15
+  verified 24 metrics
+[9/16] round=2 scheme=wpfe error=1/16 messages=256 sample=internal-mean repetitions=15
+  verified 24 metrics
+[10/16] round=2 scheme=wpfe error=1/16 messages=128 sample=internal-mean repetitions=15
+  verified 24 metrics
+[11/16] round=2 scheme=wpfe error=1/16 messages=64 sample=internal-mean repetitions=15
+  verified 24 metrics
+[12/16] round=2 scheme=wpfe error=1/16 messages=32 sample=internal-mean repetitions=15
+  verified 24 metrics
+[13/16] round=2 scheme=wpfe error=1/64 messages=16 sample=internal-mean repetitions=15
+  verified 24 metrics
+[14/16] round=2 scheme=wpfe error=1/32 messages=16 sample=internal-mean repetitions=15
+  verified 24 metrics
+[15/16] round=2 scheme=wpfe error=1/16 messages=16 sample=internal-mean repetitions=15
+  verified 24 metrics
+[16/16] round=2 scheme=wpfe error=1/8 messages=16 sample=internal-mean repetitions=15
+  verified 24 metrics
+Completed 16 serial invocations; 384 metric rows

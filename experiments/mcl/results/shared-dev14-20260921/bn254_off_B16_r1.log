@@ -1,0 +1,2 @@
+curve=bn254 mcl_curve=BN_SNARK1 scalar_modulus=21888242871839275222246405745257275088548364400416034343698204186575808495617 simd=off avx_msm_available=0 avx_each_available=0 B=16 T=38 W_T=794
+correctness_checks=passed sink=17185476754096536977

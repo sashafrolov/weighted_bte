@@ -1,0 +1,1445 @@
+{
+  "implementation": "weighted_btx_swapped",
+  "scope": "Fresh encryption and proofs through verified opening of 16 messages; all selected validators simulated locally; network excluded; message generation and trusted setup excluded",
+  "combiner_scope": "After all local validator shares exist: fresh share acceptance, one committee preparation unless cached, cross terms, and all openings; network excluded",
+  "scheduling": "One global Rayon pool; phases execute sequentially; chunks and selected validators within each phase run in parallel; cold split layouts prepare the committee once and reuse it across all four or eight chunks",
+  "quantile_method": "Linear interpolation at (n-1)*p; descriptive p10/p90, not confidence intervals",
+  "threads": 12,
+  "samples_per_case": 15,
+  "warmup_per_case": 2,
+  "total_ciphertexts": 16,
+  "setup_max_batch_size": 16,
+  "keygen_us": 271830.707,
+  "profile": {
+    "file": "<checkout>/scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json",
+    "sha256": "fe5cf443cc0bc08ff2dddc88276f9c26a122f1da1f5db2ecb427db865fbd3738",
+    "approximation_error": "1/16",
+    "party_count": 419,
+    "total_weight": 1576,
+    "required_weight": 789,
+    "threshold_weight": 788,
+    "selected_parties": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37
+    ],
+    "selected_weights": [
+      57,
+      54,
+      43,
+      42,
+      41,
+      31,
+      31,
+      30,
+      28,
+      27,
+      26,
+      24,
+      22,
+      21,
+      20,
+      20,
+      20,
+      16,
+      16,
+      15,
+      14,
+      14,
+      14,
+      13,
+      13,
+      13,
+      13,
+      12,
+      12,
+      12,
+      11,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      9
+    ],
+    "accepted_weight": 794
+  },
+  "cached_committee_preparations": [
+    {
+      "batch_size": 16,
+      "preparation_us": 49395.537000000004
+    },
+    {
+      "batch_size": 4,
+      "preparation_us": 19203.650999999998
+    },
+    {
+      "batch_size": 2,
+      "preparation_us": 16164.086000000001
+    }
+  ],
+  "cases": [
+    {
+      "name": "cold/1x16",
+      "batch_size": 16,
+      "chunks": 1,
+      "committee_cached": false,
+      "all_plaintexts_verified": true,
+      "summary": {
+        "acceptance": {
+          "median_us": 6185.107,
+          "p10_us": 6158.6746,
+          "p90_us": 6190.4456
+        },
+        "combiner": {
+          "median_us": 76978.89,
+          "p10_us": 76096.18879999999,
+          "p90_us": 79001.682
+        },
+        "encryption": {
+          "median_us": 1319.512,
+          "p10_us": 1311.0834,
+          "p90_us": 1341.0744
+        },
+        "end_to_end": {
+          "median_us": 82924.85800000001,
+          "p10_us": 82055.3468,
+          "p90_us": 85001.6804
+        },
+        "opening": {
+          "median_us": 9369.962000000001,
+          "p10_us": 9339.1436,
+          "p90_us": 9377.8806
+        },
+        "precompute": {
+          "median_us": 11658.837,
+          "p10_us": 11640.661,
+          "p90_us": 11686.7528
+        },
+        "preparation": {
+          "median_us": 49770.081,
+          "p10_us": 48884.22840000001,
+          "p90_us": 51811.4842
+        },
+        "share_generation": {
+          "median_us": 4058.2049999999995,
+          "p10_us": 4047.4988,
+          "p90_us": 4071.6334
+        },
+        "validation": {
+          "median_us": 579.346,
+          "p10_us": 574.7294,
+          "p90_us": 591.7005999999999
+        }
+      },
+      "samples": [
+        {
+          "end_to_end_us": 85078.606,
+          "combiner_us": 79059.918,
+          "encryption_us": 1337.487,
+          "validation_us": 607.8249999999999,
+          "share_generation_us": 4073.1250000000005,
+          "acceptance_us": 6184.526,
+          "preparation_us": 51848.427,
+          "precompute_us": 11665.535,
+          "opening_us": 9361.32
+        },
+        {
+          "end_to_end_us": 81922.45099999999,
+          "combiner_us": 75936.337,
+          "encryption_us": 1337.3980000000001,
+          "validation_us": 591.262,
+          "share_generation_us": 4057.3140000000003,
+          "acceptance_us": 6187.360000000001,
+          "preparation_us": 48715.853,
+          "precompute_us": 11663.002,
+          "opening_us": 9369.962000000001
+        },
+        {
+          "end_to_end_us": 83009.013,
+          "combiner_us": 77082.792,
+          "encryption_us": 1306.445,
+          "validation_us": 572.686,
+          "share_generation_us": 4046.95,
+          "acceptance_us": 6158.43,
+          "preparation_us": 49896.865999999995,
+          "precompute_us": 11689.408,
+          "opening_us": 9337.938
+        },
+        {
+          "end_to_end_us": 82974.155,
+          "combiner_us": 77031.982,
+          "encryption_us": 1314.245,
+          "validation_us": 579.486,
+          "share_generation_us": 4048.322,
+          "acceptance_us": 6177.977,
+          "preparation_us": 49797.619,
+          "precompute_us": 11682.77,
+          "opening_us": 9373.456
+        },
+        {
+          "end_to_end_us": 81989.332,
+          "combiner_us": 76025.65999999999,
+          "encryption_us": 1322.887,
+          "validation_us": 578.855,
+          "share_generation_us": 4061.68,
+          "acceptance_us": 6186.459,
+          "preparation_us": 48825.944,
+          "precompute_us": 11691.431,
+          "opening_us": 9321.705
+        },
+        {
+          "end_to_end_us": 82154.369,
+          "combiner_us": 76201.982,
+          "encryption_us": 1319.112,
+          "validation_us": 574.369,
+          "share_generation_us": 4058.615,
+          "acceptance_us": 6190.073,
+          "preparation_us": 48971.655000000006,
+          "precompute_us": 11665.335000000001,
+          "opening_us": 9374.788999999999
+        },
+        {
+          "end_to_end_us": 85089.72200000001,
+          "combiner_us": 79111.599,
+          "encryption_us": 1324.82,
+          "validation_us": 583.4209999999999,
+          "share_generation_us": 4069.6209999999996,
+          "acceptance_us": 6173.981000000001,
+          "preparation_us": 51922.309,
+          "precompute_us": 11637.717,
+          "opening_us": 9377.442
+        },
+        {
+          "end_to_end_us": 84886.292,
+          "combiner_us": 78914.32800000001,
+          "encryption_us": 1329.807,
+          "validation_us": 591.9929999999999,
+          "share_generation_us": 4049.994,
+          "acceptance_us": 6169.004,
+          "preparation_us": 51756.07,
+          "precompute_us": 11648.172,
+          "opening_us": 9340.952
+        },
+        {
+          "end_to_end_us": 83022.812,
+          "combiner_us": 77069.43400000001,
+          "encryption_us": 1309.269,
+          "validation_us": 579.125,
+          "share_generation_us": 4064.7340000000004,
+          "acceptance_us": 6185.418,
+          "preparation_us": 49819.599,
+          "precompute_us": 11647.211,
+          "opening_us": 9417.076
+        },
+        {
+          "end_to_end_us": 82221.762,
+          "combiner_us": 76229.8,
+          "encryption_us": 1343.466,
+          "validation_us": 575.27,
+          "share_generation_us": 4072.9750000000004,
+          "acceptance_us": 6158.74,
+          "preparation_us": 49047.65,
+          "precompute_us": 11645.077,
+          "opening_us": 9378.173
+        },
+        {
+          "end_to_end_us": 82702.893,
+          "combiner_us": 76758.89700000001,
+          "encryption_us": 1318.1009999999999,
+          "validation_us": 579.346,
+          "share_generation_us": 4046.379,
+          "acceptance_us": 6186.068,
+          "preparation_us": 49546.905,
+          "precompute_us": 11653.538999999999,
+          "opening_us": 9372.255
+        },
+        {
+          "end_to_end_us": 84295.51000000001,
+          "combiner_us": 78345.707,
+          "encryption_us": 1313.8049999999998,
+          "validation_us": 577.633,
+          "share_generation_us": 4058.2049999999995,
+          "acceptance_us": 6158.631,
+          "preparation_us": 51207.296,
+          "precompute_us": 11609.258000000002,
+          "opening_us": 9370.412
+        },
+        {
+          "end_to_end_us": 82296.585,
+          "combiner_us": 76281.67199999999,
+          "encryption_us": 1360.9089999999999,
+          "validation_us": 584.402,
+          "share_generation_us": 4069.471,
+          "acceptance_us": 6207.448,
+          "preparation_us": 49070.921,
+          "precompute_us": 11651.566,
+          "opening_us": 9351.607
+        },
+        {
+          "end_to_end_us": 82806.50600000001,
+          "combiner_us": 76858.164,
+          "encryption_us": 1319.512,
+          "validation_us": 576.102,
+          "share_generation_us": 4052.5969999999998,
+          "acceptance_us": 6190.694,
+          "preparation_us": 49640.554000000004,
+          "precompute_us": 11658.837,
+          "opening_us": 9367.939
+        },
+        {
+          "end_to_end_us": 82924.85800000001,
+          "combiner_us": 76978.89,
+          "encryption_us": 1315.106,
+          "validation_us": 581.189,
+          "share_generation_us": 4049.553,
+          "acceptance_us": 6185.107,
+          "preparation_us": 49770.081,
+          "precompute_us": 11661.671,
+          "opening_us": 9361.891000000001
+        }
+      ]
+    },
+    {
+      "name": "cold/4x4",
+      "batch_size": 4,
+      "chunks": 4,
+      "committee_cached": false,
+      "all_plaintexts_verified": true,
+      "summary": {
+        "acceptance": {
+          "median_us": 4776.380999999999,
+          "p10_us": 4748.9316,
+          "p90_us": 4789.6651999999995
+        },
+        "combiner": {
+          "median_us": 35734.28,
+          "p10_us": 35194.268,
+          "p90_us": 36040.913
+        },
+        "encryption": {
+          "median_us": 1328.385,
+          "p10_us": 1309.5910000000001,
+          "p90_us": 1334.9038
+        },
+        "end_to_end": {
+          "median_us": 42529.905,
+          "p10_us": 41825.003,
+          "p90_us": 43155.1364
+        },
+        "opening": {
+          "median_us": 9223.791000000001,
+          "p10_us": 9077.0412,
+          "p90_us": 9240.0678
+        },
+        "precompute": {
+          "median_us": 2048.434,
+          "p10_us": 2042.378,
+          "p90_us": 2067.302
+        },
+        "preparation": {
+          "median_us": 19682.399,
+          "p10_us": 19163.9122,
+          "p90_us": 19999.7872
+        },
+        "share_generation": {
+          "median_us": 5136.0650000000005,
+          "p10_us": 4776.756,
+          "p90_us": 5167.4082
+        },
+        "validation": {
+          "median_us": 510.791,
+          "p10_us": 503.03279999999995,
+          "p90_us": 519.3398
+        }
+      },
+      "samples": [
+        {
+          "end_to_end_us": 41678.576,
+          "combiner_us": 34696.635,
+          "encryption_us": 1330.938,
+          "validation_us": 512.064,
+          "share_generation_us": 5138.709,
+          "acceptance_us": 4763.6539999999995,
+          "preparation_us": 18903.919,
+          "precompute_us": 2051.719,
+          "opening_us": 8976.872000000001
+        },
+        {
+          "end_to_end_us": 41993.779,
+          "combiner_us": 35382.827,
+          "encryption_us": 1320.044,
+          "validation_us": 509.83,
+          "share_generation_us": 4780.938,
+          "acceptance_us": 4744.758,
+          "preparation_us": 19371.772999999997,
+          "precompute_us": 2048.033,
+          "opening_us": 9217.573
+        },
+        {
+          "end_to_end_us": 42599.409999999996,
+          "combiner_us": 35984.263,
+          "encryption_us": 1330.607,
+          "validation_us": 500.83799999999997,
+          "share_generation_us": 4783.361,
+          "acceptance_us": 4733.312,
+          "preparation_us": 20007.386,
+          "precompute_us": 2047.002,
+          "opening_us": 9196.293
+        },
+        {
+          "end_to_end_us": 42529.905,
+          "combiner_us": 35904.003,
+          "encryption_us": 1328.385,
+          "validation_us": 510.791,
+          "share_generation_us": 4786.446,
+          "acceptance_us": 4755.192,
+          "preparation_us": 19882.464,
+          "precompute_us": 2042.2859999999998,
+          "opening_us": 9223.791000000001
+        },
+        {
+          "end_to_end_us": 42285.079000000005,
+          "combiner_us": 35701.905999999995,
+          "encryption_us": 1308.277,
+          "validation_us": 500.44800000000004,
+          "share_generation_us": 4773.968,
+          "acceptance_us": 4763.684,
+          "preparation_us": 19682.399,
+          "precompute_us": 2042.5159999999998,
+          "opening_us": 9212.917
+        },
+        {
+          "end_to_end_us": 43223.098,
+          "combiner_us": 35822.280999999995,
+          "encryption_us": 1335.9850000000001,
+          "validation_us": 517.862,
+          "share_generation_us": 5546.719999999999,
+          "acceptance_us": 4788.698,
+          "preparation_us": 19722.272999999997,
+          "precompute_us": 2068.632,
+          "opening_us": 9242.367
+        },
+        {
+          "end_to_end_us": 42707.499,
+          "combiner_us": 35734.28,
+          "encryption_us": 1302.959,
+          "validation_us": 511.753,
+          "share_generation_us": 5158.216,
+          "acceptance_us": 4795.788,
+          "preparation_us": 19635.515,
+          "precompute_us": 2072.267,
+          "opening_us": 9230.31
+        },
+        {
+          "end_to_end_us": 42755.405000000006,
+          "combiner_us": 35777.199,
+          "encryption_us": 1311.5620000000001,
+          "validation_us": 509.00900000000007,
+          "share_generation_us": 5157.1849999999995,
+          "acceptance_us": 4782.16,
+          "preparation_us": 19690.510000000002,
+          "precompute_us": 2051.458,
+          "opening_us": 9252.821
+        },
+        {
+          "end_to_end_us": 42235.961,
+          "combiner_us": 35257.344000000005,
+          "encryption_us": 1331.469,
+          "validation_us": 510.652,
+          "share_generation_us": 5136.0650000000005,
+          "acceptance_us": 4790.3099999999995,
+          "preparation_us": 19193.437,
+          "precompute_us": 2043.167,
+          "opening_us": 9230.25
+        },
+        {
+          "end_to_end_us": 41840.678,
+          "combiner_us": 35190.162,
+          "encryption_us": 1343.4950000000001,
+          "validation_us": 514.166,
+          "share_generation_us": 4792.544,
+          "acceptance_us": 4785.284,
+          "preparation_us": 19144.229,
+          "precompute_us": 2048.434,
+          "opening_us": 9211.965
+        },
+        {
+          "end_to_end_us": 41814.553,
+          "combiner_us": 35200.426999999996,
+          "encryption_us": 1311.9029999999998,
+          "validation_us": 506.395,
+          "share_generation_us": 4795.467000000001,
+          "acceptance_us": 4760.4400000000005,
+          "preparation_us": 19197.282,
+          "precompute_us": 2041.334,
+          "opening_us": 9200.939999999999
+        },
+        {
+          "end_to_end_us": 42654.435999999994,
+          "combiner_us": 36034.292,
+          "encryption_us": 1331.299,
+          "validation_us": 520.3249999999999,
+          "share_generation_us": 4768.320000000001,
+          "acceptance_us": 4764.525000000001,
+          "preparation_us": 19986.817,
+          "precompute_us": 2045.87,
+          "opening_us": 9236.619
+        },
+        {
+          "end_to_end_us": 43279.305,
+          "combiner_us": 36272.590000000004,
+          "encryption_us": 1333.2820000000002,
+          "validation_us": 506.325,
+          "share_generation_us": 5166.747,
+          "acceptance_us": 4779.767,
+          "preparation_us": 20199.379,
+          "precompute_us": 2065.3070000000002,
+          "opening_us": 9227.837
+        },
+        {
+          "end_to_end_us": 43053.194,
+          "combiner_us": 36045.327000000005,
+          "encryption_us": 1324.9399999999998,
+          "validation_us": 514.9380000000001,
+          "share_generation_us": 5167.849,
+          "acceptance_us": 4776.380999999999,
+          "preparation_us": 19988.389,
+          "precompute_us": 2050.196,
+          "opening_us": 9230.05
+        },
+        {
+          "end_to_end_us": 42405.564,
+          "combiner_us": 35402.945,
+          "encryption_us": 1317.209,
+          "validation_us": 527.625,
+          "share_generation_us": 5157.635,
+          "acceptance_us": 4782.17,
+          "preparation_us": 19573.85,
+          "precompute_us": 2049.085,
+          "opening_us": 8997.54
+        }
+      ]
+    },
+    {
+      "name": "cold/8x2",
+      "batch_size": 2,
+      "chunks": 8,
+      "committee_cached": false,
+      "all_plaintexts_verified": true,
+      "summary": {
+        "acceptance": {
+          "median_us": 4543.772,
+          "p10_us": 4522.741400000001,
+          "p90_us": 4569.5012
+        },
+        "combiner": {
+          "median_us": 30587.670000000002,
+          "p10_us": 30283.3678,
+          "p90_us": 30974.9078
+        },
+        "encryption": {
+          "median_us": 1323.198,
+          "p10_us": 1310.7006,
+          "p90_us": 1341.6514
+        },
+        "end_to_end": {
+          "median_us": 38552.752,
+          "p10_us": 38303.393599999996,
+          "p90_us": 39490.6222
+        },
+        "opening": {
+          "median_us": 9188.503,
+          "p10_us": 8952.0498,
+          "p90_us": 9224.950799999999
+        },
+        "precompute": {
+          "median_us": 1212.786,
+          "p10_us": 1207.2564,
+          "p90_us": 1221.1154
+        },
+        "preparation": {
+          "median_us": 15732.122000000001,
+          "p10_us": 15453.8796,
+          "p90_us": 15972.7846
+        },
+        "share_generation": {
+          "median_us": 6195.2,
+          "p10_us": 6162.0674,
+          "p90_us": 6771.8586
+        },
+        "validation": {
+          "median_us": 499.406,
+          "p10_us": 490.43399999999997,
+          "p90_us": 505.3664
+        }
+      },
+      "samples": [
+        {
+          "end_to_end_us": 38307.424999999996,
+          "combiner_us": 30277.143,
+          "encryption_us": 1333.662,
+          "validation_us": 496.29100000000005,
+          "share_generation_us": 6200.117,
+          "acceptance_us": 4543.772,
+          "preparation_us": 15537.876,
+          "precompute_us": 1210.463,
+          "opening_us": 8984.562
+        },
+        {
+          "end_to_end_us": 39433.231,
+          "combiner_us": 30927.407,
+          "encryption_us": 1325.5210000000002,
+          "validation_us": 506.876,
+          "share_generation_us": 6673.177,
+          "acceptance_us": 4538.145,
+          "preparation_us": 16194.437,
+          "precompute_us": 1207.89,
+          "opening_us": 8986.695
+        },
+        {
+          "end_to_end_us": 38300.706,
+          "combiner_us": 30292.704999999998,
+          "encryption_us": 1320.544,
+          "validation_us": 492.14699999999993,
+          "share_generation_us": 6195.2,
+          "acceptance_us": 4534.369,
+          "preparation_us": 15230.784000000001,
+          "precompute_us": 1300.006,
+          "opening_us": 9227.246
+        },
+        {
+          "end_to_end_us": 38544.941,
+          "combiner_us": 30524.433,
+          "encryption_us": 1334.0629999999999,
+          "validation_us": 500.53700000000003,
+          "share_generation_us": 6185.748,
+          "acceptance_us": 4550.3009999999995,
+          "preparation_us": 15788.6,
+          "precompute_us": 1214.098,
+          "opening_us": 8971.294
+        },
+        {
+          "end_to_end_us": 39038.429,
+          "combiner_us": 31033.962,
+          "encryption_us": 1321.4360000000001,
+          "validation_us": 489.29200000000003,
+          "share_generation_us": 6193.3279999999995,
+          "acceptance_us": 4555.808,
+          "preparation_us": 15711.493999999999,
+          "precompute_us": 1223.731,
+          "opening_us": 9542.749
+        },
+        {
+          "end_to_end_us": 39788.44,
+          "combiner_us": 30815.043,
+          "encryption_us": 1772.095,
+          "validation_us": 524.54,
+          "share_generation_us": 6676.642,
+          "acceptance_us": 4592.0689999999995,
+          "preparation_us": 15790.943000000001,
+          "precompute_us": 1209.992,
+          "opening_us": 9221.508
+        },
+        {
+          "end_to_end_us": 39371.657,
+          "combiner_us": 30713.311999999998,
+          "encryption_us": 1307.527,
+          "validation_us": 502.56,
+          "share_generation_us": 6848.017,
+          "acceptance_us": 4548.657999999999,
+          "preparation_us": 15748.014000000001,
+          "precompute_us": 1207.008,
+          "opening_us": 9209.521
+        },
+        {
+          "end_to_end_us": 39227.469,
+          "combiner_us": 30701.916999999998,
+          "encryption_us": 1340.011,
+          "validation_us": 503.102,
+          "share_generation_us": 6682.179,
+          "acceptance_us": 4566.173,
+          "preparation_us": 15732.122000000001,
+          "precompute_us": 1214.739,
+          "opening_us": 9188.503
+        },
+        {
+          "end_to_end_us": 39528.883,
+          "combiner_us": 31006.575,
+          "encryption_us": 1342.7450000000001,
+          "validation_us": 501.299,
+          "share_generation_us": 6677.854,
+          "acceptance_us": 4571.719999999999,
+          "preparation_us": 16015.051,
+          "precompute_us": 1215.83,
+          "opening_us": 9203.753999999999
+        },
+        {
+          "end_to_end_us": 39389.171,
+          "combiner_us": 30732.669,
+          "encryption_us": 1325.5210000000002,
+          "validation_us": 499.06600000000003,
+          "share_generation_us": 6831.6449999999995,
+          "acceptance_us": 4546.476,
+          "preparation_us": 15781.699999999999,
+          "precompute_us": 1207.629,
+          "opening_us": 9196.384
+        },
+        {
+          "end_to_end_us": 38126.176,
+          "combiner_us": 30138.423000000003,
+          "encryption_us": 1309.499,
+          "validation_us": 497.06299999999993,
+          "share_generation_us": 6180.931,
+          "acceptance_us": 4543.361999999999,
+          "preparation_us": 15397.882,
+          "precompute_us": 1212.786,
+          "opening_us": 8984.031
+        },
+        {
+          "end_to_end_us": 38363.862,
+          "combiner_us": 30355.641,
+          "encryption_us": 1318.151,
+          "validation_us": 496.56199999999995,
+          "share_generation_us": 6193.088000000001,
+          "acceptance_us": 4516.995,
+          "preparation_us": 15690.425000000001,
+          "precompute_us": 1214.799,
+          "opening_us": 8933.042000000001
+        },
+        {
+          "end_to_end_us": 38527.568,
+          "combiner_us": 30562.636000000002,
+          "encryption_us": 1315.898,
+          "validation_us": 499.406,
+          "share_generation_us": 6149.337,
+          "acceptance_us": 4525.187,
+          "preparation_us": 15655.787,
+          "precompute_us": 1188.8129999999999,
+          "opening_us": 9192.519
+        },
+        {
+          "end_to_end_us": 38317.829,
+          "combiner_us": 30332.639000000003,
+          "encryption_us": 1323.198,
+          "validation_us": 502.99100000000004,
+          "share_generation_us": 6158.750999999999,
+          "acceptance_us": 4537.633,
+          "preparation_us": 15616.033,
+          "precompute_us": 1217.192,
+          "opening_us": 8961.591
+        },
+        {
+          "end_to_end_us": 38552.752,
+          "combiner_us": 30587.670000000002,
+          "encryption_us": 1312.503,
+          "validation_us": 485.197,
+          "share_generation_us": 6167.042,
+          "acceptance_us": 4521.111000000001,
+          "preparation_us": 15909.385000000002,
+          "precompute_us": 1211.103,
+          "opening_us": 8945.689
+        }
+      ]
+    },
+    {
+      "name": "cached/1x16",
+      "batch_size": 16,
+      "chunks": 1,
+      "committee_cached": true,
+      "all_plaintexts_verified": true,
+      "summary": {
+        "acceptance": {
+          "median_us": 6109.714,
+          "p10_us": 6073.7056,
+          "p90_us": 6146.8542
+        },
+        "combiner": {
+          "median_us": 26983.729000000003,
+          "p10_us": 26902.7054,
+          "p90_us": 27031.593399999998
+        },
+        "encryption": {
+          "median_us": 1315.637,
+          "p10_us": 1302.0926,
+          "p90_us": 1327.6796
+        },
+        "end_to_end": {
+          "median_us": 32925.791000000005,
+          "p10_us": 32813.5918,
+          "p90_us": 32973.335399999996
+        },
+        "opening": {
+          "median_us": 9314.464999999998,
+          "p10_us": 9297.1504,
+          "p90_us": 9341.8676
+        },
+        "precompute": {
+          "median_us": 11553.182,
+          "p10_us": 11516.5004,
+          "p90_us": 11578.962599999999
+        },
+        "preparation": {
+          "median_us": 0.0,
+          "p10_us": 0.0,
+          "p90_us": 0.0
+        },
+        "share_generation": {
+          "median_us": 4028.414,
+          "p10_us": 4009.6119999999996,
+          "p90_us": 4054.9822
+        },
+        "validation": {
+          "median_us": 579.937,
+          "p10_us": 575.5764,
+          "p90_us": 586.8986
+        }
+      },
+      "samples": [
+        {
+          "end_to_end_us": 33201.091,
+          "combiner_us": 27243.666,
+          "encryption_us": 1320.014,
+          "validation_us": 577.573,
+          "share_generation_us": 4059.717,
+          "acceptance_us": 6163.277,
+          "preparation_us": 0.0,
+          "precompute_us": 11748.369999999999,
+          "opening_us": 9331.919
+        },
+        {
+          "end_to_end_us": 32820.868,
+          "combiner_us": 26907.785,
+          "encryption_us": 1301.007,
+          "validation_us": 563.804,
+          "share_generation_us": 4047.88,
+          "acceptance_us": 6126.917,
+          "preparation_us": 0.0,
+          "precompute_us": 11489.113000000001,
+          "opening_us": 9291.554
+        },
+        {
+          "end_to_end_us": 32925.791000000005,
+          "combiner_us": 26984.480000000003,
+          "encryption_us": 1327.984,
+          "validation_us": 584.803,
+          "share_generation_us": 4028.414,
+          "acceptance_us": 6101.372,
+          "preparation_us": 0.0,
+          "precompute_us": 11553.182,
+          "opening_us": 9329.836
+        },
+        {
+          "end_to_end_us": 32974.748999999996,
+          "combiner_us": 27037.213,
+          "encryption_us": 1322.5559999999998,
+          "validation_us": 575.4399999999999,
+          "share_generation_us": 4039.3089999999997,
+          "acceptance_us": 6110.745,
+          "preparation_us": 0.0,
+          "precompute_us": 11578.746,
+          "opening_us": 9347.632
+        },
+        {
+          "end_to_end_us": 32946.0,
+          "combiner_us": 27023.163999999997,
+          "encryption_us": 1310.761,
+          "validation_us": 586.175,
+          "share_generation_us": 4025.6,
+          "acceptance_us": 6109.714,
+          "preparation_us": 0.0,
+          "precompute_us": 11573.829000000002,
+          "opening_us": 9339.53
+        },
+        {
+          "end_to_end_us": 32943.487,
+          "combiner_us": 26983.729000000003,
+          "encryption_us": 1327.223,
+          "validation_us": 587.327,
+          "share_generation_us": 4044.9170000000004,
+          "acceptance_us": 6099.749,
+          "preparation_us": 0.0,
+          "precompute_us": 11540.454,
+          "opening_us": 9343.426
+        },
+        {
+          "end_to_end_us": 32901.328,
+          "combiner_us": 26981.857,
+          "encryption_us": 1314.085,
+          "validation_us": 578.5350000000001,
+          "share_generation_us": 4026.731,
+          "acceptance_us": 6102.974,
+          "preparation_us": 0.0,
+          "precompute_us": 11579.107,
+          "opening_us": 9299.686
+        },
+        {
+          "end_to_end_us": 32971.215,
+          "combiner_us": 27013.69,
+          "encryption_us": 1308.798,
+          "validation_us": 586.256,
+          "share_generation_us": 4062.25,
+          "acceptance_us": 6139.554,
+          "preparation_us": 0.0,
+          "precompute_us": 11578.556,
+          "opening_us": 9295.460000000001
+        },
+        {
+          "end_to_end_us": 32942.695,
+          "combiner_us": 27018.086,
+          "encryption_us": 1307.326,
+          "validation_us": 576.642,
+          "share_generation_us": 4040.481,
+          "acceptance_us": 6151.721,
+          "preparation_us": 0.0,
+          "precompute_us": 11562.654,
+          "opening_us": 9303.591
+        },
+        {
+          "end_to_end_us": 32927.494,
+          "combiner_us": 27014.051,
+          "encryption_us": 1303.721,
+          "validation_us": 587.4069999999999,
+          "share_generation_us": 4022.185,
+          "acceptance_us": 6112.277,
+          "preparation_us": 0.0,
+          "precompute_us": 11569.774,
+          "opening_us": 9331.839999999998
+        },
+        {
+          "end_to_end_us": 32869.625,
+          "combiner_us": 26967.316000000003,
+          "encryption_us": 1316.6689999999999,
+          "validation_us": 575.7810000000001,
+          "share_generation_us": 4009.5679999999998,
+          "acceptance_us": 6129.51,
+          "preparation_us": 0.0,
+          "precompute_us": 11523.641,
+          "opening_us": 9314.055
+        },
+        {
+          "end_to_end_us": 32836.759,
+          "combiner_us": 26922.084,
+          "encryption_us": 1327.183,
+          "validation_us": 579.937,
+          "share_generation_us": 4007.315,
+          "acceptance_us": 6080.413,
+          "preparation_us": 0.0,
+          "precompute_us": 11516.771,
+          "opening_us": 9324.82
+        },
+        {
+          "end_to_end_us": 32877.475000000006,
+          "combiner_us": 26900.695,
+          "encryption_us": 1358.4859999999999,
+          "validation_us": 584.523,
+          "share_generation_us": 4033.5910000000003,
+          "acceptance_us": 6073.634,
+          "preparation_us": 0.0,
+          "precompute_us": 11517.322,
+          "opening_us": 9309.639
+        },
+        {
+          "end_to_end_us": 32808.741,
+          "combiner_us": 26898.512,
+          "encryption_us": 1315.637,
+          "validation_us": 583.221,
+          "share_generation_us": 4011.1900000000005,
+          "acceptance_us": 6073.813,
+          "preparation_us": 0.0,
+          "precompute_us": 11516.32,
+          "opening_us": 9308.287
+        },
+        {
+          "end_to_end_us": 32791.926999999996,
+          "combiner_us": 26905.721,
+          "encryption_us": 1299.2740000000001,
+          "validation_us": 576.982,
+          "share_generation_us": 4009.678,
+          "acceptance_us": 6073.463000000001,
+          "preparation_us": 0.0,
+          "precompute_us": 11517.673,
+          "opening_us": 9314.464999999998
+        }
+      ]
+    },
+    {
+      "name": "cached/4x4",
+      "batch_size": 4,
+      "chunks": 4,
+      "committee_cached": true,
+      "all_plaintexts_verified": true,
+      "summary": {
+        "acceptance": {
+          "median_us": 4771.505,
+          "p10_us": 4740.0434,
+          "p90_us": 4801.4356
+        },
+        "combiner": {
+          "median_us": 16101.33,
+          "p10_us": 16011.230999999998,
+          "p90_us": 16148.902399999999
+        },
+        "encryption": {
+          "median_us": 1322.097,
+          "p10_us": 1308.9726,
+          "p90_us": 1332.3748
+        },
+        "end_to_end": {
+          "median_us": 22753.949,
+          "p10_us": 22600.816,
+          "p90_us": 23098.85
+        },
+        "opening": {
+          "median_us": 9266.219,
+          "p10_us": 9220.1182,
+          "p90_us": 9273.3332
+        },
+        "precompute": {
+          "median_us": 2060.942,
+          "p10_us": 2046.4714000000001,
+          "p90_us": 2074.9105999999997
+        },
+        "preparation": {
+          "median_us": 0.0,
+          "p10_us": 0.0,
+          "p90_us": 0.0
+        },
+        "share_generation": {
+          "median_us": 4798.582,
+          "p10_us": 4777.9174,
+          "p90_us": 5148.604600000001
+        },
+        "validation": {
+          "median_us": 511.222,
+          "p10_us": 505.07120000000003,
+          "p90_us": 514.9718
+        }
+      },
+      "samples": [
+        {
+          "end_to_end_us": 22597.744,
+          "combiner_us": 15998.216999999999,
+          "encryption_us": 1307.596,
+          "validation_us": 515.609,
+          "share_generation_us": 4775.871,
+          "acceptance_us": 4736.186,
+          "preparation_us": 0.0,
+          "precompute_us": 2046.862,
+          "opening_us": 9214.939
+        },
+        {
+          "end_to_end_us": 22366.486,
+          "combiner_us": 15762.262999999999,
+          "encryption_us": 1314.296,
+          "validation_us": 508.56800000000004,
+          "share_generation_us": 4780.987,
+          "acceptance_us": 4742.4349999999995,
+          "preparation_us": 0.0,
+          "precompute_us": 2044.869,
+          "opening_us": 8974.739000000001
+        },
+        {
+          "end_to_end_us": 22605.424,
+          "combiner_us": 16030.751999999999,
+          "encryption_us": 1320.274,
+          "validation_us": 511.602,
+          "share_generation_us": 4742.645,
+          "acceptance_us": 4752.237999999999,
+          "preparation_us": 0.0,
+          "precompute_us": 2050.337,
+          "opening_us": 9227.887
+        },
+        {
+          "end_to_end_us": 23024.73,
+          "combiner_us": 16050.028,
+          "encryption_us": 1307.847,
+          "validation_us": 513.586,
+          "share_generation_us": 5153.119000000001,
+          "acceptance_us": 4738.449,
+          "preparation_us": 0.0,
+          "precompute_us": 2046.211,
+          "opening_us": 9265.017
+        },
+        {
+          "end_to_end_us": 23159.286,
+          "combiner_us": 16155.003,
+          "encryption_us": 1327.344,
+          "validation_us": 509.8,
+          "share_generation_us": 5166.907999999999,
+          "acceptance_us": 4797.530000000001,
+          "preparation_us": 0.0,
+          "precompute_us": 2075.071,
+          "opening_us": 9282.271
+        },
+        {
+          "end_to_end_us": 22793.072,
+          "combiner_us": 16136.467000000002,
+          "encryption_us": 1333.232,
+          "validation_us": 512.9839999999999,
+          "share_generation_us": 4810.158,
+          "acceptance_us": 4801.135,
+          "preparation_us": 0.0,
+          "precompute_us": 2060.942,
+          "opening_us": 9274.289999999999
+        },
+        {
+          "end_to_end_us": 23063.163,
+          "combiner_us": 16108.569,
+          "encryption_us": 1310.661,
+          "validation_us": 511.222,
+          "share_generation_us": 5132.561,
+          "acceptance_us": 4775.429999999999,
+          "preparation_us": 0.0,
+          "precompute_us": 2063.624,
+          "opening_us": 9269.344000000001
+        },
+        {
+          "end_to_end_us": 22753.949,
+          "combiner_us": 16110.632,
+          "encryption_us": 1330.098,
+          "validation_us": 519.9440000000001,
+          "share_generation_us": 4792.985,
+          "acceptance_us": 4779.325,
+          "preparation_us": 0.0,
+          "precompute_us": 2059.319,
+          "opening_us": 9271.898000000001
+        },
+        {
+          "end_to_end_us": 22750.023,
+          "combiner_us": 16111.103000000001,
+          "encryption_us": 1327.984,
+          "validation_us": 513.266,
+          "share_generation_us": 4797.39,
+          "acceptance_us": 4768.331,
+          "preparation_us": 0.0,
+          "precompute_us": 2073.198,
+          "opening_us": 9269.284
+        },
+        {
+          "end_to_end_us": 22751.956000000002,
+          "combiner_us": 16101.33,
+          "encryption_us": 1337.798,
+          "validation_us": 514.016,
+          "share_generation_us": 4798.582,
+          "acceptance_us": 4787.567,
+          "preparation_us": 0.0,
+          "precompute_us": 2063.976,
+          "opening_us": 9249.697
+        },
+        {
+          "end_to_end_us": 23072.696,
+          "combiner_us": 16097.604000000001,
+          "encryption_us": 1330.8890000000001,
+          "validation_us": 502.26000000000005,
+          "share_generation_us": 5141.8330000000005,
+          "acceptance_us": 4771.505,
+          "preparation_us": 0.0,
+          "precompute_us": 2059.7200000000003,
+          "opening_us": 9266.219
+        },
+        {
+          "end_to_end_us": 22693.105000000003,
+          "combiner_us": 16075.654000000002,
+          "encryption_us": 1312.964,
+          "validation_us": 510.701,
+          "share_generation_us": 4793.435,
+          "acceptance_us": 4767.429,
+          "preparation_us": 0.0,
+          "precompute_us": 2062.0930000000003,
+          "opening_us": 9245.882
+        },
+        {
+          "end_to_end_us": 22767.165999999997,
+          "combiner_us": 16143.266,
+          "encryption_us": 1318.832,
+          "validation_us": 510.801,
+          "share_generation_us": 4794.157,
+          "acceptance_us": 4801.6359999999995,
+          "preparation_us": 0.0,
+          "precompute_us": 2074.6699999999996,
+          "opening_us": 9266.720000000001
+        },
+        {
+          "end_to_end_us": 22715.856,
+          "combiner_us": 16084.525999999998,
+          "encryption_us": 1322.097,
+          "validation_us": 510.411,
+          "share_generation_us": 4798.582,
+          "acceptance_us": 4761.591,
+          "preparation_us": 0.0,
+          "precompute_us": 2060.471,
+          "opening_us": 9262.334
+        },
+        {
+          "end_to_end_us": 23116.286,
+          "combiner_us": 16152.66,
+          "encryption_us": 1331.089,
+          "validation_us": 502.74,
+          "share_generation_us": 5129.576999999999,
+          "acceptance_us": 4807.074,
+          "preparation_us": 0.0,
+          "precompute_us": 2077.0939999999996,
+          "opening_us": 9268.392
+        }
+      ]
+    },
+    {
+      "name": "cached/8x2",
+      "batch_size": 2,
+      "chunks": 8,
+      "committee_cached": true,
+      "all_plaintexts_verified": true,
+      "summary": {
+        "acceptance": {
+          "median_us": 4563.489,
+          "p10_us": 4549.2212,
+          "p90_us": 4582.0286
+        },
+        "combiner": {
+          "median_us": 14997.053,
+          "p10_us": 14778.8084,
+          "p90_us": 15066.4632
+        },
+        "encryption": {
+          "median_us": 1325.511,
+          "p10_us": 1304.496,
+          "p90_us": 1341.765
+        },
+        "end_to_end": {
+          "median_us": 23005.444,
+          "p10_us": 22793.1424,
+          "p90_us": 23120.6096
+        },
+        "opening": {
+          "median_us": 9238.542000000001,
+          "p10_us": 9017.2594,
+          "p90_us": 9283.5292
+        },
+        "precompute": {
+          "median_us": 1210.463,
+          "p10_us": 1158.9460000000001,
+          "p90_us": 1223.493
+        },
+        "preparation": {
+          "median_us": 0.0,
+          "p10_us": 0.0,
+          "p90_us": 0.0
+        },
+        "share_generation": {
+          "median_us": 6214.448,
+          "p10_us": 6195.6452,
+          "p90_us": 6231.6888
+        },
+        "validation": {
+          "median_us": 496.25199999999995,
+          "p10_us": 490.24139999999994,
+          "p90_us": 500.2392
+        }
+      },
+      "samples": [
+        {
+          "end_to_end_us": 22924.403,
+          "combiner_us": 14997.053,
+          "encryption_us": 1277.996,
+          "validation_us": 479.118,
+          "share_generation_us": 6169.956,
+          "acceptance_us": 4547.928,
+          "preparation_us": 0.0,
+          "precompute_us": 1210.373,
+          "opening_us": 9238.542000000001
+        },
+        {
+          "end_to_end_us": 23123.786,
+          "combiner_us": 15075.59,
+          "encryption_us": 1314.175,
+          "validation_us": 498.024,
+          "share_generation_us": 6235.646,
+          "acceptance_us": 4586.2699999999995,
+          "preparation_us": 0.0,
+          "precompute_us": 1210.463,
+          "opening_us": 9278.737000000001
+        },
+        {
+          "end_to_end_us": 22727.622,
+          "combiner_us": 14675.921,
+          "encryption_us": 1313.334,
+          "validation_us": 493.83900000000006,
+          "share_generation_us": 6244.278,
+          "acceptance_us": 4563.679,
+          "preparation_us": 0.0,
+          "precompute_us": 1046.047,
+          "opening_us": 9066.095
+        },
+        {
+          "end_to_end_us": 23136.424,
+          "combiner_us": 15072.936,
+          "encryption_us": 1341.3629999999998,
+          "validation_us": 496.25199999999995,
+          "share_generation_us": 6225.753,
+          "acceptance_us": 4569.667,
+          "preparation_us": 0.0,
+          "precompute_us": 1218.835,
+          "opening_us": 9284.214
+        },
+        {
+          "end_to_end_us": 23021.546000000002,
+          "combiner_us": 14983.274,
+          "encryption_us": 1325.511,
+          "validation_us": 490.91399999999993,
+          "share_generation_us": 6221.627,
+          "acceptance_us": 4565.332,
+          "preparation_us": 0.0,
+          "precompute_us": 1132.826,
+          "opening_us": 9284.926000000001
+        },
+        {
+          "end_to_end_us": 23099.432999999997,
+          "combiner_us": 15043.486,
+          "encryption_us": 1342.634,
+          "validation_us": 496.44200000000006,
+          "share_generation_us": 6216.540000000001,
+          "acceptance_us": 4563.489,
+          "preparation_us": 0.0,
+          "precompute_us": 1206.2469999999998,
+          "opening_us": 9273.53
+        },
+        {
+          "end_to_end_us": 23072.356,
+          "combiner_us": 15033.152,
+          "encryption_us": 1337.387,
+          "validation_us": 496.86299999999994,
+          "share_generation_us": 6204.8240000000005,
+          "acceptance_us": 4583.907,
+          "preparation_us": 0.0,
+          "precompute_us": 1198.1260000000002,
+          "opening_us": 9250.889
+        },
+        {
+          "end_to_end_us": 22789.678,
+          "combiner_us": 14785.832,
+          "encryption_us": 1298.604,
+          "validation_us": 496.44200000000006,
+          "share_generation_us": 6208.539,
+          "acceptance_us": 4552.514,
+          "preparation_us": 0.0,
+          "precompute_us": 1223.4209999999998,
+          "opening_us": 9009.737000000001
+        },
+        {
+          "end_to_end_us": 22798.339,
+          "combiner_us": 14774.126,
+          "encryption_us": 1330.357,
+          "validation_us": 494.23900000000003,
+          "share_generation_us": 6199.316,
+          "acceptance_us": 4555.588,
+          "preparation_us": 0.0,
+          "precompute_us": 1220.646,
+          "opening_us": 8997.481
+        },
+        {
+          "end_to_end_us": 23005.444,
+          "combiner_us": 15002.91,
+          "encryption_us": 1314.256,
+          "validation_us": 494.729,
+          "share_generation_us": 6193.197999999999,
+          "acceptance_us": 4566.303,
+          "preparation_us": 0.0,
+          "precompute_us": 1204.044,
+          "opening_us": 9232.353000000001
+        },
+        {
+          "end_to_end_us": 22830.924,
+          "combiner_us": 14809.344000000001,
+          "encryption_us": 1320.644,
+          "validation_us": 489.79299999999995,
+          "share_generation_us": 6210.7919999999995,
+          "acceptance_us": 4554.026,
+          "preparation_us": 0.0,
+          "precompute_us": 1226.5449999999998,
+          "opening_us": 9028.543
+        },
+        {
+          "end_to_end_us": 22871.91,
+          "combiner_us": 14836.600999999999,
+          "encryption_us": 1320.835,
+          "validation_us": 499.56600000000003,
+          "share_generation_us": 6214.557,
+          "acceptance_us": 4558.692,
+          "preparation_us": 0.0,
+          "precompute_us": 1216.421,
+          "opening_us": 9061.348
+        },
+        {
+          "end_to_end_us": 22893.45,
+          "combiner_us": 14836.442000000001,
+          "encryption_us": 1337.9180000000001,
+          "validation_us": 505.625,
+          "share_generation_us": 6213.205,
+          "acceptance_us": 4579.210999999999,
+          "preparation_us": 0.0,
+          "precompute_us": 1222.78,
+          "opening_us": 9034.261
+        },
+        {
+          "end_to_end_us": 23084.332,
+          "combiner_us": 15033.372,
+          "encryption_us": 1342.0330000000001,
+          "validation_us": 494.24899999999997,
+          "share_generation_us": 6214.448,
+          "acceptance_us": 4548.3279999999995,
+          "preparation_us": 0.0,
+          "precompute_us": 1208.34,
+          "opening_us": 9276.554
+        },
+        {
+          "end_to_end_us": 23115.845,
+          "combiner_us": 15056.754,
+          "encryption_us": 1341.052,
+          "validation_us": 500.688,
+          "share_generation_us": 6217.231,
+          "acceptance_us": 4550.561,
+          "preparation_us": 0.0,
+          "precompute_us": 1223.5410000000002,
+          "opening_us": 9282.502
+        }
+      ]
+    }
+  ]
+}

@@ -31,3 +31,7 @@ codegen-units = 1
 [[bench]]
 name = "phases"
 harness = false
+
+[[bench]]
+name = "batch_layout"
+harness = false

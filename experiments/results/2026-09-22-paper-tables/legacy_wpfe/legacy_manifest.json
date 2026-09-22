@@ -1,0 +1,547 @@
+{
+  "created_utc": "2026-09-22T20:00:00.377869+00:00",
+  "status": "complete",
+  "threads": 12,
+  "cpus": "0-11",
+  "requested_samples": 15,
+  "rounds": 2,
+  "schemes": [
+    "wpfe"
+  ],
+  "weights_file": "weights_2of3.json",
+  "weights_sha256": "52be11ae2817ac5667b05583dc2ca0e369dd5b1198c018b8932ec89e1f252de4",
+  "profiles": {
+    "1/8": {
+      "N": 234,
+      "W": 764,
+      "q": 512,
+      "selected_parties": 59,
+      "selected_weight": 515
+    },
+    "1/16": {
+      "N": 419,
+      "W": 1580,
+      "q": 1060,
+      "selected_parties": 76,
+      "selected_weight": 1062
+    },
+    "1/32": {
+      "N": 598,
+      "W": 3063,
+      "q": 2044,
+      "selected_parties": 79,
+      "selected_weight": 2046
+    },
+    "1/64": {
+      "N": 688,
+      "W": 6489,
+      "q": 4327,
+      "selected_parties": 79,
+      "selected_weight": 4333
+    }
+  },
+  "semantics": {
+    "wpfe": {
+      "inputs": "One fresh setup, encrypted batch and fixed kernel per process; one online warmup, then SAMPLES online repetitions reuse that batch. Ciphertext validation, selected-validator shares, acceptance, committee preparation, cross terms and opening rerun each repetition.",
+      "samples": "Online phase rows are an internal mean of SAMPLES repetitions. Setup/encryption/fixed_kernel rows are one observation per process, not SAMPLES observations.",
+      "predec_denominator": "selected real validators tau; reported wall time for all selected validators divided by tau, without multiplying by threads",
+      "acceptance_denominator": "selected real validators tau; batched acceptance wall time divided by tau",
+      "totals": "cold_with_validation includes validation+predec_selected+acceptance+preparation+precompute+opening. cached_with_validation excludes preparation. dec_total_without_validation is a derived WBTX-style sum of the same phases except validation. dec_open is precompute+opening."
+    }
+  },
+  "notes": [
+    "All subprocesses execute serially; odd/even rounds reverse scheme and parameter order.",
+    "Upstream stdout is rounded to 0.001 ms; no per-iteration distribution can be recovered from internally averaged output.",
+    "CSV N is actual real/virtual protocol party count; source_N is the positive-weight validator count from the source allocation.",
+    "CSV samples is the number of observations contributing to that row, so WPFE setup/encryption/kernel have samples=1.",
+    "Size rows are exact compressed-group byte counts (96 bytes per G2 point), not in-memory sizes. Their ms field is blank.",
+    "Raw stdout/stderr are retained. No networking, new optimizations, or protocol changes are introduced."
+  ],
+  "source_sha256": {
+    "experiments/paper_tables/legacy_baselines.py": "9a40b89e97e79d645ccbcbcd2d034f2f1770a2ca5a8d74e7a1f8ae2377852f53",
+    "weighted_pfe/Cargo.lock": "1b8a1170599ce768c4916c5057fe824bba766bf1030a88550ad8674cc04529f9",
+    "weighted_pfe/Cargo.toml": "7bfdfb44acdbc8181ea4ebd56914562f654c17d30f31d1f7b4620516d9fc6954",
+    "weighted_pfe/examples/paper_reproduction.rs": "4490d6d0cc2abf40ebdaec57eb8c77447af90da0acafa302dfa9d1b0e7cb6845",
+    "weighted_pfe/src/blst_utils.rs": "5051079767b3998c1813877a80d537f679c5f34482e13dbef0c87d39ec0f9781",
+    "weighted_pfe/src/decryption.rs": "561e20eed006f0f4d235f00839c46221d1369fb8ba9425482797de35798a7781",
+    "weighted_pfe/src/encoding.rs": "858ca1b85f1e315a11c4c55c2f58b421ea38ed38226c7e56b0e98532273782d3",
+    "weighted_pfe/src/encryption.rs": "6322ca8e8d9e263f5822b2db45afbb83da9759122bcbbe435fb6b188f12864f6",
+    "weighted_pfe/src/error.rs": "0d71b02a43d87381c25533031b164cbd7d6915b55971915e62d2920905548fbf",
+    "weighted_pfe/src/fft.rs": "df6233eb761610fc63ed9738f896b7ea53bcc1591fade565d6e5f619636b1163",
+    "weighted_pfe/src/final_exponentiation.rs": "fa64db3a00d457011548ceb79b740c68c4673963076ef659130385c913dec5ad",
+    "weighted_pfe/src/interpolation.rs": "e1d06fa41b3409c332fdc2e77ca7d741d3fc015799d50c6e67efdd3fe6c187c0",
+    "weighted_pfe/src/lib.rs": "d8303af064cb6902900d13d606cd3e99995c652cd7c4678902068f00b915bc21",
+    "weighted_pfe/src/proof.rs": "8cd1a55e9a6ea07f48eddd2acbd4842522e9a51a6636fad5e453f1d989208338",
+    "weighted_pfe/src/setup.rs": "35aee9be92241e93261e7716db8111226a230a50c84437dce17bc3e1a208e38a"
+  },
+  "binary_sha256": {
+    "weighted_pfe/target/release/examples/paper_reproduction": "3fe38847cac600dfdbb037355c4e1c24583b9348af852b7b04899b47c7b21b6f"
+  },
+  "runs": [
+    {
+      "scheme": "wpfe",
+      "error": "1/8",
+      "total": 16,
+      "round": 1,
+      "sample": 0,
+      "repetitions": 15,
+      "stdout": "wpfe_e8_m16_r1.stdout.log",
+      "stderr": "wpfe_e8_m16_r1.stderr.log",
+      "command": [
+        "taskset",
+        "-c",
+        "0-11",
+        "weighted_pfe/target/release/examples/paper_reproduction",
+        "--approximation-error",
+        "1/8"
+      ],
+      "environment_overrides": {
+        "WEIGHTED_PFE_BATCH_SIZE": "16",
+        "WEIGHTED_PFE_THREADS": "12",
+        "WEIGHTED_PFE_WEIGHTS_FILE": "experiments/paper_tables/profiles/weights_2of3.json",
+        "WEIGHTED_PFE_REPETITIONS": "15"
+      },
+      "status": "verified",
+      "process_elapsed_seconds": 2.2112406780943274,
+      "returncode": 0,
+      "metric_rows": 24,
+      "stdout_sha256": "9e64e4f9e5f033f3a5db3211edac0f70a5110c866ec24520a8ea7b408f7e7865"
+    },
+    {
+      "scheme": "wpfe",
+      "error": "1/16",
+      "total": 16,
+      "round": 1,
+      "sample": 0,
+      "repetitions": 15,
+      "stdout": "wpfe_e16_m16_r1.stdout.log",
+      "stderr": "wpfe_e16_m16_r1.stderr.log",
+      "command": [
+        "taskset",
+        "-c",
+        "0-11",
+        "weighted_pfe/target/release/examples/paper_reproduction",
+        "--approximation-error",
+        "1/16"
+      ],
+      "environment_overrides": {
+        "WEIGHTED_PFE_BATCH_SIZE": "16",
+        "WEIGHTED_PFE_THREADS": "12",
+        "WEIGHTED_PFE_WEIGHTS_FILE": "experiments/paper_tables/profiles/weights_2of3.json",
+        "WEIGHTED_PFE_REPETITIONS": "15"
+      },
+      "status": "verified",
+      "process_elapsed_seconds": 3.7739179395139217,
+      "returncode": 0,
+      "metric_rows": 24,
+      "stdout_sha256": "249604f0873b6e5b2211009493b392fb94d9c728143be3f0add4f8f72a0b4b42"
+    },
+    {
+      "scheme": "wpfe",
+      "error": "1/32",
+      "total": 16,
+      "round": 1,
+      "sample": 0,
+      "repetitions": 15,
+      "stdout": "wpfe_e32_m16_r1.stdout.log",
+      "stderr": "wpfe_e32_m16_r1.stderr.log",
+      "command": [
+        "taskset",
+        "-c",
+        "0-11",
+        "weighted_pfe/target/release/examples/paper_reproduction",
+        "--approximation-error",
+        "1/32"
+      ],
+      "environment_overrides": {
+        "WEIGHTED_PFE_BATCH_SIZE": "16",
+        "WEIGHTED_PFE_THREADS": "12",
+        "WEIGHTED_PFE_WEIGHTS_FILE": "experiments/paper_tables/profiles/weights_2of3.json",
+        "WEIGHTED_PFE_REPETITIONS": "15"
+      },
+      "status": "verified",
+      "process_elapsed_seconds": 6.103869738057256,
+      "returncode": 0,
+      "metric_rows": 24,
+      "stdout_sha256": "6baa03af02d8fa954668cf8a014b812c0a146aa243b4edb0226faed758fe36e1"
+    },
+    {
+      "scheme": "wpfe",
+      "error": "1/64",
+      "total": 16,
+      "round": 1,
+      "sample": 0,
+      "repetitions": 15,
+      "stdout": "wpfe_e64_m16_r1.stdout.log",
+      "stderr": "wpfe_e64_m16_r1.stderr.log",
+      "command": [
+        "taskset",
+        "-c",
+        "0-11",
+        "weighted_pfe/target/release/examples/paper_reproduction",
+        "--approximation-error",
+        "1/64"
+      ],
+      "environment_overrides": {
+        "WEIGHTED_PFE_BATCH_SIZE": "16",
+        "WEIGHTED_PFE_THREADS": "12",
+        "WEIGHTED_PFE_WEIGHTS_FILE": "experiments/paper_tables/profiles/weights_2of3.json",
+        "WEIGHTED_PFE_REPETITIONS": "15"
+      },
+      "status": "verified",
+      "process_elapsed_seconds": 10.923182203434408,
+      "returncode": 0,
+      "metric_rows": 24,
+      "stdout_sha256": "53a42434372d3f5aa0abf57cae411d284c2ea956e0a2c1fdf4e00411ca657c38"
+    },
+    {
+      "scheme": "wpfe",
+      "error": "1/16",
+      "total": 32,
+      "round": 1,
+      "sample": 0,
+      "repetitions": 15,
+      "stdout": "wpfe_e16_m32_r1.stdout.log",
+      "stderr": "wpfe_e16_m32_r1.stderr.log",
+      "command": [
+        "taskset",
+        "-c",
+        "0-11",
+        "weighted_pfe/target/release/examples/paper_reproduction",
+        "--approximation-error",
+        "1/16"
+      ],
+      "environment_overrides": {
+        "WEIGHTED_PFE_BATCH_SIZE": "32",
+        "WEIGHTED_PFE_THREADS": "12",
+        "WEIGHTED_PFE_WEIGHTS_FILE": "experiments/paper_tables/profiles/weights_2of3.json",
+        "WEIGHTED_PFE_REPETITIONS": "15"
+      },
+      "status": "verified",
+      "process_elapsed_seconds": 6.751060714945197,
+      "returncode": 0,
+      "metric_rows": 24,
+      "stdout_sha256": "b48ffe2dc9635e1681f929d3696cea93b85cd56e39094bbe3c97cd4fd70ac271"
+    },
+    {
+      "scheme": "wpfe",
+      "error": "1/16",
+      "total": 64,
+      "round": 1,
+      "sample": 0,
+      "repetitions": 15,
+      "stdout": "wpfe_e16_m64_r1.stdout.log",
+      "stderr": "wpfe_e16_m64_r1.stderr.log",
+      "command": [
+        "taskset",
+        "-c",
+        "0-11",
+        "weighted_pfe/target/release/examples/paper_reproduction",
+        "--approximation-error",
+        "1/16"
+      ],
+      "environment_overrides": {
+        "WEIGHTED_PFE_BATCH_SIZE": "64",
+        "WEIGHTED_PFE_THREADS": "12",
+        "WEIGHTED_PFE_WEIGHTS_FILE": "experiments/paper_tables/profiles/weights_2of3.json",
+        "WEIGHTED_PFE_REPETITIONS": "15"
+      },
+      "status": "verified",
+      "process_elapsed_seconds": 13.563278094865382,
+      "returncode": 0,
+      "metric_rows": 24,
+      "stdout_sha256": "f65e546aa92dfc45744517cfba3ae6dcacbbed4e465101eed6878e8c25c1f417"
+    },
+    {
+      "scheme": "wpfe",
+      "error": "1/16",
+      "total": 128,
+      "round": 1,
+      "sample": 0,
+      "repetitions": 15,
+      "stdout": "wpfe_e16_m128_r1.stdout.log",
+      "stderr": "wpfe_e16_m128_r1.stderr.log",
+      "command": [
+        "taskset",
+        "-c",
+        "0-11",
+        "weighted_pfe/target/release/examples/paper_reproduction",
+        "--approximation-error",
+        "1/16"
+      ],
+      "environment_overrides": {
+        "WEIGHTED_PFE_BATCH_SIZE": "128",
+        "WEIGHTED_PFE_THREADS": "12",
+        "WEIGHTED_PFE_WEIGHTS_FILE": "experiments/paper_tables/profiles/weights_2of3.json",
+        "WEIGHTED_PFE_REPETITIONS": "15"
+      },
+      "status": "verified",
+      "process_elapsed_seconds": 26.173315876163542,
+      "returncode": 0,
+      "metric_rows": 24,
+      "stdout_sha256": "0ef5fca437445fa646f8d4866b7cb665374e895792d2b2f13295aefb52c0a586"
+    },
+    {
+      "scheme": "wpfe",
+      "error": "1/16",
+      "total": 256,
+      "round": 1,
+      "sample": 0,
+      "repetitions": 15,
+      "stdout": "wpfe_e16_m256_r1.stdout.log",
+      "stderr": "wpfe_e16_m256_r1.stderr.log",
+      "command": [
+        "taskset",
+        "-c",
+        "0-11",
+        "weighted_pfe/target/release/examples/paper_reproduction",
+        "--approximation-error",
+        "1/16"
+      ],
+      "environment_overrides": {
+        "WEIGHTED_PFE_BATCH_SIZE": "256",
+        "WEIGHTED_PFE_THREADS": "12",
+        "WEIGHTED_PFE_WEIGHTS_FILE": "experiments/paper_tables/profiles/weights_2of3.json",
+        "WEIGHTED_PFE_REPETITIONS": "15"
+      },
+      "status": "verified",
+      "process_elapsed_seconds": 50.19862397201359,
+      "returncode": 0,
+      "metric_rows": 24,
+      "stdout_sha256": "de9efdc019a889f477ce38964561fa04a03e3f869960f61618125f02c7acac75"
+    },
+    {
+      "scheme": "wpfe",
+      "error": "1/16",
+      "total": 256,
+      "round": 2,
+      "sample": 0,
+      "repetitions": 15,
+      "stdout": "wpfe_e16_m256_r2.stdout.log",
+      "stderr": "wpfe_e16_m256_r2.stderr.log",
+      "command": [
+        "taskset",
+        "-c",
+        "0-11",
+        "weighted_pfe/target/release/examples/paper_reproduction",
+        "--approximation-error",
+        "1/16"
+      ],
+      "environment_overrides": {
+        "WEIGHTED_PFE_BATCH_SIZE": "256",
+        "WEIGHTED_PFE_THREADS": "12",
+        "WEIGHTED_PFE_WEIGHTS_FILE": "experiments/paper_tables/profiles/weights_2of3.json",
+        "WEIGHTED_PFE_REPETITIONS": "15"
+      },
+      "status": "verified",
+      "process_elapsed_seconds": 50.621489726006985,
+      "returncode": 0,
+      "metric_rows": 24,
+      "stdout_sha256": "8f41ccd0a1ef20ca94cf1ad2d110244709c2f63ea4c37ce17d41db5049ca5312"
+    },
+    {
+      "scheme": "wpfe",
+      "error": "1/16",
+      "total": 128,
+      "round": 2,
+      "sample": 0,
+      "repetitions": 15,
+      "stdout": "wpfe_e16_m128_r2.stdout.log",
+      "stderr": "wpfe_e16_m128_r2.stderr.log",
+      "command": [
+        "taskset",
+        "-c",
+        "0-11",
+        "weighted_pfe/target/release/examples/paper_reproduction",
+        "--approximation-error",
+        "1/16"
+      ],
+      "environment_overrides": {
+        "WEIGHTED_PFE_BATCH_SIZE": "128",
+        "WEIGHTED_PFE_THREADS": "12",
+        "WEIGHTED_PFE_WEIGHTS_FILE": "experiments/paper_tables/profiles/weights_2of3.json",
+        "WEIGHTED_PFE_REPETITIONS": "15"
+      },
+      "status": "verified",
+      "process_elapsed_seconds": 26.46278659068048,
+      "returncode": 0,
+      "metric_rows": 24,
+      "stdout_sha256": "36e3d1e72a91eef0dbca7f4afa84880182476eae28436a66e67f719384c3a99e"
+    },
+    {
+      "scheme": "wpfe",
+      "error": "1/16",
+      "total": 64,
+      "round": 2,
+      "sample": 0,
+      "repetitions": 15,
+      "stdout": "wpfe_e16_m64_r2.stdout.log",
+      "stderr": "wpfe_e16_m64_r2.stderr.log",
+      "command": [
+        "taskset",
+        "-c",
+        "0-11",
+        "weighted_pfe/target/release/examples/paper_reproduction",
+        "--approximation-error",
+        "1/16"
+      ],
+      "environment_overrides": {
+        "WEIGHTED_PFE_BATCH_SIZE": "64",
+        "WEIGHTED_PFE_THREADS": "12",
+        "WEIGHTED_PFE_WEIGHTS_FILE": "experiments/paper_tables/profiles/weights_2of3.json",
+        "WEIGHTED_PFE_REPETITIONS": "15"
+      },
+      "status": "verified",
+      "process_elapsed_seconds": 13.495073543861508,
+      "returncode": 0,
+      "metric_rows": 24,
+      "stdout_sha256": "5172765c37a5ec6ee264a0478bdb86007b442564e84372a1c3e6f0284178d277"
+    },
+    {
+      "scheme": "wpfe",
+      "error": "1/16",
+      "total": 32,
+      "round": 2,
+      "sample": 0,
+      "repetitions": 15,
+      "stdout": "wpfe_e16_m32_r2.stdout.log",
+      "stderr": "wpfe_e16_m32_r2.stderr.log",
+      "command": [
+        "taskset",
+        "-c",
+        "0-11",
+        "weighted_pfe/target/release/examples/paper_reproduction",
+        "--approximation-error",
+        "1/16"
+      ],
+      "environment_overrides": {
+        "WEIGHTED_PFE_BATCH_SIZE": "32",
+        "WEIGHTED_PFE_THREADS": "12",
+        "WEIGHTED_PFE_WEIGHTS_FILE": "experiments/paper_tables/profiles/weights_2of3.json",
+        "WEIGHTED_PFE_REPETITIONS": "15"
+      },
+      "status": "verified",
+      "process_elapsed_seconds": 6.750511417165399,
+      "returncode": 0,
+      "metric_rows": 24,
+      "stdout_sha256": "412b34a68b4607f0fda76da6812e9660c9b0354abf7fa8781b6f84ca35c9eb4d"
+    },
+    {
+      "scheme": "wpfe",
+      "error": "1/64",
+      "total": 16,
+      "round": 2,
+      "sample": 0,
+      "repetitions": 15,
+      "stdout": "wpfe_e64_m16_r2.stdout.log",
+      "stderr": "wpfe_e64_m16_r2.stderr.log",
+      "command": [
+        "taskset",
+        "-c",
+        "0-11",
+        "weighted_pfe/target/release/examples/paper_reproduction",
+        "--approximation-error",
+        "1/64"
+      ],
+      "environment_overrides": {
+        "WEIGHTED_PFE_BATCH_SIZE": "16",
+        "WEIGHTED_PFE_THREADS": "12",
+        "WEIGHTED_PFE_WEIGHTS_FILE": "experiments/paper_tables/profiles/weights_2of3.json",
+        "WEIGHTED_PFE_REPETITIONS": "15"
+      },
+      "status": "verified",
+      "process_elapsed_seconds": 10.97475864738226,
+      "returncode": 0,
+      "metric_rows": 24,
+      "stdout_sha256": "940eb6c6169ef77f2d232c77a59f9c2fd1aa14514cc31d8d2393724ce7dd3ea7"
+    },
+    {
+      "scheme": "wpfe",
+      "error": "1/32",
+      "total": 16,
+      "round": 2,
+      "sample": 0,
+      "repetitions": 15,
+      "stdout": "wpfe_e32_m16_r2.stdout.log",
+      "stderr": "wpfe_e32_m16_r2.stderr.log",
+      "command": [
+        "taskset",
+        "-c",
+        "0-11",
+        "weighted_pfe/target/release/examples/paper_reproduction",
+        "--approximation-error",
+        "1/32"
+      ],
+      "environment_overrides": {
+        "WEIGHTED_PFE_BATCH_SIZE": "16",
+        "WEIGHTED_PFE_THREADS": "12",
+        "WEIGHTED_PFE_WEIGHTS_FILE": "experiments/paper_tables/profiles/weights_2of3.json",
+        "WEIGHTED_PFE_REPETITIONS": "15"
+      },
+      "status": "verified",
+      "process_elapsed_seconds": 6.134698019362986,
+      "returncode": 0,
+      "metric_rows": 24,
+      "stdout_sha256": "ecff2c5264e0bea8b42127f99223f95ec70d8df3cb06f7adca4beca09bec9398"
+    },
+    {
+      "scheme": "wpfe",
+      "error": "1/16",
+      "total": 16,
+      "round": 2,
+      "sample": 0,
+      "repetitions": 15,
+      "stdout": "wpfe_e16_m16_r2.stdout.log",
+      "stderr": "wpfe_e16_m16_r2.stderr.log",
+      "command": [
+        "taskset",
+        "-c",
+        "0-11",
+        "weighted_pfe/target/release/examples/paper_reproduction",
+        "--approximation-error",
+        "1/16"
+      ],
+      "environment_overrides": {
+        "WEIGHTED_PFE_BATCH_SIZE": "16",
+        "WEIGHTED_PFE_THREADS": "12",
+        "WEIGHTED_PFE_WEIGHTS_FILE": "experiments/paper_tables/profiles/weights_2of3.json",
+        "WEIGHTED_PFE_REPETITIONS": "15"
+      },
+      "status": "verified",
+      "process_elapsed_seconds": 3.7683024452999234,
+      "returncode": 0,
+      "metric_rows": 24,
+      "stdout_sha256": "cdd725e1b0fbd8b553870854196f0af21d0ed776c9caf6a309db3322614cb7d3"
+    },
+    {
+      "scheme": "wpfe",
+      "error": "1/8",
+      "total": 16,
+      "round": 2,
+      "sample": 0,
+      "repetitions": 15,
+      "stdout": "wpfe_e8_m16_r2.stdout.log",
+      "stderr": "wpfe_e8_m16_r2.stderr.log",
+      "command": [
+        "taskset",
+        "-c",
+        "0-11",
+        "weighted_pfe/target/release/examples/paper_reproduction",
+        "--approximation-error",
+        "1/8"
+      ],
+      "environment_overrides": {
+        "WEIGHTED_PFE_BATCH_SIZE": "16",
+        "WEIGHTED_PFE_THREADS": "12",
+        "WEIGHTED_PFE_WEIGHTS_FILE": "experiments/paper_tables/profiles/weights_2of3.json",
+        "WEIGHTED_PFE_REPETITIONS": "15"
+      },
+      "status": "verified",
+      "process_elapsed_seconds": 2.223757597617805,
+      "returncode": 0,
+      "metric_rows": 24,
+      "stdout_sha256": "ee67c07b1495b0fb51ecce0540c1a4217a9b1f17e37f1f0148547dffc6be6ea4"
+    }
+  ],
+  "metric_rows": 384
+}

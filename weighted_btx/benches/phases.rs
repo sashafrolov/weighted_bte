@@ -46,6 +46,30 @@ fn phase_benchmarks(criterion: &mut Criterion) {
         );
         group.finish();
 
+        // Measure both phases together: optimizations can move work between
+        // cross-term precomputation and opening without improving their sum.
+        let mut group = criterion.benchmark_group("precompute_and_open");
+        group.sample_size(20);
+        group.bench_with_input(
+            BenchmarkId::from_parameter(batch_size),
+            &batch_size,
+            |bencher, _| {
+                bencher.iter(|| {
+                    let cross_terms = precompute_batch(black_box(&fixed), black_box(&batch))
+                        .expect("precompute cross terms");
+                    open_batch(
+                        black_box(&fixed),
+                        black_box(&accepted),
+                        black_box(&batch),
+                        black_box(&ciphertexts),
+                        black_box(&cross_terms),
+                    )
+                    .expect("open")
+                })
+            },
+        );
+        group.finish();
+
         let mut group = criterion.benchmark_group("partial_decrypt");
         group.bench_with_input(
             BenchmarkId::from_parameter(batch_size),

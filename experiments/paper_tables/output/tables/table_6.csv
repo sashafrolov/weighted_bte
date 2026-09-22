@@ -1,0 +1,13 @@
+Weight W,Scheme,Enc ms/item,PreDec ms / denominator,Source core Dec ms,With checks ms,PreDec denominator
+764,PFE,0.082,0.011,21.142,24.189,per item / virtual server
+764,BTX,0.526,0.011,20.649,24.143,per item / virtual server
+764,BEAT++,0.088,0.015,87.463,87.941,per real validator
+"1,580",PFE,0.082,0.011,55.825,58.813,per item / virtual server
+"1,580",BTX,0.528,0.011,55.099,58.575,per item / virtual server
+"1,580",BEAT++,0.088,0.014,145.197,145.677,per real validator
+"3,063",PFE,0.082,0.011,173.893,176.861,per item / virtual server
+"3,063",BTX,0.527,0.011,172.751,176.165,per item / virtual server
+"3,063",BEAT++,0.088,0.014,223.056,223.533,per real validator
+"6,489",PFE,0.082,0.011,733.241,736.190,per item / virtual server
+"6,489",BTX,0.528,0.011,728.740,732.151,per item / virtual server
+"6,489",BEAT++,0.127,0.014,367.822,368.302,per real validator

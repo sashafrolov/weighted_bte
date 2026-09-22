@@ -1,0 +1,161 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.24
+   Compiling libc v0.2.189
+   Compiling cfg-if v1.0.4
+   Compiling serde_core v1.0.229
+   Compiling crossbeam-utils v0.8.22
+   Compiling serde v1.0.229
+   Compiling version_check v0.9.5
+   Compiling radium v0.7.0
+   Compiling tap v1.0.1
+   Compiling crossbeam-epoch v0.9.20
+   Compiling find-msvc-tools v0.1.9
+   Compiling funty v2.0.0
+   Compiling crossbeam-deque v0.8.7
+   Compiling typenum v1.20.1
+   Compiling shlex v2.0.1
+   Compiling zerocopy v0.8.55
+   Compiling either v1.17.0
+   Compiling subtle v2.6.1
+   Compiling rayon-core v1.13.0
+   Compiling zmij v1.0.23
+   Compiling autocfg v1.5.1
+   Compiling serde_json v1.0.151
+   Compiling anstyle v1.0.14
+   Compiling ciborium-io v0.2.2
+   Compiling regex-syntax v0.8.11
+   Compiling memchr v2.8.3
+   Compiling clap_lex v1.1.0
+   Compiling cpufeatures v0.2.17
+   Compiling itoa v1.0.18
+   Compiling plotters-backend v0.3.7
+   Compiling byte-slice-cast v1.2.3
+   Compiling cast v0.3.0
+   Compiling same-file v1.0.6
+   Compiling once_cell v1.21.4
+   Compiling oorandom v11.1.5
+   Compiling anes v0.1.6
+   Compiling wyz v0.5.1
+   Compiling cc v1.4.0
+   Compiling walkdir v2.5.0
+   Compiling itertools v0.10.5
+   Compiling generic-array v0.14.7
+   Compiling clap_builder v4.6.2
+   Compiling plotters-svg v0.3.7
+   Compiling num-traits v0.2.19
+   Compiling bitvec v1.1.1
+   Compiling syn v2.0.119
+   Compiling syn v3.0.3
+   Compiling blst v0.3.17
+   Compiling getrandom v0.2.17
+   Compiling num_cpus v1.17.0
+   Compiling is-terminal v0.4.17
+   Compiling plotters v0.3.7
+   Compiling rand_core v0.6.4
+   Compiling threadpool v1.8.1
+   Compiling block-buffer v0.10.4
+   Compiling crypto-common v0.1.7
+   Compiling rand v0.8.7
+   Compiling rand_xorshift v0.3.0
+   Compiling digest v0.10.7
+   Compiling regex-automata v0.4.16
+   Compiling sha2 v0.10.9
+   Compiling rayon v1.12.0
+   Compiling criterion-plot v0.5.0
+   Compiling clap v4.6.4
+   Compiling serde_derive v1.0.229
+   Compiling ff v0.13.1
+   Compiling group v0.13.0
+   Compiling pairing v0.23.0
+   Compiling regex v1.13.1
+   Compiling zerocopy-derive v0.8.55
+   Compiling zeroize_derive v1.5.0
+   Compiling zeroize v1.9.0
+   Compiling bincode v1.3.3
+   Compiling tinytemplate v1.2.1
+   Compiling blstrs v0.7.1
+   Compiling weighted_btx v0.1.0 (<checkout>/weighted_btx)
+   Compiling weighted_btx_swapped v0.1.0 (<checkout>/weighted_btx_swapped)
+   Compiling half v2.7.1
+   Compiling ciborium-ll v0.2.2
+   Compiling ciborium v0.2.2
+   Compiling criterion v0.5.1
+    Finished `test` profile [optimized + debuginfo] target(s) in 10.27s
+     Running unittests src/lib.rs (weighted_btx_swapped/target/debug/deps/weighted_btx_swapped-ccd255fd51f37ff4)
+
+running 52 tests
+test blst_utils::tests::scalar_bytes_are_concatenated_in_little_endian_order ... ok
+test blst_utils::tests::g1_batch_normalization_matches_individual_conversion ... ok
+test fft::tests::scalar_base_x_decomposition_recomposes ... ok
+test fft::tests::scalar_round_trip ... ok
+test final_exponentiation::tests::raw_zero_is_rejected ... ok
+test interpolation::tests::rejects_empty_duplicate_and_out_of_range_selections ... ok
+test final_exponentiation::tests::cyclotomic_in_place_operations_are_alias_safe ... ok
+test setup::tests::rejects_invalid_weighted_configurations ... ok
+test final_exponentiation::tests::prepared_line_tables_are_contiguous ... ok
+test proof::tests::identity_target_element_is_transcript_safe ... ok
+test fft::tests::alternating_frobenius_bases_are_x_powers_in_gt ... ok
+test final_exponentiation::tests::identity_pairings_match ... ok
+test blst_utils::tests::g2_batch_normalization_matches_individual_conversion ... ok
+test interpolation::tests::exhaustive_irregular_small_domain_matches_reference_in_both_orders ... ok
+test fft::tests::source_group_round_trip ... ok
+test blst_utils::tests::affine_g1_msm_matches_blstrs_pippenger ... ok
+test blst_utils::tests::indexed_affine_g1_msm_matches_selected_points ... ok
+test proof::tests::valid_proof_verifies_and_tampering_fails ... ok
+test setup::tests::accessors_reject_invalid_party_and_power ... ok
+test setup::tests::evaluation_points_are_distinct_nonzero_roots ... ok
+test decryption::tests::oversized_batch_and_share_list_are_rejected_at_the_boundary ... ok
+test setup::tests::negative_and_positive_material_use_the_owning_party_power ... ok
+test blst_utils::tests::affine_g2_msm_matches_blstrs_pippenger ... ok
+test decryption::tests::one_party_one_weight_one_ciphertext_boundary_opens ... ok
+test setup::tests::public_virtual_shares_reconstruct_the_encryption_secret ... ok
+test interpolation::tests::complete_root_domain_has_uniform_coefficients_in_any_order ... ok
+test fft::tests::target_group_round_trip ... ok
+test setup::tests::heterogeneous_key_material_has_expected_shapes_and_layout ... ok
+test interpolation::tests::coefficients_reconstruct_random_low_degree_polynomials ... ok
+test decryption::tests::ciphertext_proofs_and_phased_batches_are_setup_bound ... ok
+test final_exponentiation::tests::unprepared_multi_miller_loop_matches_pairing_sum ... ok
+test decryption::tests::fewer_heavy_parties_can_outweigh_more_light_parties ... ok
+test final_exponentiation::tests::batch_easy_part_matches_individual_easy_parts ... ok
+test decryption::tests::duplicate_and_wrong_batch_shares_are_not_counted_twice ... ok
+test decryption::tests::malformed_share_can_drop_set_below_weight_threshold ... ok
+test final_exponentiation::tests::split_final_exponentiation_matches_blst ... ok
+test encryption::tests::encryption_proof_verifies ... ok
+test decryption::tests::entirely_invalid_batch_accepts_identity_shares_and_returns_only_bottom ... ok
+test decryption::tests::opening_rejects_ciphertexts_changed_after_validation ... ok
+test final_exponentiation::tests::easy_then_hard_is_homomorphic ... ok
+test decryption::tests::phased_objects_are_bound_to_setup_and_accepted_committee ... ok
+test fft::tests::raw_cyclotomic_action_agrees_after_hard_projection ... ok
+test fft::tests::cyclotomic_prefix_ifft_matches_full_gt_ifft ... ok
+test decryption::tests::weighted_threshold_end_to_end_with_shuffled_real_parties ... ok
+test decryption::tests::malformed_share_is_blamed_and_honest_authorized_remainder_opens ... ok
+test decryption::tests::invalid_client_proof_preserves_slot_and_returns_bottom ... ok
+test interpolation::tests::fft_path_matches_reference_for_irregular_domains_and_orders ... ok
+test fft::tests::decomposed_gt_scalar_mul_matches_ordinary_mul ... ok
+test fft::tests::specialized_gt_ifft_matches_generic_ifft ... ok
+test decryption::tests::fft_middle_product_matches_literal_weighted_formula ... ok
+test fft::tests::specialized_gt_fft_round_trip ... ok
+test fft::tests::parallel_fft_scheduling_matches_single_thread ... ok
+
+test result: ok. 52 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.35s
+
+     Running tests/differential.rs (weighted_btx_swapped/target/debug/deps/differential-979c382731b7daf6)
+
+running 2 tests
+test swapped_objects_round_trip_through_existing_serialization ... ok
+test source_group_swap_preserves_scalar_algebra_and_opened_messages ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.53s
+
+     Running unittests examples/paper_reproduction.rs (weighted_btx_swapped/target/debug/examples/paper_reproduction-b05a3cd9fc96a53d)
+
+running 5 tests
+test tests::parses_approximation_error_argument ... ok
+test tests::rejects_invalid_command_lines ... ok
+test tests::rejects_inconsistent_profile_counts_and_thresholds ... ok
+test tests::selects_profile_by_error_and_uses_actual_share_count ... ok
+test tests::rejects_missing_and_duplicate_error_profiles ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

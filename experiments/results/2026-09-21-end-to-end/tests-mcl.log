@@ -1,0 +1,17 @@
+Testing BLS12_381 normal serial
+Passed BLS12_381 normal serial
+Testing BLS12_381 swapped serial
+Passed BLS12_381 swapped serial
+Testing BN_SNARK1 normal serial
+Passed BN_SNARK1 normal serial
+Testing BN_SNARK1 swapped serial
+Passed BN_SNARK1 swapped serial
+Testing BLS12_381 normal 4workers
+Passed BLS12_381 normal 4workers
+Testing BLS12_381 swapped 4workers
+Passed BLS12_381 swapped 4workers
+Testing BN_SNARK1 normal 4workers
+Passed BN_SNARK1 normal 4workers
+Testing BN_SNARK1 swapped 4workers
+Passed BN_SNARK1 swapped 4workers
+Protocol tests passed; independent assertions=8916

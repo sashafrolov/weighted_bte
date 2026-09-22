@@ -1,0 +1,45 @@
+   Compiling weighted_btx v0.1.0 (<checkout>/weighted_btx)
+    Finished `bench` profile [optimized] target(s) in 5.65s
+     Running benches/phases.rs (weighted_btx/target/release/deps/phases-85abb72e476a3f4f)
+Gnuplot not found, using plotters backend
+Benchmarking precompute_and_open/32
+Benchmarking precompute_and_open/32: Warming up for 1.0000 s
+Benchmarking precompute_and_open/32: Collecting 20 samples in estimated 2.2844 s (80 iterations)
+Benchmarking precompute_and_open/32: Analyzing
+precompute_and_open/32  time:   [28.416 ms 28.517 ms 28.650 ms]
+Found 1 outliers among 20 measurements (5.00%)
+  1 (5.00%) high severe
+
+Benchmarking precompute_and_open/64
+Benchmarking precompute_and_open/64: Warming up for 1.0000 s
+Benchmarking precompute_and_open/64: Collecting 20 samples in estimated 2.6634 s (40 iterations)
+Benchmarking precompute_and_open/64: Analyzing
+precompute_and_open/64  time:   [66.579 ms 66.642 ms 66.714 ms]
+Found 2 outliers among 20 measurements (10.00%)
+  2 (10.00%) high mild
+
+Benchmarking precompute_and_open/128
+Benchmarking precompute_and_open/128: Warming up for 1.0000 s
+Benchmarking precompute_and_open/128: Collecting 20 samples in estimated 2.5237 s (60 iterations)
+Benchmarking precompute_and_open/128: Analyzing
+precompute_and_open/128 time:   [41.944 ms 42.324 ms 42.786 ms]
+Found 2 outliers among 20 measurements (10.00%)
+  2 (10.00%) high mild
+
+Benchmarking precompute_and_open/256
+Benchmarking precompute_and_open/256: Warming up for 1.0000 s
+Benchmarking precompute_and_open/256: Collecting 20 samples in estimated 3.5595 s (40 iterations)
+Benchmarking precompute_and_open/256: Analyzing
+precompute_and_open/256 time:   [87.981 ms 88.826 ms 89.717 ms]
+
+Benchmarking precompute_and_open/512
+Benchmarking precompute_and_open/512: Warming up for 1.0000 s
+
+Warning: Unable to complete 20 samples in 2.0s. You may wish to increase target time to 3.6s, or reduce sample count to 10.
+Benchmarking precompute_and_open/512: Collecting 20 samples in estimated 3.6206 s (20 iterations)
+Benchmarking precompute_and_open/512: Analyzing
+precompute_and_open/512 time:   [178.65 ms 179.52 ms 180.67 ms]
+Found 4 outliers among 20 measurements (20.00%)
+  1 (5.00%) high mild
+  3 (15.00%) high severe
+

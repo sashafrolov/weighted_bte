@@ -1,0 +1,59 @@
+{
+  "source": "layout-native-12.log",
+  "threads": 12,
+  "total_ciphertexts": 16,
+  "total_weight": 1576,
+  "required_weight": 789,
+  "accepted_weight": 794,
+  "accepted_validators": 38,
+  "measurements": [
+    {
+      "case": "batch_layout/cold/1x16",
+      "estimate_ms": 152.81,
+      "lower_ms": 151.83,
+      "upper_ms": 153.94
+    },
+    {
+      "case": "batch_layout/cold/4x4_reuse",
+      "estimate_ms": 63.043,
+      "lower_ms": 62.79,
+      "upper_ms": 63.336
+    },
+    {
+      "case": "batch_layout/cold/4x4_no_reuse",
+      "estimate_ms": 145.77,
+      "lower_ms": 139.92,
+      "upper_ms": 151.6
+    },
+    {
+      "case": "batch_layout/cold/4x4_reuse_serial",
+      "estimate_ms": 85.081,
+      "lower_ms": 84.813,
+      "upper_ms": 85.36
+    },
+    {
+      "case": "batch_layout/cached/1x16",
+      "estimate_ms": 25.422,
+      "lower_ms": 25.389,
+      "upper_ms": 25.463
+    },
+    {
+      "case": "batch_layout/cached/4x4",
+      "estimate_ms": 17.163,
+      "lower_ms": 17.126,
+      "upper_ms": 17.212
+    },
+    {
+      "case": "validator_shares/1x16",
+      "estimate_ms": 0.42885,
+      "lower_ms": 0.4278,
+      "upper_ms": 0.4303
+    },
+    {
+      "case": "validator_shares/4x4",
+      "estimate_ms": 0.55062,
+      "lower_ms": 0.55055,
+      "upper_ms": 0.55071
+    }
+  ]
+}

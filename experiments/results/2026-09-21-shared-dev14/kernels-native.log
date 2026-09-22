@@ -1,0 +1,6 @@
+NATIVE_KERNEL_CONFIG backend=BLST curve=BLS12-381 threads=1 W=1576 q=789 parties=419 accepted_parties=38 accepted_weight=794 error=1/16 weights=<checkout>/weighted_btx_swapped/../scripts/data/solana_share_weights_2026-08-07T16-16-16Z.json synthetic_affine_rows=true samples=5 min_sample_ms=50
+NATIVE_KERNEL_SELECTED_WEIGHTS [57, 54, 43, 42, 41, 31, 31, 30, 28, 27, 26, 24, 22, 21, 20, 20, 20, 16, 16, 15, 14, 14, 14, 13, 13, 13, 13, 12, 12, 12, 11, 10, 10, 10, 10, 10, 10, 9]
+NATIVE_KERNEL_CHECK group=G1 batch=4 direct_sum_checks=passed
+NATIVE_KERNEL_CHECK group=G2 batch=4 direct_sum_checks=passed
+NATIVE_KERNEL_CHECK group=G1 batch=16 direct_sum_checks=passed
+NATIVE_KERNEL_CHECK group=G2 batch=16 direct_sum_checks=passed

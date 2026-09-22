@@ -1,0 +1,6 @@
+curve=bn254 mcl_curve=BN_SNARK1 simd=off orientation=swapped threads=12 samples=15 warmup=2
+setup_ms=145.984 parties=419 total_weight=1576 required_weight=789 selected_parties=38 accepted_weight=794
+correctness=passed layout=1x16 cache=cold iterations=17
+correctness=passed layout=1x16 cache=cached iterations=17
+correctness=passed layout=4x4 cache=cold iterations=17
+correctness=passed layout=4x4 cache=cached iterations=17

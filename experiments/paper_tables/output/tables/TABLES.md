@@ -1,0 +1,244 @@
+# Weighted BTX: optimized paper tables
+
+Tables 5-8 with fresh dev-box baselines and two-thirds stake profiles. Measured 2026-09-22.
+
+## Optimized weighted BTX: paper-table reproduction
+
+At W=1,580 and 16 messages, the fastest measured cold variant is BN254 swapped / 2 at 38.94 ms (5.40x versus the fresh original BLST baseline). Cached BN254 with original groups takes 22.91 ms.
+
+| Weight W | Messages M | BLST cold ms | Best cold variant | Best cold ms | Speedup | BN original cached ms |
+| --- | --- | --- | --- | --- | --- | --- |
+| 764 | 16 | 131.14 | BN254 swapped / 2 | 28.06 | 4.67x | 18.12 |
+| 1,580 | 16 | 210.43 | BN254 swapped / 2 | 38.94 | 5.40x | 22.91 |
+| 3,063 | 16 | 325.41 | BN254 swapped / 2 | 48.21 | 6.75x | 23.72 |
+| 6,489 | 16 | 556.06 | BN254 swapped / 2 | 71.76 | 7.75x | 23.70 |
+| 1,580 | 32 | 378.67 | BN254 swapped / 2 | 58.84 | 6.44x | 37.94 |
+| 1,580 | 64 | 758.11 | BN254 original / 2 | 95.21 | 7.96x | 71.39 |
+| 1,580 | 128 | 1,308.28 | BN254 original / 2 | 180.04 | 7.27x | 155.20 |
+| 1,580 | 256 | 2,604.53 | BN254 original / 2 | 345.77 | 7.53x | 311.57 |
+
+All new measurements: AMD EPYC 9275F, 12 workers pinned to physical cores 0-11. Values are arithmetic means, not medians. WBTX: 30 fresh-input samples per cell, two reversed-order rounds, two warmups per case per round.
+
+Cold DecTotal includes all selected local validators' shares, fresh share acceptance, one committee preparation, cross terms and opening. It excludes encryption, client-proof validation, setup and networking. Cached removes only committee preparation.
+
+M is the number of messages processed. Original and swapped BLST use one batch of M; optimized MCL uses M/2 batches of two. Every run retains setup capacity L=M. The committee is the heaviest-first authorized set.
+
+Best cold selects the lowest arithmetic mean among the three optimized MCL variants at that parameter point. This identifies the fastest measured variant in this run, not statistically established dominance. The cached column always shows BN254 with original groups.
+
+Target stake threshold is 2/3. Saved inputs regenerate W=3,063 and 6,489; the PDF prints 3,060 and 6,486. The corresponding q and N match. We use actual generated weights without modifying them to force the printed totals.
+
+These are complete-implementation comparisons. BN254 changes security assumptions; its path has no AVX-512. MCL and BLST differ in validation and target-group arithmetic. WPFE and prior schemes are unmodified references.
+
+Splitting does not improve every case: cached BLS split batches are 15-20% slower than original BLST at 128/256 messages, with no AVX callbacks in those cached runs. BN254 original groups remain the fastest measured cached variant. The cold BN orientation gap at 128 messages is within observed variation.
+
+## Table 5. Decryption across weight profiles
+
+16 messages; epsilon=1/8, 1/16, 1/32, 1/64. N=234,419,598,688; q=512,1060,2044,4327; selected validators=59,76,79,79.
+
+| Weight W | Implementation | PreDec / validator | Validate / validator | DecPrecomp | DecOpen | DecTotal | Cached DecTotal |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 764 | BLST original | 0.042 | 0.165 | 96.135 | 22.783 | 131.142 | 34.767 |
+| 764 | BLST swapped | 0.092 | 0.130 | 38.254 | 25.725 | 77.118 | 38.662 |
+| 764 | BLS AVX swapped / 2 | 0.079 | 0.123 | 8.074 | 14.142 | 34.164 | 26.456 |
+| 764 | BN254 swapped / 2 | 0.045 | 0.131 | 7.069 | 10.596 | 28.063 | 21.025 |
+| 764 | BN254 original / 2 | 0.026 | 0.103 | 12.071 | 10.436 | 30.139 | 18.117 |
+| 764 | WPFE (unchanged) | 0.039 | 0.166 | 88.700 | 18.245 | 119.049 | 30.348 |
+| 1,580 | BLST original | 0.041 | 0.146 | 169.527 | 26.671 | 210.429 | 40.729 |
+| 1,580 | BLST swapped | 0.093 | 0.113 | 67.350 | 29.725 | 112.750 | 45.323 |
+| 1,580 | BLS AVX swapped / 2 | 0.080 | 0.122 | 15.500 | 17.597 | 48.412 | 33.128 |
+| 1,580 | BN254 swapped / 2 | 0.045 | 0.131 | 12.388 | 13.198 | 38.943 | 26.578 |
+| 1,580 | BN254 original / 2 | 0.026 | 0.102 | 23.437 | 13.541 | 46.734 | 22.912 |
+| 1,580 | WPFE (unchanged) | 0.042 | 0.146 | 161.556 | 22.221 | 198.055 | 36.498 |
+| 3,063 | BLST original | 0.042 | 0.143 | 283.551 | 27.207 | 325.412 | 41.899 |
+| 3,063 | BLST swapped | 0.093 | 0.112 | 109.171 | 30.528 | 155.875 | 46.573 |
+| 3,063 | BLS AVX swapped / 2 | 0.082 | 0.121 | 26.235 | 18.757 | 61.037 | 34.446 |
+| 3,063 | BN254 swapped / 2 | 0.046 | 0.130 | 20.662 | 13.649 | 48.215 | 27.639 |
+| 3,063 | BN254 original / 2 | 0.027 | 0.102 | 41.495 | 13.384 | 65.063 | 23.720 |
+| 3,063 | WPFE (unchanged) | 0.041 | 0.144 | 275.744 | 22.822 | 313.134 | 37.389 |
+| 6,489 | BLST original | 0.043 | 0.142 | 514.297 | 27.136 | 556.063 | 41.781 |
+| 6,489 | BLST swapped | 0.096 | 0.112 | 193.503 | 30.435 | 240.358 | 46.603 |
+| 6,489 | BLS AVX swapped / 2 | 0.082 | 0.120 | 48.841 | 18.594 | 83.456 | 34.501 |
+| 6,489 | BN254 swapped / 2 | 0.046 | 0.129 | 44.278 | 13.690 | 71.764 | 27.573 |
+| 6,489 | BN254 original / 2 | 0.027 | 0.100 | 82.686 | 13.826 | 106.571 | 23.699 |
+| 6,489 | WPFE (unchanged) | 0.042 | 0.143 | 508.991 | 22.813 | 546.401 | 37.410 |
+
+Times in ms. PreDec and Validate are pooled wall times divided by the number of selected real validators, across all chunks. They are amortized rates, not a single validator's standalone latency. DecPrecomp is committee preparation; DecOpen is cross-term precomputation plus opening.
+
+WBTX DecTotal is directly timed. WPFE uses 30 online repetitions over two encrypted-batch fixtures, and its comparable total is the sum of rounded phases excluding client checks. Its cached value subtracts preparation; it is not a separately timed cached run. Fresh WBTX ciphertexts and proofs change every iteration.
+
+The paper does not fully specify its timing denominators or sample count. Its MacBook M4 measurements are preserved in paper_reference.json; this report's speedups use only fresh measurements on the dev box.
+
+## Table 6. Decryption across message counts
+
+W=1,580; N=419; q=1,060; 76 selected validators with accepted weight 1,062. All messages are recovered in each sample.
+
+| Messages M | Implementation | PreDec / validator | Validate / validator | DecPrecomp | DecOpen | DecTotal | Cached DecTotal |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 16 | BLST original | 0.041 | 0.146 | 169.527 | 26.671 | 210.429 | 40.729 |
+| 16 | BLST swapped | 0.093 | 0.113 | 67.350 | 29.725 | 112.750 | 45.323 |
+| 16 | BLS AVX swapped / 2 | 0.080 | 0.122 | 15.500 | 17.597 | 48.412 | 33.128 |
+| 16 | BN254 swapped / 2 | 0.045 | 0.131 | 12.388 | 13.198 | 38.943 | 26.578 |
+| 16 | BN254 original / 2 | 0.026 | 0.102 | 23.437 | 13.541 | 46.734 | 22.912 |
+| 16 | WPFE (unchanged) | 0.042 | 0.146 | 161.556 | 22.221 | 198.055 | 36.498 |
+| 32 | BLST original | 0.065 | 0.221 | 307.425 | 49.485 | 378.675 | 70.671 |
+| 32 | BLST swapped | 0.189 | 0.156 | 118.768 | 57.687 | 202.632 | 83.215 |
+| 32 | BLS AVX swapped / 2 | 0.159 | 0.226 | 15.609 | 27.280 | 72.166 | 56.710 |
+| 32 | BN254 swapped / 2 | 0.090 | 0.250 | 12.481 | 20.455 | 58.842 | 46.500 |
+| 32 | BN254 original / 2 | 0.051 | 0.182 | 23.718 | 20.534 | 61.970 | 37.938 |
+| 32 | WPFE (unchanged) | 0.065 | 0.221 | 286.099 | 38.506 | 346.346 | 60.246 |
+| 64 | BLST original | 0.104 | 0.412 | 609.870 | 109.001 | 758.107 | 147.526 |
+| 64 | BLST swapped | 0.304 | 0.252 | 233.961 | 128.389 | 404.654 | 170.057 |
+| 64 | BLS AVX swapped / 2 | 0.319 | 0.366 | 15.599 | 53.978 | 121.659 | 106.730 |
+| 64 | BN254 swapped / 2 | 0.174 | 0.393 | 12.563 | 40.364 | 96.014 | 83.638 |
+| 64 | BN254 original / 2 | 0.103 | 0.307 | 23.748 | 40.309 | 95.210 | 71.387 |
+| 64 | WPFE (unchanged) | 0.106 | 0.416 | 575.426 | 84.604 | 699.722 | 124.296 |
+| 128 | BLST original | 0.174 | 0.781 | 1,117.570 | 118.108 | 1,308.283 | 192.182 |
+| 128 | BLST swapped | 0.511 | 0.438 | 420.180 | 124.354 | 616.604 | 196.922 |
+| 128 | BLS AVX swapped / 2 | 0.625 | 0.822 | 15.674 | 110.781 | 236.464 | 221.610 |
+| 128 | BN254 swapped / 2 | 0.348 | 0.802 | 12.478 | 81.970 | 181.872 | 170.704 |
+| 128 | BN254 original / 2 | 0.204 | 0.746 | 23.909 | 83.949 | 180.038 | 155.200 |
+| 128 | WPFE (unchanged) | 0.174 | 0.765 | 1,105.992 | 174.221 | 1,351.553 | 245.561 |
+| 256 | BLST original | 0.295 | 1.502 | 2,228.659 | 239.283 | 2,604.530 | 376.998 |
+| 256 | BLST swapped | 0.874 | 0.821 | 836.282 | 251.959 | 1,217.097 | 379.788 |
+| 256 | BLS AVX swapped / 2 | 1.256 | 1.726 | 15.583 | 227.486 | 469.708 | 453.344 |
+| 256 | BN254 swapped / 2 | 0.697 | 1.813 | 12.468 | 174.481 | 377.696 | 376.665 |
+| 256 | BN254 original / 2 | 0.401 | 1.400 | 23.844 | 185.011 | 345.771 | 311.572 |
+| 256 | WPFE (unchanged) | 0.296 | 1.507 | 2,198.399 | 234.316 | 2,569.742 | 371.343 |
+
+Times in ms. PreDec and Validate are pooled wall times divided by the number of selected real validators, across all chunks. They are amortized rates, not a single validator's standalone latency. DecPrecomp is committee preparation; DecOpen is cross-term precomputation plus opening.
+
+WBTX DecTotal is directly timed. WPFE uses 30 online repetitions over two encrypted-batch fixtures, and its comparable total is the sum of rounded phases excluding client checks. Its cached value subtracts preparation; it is not a separately timed cached run. Fresh WBTX ciphertexts and proofs change every iteration.
+
+The paper does not fully specify its timing denominators or sample count. Its MacBook M4 measurements are preserved in paper_reference.json; this report's speedups use only fresh measurements on the dev box.
+
+## Table 7a. Encryption and keys across weights
+
+16 messages; setup capacity L=16 for every implementation.
+
+| Weight W | Implementation | Enc ms/item | Core dk KiB | Verify keys KiB | Total key KiB | Share bytes / validator |
+| --- | --- | --- | --- | --- | --- | --- |
+| 764 | BLST original | 0.069 | 2,220.4 | 351.0 | 2,571.4 | 48 |
+| 764 | BLST swapped | 0.083 | 1,110.2 | 175.5 | 1,285.7 | 96 |
+| 764 | BLS AVX swapped / 2 | 0.069 | 1,110.2 | 175.5 | 1,285.7 | 768 |
+| 764 | BN254 swapped / 2 | 0.047 | 740.1 | 117.0 | 857.1 | 512 |
+| 764 | BN254 original / 2 | 0.044 | 1,480.2 | 234.0 | 1,714.2 | 256 |
+| 764 | WPFE (unchanged) | 0.068 | 2,292.1 | 351.0 | 2,643.1 | 48 |
+| 1,580 | BLST original | 0.069 | 4,591.9 | 628.5 | 5,220.4 | 48 |
+| 1,580 | BLST swapped | 0.083 | 2,295.9 | 314.2 | 2,610.2 | 96 |
+| 1,580 | BLS AVX swapped / 2 | 0.068 | 2,295.9 | 314.2 | 2,610.2 | 768 |
+| 1,580 | BN254 swapped / 2 | 0.048 | 1,530.6 | 209.5 | 1,740.1 | 512 |
+| 1,580 | BN254 original / 2 | 0.044 | 3,061.2 | 419.0 | 3,480.2 | 256 |
+| 1,580 | WPFE (unchanged) | 0.083 | 4,740.1 | 628.5 | 5,368.6 | 48 |
+| 3,063 | BLST original | 0.069 | 8,901.8 | 897.0 | 9,798.8 | 48 |
+| 3,063 | BLST swapped | 0.083 | 4,450.9 | 448.5 | 4,899.4 | 96 |
+| 3,063 | BLS AVX swapped / 2 | 0.069 | 4,450.9 | 448.5 | 4,899.4 | 768 |
+| 3,063 | BN254 swapped / 2 | 0.048 | 2,967.3 | 299.0 | 3,266.3 | 512 |
+| 3,063 | BN254 original / 2 | 0.044 | 5,934.6 | 598.0 | 6,532.6 | 256 |
+| 3,063 | WPFE (unchanged) | 0.079 | 9,189.1 | 897.0 | 10,086.1 | 48 |
+| 6,489 | BLST original | 0.070 | 18,858.7 | 1,032.0 | 19,890.7 | 48 |
+| 6,489 | BLST swapped | 0.083 | 9,429.3 | 516.0 | 9,945.3 | 96 |
+| 6,489 | BLS AVX swapped / 2 | 0.068 | 9,429.3 | 516.0 | 9,945.3 | 768 |
+| 6,489 | BN254 swapped / 2 | 0.047 | 6,286.2 | 344.0 | 6,630.2 | 512 |
+| 6,489 | BN254 original / 2 | 0.043 | 12,572.4 | 688.0 | 13,260.4 | 256 |
+| 6,489 | WPFE (unchanged) | 0.093 | 19,467.1 | 1,032.0 | 20,499.1 | 48 |
+
+Enc is pooled encryption plus proof-generation wall time divided by M. WBTX values use cold-mode fresh samples. WPFE encrypts once per process, so its Enc mean has two observations, not 30.
+
+Key sizes are exact compressed-group payload counts in KiB (1024 bytes), matching the paper's arithmetic despite its kB label. Core WBTX points=(2L-1)W; verification points=N*L; total is their sum. The encryption key, proof CRS, metadata and wire framing are excluded, as in Table 7.
+
+Every timed run retains setup L=M. Public point widths are 96/48 bytes for BLS original/swapped and 64/32 bytes for BN254 original/swapped. Share widths are the opposite source group: 48/96 and 32/64 bytes. The last column includes all M/2 shares for a split run.
+
+## Table 7b. Encryption and keys across message counts
+
+W=1,580; setup capacity L=M is retained even when the working chunk is two.
+
+| Messages M | Implementation | Enc ms/item | Core dk KiB | Verify keys KiB | Total key KiB | Share bytes / validator |
+| --- | --- | --- | --- | --- | --- | --- |
+| 16 | BLST original | 0.069 | 4,591.9 | 628.5 | 5,220.4 | 48 |
+| 16 | BLST swapped | 0.083 | 2,295.9 | 314.2 | 2,610.2 | 96 |
+| 16 | BLS AVX swapped / 2 | 0.068 | 2,295.9 | 314.2 | 2,610.2 | 768 |
+| 16 | BN254 swapped / 2 | 0.048 | 1,530.6 | 209.5 | 1,740.1 | 512 |
+| 16 | BN254 original / 2 | 0.044 | 3,061.2 | 419.0 | 3,480.2 | 256 |
+| 16 | WPFE (unchanged) | 0.083 | 4,740.1 | 628.5 | 5,368.6 | 48 |
+| 32 | BLST original | 0.053 | 9,331.9 | 1,257.0 | 10,588.9 | 48 |
+| 32 | BLST swapped | 0.064 | 4,665.9 | 628.5 | 5,294.4 | 96 |
+| 32 | BLS AVX swapped / 2 | 0.052 | 4,665.9 | 628.5 | 5,294.4 | 1,536 |
+| 32 | BN254 swapped / 2 | 0.036 | 3,110.6 | 419.0 | 3,529.6 | 1,024 |
+| 32 | BN254 original / 2 | 0.033 | 6,221.2 | 838.0 | 7,059.2 | 512 |
+| 32 | WPFE (unchanged) | 0.052 | 9,480.1 | 1,257.0 | 10,737.1 | 48 |
+| 64 | BLST original | 0.056 | 18,811.9 | 2,514.0 | 21,325.9 | 48 |
+| 64 | BLST swapped | 0.067 | 9,405.9 | 1,257.0 | 10,662.9 | 96 |
+| 64 | BLS AVX swapped / 2 | 0.051 | 9,405.9 | 1,257.0 | 10,662.9 | 3,072 |
+| 64 | BN254 swapped / 2 | 0.035 | 6,270.6 | 838.0 | 7,108.6 | 2,048 |
+| 64 | BN254 original / 2 | 0.033 | 12,541.2 | 1,676.0 | 14,217.2 | 1,024 |
+| 64 | WPFE (unchanged) | 0.050 | 18,960.1 | 2,514.0 | 21,474.1 | 48 |
+| 128 | BLST original | 0.050 | 37,771.9 | 5,028.0 | 42,799.9 | 48 |
+| 128 | BLST swapped | 0.061 | 18,885.9 | 2,514.0 | 21,399.9 | 96 |
+| 128 | BLS AVX swapped / 2 | 0.051 | 18,885.9 | 2,514.0 | 21,399.9 | 6,144 |
+| 128 | BN254 swapped / 2 | 0.035 | 12,590.6 | 1,676.0 | 14,266.6 | 4,096 |
+| 128 | BN254 original / 2 | 0.032 | 25,181.2 | 3,352.0 | 28,533.2 | 2,048 |
+| 128 | WPFE (unchanged) | 0.050 | 37,920.1 | 5,028.0 | 42,948.1 | 48 |
+| 256 | BLST original | 0.049 | 75,691.9 | 10,056.0 | 85,747.9 | 48 |
+| 256 | BLST swapped | 0.059 | 37,845.9 | 5,028.0 | 42,873.9 | 96 |
+| 256 | BLS AVX swapped / 2 | 0.051 | 37,845.9 | 5,028.0 | 42,873.9 | 12,288 |
+| 256 | BN254 swapped / 2 | 0.035 | 25,230.6 | 3,352.0 | 28,582.6 | 8,192 |
+| 256 | BN254 original / 2 | 0.032 | 50,461.2 | 6,704.0 | 57,165.2 | 4,096 |
+| 256 | WPFE (unchanged) | 0.047 | 75,840.1 | 10,056.0 | 85,896.1 | 48 |
+
+Enc is pooled encryption plus proof-generation wall time divided by M. WBTX values use cold-mode fresh samples. WPFE encrypts once per process, so its Enc mean has two observations, not 30.
+
+Key sizes are exact compressed-group payload counts in KiB (1024 bytes), matching the paper's arithmetic despite its kB label. Core WBTX points=(2L-1)W; verification points=N*L; total is their sum. The encryption key, proof CRS, metadata and wire framing are excluded, as in Table 7.
+
+Every timed run retains setup L=M. Public point widths are 96/48 bytes for BLS original/swapped and 64/32 bytes for BN254 original/swapped. Share widths are the opposite source group: 48/96 and 32/64 bytes. The last column includes all M/2 shares for a split run.
+
+## Table 8. Prior-scheme reference measurements
+
+Unmodified implementations on the same 12-core dev-box allocation; M=16. Ten measured repetitions per point across two rounds.
+
+| Weight W | Scheme | Enc ms/item | PreDec ms / denominator | Source core Dec ms | With checks ms | PreDec denominator |
+| --- | --- | --- | --- | --- | --- | --- |
+| 764 | PFE | 0.082 | 0.011 | 21.142 | 24.189 | per item / virtual server |
+| 764 | BTX | 0.526 | 0.011 | 20.649 | 24.143 | per item / virtual server |
+| 764 | BEAT++ | 0.088 | 0.015 | 87.463 | 87.941 | per real validator |
+| 1,580 | PFE | 0.082 | 0.011 | 55.825 | 58.813 | per item / virtual server |
+| 1,580 | BTX | 0.528 | 0.011 | 55.099 | 58.575 | per item / virtual server |
+| 1,580 | BEAT++ | 0.088 | 0.014 | 145.197 | 145.677 | per real validator |
+| 3,063 | PFE | 0.082 | 0.011 | 173.893 | 176.861 | per item / virtual server |
+| 3,063 | BTX | 0.527 | 0.011 | 172.751 | 176.165 | per item / virtual server |
+| 3,063 | BEAT++ | 0.088 | 0.014 | 223.056 | 223.533 | per real validator |
+| 6,489 | PFE | 0.082 | 0.011 | 733.241 | 736.190 | per item / virtual server |
+| 6,489 | BTX | 0.528 | 0.011 | 728.740 | 732.151 | per item / virtual server |
+| 6,489 | BEAT++ | 0.127 | 0.014 | 367.822 | 368.302 | per real validator |
+
+These rows preserve the upstream runners' distinct meanings. BTX/PFE use q virtual parties for the selected set, generate their shares serially, divide by q for a one-server average, then divide by M for PreDec/item. Their core total includes that one-server average, precomputation, combination and opening; With checks adds client and combined-share checks.
+
+BEAT++ PreDec divides pooled share-generation time by all N real validators. Its core total includes all-N shares and response checks, selected-committee preparation, cross terms and opening. With checks also includes client-proof validation. These totals are not an identical distributed workload and should not be used for unqualified cross-scheme speedups.
+
+BTX/PFE use fresh full runs with one unmeasured warmup per process. BEAT++ uses ten independent one-run processes without an upstream warmup. Raw logs preserve its threshold/security diagnostic for this two-thirds configuration. These are performance observations, not a security claim.
+
+## Full online pipeline and deployment tradeoffs
+
+Encryption and client-proof validation are included in these additional end-to-end measurements.
+
+| Weight W | Messages M | BLST cold ms | BN swapped cold ms | BN original cached ms | BN swapped L=2 key KiB | BN swapped share bytes / validator |
+| --- | --- | --- | --- | --- | --- | --- |
+| 764 | 16 | 132.59 | 29.76 | 19.53 | 86.2 | 512 |
+| 1,580 | 16 | 211.88 | 40.63 | 24.31 | 174.3 | 512 |
+| 3,063 | 16 | 326.86 | 49.90 | 25.14 | 324.5 | 512 |
+| 6,489 | 16 | 557.52 | 73.43 | 25.11 | 651.3 | 512 |
+| 1,580 | 32 | 380.91 | 61.41 | 40.06 | 174.3 | 1,024 |
+| 1,580 | 64 | 762.74 | 100.99 | 75.54 | 174.3 | 2,048 |
+| 1,580 | 128 | 1,316.73 | 191.73 | 163.51 | 174.3 | 4,096 |
+| 1,580 | 256 | 2,620.94 | 397.88 | 328.42 | 174.3 | 8,192 |
+
+The online timer includes fresh encryption/proofs, client validation, all local validator shares, acceptance, optional committee preparation, cross terms and all openings. Setup and networking are excluded; all plaintexts are checked after every warmup and measured iteration.
+
+The L=2 key column is a calculated deployment option, not the setup used for the timings: constrain the setup itself to chunks of two, giving (3W+2N) compressed public-key points. This key is independent of M but cannot support a single batch larger than two.
+
+Smaller chunks increase responses: M/2 source-group elements per validator instead of one. The table reports raw group payload only. Cached measurements require the same setup, chunk size and accepted committee; all shares and verification are fresh.
+
+Measured curves: BLS12-381 and MCL BN_SNARK1 (Ethereum BN254). AVX-512 is BLS G1 only and is verified through actual callback counters. The MCL protocol is an experimental trusted-dealer, in-memory implementation with no network/wire decoder.
+
+## Reproduction and raw data
+
+See [reproduction instructions](../../README.md), [validated raw results](../../../results/2026-09-22-paper-tables/optimized/optimized_summary.csv), and the original paper's [transcribed tables](../../paper_reference.json).
